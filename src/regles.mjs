@@ -10,7 +10,7 @@
 // Aucune dépendance : bibliothèque standard uniquement, utilisable dans le navigateur.
 
 export const nom = 'regles';
-export const version = '0.1.0';
+export const version = '0.4.0';
 
 // --- Clés de contrôle ------------------------------------------------------------
 
@@ -80,7 +80,7 @@ const variantes = (mots) => [...new Set(mots.flatMap((m) => [m, titre(m), m.toUp
 const alt = (mots) => variantes(mots).map(echapper).join('|');
 
 // Priorités en cas de chevauchement (la plus petite l'emporte).
-const P = { IBAN: 0, TVA: 1, NIR: 2, TEL_INTL: 3, EMAIL: 4, NUMERIQUE: 5, ADRESSE: 6, DOSSIER: 7, PERSONNE: 8 };
+const P = { IBAN: 0, TVA: 1, NIR: 2, TEL_INTL: 3, EMAIL: 4, NUMERIQUE: 5, ADRESSE: 6, DOSSIER: 7, ORGANISATION: 8, PERSONNE: 9, PRENOM_NOM: 10, PROPAGATION: 11 };
 
 // --- Identifiants -----------------------------------------------------------------
 
@@ -224,10 +224,48 @@ const NOM_PERSONNE = `${MOT_NOM}(?:(?:${ESP}+(?:(?:${PARTICULES.join('|')})${ESP
 // La civilité reste hors du masque (convention d'étiquetage) : seul le groupe 1 est masqué.
 const RE_PERSONNE = new RegExp(`(?<!\\p{L})(?:${CIVILITES.map(echapper).sort((a, b) => b.length - a.length).join('|')})${ESP}+(${NOM_PERSONNE})`, 'gdu');
 
+// Nom affiché devant une adresse électronique entre chevrons (en-tête de courriel) :
+// « Jeanne Dupont <j.dupont@exemple.test> ».
+const RE_NOM_AFFICHE = new RegExp(`(?<![\\p{L}\\p{N}])(${NOM_PERSONNE})${ESP}*<[^<>\\s@]+@[^<>\\s]+>`, 'gdu');
+
+// Convention « Prénom NOM » des courriers français : un mot à initiale majuscule suivi
+// d'un nom en capitales (« Jeanne DUPONT », « Jean-Luc LE BRAS »). Écartés : mots-outils
+// et civilités en premier mot, sigles usuels et formes juridiques en second.
+const MOTS_OUTILS = ['Le', 'La', 'Les', 'Un', 'Une', 'De', 'Du', 'Des', 'Et', 'En', 'Au', 'Aux', 'À', 'Par', 'Pour', 'Sur', 'Dans', 'Avec', 'Total', 'Net', 'Taux', 'Montant', 'Code', 'Numéro', 'Objet', ...CIVILITES.filter((c) => !c.includes('.'))];
+const SIGLES = [
+  'SA', 'SAS', 'SASU', 'SARL', 'EURL', 'SELARL', 'SELAS', 'SCP', 'SCI', 'SNC', 'GIE', 'TVA', 'HT', 'TTC', 'RIB',
+  'IBAN', 'BIC', 'SIREN', 'SIRET', 'RCS', 'NIR', 'CDI', 'CDD', 'URSSAF', 'CAF', 'RG', 'CEDEX', 'BP', 'PDF', 'SMS', 'TGI', 'PV',
+];
+const RE_PRENOM_NOM = new RegExp(
+  `(?<![\\p{L}\\p{N}\\-'’.@])(?!(?:${MOTS_OUTILS.join('|')})(?!\\p{L}))\\p{Lu}\\p{Ll}+(?:-\\p{Lu}\\p{Ll}+)?${ESP}+` +
+    `(?!(?:${SIGLES.join('|')})(?!\\p{L}))\\p{Lu}{2,}(?:(?:[-'’]|${ESP})\\p{Lu}{2,})*(?![\\p{L}\\p{N}])`,
+  'gu',
+);
+
 function personnes(texte, ajouter) {
-  for (const m of texte.matchAll(RE_PERSONNE)) {
-    const [start, end] = m.indices[1];
-    ajouter(start, end, 'PERSONNE', P.PERSONNE);
+  for (const m of texte.matchAll(RE_PRENOM_NOM)) ajouter(m.index, m.index + m[0].length, 'PERSONNE', P.PRENOM_NOM);
+  for (const re of [RE_PERSONNE, RE_NOM_AFFICHE]) {
+    for (const m of texte.matchAll(re)) {
+      const [start, end] = m.indices[1];
+      ajouter(start, end, 'PERSONNE', P.PERSONNE);
+    }
+  }
+}
+
+// Un nom d'au moins deux mots, déjà repéré, est cherché ailleurs dans le même document,
+// sans tenir compte des majuscules (« Mme Jeanne Dupont » puis « Jeanne DUPONT »).
+function propagerNoms(texte, candidats, ajouter) {
+  const noms = new Set();
+  for (const c of candidats) {
+    if (c.type !== 'PERSONNE') continue;
+    const n = texte.slice(c.start, c.end);
+    if (n.split(/[ \u00A0\u202F]+/).length >= 2) noms.add(n.toLowerCase());
+  }
+  for (const n of noms) {
+    const motif = n.split(/[ \u00A0\u202F]+/).map(echapper).join(`${ESP}+`);
+    for (const m of texte.matchAll(new RegExp(`(?<![\\p{L}\\p{N}\\-])${motif}(?![\\p{L}\\p{N}\\-])`, 'giu'))) {
+      ajouter(m.index, m.index + m[0].length, 'PERSONNE', P.PROPAGATION);
+    }
   }
 }
 
@@ -249,14 +287,30 @@ function dossiers(texte, ajouter) {
   }
 }
 
+// --- Raisons sociales accolées à une forme juridique ------------------------------------
+
+const FORMES = ['SASU', 'SAS', 'SARL', 'SA', 'EURL', 'SELARL', 'SELAS', 'SELAFA', 'SELURL', 'SCP', 'SCI', 'SNC', 'SCOP', 'SCA', 'SCS', 'GIE', 'SEM'];
+// Mot de la raison sociale : initiale majuscule (« Atelier », « L'ÉTANG ») ou esperluette.
+const MOT_ORG = "(?:\\p{Lu}[\\p{L}'’\\-]*|&)";
+const FORME = `(?:${FORMES.join('|')})`;
+// Un article seul devant la forme (« les SARL ») n'est pas un nom.
+const NOM_ORG = `(?!(?:Le|La|Les|Un|Une|Des)${ESP}+${FORME}(?!\\p{L}))(?!(?:Pour|Par|Chez|Entre|Avec|Selon|Contre|Et|De|Du|Des|À|Au|Aux|En)(?!\\p{L}))${MOT_ORG}(?:${ESP}+(?:(?:de|des|du|la|le|les|et)${ESP}+)?${MOT_ORG}){0,5}`;
+// Forme juridique avant (« SARL Atelier Dupont ») ou après (« Atelier Dupont SARL ») le nom ; « la société » reste hors masque.
+const RE_ORGANISATION = new RegExp(`(?<![\\p{L}\\p{N}])(?:${FORME}${ESP}+${NOM_ORG}|${NOM_ORG}${ESP}+${FORME})(?![\\p{L}\\p{N}])`, 'gu');
+
+function organisations(texte, ajouter) {
+  for (const m of texte.matchAll(RE_ORGANISATION)) ajouter(m.index, m.index + m[0].length, 'ORGANISATION', P.ORGANISATION);
+}
+
 // --- Détecteur ----------------------------------------------------------------------
 
 export function detecter(texte) {
   const candidats = [];
   const ajouter = (start, end, type, priorite) => candidats.push({ start, end, type, priorite });
-  for (const regle of [ibans, tvas, nirs, telephonesInternationaux, emails, identifiantsNumeriques, adresses, dossiers, personnes]) {
+  for (const regle of [ibans, tvas, nirs, telephonesInternationaux, emails, identifiantsNumeriques, adresses, dossiers, organisations, personnes]) {
     regle(texte, ajouter);
   }
+  propagerNoms(texte, candidats, ajouter);
   // Chevauchement : la règle prioritaire l'emporte, puis la correspondance la plus longue.
   candidats.sort((a, b) => a.priorite - b.priorite || b.end - b.start - (a.end - a.start) || a.start - b.start);
   const retenus = [];

@@ -121,3 +121,39 @@ test('numéros de dossier seulement après un indice explicite', () => {
   assert.deepEqual(types('Le dossier est complet. Facture 2026-0042.'), [], 'référence sans chiffre ou sans indice');
   assert.deepEqual(types('Réf. du 12/03/2026'), [], 'date après l’indice');
 });
+
+test('tour 1 : nom affiché devant une adresse électronique', () => {
+  assert.deepEqual(trouves('De : Odile Martineau <o.martineau@exemple.test>'), [
+    ['PERSONNE', 'Odile Martineau'],
+    ['EMAIL', 'o.martineau@exemple.test'],
+  ]);
+});
+
+test('tour 1 : un nom repéré est retrouvé ailleurs, sans tenir compte des majuscules', () => {
+  const t = 'Mme Odile Martineau est absente.\n\nODILE MARTINEAU\nOdile Martineau-Roy';
+  assert.deepEqual(trouves(t), [
+    ['PERSONNE', 'Odile Martineau'],
+    ['PERSONNE', 'ODILE MARTINEAU'],
+  ]);
+  // Un nom d'un seul mot n'est pas propagé (« Mme Valence » ne masque pas la ville).
+  assert.deepEqual(trouves('Bonjour Madame Valence, rendez-vous à Valence.'), [['PERSONNE', 'Valence']]);
+});
+
+test('tour 2 : convention « Prénom NOM » sans civilité', () => {
+  assert.deepEqual(trouves('Odile MARTINEAU\nResponsable comptable'), [['PERSONNE', 'Odile MARTINEAU']]);
+  assert.deepEqual(trouves('les frais de Jean-Luc LE BRAS pour le salon'), [['PERSONNE', 'Jean-Luc LE BRAS']]);
+  // Sigles, formes juridiques et mots-outils ne sont pas des noms.
+  assert.deepEqual(types('Total TTC ; Montant HT ; Le CLIENT ; Déclarations TVA'), []);
+  // Civilité : la règle des civilités l'emporte, la civilité reste hors masque.
+  assert.deepEqual(trouves('Monsieur DUROC'), [['PERSONNE', 'DUROC']]);
+});
+
+test('tour 3 : raison sociale accolée à une forme juridique', () => {
+  assert.deepEqual(trouves('la société Atelier des Quatre Vents SAS, dont'), [['ORGANISATION', 'Atelier des Quatre Vents SAS']]);
+  assert.deepEqual(trouves('SELARL Martin & Associés, société d’avocats'), [['ORGANISATION', 'SELARL Martin & Associés']]);
+  assert.deepEqual(trouves('EMPLOYEUR\nSARL BOULANGERIE DU PORT\n'), [['ORGANISATION', 'SARL BOULANGERIE DU PORT']]);
+  assert.deepEqual(trouves('les comptes de SARL Durand Conseil au 31 mars'), [['ORGANISATION', 'SARL Durand Conseil']]);
+  // Sans nom à côté, une forme juridique seule n'est pas masquée.
+  assert.deepEqual(types('Les SAS et les SARL sont des sociétés commerciales.'), []);
+  assert.deepEqual(trouves('Pour Studio Ardent SARL'), [['ORGANISATION', 'Studio Ardent SARL']]);
+});
