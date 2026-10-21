@@ -91,3 +91,8 @@ Règle de mesure : même bibliothèque que l'app (Transformers.js), pour que les
 - Les dates (DATE) et montants (MONTANT) masqués comptent comme des erreurs (décisions a et c).
 - Le traitement des lieux isolés dans l'app (masqués ou non) est décidé après les mesures sur le jeu de développement et avant l'ouverture du jeu de test.
 - Les étiquettes INSTITUTION sont ajoutées aux deux jeux avant l'écriture des règles ; le texte des documents est inchangé, seuls les fichiers d'étiquettes et le manifeste sont mis à jour.
+
+### 21/10/2026 (3) — précision du protocole, avant toute mesure
+
+- « Entièrement couvert » s'apprécie sur les lettres et les chiffres : un élément étiqueté est retrouvé si chacune de ses lettres et chacun de ses chiffres est masqué. Espaces, sauts de ligne, espaces insécables et ponctuation laissés visibles ne comptent pas comme un oubli. Une lettre ou un chiffre laissé visible reste un oubli.
+- Raison : un modèle renvoie souvent les mots d'un même nom comme des masques séparés ; un espace visible entre deux mots masqués ne révèle rien.
