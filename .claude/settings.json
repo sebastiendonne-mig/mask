@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./golden/test/**)",
+      "Read(./scripts/golden/modeles-test.mjs)"
+    ]
+  }
+}
