@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-21T20:15:34.319Z",
+  "git": {
+    "hash": "695689568a0d61450906c8239006e7b71727d7d0",
+    "propre": true
+  },
+  "detecteur": {
+    "nom": "regles",
+    "version": "0.4.0",
+    "module": "src/regles.mjs"
+  },
+  "split": "dev",
+  "mention": "jeu de développement : indicatif, pas la mesure finale",
+  "documents": 17,
+  "protocole": "seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur",
+  "seuils": [
+    {
+      "id": "S2",
+      "critere": "Rappel des formats fixes",
+      "seuil": 1,
+      "bloquant": true,
+      "trouves": 69,
+      "total": 69,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S3",
+      "critere": "Rappel PERSONNE",
+      "seuil": 0.95,
+      "bloquant": true,
+      "trouves": 49,
+      "total": 49,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S4",
+      "critere": "Rappel ADRESSE",
+      "seuil": 0.9,
+      "bloquant": true,
+      "trouves": 30,
+      "total": 30,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S5",
+      "critere": "Rappel ORGANISATION",
+      "seuil": 0.85,
+      "bloquant": false,
+      "trouves": 23,
+      "total": 23,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S6",
+      "critere": "Précision globale",
+      "seuil": 0.8,
+      "bloquant": false,
+      "corrects": 184,
+      "erreurs": 0,
+      "valeur": 1,
+      "statut": "atteint"
+    }
+  ],
+  "rappelParType": {
+    "ADRESSE": {
+      "total": 30,
+      "trouves": 30,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "CARTE": {
+      "total": 2,
+      "trouves": 2,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "EMAIL": {
+      "total": 21,
+      "trouves": 21,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "IBAN": {
+      "total": 10,
+      "trouves": 10,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "NIR": {
+      "total": 3,
+      "trouves": 3,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "NUMERO_DOSSIER": {
+      "total": 7,
+      "trouves": 7,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "ORGANISATION": {
+      "total": 23,
+      "trouves": 23,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "PERSONNE": {
+      "total": 49,
+      "trouves": 49,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIREN": {
+      "total": 3,
+      "trouves": 3,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIRET": {
+      "total": 11,
+      "trouves": 11,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TELEPHONE": {
+      "total": 19,
+      "trouves": 19,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TVA_INTRA": {
+      "total": 6,
+      "trouves": 6,
+      "partiels": 0,
+      "rappel": 1
+    }
+  },
+  "couverturePartielle": {
+    "partiels": 0,
+    "total": 184,
+    "taux": 0
+  },
+  "precision": {
+    "corrects": 184,
+    "erreurs": 0,
+    "valeur": 1,
+    "erreursParCategorie": {},
+    "masques": 184,
+    "masquesNeutresSeuls": 0,
+    "masquesNeutreEtDateSansSpan": 0
+  },
+  "neutres": {
+    "masques": {},
+    "total": {
+      "INSTITUTION": 16,
+      "LIEU_ISOLE": 29
+    }
+  },
+  "debordement": {
+    "lettresChiffresHorsEtiquettes": 0,
+    "lettresChiffresMasques": 3625,
+    "part": 0
+  },
+  "typesDifferents": 0,
+  "listes": {
+    "oublis": [],
+    "erreurs": [],
+    "typesDifferents": []
+  }
+}
