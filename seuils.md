@@ -72,3 +72,13 @@ Règle de mesure : même bibliothèque que l'app (Transformers.js), pour que les
 - En-têtes de sécurité éventuellement imposés par WebGPU et effet sur les analytics.
 - Bibliothèques de lecture .docx et PDF dans le navigateur.
 - Licence du dépôt public (décision en attente).
+
+## 8. Amendements (avant tout essai)
+
+### 21/10/2026 — candidats, jeu de développement, licence
+
+- Candidats du banc de mesure : règles + Jean-Baptiste/camembert-ner (version Transformers.js Xenova/camembert-ner, 111 Mo quantifiée). Retiré pour gagner du temps : ZenSystemAI/ossredact-pii-base. En réserve : cmarkea/distilcamembert-base-ner (conversion ONNX nécessaire), utilisé seulement si camembert-ner échoue. Le petit LLM challenger est maintenu.
+- Risque connu : ni camembert-ner ni distilcamembert n'ont de catégorie « adresse » ; S4 repose sur les règles et les lieux détectés. En cas d'échec de S3 ou S4, la liste des candidats est réexaminée ; les seuils ne sont pas modifiés.
+- Jeu de développement : en plus du golden set (désormais « jeu de test », 3 × 10 + 5 documents), un jeu de développement séparé, généré à partir d'autres modèles de documents, sert à mettre au point les règles. Le jeu de test n'est utilisé qu'une fois, pour la mesure finale ; ses empreintes SHA-256 sont commitées à sa création.
+- Formats : le golden set est d'abord généré en texte brut ; les variantes .docx et PDF (pièges du tableau et de la coupure de ligne) seront ajoutées avec la lecture de documents, avant la mesure finale, et leurs empreintes commitées à leur création.
+- Licence du dépôt : MIT.
