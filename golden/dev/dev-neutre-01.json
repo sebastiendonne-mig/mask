@@ -1,0 +1,51 @@
+{
+  "doc_id": "dev-neutre-01",
+  "persona": "aucune",
+  "split": "dev",
+  "template_id": "neutre-note-frais",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 86,
+      "end": 97,
+      "type": "DATE",
+      "text": "7 juin 2026"
+    },
+    {
+      "start": 360,
+      "end": 364,
+      "type": "MONTANT",
+      "text": "25 €"
+    },
+    {
+      "start": 403,
+      "end": 408,
+      "type": "MONTANT",
+      "text": "110 €"
+    },
+    {
+      "start": 446,
+      "end": 451,
+      "type": "LIEU_ISOLE",
+      "text": "Paris"
+    },
+    {
+      "start": 454,
+      "end": 459,
+      "type": "MONTANT",
+      "text": "160 €"
+    },
+    {
+      "start": 720,
+      "end": 730,
+      "type": "DATE",
+      "text": "05/12/2026"
+    },
+    {
+      "start": 785,
+      "end": 790,
+      "type": "LIEU_ISOLE",
+      "text": "Tours"
+    }
+  ]
+}

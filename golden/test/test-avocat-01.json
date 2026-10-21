@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-avocat-01",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-courrier-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION",
+      "text": "Lefebvre Avocats SELARL"
+    },
+    {
+      "start": 24,
+      "end": 83,
+      "type": "ADRESSE",
+      "text": "Immeuble Le Belvédère\n125 rue de la Fontaine\n25000 Besançon"
+    },
+    {
+      "start": 84,
+      "end": 98,
+      "type": "TELEPHONE",
+      "text": "03-53-01-51-15"
+    },
+    {
+      "start": 101,
+      "end": 128,
+      "type": "EMAIL",
+      "text": "accueil@lefebvre-avocats.eu"
+    },
+    {
+      "start": 163,
+      "end": 173,
+      "type": "PERSONNE",
+      "text": "Rose MOREL"
+    },
+    {
+      "start": 174,
+      "end": 206,
+      "type": "ADRESSE",
+      "text": "144 cours des Arts\n45000 Orléans"
+    },
+    {
+      "start": 249,
+      "end": 261,
+      "type": "NUMERO_DOSSIER",
+      "text": "EL/2025/8026"
+    },
+    {
+      "start": 272,
+      "end": 277,
+      "type": "PERSONNE",
+      "text": "MOREL"
+    },
+    {
+      "start": 281,
+      "end": 288,
+      "type": "PERSONNE",
+      "text": "FERRAND"
+    },
+    {
+      "start": 295,
+      "end": 303,
+      "type": "NUMERO_DOSSIER",
+      "text": "26/05177"
+    },
+    {
+      "start": 513,
+      "end": 526,
+      "type": "PERSONNE",
+      "text": "Lucie FERRAND"
+    },
+    {
+      "start": 551,
+      "end": 568,
+      "type": "PERSONNE",
+      "text": "Agathe CARPENTIER"
+    },
+    {
+      "start": 580,
+      "end": 616,
+      "type": "ORGANISATION",
+      "text": "Cabinet Carpentier & Associés SELARL"
+    },
+    {
+      "start": 1321,
+      "end": 1333,
+      "type": "PERSONNE",
+      "text": "Yann Meunier"
+    },
+    {
+      "start": 1580,
+      "end": 1594,
+      "type": "TELEPHONE",
+      "text": "06-39-98-18-28"
+    },
+    {
+      "start": 1610,
+      "end": 1639,
+      "type": "EMAIL",
+      "text": "elefebvre@lefebvre-avocats.eu"
+    },
+    {
+      "start": 1722,
+      "end": 1737,
+      "type": "PERSONNE",
+      "text": "Élodie LEFEBVRE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 208,
+      "end": 216,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 221,
+      "end": 236,
+      "type": "DATE",
+      "text": "10 janvier 2026"
+    },
+    {
+      "start": 383,
+      "end": 397,
+      "type": "DATE",
+      "text": "5 janvier 2026"
+    },
+    {
+      "start": 431,
+      "end": 439,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 497,
+      "end": 507,
+      "type": "DATE",
+      "text": "26/12/2025"
+    },
+    {
+      "start": 753,
+      "end": 763,
+      "type": "MONTANT",
+      "text": "5 241,00 €"
+    },
+    {
+      "start": 949,
+      "end": 964,
+      "type": "DATE",
+      "text": "17 février 2026"
+    },
+    {
+      "start": 1006,
+      "end": 1018,
+      "type": "DATE",
+      "text": "19 mars 2026"
+    },
+    {
+      "start": 1050,
+      "end": 1060,
+      "type": "DATE",
+      "text": "30/04/2026"
+    },
+    {
+      "start": 1156,
+      "end": 1171,
+      "type": "DATE",
+      "text": "22 janvier 2026"
+    },
+    {
+      "start": 1459,
+      "end": 1469,
+      "type": "MONTANT",
+      "text": "2 000,00 €"
+    },
+    {
+      "start": 1480,
+      "end": 1490,
+      "type": "DATE",
+      "text": "30/11/2025"
+    },
+    {
+      "start": 1760,
+      "end": 1768,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    }
+  ]
+}

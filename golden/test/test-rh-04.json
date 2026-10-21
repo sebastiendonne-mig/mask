@@ -1,0 +1,142 @@
+{
+  "doc_id": "test-rh-04",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-contrat-travail",
+  "spans": [
+    {
+      "start": 76,
+      "end": 97,
+      "type": "ORGANISATION",
+      "text": "Menuiserie Le Goff SA"
+    },
+    {
+      "start": 159,
+      "end": 176,
+      "type": "SIRET",
+      "text": "147 845 853 00075"
+    },
+    {
+      "start": 209,
+      "end": 248,
+      "type": "ADRESSE",
+      "text": "33 chemin des Vignes, 34000 Montpellier"
+    },
+    {
+      "start": 270,
+      "end": 283,
+      "type": "PERSONNE",
+      "text": "Rose FLORENCE"
+    },
+    {
+      "start": 380,
+      "end": 394,
+      "type": "PERSONNE",
+      "text": "KARIM GAUTHIER"
+    },
+    {
+      "start": 451,
+      "end": 472,
+      "type": "NIR",
+      "text": "1 91 12 51 292 230 60"
+    },
+    {
+      "start": 485,
+      "end": 544,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres\n75 avenue des Peupliers\n67000 Strasbourg"
+    },
+    {
+      "start": 557,
+      "end": 571,
+      "type": "TELEPHONE",
+      "text": "06 39 98 20 68"
+    },
+    {
+      "start": 583,
+      "end": 607,
+      "type": "EMAIL",
+      "text": "gauthier.karim@monmel.fr"
+    },
+    {
+      "start": 698,
+      "end": 706,
+      "type": "PERSONNE",
+      "text": "GAUTHIER"
+    },
+    {
+      "start": 1891,
+      "end": 1904,
+      "type": "PERSONNE",
+      "text": "Rose FLORENCE"
+    },
+    {
+      "start": 1930,
+      "end": 1944,
+      "type": "PERSONNE",
+      "text": "Karim GAUTHIER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 116,
+      "end": 123,
+      "type": "MONTANT",
+      "text": "5 000 €"
+    },
+    {
+      "start": 401,
+      "end": 417,
+      "type": "DATE",
+      "text": "29 décembre 1991"
+    },
+    {
+      "start": 420,
+      "end": 425,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 731,
+      "end": 742,
+      "type": "DATE",
+      "text": "5 mars 2026"
+    },
+    {
+      "start": 1137,
+      "end": 1148,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
+    },
+    {
+      "start": 1205,
+      "end": 1212,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 1470,
+      "end": 1480,
+      "type": "MONTANT",
+      "text": "3 380,50 €"
+    },
+    {
+      "start": 1596,
+      "end": 1601,
+      "type": "MONTANT",
+      "text": "500 €"
+    },
+    {
+      "start": 1783,
+      "end": 1794,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
+    },
+    {
+      "start": 1799,
+      "end": 1814,
+      "type": "DATE",
+      "text": "15 février 2026"
+    }
+  ]
+}

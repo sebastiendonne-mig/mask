@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-avocat-04",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-courrier-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 29,
+      "type": "ORGANISATION",
+      "text": "Paris Avocats Associés SELARL"
+    },
+    {
+      "start": 30,
+      "end": 93,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n12 chemin des Vignes\n76000 Rouen"
+    },
+    {
+      "start": 94,
+      "end": 108,
+      "type": "TELEPHONE",
+      "text": "02-61-91-92-15"
+    },
+    {
+      "start": 111,
+      "end": 144,
+      "type": "EMAIL",
+      "text": "accueil@paris-avocats-associes.io"
+    },
+    {
+      "start": 181,
+      "end": 195,
+      "type": "PERSONNE",
+      "text": "Pierre TESSIER"
+    },
+    {
+      "start": 196,
+      "end": 221,
+      "type": "ADRESSE",
+      "text": "29 rue Basse\n49000 ANGERS"
+    },
+    {
+      "start": 257,
+      "end": 269,
+      "type": "NUMERO_DOSSIER",
+      "text": "2026-3793-DP"
+    },
+    {
+      "start": 280,
+      "end": 287,
+      "type": "PERSONNE",
+      "text": "TESSIER"
+    },
+    {
+      "start": 291,
+      "end": 298,
+      "type": "PERSONNE",
+      "text": "LEMAIRE"
+    },
+    {
+      "start": 305,
+      "end": 313,
+      "type": "NUMERO_DOSSIER",
+      "text": "26/01197"
+    },
+    {
+      "start": 521,
+      "end": 533,
+      "type": "PERSONNE",
+      "text": "Hugo LEMAIRE"
+    },
+    {
+      "start": 557,
+      "end": 570,
+      "type": "PERSONNE",
+      "text": "Rose FLORENCE"
+    },
+    {
+      "start": 582,
+      "end": 611,
+      "type": "ORGANISATION",
+      "text": "SCP Florence Avocats Associés"
+    },
+    {
+      "start": 1317,
+      "end": 1332,
+      "type": "PERSONNE",
+      "text": "Rose Carpentier"
+    },
+    {
+      "start": 1579,
+      "end": 1596,
+      "type": "TELEPHONE",
+      "text": "+33 6 39 98 44 01"
+    },
+    {
+      "start": 1612,
+      "end": 1644,
+      "type": "EMAIL",
+      "text": "dparis@paris-avocats-associes.io"
+    },
+    {
+      "start": 1728,
+      "end": 1740,
+      "type": "PERSONNE",
+      "text": "Damien PARIS"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 223,
+      "end": 228,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
+    },
+    {
+      "start": 233,
+      "end": 244,
+      "type": "DATE",
+      "text": "4 août 2026"
+    },
+    {
+      "start": 394,
+      "end": 409,
+      "type": "DATE",
+      "text": "24 juillet 2026"
+    },
+    {
+      "start": 443,
+      "end": 448,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
+    },
+    {
+      "start": 506,
+      "end": 516,
+      "type": "DATE",
+      "text": "04/07/2026"
+    },
+    {
+      "start": 746,
+      "end": 756,
+      "type": "MONTANT",
+      "text": "5 591,00 €"
+    },
+    {
+      "start": 941,
+      "end": 958,
+      "type": "DATE",
+      "text": "16 septembre 2026"
+    },
+    {
+      "start": 1000,
+      "end": 1015,
+      "type": "DATE",
+      "text": "27 octobre 2026"
+    },
+    {
+      "start": 1047,
+      "end": 1057,
+      "type": "DATE",
+      "text": "18/12/2026"
+    },
+    {
+      "start": 1153,
+      "end": 1165,
+      "type": "DATE",
+      "text": "20 août 2026"
+    },
+    {
+      "start": 1458,
+      "end": 1468,
+      "type": "MONTANT",
+      "text": "1 200,00 €"
+    },
+    {
+      "start": 1479,
+      "end": 1489,
+      "type": "DATE",
+      "text": "26/05/2026"
+    },
+    {
+      "start": 1762,
+      "end": 1767,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
+    }
+  ]
+}

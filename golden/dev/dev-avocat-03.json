@@ -1,0 +1,148 @@
+{
+  "doc_id": "dev-avocat-03",
+  "persona": "avocat",
+  "split": "dev",
+  "template_id": "avocat-convention-honoraires",
+  "spans": [
+    {
+      "start": 56,
+      "end": 69,
+      "type": "PERSONNE",
+      "text": "ROSE DA SILVA"
+    },
+    {
+      "start": 114,
+      "end": 152,
+      "type": "ADRESSE",
+      "text": "60 impasse des Lilas, 67000 Strasbourg"
+    },
+    {
+      "start": 167,
+      "end": 181,
+      "type": "TELEPHONE",
+      "text": "06.39.98.70.04"
+    },
+    {
+      "start": 197,
+      "end": 229,
+      "type": "EMAIL",
+      "text": "rose.dasilva@messagerie-libre.fr"
+    },
+    {
+      "start": 269,
+      "end": 290,
+      "type": "ORGANISATION",
+      "text": "SELAS Meunier Avocats"
+    },
+    {
+      "start": 347,
+      "end": 361,
+      "type": "SIRET",
+      "text": "44256350800096"
+    },
+    {
+      "start": 387,
+      "end": 418,
+      "type": "ADRESSE",
+      "text": "61 rue de la Gare, 56000 Vannes"
+    },
+    {
+      "start": 443,
+      "end": 458,
+      "type": "PERSONNE",
+      "text": "Camille Meunier"
+    },
+    {
+      "start": 630,
+      "end": 643,
+      "type": "PERSONNE",
+      "text": "Pierre BERTIN"
+    },
+    {
+      "start": 735,
+      "end": 747,
+      "type": "NUMERO_DOSSIER",
+      "text": "2025-8252-CM"
+    },
+    {
+      "start": 1259,
+      "end": 1286,
+      "type": "IBAN",
+      "text": "FR7617432022672268093394816"
+    },
+    {
+      "start": 1725,
+      "end": 1738,
+      "type": "PERSONNE",
+      "text": "Rose Da Silva"
+    },
+    {
+      "start": 1771,
+      "end": 1781,
+      "type": "PERSONNE",
+      "text": "C. MEUNIER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 78,
+      "end": 88,
+      "type": "DATE",
+      "text": "23/10/1995"
+    },
+    {
+      "start": 91,
+      "end": 102,
+      "type": "LIEU_ISOLE",
+      "text": "La Rochelle"
+    },
+    {
+      "start": 333,
+      "end": 339,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 813,
+      "end": 823,
+      "type": "MONTANT",
+      "text": "3 600,00 €"
+    },
+    {
+      "start": 833,
+      "end": 843,
+      "type": "MONTANT",
+      "text": "4 320,00 €"
+    },
+    {
+      "start": 968,
+      "end": 973,
+      "type": "MONTANT",
+      "text": "220 €"
+    },
+    {
+      "start": 1123,
+      "end": 1133,
+      "type": "MONTANT",
+      "text": "1 440,00 €"
+    },
+    {
+      "start": 1595,
+      "end": 1601,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1611,
+      "end": 1617,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1622,
+      "end": 1638,
+      "type": "DATE",
+      "text": "10 décembre 2026"
+    }
+  ]
+}

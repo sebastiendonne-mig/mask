@@ -1,0 +1,118 @@
+{
+  "doc_id": "test-rh-10",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-attestation-emploi",
+  "spans": [
+    {
+      "start": 0,
+      "end": 18,
+      "type": "ORGANISATION",
+      "text": "GARAGE PERROT SARL"
+    },
+    {
+      "start": 19,
+      "end": 76,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n27 rue Basse\n72000 Le Mans"
+    },
+    {
+      "start": 85,
+      "end": 99,
+      "type": "SIRET",
+      "text": "59224935300075"
+    },
+    {
+      "start": 107,
+      "end": 117,
+      "type": "TELEPHONE",
+      "text": "0261915867"
+    },
+    {
+      "start": 155,
+      "end": 166,
+      "type": "PERSONNE",
+      "text": "Rémi GUÉRIN"
+    },
+    {
+      "start": 241,
+      "end": 259,
+      "type": "ORGANISATION",
+      "text": "Garage Perrot SARL"
+    },
+    {
+      "start": 283,
+      "end": 294,
+      "type": "PERSONNE",
+      "text": "PERROT Rose"
+    },
+    {
+      "start": 383,
+      "end": 404,
+      "type": "NIR",
+      "text": "2 69 01 13 071 232 30"
+    },
+    {
+      "start": 416,
+      "end": 459,
+      "type": "ADRESSE",
+      "text": "99 bis allée des Glycines\n17000 La Rochelle"
+    },
+    {
+      "start": 1009,
+      "end": 1023,
+      "type": "TELEPHONE",
+      "text": "02.61.91.58.67"
+    },
+    {
+      "start": 1039,
+      "end": 1064,
+      "type": "EMAIL",
+      "text": "r.guerin@garage-perrot.fr"
+    },
+    {
+      "start": 1103,
+      "end": 1114,
+      "type": "PERSONNE",
+      "text": "Rémi GUÉRIN"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 303,
+      "end": 313,
+      "type": "DATE",
+      "text": "06/01/1969"
+    },
+    {
+      "start": 316,
+      "end": 331,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    },
+    {
+      "start": 510,
+      "end": 526,
+      "type": "DATE",
+      "text": "1er janvier 2024"
+    },
+    {
+      "start": 777,
+      "end": 787,
+      "type": "MONTANT",
+      "text": "3 412,00 €"
+    },
+    {
+      "start": 1074,
+      "end": 1081,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 1086,
+      "end": 1101,
+      "type": "DATE",
+      "text": "9 novembre 2026"
+    }
+  ]
+}

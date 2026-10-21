@@ -1,0 +1,244 @@
+{
+  "doc_id": "test-avocat-10",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-assignation",
+  "spans": [
+    {
+      "start": 185,
+      "end": 195,
+      "type": "PERSONNE",
+      "text": "Rose MOREL"
+    },
+    {
+      "start": 303,
+      "end": 337,
+      "type": "ADRESSE",
+      "text": "148 rue du Four, 17000 La Rochelle"
+    },
+    {
+      "start": 375,
+      "end": 389,
+      "type": "PERSONNE",
+      "text": "Céline TESSIER"
+    },
+    {
+      "start": 421,
+      "end": 452,
+      "type": "ORGANISATION",
+      "text": "SELARL Tessier Avocats Associés"
+    },
+    {
+      "start": 454,
+      "end": 498,
+      "type": "ADRESSE",
+      "text": "116 ter rue de la Pierre Levée, 56000 Vannes"
+    },
+    {
+      "start": 505,
+      "end": 519,
+      "type": "TELEPHONE",
+      "text": "02.61.91.39.30"
+    },
+    {
+      "start": 521,
+      "end": 558,
+      "type": "EMAIL",
+      "text": "ctessier@tessier-avocats-associes.org"
+    },
+    {
+      "start": 626,
+      "end": 640,
+      "type": "PERSONNE",
+      "text": "Céline LEMAIRE"
+    },
+    {
+      "start": 716,
+      "end": 741,
+      "type": "ORGANISATION",
+      "text": "SA BISCUITERIE DE L'ÉTANG"
+    },
+    {
+      "start": 845,
+      "end": 856,
+      "type": "SIREN",
+      "text": "206 423 360"
+    },
+    {
+      "start": 889,
+      "end": 921,
+      "type": "ADRESSE",
+      "text": "6 rue des Remparts, 35000 Rennes"
+    },
+    {
+      "start": 1434,
+      "end": 1439,
+      "type": "PERSONNE",
+      "text": "MOREL"
+    },
+    {
+      "start": 1470,
+      "end": 1495,
+      "type": "ORGANISATION",
+      "text": "SA Biscuiterie de l'Étang"
+    },
+    {
+      "start": 1672,
+      "end": 1702,
+      "type": "ORGANISATION",
+      "text": "Expertises Auto Chevalier SARL"
+    },
+    {
+      "start": 1876,
+      "end": 1881,
+      "type": "PERSONNE",
+      "text": "MOREL"
+    },
+    {
+      "start": 2422,
+      "end": 2447,
+      "type": "ORGANISATION",
+      "text": "SA BISCUITERIE DE L'ÉTANG"
+    },
+    {
+      "start": 2465,
+      "end": 2475,
+      "type": "PERSONNE",
+      "text": "Rose MOREL"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 45,
+      "end": 51,
+      "type": "LIEU_ISOLE",
+      "text": "VANNES"
+    },
+    {
+      "start": 140,
+      "end": 156,
+      "type": "DATE",
+      "text": "24 novembre 2026"
+    },
+    {
+      "start": 204,
+      "end": 219,
+      "type": "DATE",
+      "text": "30 octobre 1972"
+    },
+    {
+      "start": 222,
+      "end": 232,
+      "type": "LIEU_ISOLE",
+      "text": "Casablanca"
+    },
+    {
+      "start": 413,
+      "end": 419,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 667,
+      "end": 673,
+      "type": "LIEU_ISOLE",
+      "text": "Rennes"
+    },
+    {
+      "start": 757,
+      "end": 765,
+      "type": "MONTANT",
+      "text": "10 000 €"
+    },
+    {
+      "start": 823,
+      "end": 829,
+      "type": "LIEU_ISOLE",
+      "text": "Rennes"
+    },
+    {
+      "start": 1066,
+      "end": 1072,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1104,
+      "end": 1119,
+      "type": "DATE",
+      "text": "26 janvier 2027"
+    },
+    {
+      "start": 1415,
+      "end": 1425,
+      "type": "DATE",
+      "text": "5 mai 2026"
+    },
+    {
+      "start": 1531,
+      "end": 1542,
+      "type": "MONTANT",
+      "text": "13 990,00 €"
+    },
+    {
+      "start": 1568,
+      "end": 1580,
+      "type": "DATE",
+      "text": "19 juin 2026"
+    },
+    {
+      "start": 1646,
+      "end": 1656,
+      "type": "DATE",
+      "text": "30/07/2026"
+    },
+    {
+      "start": 1851,
+      "end": 1867,
+      "type": "DATE",
+      "text": "2 septembre 2026"
+    },
+    {
+      "start": 2386,
+      "end": 2396,
+      "type": "DATE",
+      "text": "05/05/2026"
+    },
+    {
+      "start": 2488,
+      "end": 2499,
+      "type": "MONTANT",
+      "text": "13 990,00 €"
+    },
+    {
+      "start": 2576,
+      "end": 2586,
+      "type": "MONTANT",
+      "text": "1 293,27 €"
+    },
+    {
+      "start": 2678,
+      "end": 2685,
+      "type": "MONTANT",
+      "text": "2 000 €"
+    },
+    {
+      "start": 2832,
+      "end": 2842,
+      "type": "DATE",
+      "text": "05/05/2026"
+    },
+    {
+      "start": 2877,
+      "end": 2887,
+      "type": "DATE",
+      "text": "30/07/2026"
+    },
+    {
+      "start": 2910,
+      "end": 2920,
+      "type": "DATE",
+      "text": "02/09/2026"
+    }
+  ]
+}

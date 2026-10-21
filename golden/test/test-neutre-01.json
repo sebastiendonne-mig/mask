@@ -1,0 +1,45 @@
+{
+  "doc_id": "test-neutre-01",
+  "persona": "aucune",
+  "split": "test",
+  "template_id": "neutre-circulaire-facturation",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 264,
+      "end": 282,
+      "type": "DATE",
+      "text": "1er septembre 2026"
+    },
+    {
+      "start": 480,
+      "end": 498,
+      "type": "DATE",
+      "text": "1er septembre 2027"
+    },
+    {
+      "start": 766,
+      "end": 771,
+      "type": "MONTANT",
+      "text": "150 €"
+    },
+    {
+      "start": 921,
+      "end": 929,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 933,
+      "end": 947,
+      "type": "DATE",
+      "text": "3 janvier 2026"
+    },
+    {
+      "start": 976,
+      "end": 986,
+      "type": "DATE",
+      "text": "12/06/2026"
+    }
+  ]
+}

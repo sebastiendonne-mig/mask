@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-avocat-03",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-courrier-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 20,
+      "type": "ORGANISATION",
+      "text": "Roche Avocats SELARL"
+    },
+    {
+      "start": 21,
+      "end": 54,
+      "type": "ADRESSE",
+      "text": "145 route de la Forêt\n37000 Tours"
+    },
+    {
+      "start": 55,
+      "end": 75,
+      "type": "TELEPHONE",
+      "text": "+33 (0)2 61 91 48 46"
+    },
+    {
+      "start": 78,
+      "end": 102,
+      "type": "EMAIL",
+      "text": "compta@roche-avocats.pro"
+    },
+    {
+      "start": 139,
+      "end": 155,
+      "type": "PERSONNE",
+      "text": "Fabrice FLORENCE"
+    },
+    {
+      "start": 156,
+      "end": 192,
+      "type": "ADRESSE",
+      "text": "116 bis allée des Glycines\n64000 Pau"
+    },
+    {
+      "start": 235,
+      "end": 247,
+      "type": "NUMERO_DOSSIER",
+      "text": "2026-9957-LR"
+    },
+    {
+      "start": 258,
+      "end": 266,
+      "type": "PERSONNE",
+      "text": "FLORENCE"
+    },
+    {
+      "start": 270,
+      "end": 276,
+      "type": "PERSONNE",
+      "text": "PERROT"
+    },
+    {
+      "start": 283,
+      "end": 291,
+      "type": "NUMERO_DOSSIER",
+      "text": "26/05524"
+    },
+    {
+      "start": 496,
+      "end": 509,
+      "type": "PERSONNE",
+      "text": "Julien PERROT"
+    },
+    {
+      "start": 533,
+      "end": 547,
+      "type": "PERSONNE",
+      "text": "Pierre BARBIER"
+    },
+    {
+      "start": 559,
+      "end": 581,
+      "type": "ORGANISATION",
+      "text": "SELARL Barbier Avocats"
+    },
+    {
+      "start": 1289,
+      "end": 1300,
+      "type": "PERSONNE",
+      "text": "Rose Perrot"
+    },
+    {
+      "start": 1547,
+      "end": 1561,
+      "type": "TELEPHONE",
+      "text": "06 39 98 44 32"
+    },
+    {
+      "start": 1577,
+      "end": 1606,
+      "type": "EMAIL",
+      "text": "laure.roche@roche-avocats.pro"
+    },
+    {
+      "start": 1690,
+      "end": 1701,
+      "type": "PERSONNE",
+      "text": "Laure ROCHE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 194,
+      "end": 199,
+      "type": "LIEU_ISOLE",
+      "text": "Tours"
+    },
+    {
+      "start": 204,
+      "end": 222,
+      "type": "DATE",
+      "text": "1er septembre 2026"
+    },
+    {
+      "start": 372,
+      "end": 384,
+      "type": "DATE",
+      "text": "17 août 2026"
+    },
+    {
+      "start": 418,
+      "end": 423,
+      "type": "LIEU_ISOLE",
+      "text": "Tours"
+    },
+    {
+      "start": 481,
+      "end": 491,
+      "type": "DATE",
+      "text": "04/08/2026"
+    },
+    {
+      "start": 716,
+      "end": 726,
+      "type": "MONTANT",
+      "text": "3 775,00 €"
+    },
+    {
+      "start": 911,
+      "end": 925,
+      "type": "DATE",
+      "text": "4 octobre 2026"
+    },
+    {
+      "start": 967,
+      "end": 982,
+      "type": "DATE",
+      "text": "6 novembre 2026"
+    },
+    {
+      "start": 1014,
+      "end": 1024,
+      "type": "DATE",
+      "text": "12/12/2026"
+    },
+    {
+      "start": 1120,
+      "end": 1137,
+      "type": "DATE",
+      "text": "17 septembre 2026"
+    },
+    {
+      "start": 1426,
+      "end": 1436,
+      "type": "MONTANT",
+      "text": "1 500,00 €"
+    },
+    {
+      "start": 1447,
+      "end": 1457,
+      "type": "DATE",
+      "text": "12/07/2026"
+    },
+    {
+      "start": 1724,
+      "end": 1729,
+      "type": "LIEU_ISOLE",
+      "text": "Tours"
+    }
+  ]
+}

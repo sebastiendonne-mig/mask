@@ -1,0 +1,124 @@
+{
+  "doc_id": "dev-rh-04",
+  "persona": "rh",
+  "split": "dev",
+  "template_id": "rh-bulletin-paie",
+  "spans": [
+    {
+      "start": 64,
+      "end": 81,
+      "type": "ORGANISATION",
+      "text": "SARL GARAGE ROCHE"
+    },
+    {
+      "start": 82,
+      "end": 112,
+      "type": "ADRESSE",
+      "text": "122 cours des Arts\n54000 Nancy"
+    },
+    {
+      "start": 121,
+      "end": 135,
+      "type": "SIRET",
+      "text": "29971552400037"
+    },
+    {
+      "start": 195,
+      "end": 208,
+      "type": "PERSONNE",
+      "text": "PERROT Pierre"
+    },
+    {
+      "start": 209,
+      "end": 246,
+      "type": "ADRESSE",
+      "text": "146 avenue des Peupliers\n49000 ANGERS"
+    },
+    {
+      "start": 272,
+      "end": 287,
+      "type": "NIR",
+      "text": "188079935054376"
+    },
+    {
+      "start": 838,
+      "end": 865,
+      "type": "IBAN",
+      "text": "FR7673396977515090405161242"
+    },
+    {
+      "start": 988,
+      "end": 1005,
+      "type": "TELEPHONE",
+      "text": "+33 3 53 01 71 60"
+    },
+    {
+      "start": 1008,
+      "end": 1036,
+      "type": "EMAIL",
+      "text": "secretariat@garage-roche.org"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 28,
+      "end": 38,
+      "type": "DATE",
+      "text": "01/01/2026"
+    },
+    {
+      "start": 42,
+      "end": 52,
+      "type": "DATE",
+      "text": "31/01/2026"
+    },
+    {
+      "start": 357,
+      "end": 367,
+      "type": "DATE",
+      "text": "22/02/2015"
+    },
+    {
+      "start": 477,
+      "end": 487,
+      "type": "MONTANT",
+      "text": "3 021,50 €"
+    },
+    {
+      "start": 538,
+      "end": 548,
+      "type": "MONTANT",
+      "text": "3 021,50 €"
+    },
+    {
+      "start": 601,
+      "end": 609,
+      "type": "MONTANT",
+      "text": "664,73 €"
+    },
+    {
+      "start": 660,
+      "end": 670,
+      "type": "MONTANT",
+      "text": "2 356,77 €"
+    },
+    {
+      "start": 722,
+      "end": 729,
+      "type": "MONTANT",
+      "text": "96,63 €"
+    },
+    {
+      "start": 780,
+      "end": 790,
+      "type": "MONTANT",
+      "text": "2 260,14 €"
+    },
+    {
+      "start": 813,
+      "end": 823,
+      "type": "DATE",
+      "text": "31/01/2026"
+    }
+  ]
+}

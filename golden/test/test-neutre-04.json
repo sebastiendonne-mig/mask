@@ -1,0 +1,57 @@
+{
+  "doc_id": "test-neutre-04",
+  "persona": "aucune",
+  "split": "test",
+  "template_id": "neutre-annonce-seminaire",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 67,
+      "end": 75,
+      "type": "LIEU_ISOLE",
+      "text": "Florence"
+    },
+    {
+      "start": 80,
+      "end": 92,
+      "type": "DATE",
+      "text": "13 mars 2027"
+    },
+    {
+      "start": 96,
+      "end": 108,
+      "type": "DATE",
+      "text": "16 mars 2027"
+    },
+    {
+      "start": 425,
+      "end": 429,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
+    },
+    {
+      "start": 480,
+      "end": 487,
+      "type": "MONTANT",
+      "text": "1 600 €"
+    },
+    {
+      "start": 573,
+      "end": 580,
+      "type": "MONTANT",
+      "text": "1 250 €"
+    },
+    {
+      "start": 619,
+      "end": 624,
+      "type": "MONTANT",
+      "text": "220 €"
+    },
+    {
+      "start": 742,
+      "end": 752,
+      "type": "DATE",
+      "text": "16/01/2027"
+    }
+  ]
+}

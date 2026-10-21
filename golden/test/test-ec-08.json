@@ -1,0 +1,250 @@
+{
+  "doc_id": "test-ec-08",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-releve-compte-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 34,
+      "type": "ORGANISATION",
+      "text": "Cabinet Perrot Audit & Conseil SAS"
+    },
+    {
+      "start": 35,
+      "end": 68,
+      "type": "ADRESSE",
+      "text": "147 cours des Arts, 84000 Avignon"
+    },
+    {
+      "start": 94,
+      "end": 111,
+      "type": "TVA_INTRA",
+      "text": "FR 31 415 219 823"
+    },
+    {
+      "start": 166,
+      "end": 193,
+      "type": "ORGANISATION",
+      "text": "BISCUITERIE DE L'ÉTANG SARL"
+    },
+    {
+      "start": 202,
+      "end": 213,
+      "type": "SIREN",
+      "text": "611 136 292"
+    },
+    {
+      "start": 224,
+      "end": 236,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2026-6659"
+    },
+    {
+      "start": 256,
+      "end": 271,
+      "type": "PERSONNE",
+      "text": "FLORENCE Thomas"
+    },
+    {
+      "start": 272,
+      "end": 312,
+      "type": "ADRESSE",
+      "text": "11 rue de la Pierre Levée\n73000 Chambéry"
+    },
+    {
+      "start": 987,
+      "end": 1003,
+      "type": "CARTE",
+      "text": "4031841774884201"
+    },
+    {
+      "start": 1148,
+      "end": 1181,
+      "type": "IBAN",
+      "text": "FR76 2780 1180 2942 5008 5375 829"
+    },
+    {
+      "start": 1266,
+      "end": 1282,
+      "type": "PERSONNE",
+      "text": "Mehdi Carpentier"
+    },
+    {
+      "start": 1286,
+      "end": 1300,
+      "type": "TELEPHONE",
+      "text": "06.39.98.98.51"
+    },
+    {
+      "start": 1306,
+      "end": 1350,
+      "type": "EMAIL",
+      "text": "mcarpentier@cabinet-perrot-audit-conseil.com"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 140,
+      "end": 155,
+      "type": "DATE",
+      "text": "28 janvier 2026"
+    },
+    {
+      "start": 383,
+      "end": 393,
+      "type": "DATE",
+      "text": "16/08/2025"
+    },
+    {
+      "start": 443,
+      "end": 451,
+      "type": "MONTANT",
+      "text": "330,00 €"
+    },
+    {
+      "start": 452,
+      "end": 462,
+      "type": "DATE",
+      "text": "10/09/2025"
+    },
+    {
+      "start": 494,
+      "end": 502,
+      "type": "MONTANT",
+      "text": "720,00 €"
+    },
+    {
+      "start": 511,
+      "end": 521,
+      "type": "MONTANT",
+      "text": "1 050,00 €"
+    },
+    {
+      "start": 522,
+      "end": 532,
+      "type": "DATE",
+      "text": "01/10/2025"
+    },
+    {
+      "start": 565,
+      "end": 573,
+      "type": "MONTANT",
+      "text": "720,00 €"
+    },
+    {
+      "start": 582,
+      "end": 590,
+      "type": "MONTANT",
+      "text": "330,00 €"
+    },
+    {
+      "start": 591,
+      "end": 601,
+      "type": "DATE",
+      "text": "26/10/2025"
+    },
+    {
+      "start": 633,
+      "end": 641,
+      "type": "MONTANT",
+      "text": "720,00 €"
+    },
+    {
+      "start": 650,
+      "end": 660,
+      "type": "MONTANT",
+      "text": "1 050,00 €"
+    },
+    {
+      "start": 661,
+      "end": 671,
+      "type": "DATE",
+      "text": "22/11/2025"
+    },
+    {
+      "start": 704,
+      "end": 712,
+      "type": "MONTANT",
+      "text": "720,00 €"
+    },
+    {
+      "start": 721,
+      "end": 729,
+      "type": "MONTANT",
+      "text": "330,00 €"
+    },
+    {
+      "start": 730,
+      "end": 740,
+      "type": "DATE",
+      "text": "18/12/2025"
+    },
+    {
+      "start": 772,
+      "end": 782,
+      "type": "MONTANT",
+      "text": "2 160,00 €"
+    },
+    {
+      "start": 791,
+      "end": 801,
+      "type": "MONTANT",
+      "text": "2 490,00 €"
+    },
+    {
+      "start": 802,
+      "end": 812,
+      "type": "DATE",
+      "text": "21/01/2026"
+    },
+    {
+      "start": 845,
+      "end": 855,
+      "type": "MONTANT",
+      "text": "2 160,00 €"
+    },
+    {
+      "start": 864,
+      "end": 872,
+      "type": "MONTANT",
+      "text": "330,00 €"
+    },
+    {
+      "start": 886,
+      "end": 896,
+      "type": "DATE",
+      "text": "28/01/2026"
+    },
+    {
+      "start": 899,
+      "end": 907,
+      "type": "MONTANT",
+      "text": "330,00 €"
+    },
+    {
+      "start": 938,
+      "end": 946,
+      "type": "MONTANT",
+      "text": "133,29 €"
+    },
+    {
+      "start": 959,
+      "end": 969,
+      "type": "DATE",
+      "text": "10/01/2026"
+    },
+    {
+      "start": 1369,
+      "end": 1376,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 1380,
+      "end": 1390,
+      "type": "DATE",
+      "text": "28/01/2026"
+    }
+  ]
+}

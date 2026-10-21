@@ -1,0 +1,232 @@
+{
+  "doc_id": "test-ec-10",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-releve-compte-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION",
+      "text": "SAS Da Silva Expertise Comptable"
+    },
+    {
+      "start": 33,
+      "end": 63,
+      "type": "ADRESSE",
+      "text": "26 rue du Château\n74000 Annecy"
+    },
+    {
+      "start": 89,
+      "end": 106,
+      "type": "TVA_INTRA",
+      "text": "FR 67 795 013 150"
+    },
+    {
+      "start": 161,
+      "end": 183,
+      "type": "ORGANISATION",
+      "text": "MENUISERIE MEUNIER SAS"
+    },
+    {
+      "start": 192,
+      "end": 203,
+      "type": "SIREN",
+      "text": "150 112 563"
+    },
+    {
+      "start": 214,
+      "end": 226,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2025-9700"
+    },
+    {
+      "start": 246,
+      "end": 258,
+      "type": "PERSONNE",
+      "text": "MEUNIER Rose"
+    },
+    {
+      "start": 259,
+      "end": 321,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n109 rue des Remparts\n14000 Caen"
+    },
+    {
+      "start": 929,
+      "end": 948,
+      "type": "CARTE",
+      "text": "5444 4739 1313 2181"
+    },
+    {
+      "start": 1093,
+      "end": 1126,
+      "type": "IBAN",
+      "text": "FR76 2329 9474 6345 7470 6069 273"
+    },
+    {
+      "start": 1211,
+      "end": 1224,
+      "type": "PERSONNE",
+      "text": "Élodie Bertin"
+    },
+    {
+      "start": 1228,
+      "end": 1242,
+      "type": "TELEPHONE",
+      "text": "06 39 98 07 58"
+    },
+    {
+      "start": 1248,
+      "end": 1293,
+      "type": "EMAIL",
+      "text": "elodie.bertin@da-silva-expertise-comptable.io"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 135,
+      "end": 150,
+      "type": "DATE",
+      "text": "9 novembre 2026"
+    },
+    {
+      "start": 392,
+      "end": 402,
+      "type": "DATE",
+      "text": "15/05/2026"
+    },
+    {
+      "start": 452,
+      "end": 460,
+      "type": "MONTANT",
+      "text": "131,00 €"
+    },
+    {
+      "start": 461,
+      "end": 471,
+      "type": "DATE",
+      "text": "12/06/2026"
+    },
+    {
+      "start": 503,
+      "end": 513,
+      "type": "MONTANT",
+      "text": "1 200,00 €"
+    },
+    {
+      "start": 522,
+      "end": 532,
+      "type": "MONTANT",
+      "text": "1 331,00 €"
+    },
+    {
+      "start": 533,
+      "end": 543,
+      "type": "DATE",
+      "text": "04/07/2026"
+    },
+    {
+      "start": 576,
+      "end": 586,
+      "type": "MONTANT",
+      "text": "1 200,00 €"
+    },
+    {
+      "start": 595,
+      "end": 603,
+      "type": "MONTANT",
+      "text": "131,00 €"
+    },
+    {
+      "start": 604,
+      "end": 614,
+      "type": "DATE",
+      "text": "21/07/2026"
+    },
+    {
+      "start": 646,
+      "end": 654,
+      "type": "MONTANT",
+      "text": "960,00 €"
+    },
+    {
+      "start": 663,
+      "end": 673,
+      "type": "MONTANT",
+      "text": "1 091,00 €"
+    },
+    {
+      "start": 674,
+      "end": 684,
+      "type": "DATE",
+      "text": "18/08/2026"
+    },
+    {
+      "start": 717,
+      "end": 725,
+      "type": "MONTANT",
+      "text": "960,00 €"
+    },
+    {
+      "start": 734,
+      "end": 742,
+      "type": "MONTANT",
+      "text": "131,00 €"
+    },
+    {
+      "start": 743,
+      "end": 753,
+      "type": "DATE",
+      "text": "21/09/2026"
+    },
+    {
+      "start": 785,
+      "end": 793,
+      "type": "MONTANT",
+      "text": "960,00 €"
+    },
+    {
+      "start": 802,
+      "end": 812,
+      "type": "MONTANT",
+      "text": "1 091,00 €"
+    },
+    {
+      "start": 826,
+      "end": 836,
+      "type": "DATE",
+      "text": "09/11/2026"
+    },
+    {
+      "start": 839,
+      "end": 849,
+      "type": "MONTANT",
+      "text": "1 091,00 €"
+    },
+    {
+      "start": 880,
+      "end": 888,
+      "type": "MONTANT",
+      "text": "146,35 €"
+    },
+    {
+      "start": 901,
+      "end": 911,
+      "type": "DATE",
+      "text": "31/10/2026"
+    },
+    {
+      "start": 1312,
+      "end": 1318,
+      "type": "LIEU_ISOLE",
+      "text": "Annecy"
+    },
+    {
+      "start": 1322,
+      "end": 1332,
+      "type": "DATE",
+      "text": "09/11/2026"
+    }
+  ]
+}

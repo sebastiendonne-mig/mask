@@ -1,0 +1,124 @@
+{
+  "doc_id": "dev-rh-05",
+  "persona": "rh",
+  "split": "dev",
+  "template_id": "rh-bulletin-paie",
+  "spans": [
+    {
+      "start": 64,
+      "end": 91,
+      "type": "ORGANISATION",
+      "text": "ATELIER DES TROIS CHÊNES SA"
+    },
+    {
+      "start": 92,
+      "end": 121,
+      "type": "ADRESSE",
+      "text": "54 place du Marché\n69003 Lyon"
+    },
+    {
+      "start": 130,
+      "end": 144,
+      "type": "SIRET",
+      "text": "46341025800099"
+    },
+    {
+      "start": 204,
+      "end": 219,
+      "type": "PERSONNE",
+      "text": "FLORENCE Julien"
+    },
+    {
+      "start": 220,
+      "end": 260,
+      "type": "ADRESSE",
+      "text": "82 rue de la Pierre Levée\n33000 BORDEAUX"
+    },
+    {
+      "start": 286,
+      "end": 301,
+      "type": "NIR",
+      "text": "185088607952508"
+    },
+    {
+      "start": 851,
+      "end": 878,
+      "type": "IBAN",
+      "text": "FR7646791994535255922315262"
+    },
+    {
+      "start": 1001,
+      "end": 1015,
+      "type": "TELEPHONE",
+      "text": "04 65 71 75 51"
+    },
+    {
+      "start": 1018,
+      "end": 1054,
+      "type": "EMAIL",
+      "text": "compta@atelier-des-trois-chenes.immo"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 28,
+      "end": 38,
+      "type": "DATE",
+      "text": "01/08/2026"
+    },
+    {
+      "start": 42,
+      "end": 52,
+      "type": "DATE",
+      "text": "31/08/2026"
+    },
+    {
+      "start": 370,
+      "end": 380,
+      "type": "DATE",
+      "text": "06/11/2015"
+    },
+    {
+      "start": 490,
+      "end": 500,
+      "type": "MONTANT",
+      "text": "2 140,50 €"
+    },
+    {
+      "start": 551,
+      "end": 561,
+      "type": "MONTANT",
+      "text": "2 140,50 €"
+    },
+    {
+      "start": 614,
+      "end": 622,
+      "type": "MONTANT",
+      "text": "470,91 €"
+    },
+    {
+      "start": 673,
+      "end": 683,
+      "type": "MONTANT",
+      "text": "1 669,59 €"
+    },
+    {
+      "start": 735,
+      "end": 742,
+      "type": "MONTANT",
+      "text": "68,45 €"
+    },
+    {
+      "start": 793,
+      "end": 803,
+      "type": "MONTANT",
+      "text": "1 601,14 €"
+    },
+    {
+      "start": 826,
+      "end": 836,
+      "type": "DATE",
+      "text": "31/08/2026"
+    }
+  ]
+}

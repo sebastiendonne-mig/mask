@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-ec-02",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-lettre-mission",
+  "spans": [
+    {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION",
+      "text": "SARL DA SILVA EXPERTISE"
+    },
+    {
+      "start": 54,
+      "end": 96,
+      "type": "ADRESSE",
+      "text": "49 rue des Tilleuls\n63000 Clermont-Ferrand"
+    },
+    {
+      "start": 97,
+      "end": 114,
+      "type": "TELEPHONE",
+      "text": "+33 4 65 71 48 53"
+    },
+    {
+      "start": 117,
+      "end": 146,
+      "type": "EMAIL",
+      "text": "compta@da-silva-expertise.org"
+    },
+    {
+      "start": 153,
+      "end": 170,
+      "type": "SIRET",
+      "text": "961 778 875 00032"
+    },
+    {
+      "start": 177,
+      "end": 194,
+      "type": "TVA_INTRA",
+      "text": "FR 51 961 778 875"
+    },
+    {
+      "start": 196,
+      "end": 216,
+      "type": "ORGANISATION",
+      "text": "SAS Barbier Bâtiment"
+    },
+    {
+      "start": 237,
+      "end": 251,
+      "type": "PERSONNE",
+      "text": "PIERRE BARBIER"
+    },
+    {
+      "start": 252,
+      "end": 280,
+      "type": "ADRESSE",
+      "text": "91 ter rue Basse\n53000 LAVAL"
+    },
+    {
+      "start": 388,
+      "end": 400,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2026-8127"
+    },
+    {
+      "start": 702,
+      "end": 722,
+      "type": "ORGANISATION",
+      "text": "SAS BARBIER BÂTIMENT"
+    },
+    {
+      "start": 765,
+      "end": 774,
+      "type": "SIREN",
+      "text": "924345069"
+    },
+    {
+      "start": 792,
+      "end": 806,
+      "type": "SIRET",
+      "text": "92434506900034"
+    },
+    {
+      "start": 838,
+      "end": 851,
+      "type": "TVA_INTRA",
+      "text": "FR92924345069"
+    },
+    {
+      "start": 873,
+      "end": 887,
+      "type": "PERSONNE",
+      "text": "Pierre BARBIER"
+    },
+    {
+      "start": 909,
+      "end": 938,
+      "type": "EMAIL",
+      "text": "p.barbier@barbier-batiment.eu"
+    },
+    {
+      "start": 941,
+      "end": 958,
+      "type": "TELEPHONE",
+      "text": "+33 6 39 98 78 61"
+    },
+    {
+      "start": 1614,
+      "end": 1641,
+      "type": "IBAN",
+      "text": "FR7617231797184535397626571"
+    },
+    {
+      "start": 1914,
+      "end": 1928,
+      "type": "PERSONNE",
+      "text": "Chloé DA SILVA"
+    },
+    {
+      "start": 2238,
+      "end": 2261,
+      "type": "ORGANISATION",
+      "text": "SARL Da Silva Expertise"
+    },
+    {
+      "start": 2263,
+      "end": 2277,
+      "type": "PERSONNE",
+      "text": "Chloé DA SILVA"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 282,
+      "end": 298,
+      "type": "LIEU_ISOLE",
+      "text": "Clermont-Ferrand"
+    },
+    {
+      "start": 303,
+      "end": 314,
+      "type": "DATE",
+      "text": "4 juin 2026"
+    },
+    {
+      "start": 749,
+      "end": 756,
+      "type": "MONTANT",
+      "text": "1 000 €"
+    },
+    {
+      "start": 1033,
+      "end": 1049,
+      "type": "DATE",
+      "text": "1er janvier 2026"
+    },
+    {
+      "start": 1053,
+      "end": 1069,
+      "type": "DATE",
+      "text": "31 décembre 2026"
+    },
+    {
+      "start": 1403,
+      "end": 1413,
+      "type": "MONTANT",
+      "text": "7 000,00 €"
+    },
+    {
+      "start": 1430,
+      "end": 1440,
+      "type": "MONTANT",
+      "text": "8 400,00 €"
+    },
+    {
+      "start": 1484,
+      "end": 1492,
+      "type": "MONTANT",
+      "text": "700,00 €"
+    },
+    {
+      "start": 1544,
+      "end": 1548,
+      "type": "MONTANT",
+      "text": "35 €"
+    }
+  ]
+}

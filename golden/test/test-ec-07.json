@@ -1,0 +1,232 @@
+{
+  "doc_id": "test-ec-07",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-releve-compte-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 36,
+      "type": "ORGANISATION",
+      "text": "SELARL Chevalier Expertise Comptable"
+    },
+    {
+      "start": 37,
+      "end": 92,
+      "type": "ADRESSE",
+      "text": "Immeuble Le Belvédère, 61 rue des Tilleuls, 76000 Rouen"
+    },
+    {
+      "start": 118,
+      "end": 135,
+      "type": "TVA_INTRA",
+      "text": "FR 72 703 622 985"
+    },
+    {
+      "start": 189,
+      "end": 209,
+      "type": "ORGANISATION",
+      "text": "ROUSSEAU & FILS EURL"
+    },
+    {
+      "start": 218,
+      "end": 229,
+      "type": "SIREN",
+      "text": "425 660 131"
+    },
+    {
+      "start": 240,
+      "end": 252,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2025-7892"
+    },
+    {
+      "start": 272,
+      "end": 287,
+      "type": "PERSONNE",
+      "text": "ROUSSEAU Pierre"
+    },
+    {
+      "start": 288,
+      "end": 340,
+      "type": "ADRESSE",
+      "text": "Immeuble Le Belvédère\n20 rue du Château\n44000 Nantes"
+    },
+    {
+      "start": 954,
+      "end": 973,
+      "type": "CARTE",
+      "text": "5580 9469 7052 9070"
+    },
+    {
+      "start": 1118,
+      "end": 1151,
+      "type": "IBAN",
+      "text": "FR76 1595 8079 8326 4709 9109 151"
+    },
+    {
+      "start": 1236,
+      "end": 1246,
+      "type": "PERSONNE",
+      "text": "Inès Paris"
+    },
+    {
+      "start": 1250,
+      "end": 1264,
+      "type": "TELEPHONE",
+      "text": "06 39 98 78 87"
+    },
+    {
+      "start": 1270,
+      "end": 1313,
+      "type": "EMAIL",
+      "text": "ines.paris@chevalier-expertise-comptable.io"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 164,
+      "end": 178,
+      "type": "DATE",
+      "text": "7 janvier 2026"
+    },
+    {
+      "start": 411,
+      "end": 421,
+      "type": "DATE",
+      "text": "05/08/2025"
+    },
+    {
+      "start": 471,
+      "end": 479,
+      "type": "MONTANT",
+      "text": "446,00 €"
+    },
+    {
+      "start": 480,
+      "end": 490,
+      "type": "DATE",
+      "text": "20/08/2025"
+    },
+    {
+      "start": 522,
+      "end": 532,
+      "type": "MONTANT",
+      "text": "1 080,00 €"
+    },
+    {
+      "start": 541,
+      "end": 551,
+      "type": "MONTANT",
+      "text": "1 526,00 €"
+    },
+    {
+      "start": 552,
+      "end": 562,
+      "type": "DATE",
+      "text": "22/09/2025"
+    },
+    {
+      "start": 595,
+      "end": 605,
+      "type": "MONTANT",
+      "text": "1 080,00 €"
+    },
+    {
+      "start": 614,
+      "end": 622,
+      "type": "MONTANT",
+      "text": "446,00 €"
+    },
+    {
+      "start": 623,
+      "end": 633,
+      "type": "DATE",
+      "text": "16/10/2025"
+    },
+    {
+      "start": 665,
+      "end": 675,
+      "type": "MONTANT",
+      "text": "2 160,00 €"
+    },
+    {
+      "start": 684,
+      "end": 694,
+      "type": "MONTANT",
+      "text": "2 606,00 €"
+    },
+    {
+      "start": 695,
+      "end": 705,
+      "type": "DATE",
+      "text": "08/11/2025"
+    },
+    {
+      "start": 738,
+      "end": 748,
+      "type": "MONTANT",
+      "text": "2 160,00 €"
+    },
+    {
+      "start": 757,
+      "end": 765,
+      "type": "MONTANT",
+      "text": "446,00 €"
+    },
+    {
+      "start": 766,
+      "end": 776,
+      "type": "DATE",
+      "text": "06/12/2025"
+    },
+    {
+      "start": 808,
+      "end": 818,
+      "type": "MONTANT",
+      "text": "2 160,00 €"
+    },
+    {
+      "start": 827,
+      "end": 837,
+      "type": "MONTANT",
+      "text": "2 606,00 €"
+    },
+    {
+      "start": 851,
+      "end": 861,
+      "type": "DATE",
+      "text": "07/01/2026"
+    },
+    {
+      "start": 864,
+      "end": 874,
+      "type": "MONTANT",
+      "text": "2 606,00 €"
+    },
+    {
+      "start": 905,
+      "end": 913,
+      "type": "MONTANT",
+      "text": "150,85 €"
+    },
+    {
+      "start": 926,
+      "end": 936,
+      "type": "DATE",
+      "text": "23/12/2025"
+    },
+    {
+      "start": 1332,
+      "end": 1337,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
+    },
+    {
+      "start": 1341,
+      "end": 1351,
+      "type": "DATE",
+      "text": "07/01/2026"
+    }
+  ]
+}

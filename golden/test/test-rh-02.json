@@ -1,0 +1,142 @@
+{
+  "doc_id": "test-rh-02",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-contrat-travail",
+  "spans": [
+    {
+      "start": 76,
+      "end": 98,
+      "type": "ORGANISATION",
+      "text": "SARL Menuiserie Delmas"
+    },
+    {
+      "start": 164,
+      "end": 181,
+      "type": "SIRET",
+      "text": "241 135 474 00021"
+    },
+    {
+      "start": 214,
+      "end": 257,
+      "type": "ADRESSE",
+      "text": "13 bis boulevard de la Liberté, 51100 Reims"
+    },
+    {
+      "start": 279,
+      "end": 293,
+      "type": "PERSONNE",
+      "text": "Agathe LEMAIRE"
+    },
+    {
+      "start": 390,
+      "end": 403,
+      "type": "PERSONNE",
+      "text": "PIERRE BERTIN"
+    },
+    {
+      "start": 467,
+      "end": 488,
+      "type": "NIR",
+      "text": "1 91 05 99 350 628 06"
+    },
+    {
+      "start": 501,
+      "end": 542,
+      "type": "ADRESSE",
+      "text": "88 avenue des Peupliers\n34000 Montpellier"
+    },
+    {
+      "start": 555,
+      "end": 569,
+      "type": "TELEPHONE",
+      "text": "06 39 98 69 36"
+    },
+    {
+      "start": 581,
+      "end": 616,
+      "type": "EMAIL",
+      "text": "pierre.bertin73@lettre-ouverte.info"
+    },
+    {
+      "start": 707,
+      "end": 713,
+      "type": "PERSONNE",
+      "text": "BERTIN"
+    },
+    {
+      "start": 1891,
+      "end": 1905,
+      "type": "PERSONNE",
+      "text": "Agathe LEMAIRE"
+    },
+    {
+      "start": 1931,
+      "end": 1944,
+      "type": "PERSONNE",
+      "text": "Pierre BERTIN"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 119,
+      "end": 128,
+      "type": "MONTANT",
+      "text": "100 000 €"
+    },
+    {
+      "start": 410,
+      "end": 420,
+      "type": "DATE",
+      "text": "09/05/1991"
+    },
+    {
+      "start": 423,
+      "end": 433,
+      "type": "LIEU_ISOLE",
+      "text": "Casablanca"
+    },
+    {
+      "start": 738,
+      "end": 752,
+      "type": "DATE",
+      "text": "2 juillet 2026"
+    },
+    {
+      "start": 1150,
+      "end": 1155,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 1212,
+      "end": 1219,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 1477,
+      "end": 1487,
+      "type": "MONTANT",
+      "text": "3 820,50 €"
+    },
+    {
+      "start": 1603,
+      "end": 1610,
+      "type": "MONTANT",
+      "text": "1 000 €"
+    },
+    {
+      "start": 1792,
+      "end": 1797,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 1802,
+      "end": 1814,
+      "type": "DATE",
+      "text": "16 juin 2026"
+    }
+  ]
+}

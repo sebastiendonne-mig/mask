@@ -1,0 +1,172 @@
+{
+  "doc_id": "dev-ec-04",
+  "persona": "expert-comptable",
+  "split": "dev",
+  "template_id": "ec-relance-pieces",
+  "spans": [
+    {
+      "start": 5,
+      "end": 17,
+      "type": "PERSONNE",
+      "text": "Inès Lacroix"
+    },
+    {
+      "start": 19,
+      "end": 61,
+      "type": "EMAIL",
+      "text": "i.lacroix@gauthier-expertise-comptable.com"
+    },
+    {
+      "start": 67,
+      "end": 79,
+      "type": "PERSONNE",
+      "text": "Rose Ferrand"
+    },
+    {
+      "start": 81,
+      "end": 112,
+      "type": "EMAIL",
+      "text": "r.ferrand@chevalier-conseil.bzh"
+    },
+    {
+      "start": 119,
+      "end": 131,
+      "type": "PERSONNE",
+      "text": "Sophie Royer"
+    },
+    {
+      "start": 133,
+      "end": 173,
+      "type": "EMAIL",
+      "text": "s.royer@gauthier-expertise-comptable.com"
+    },
+    {
+      "start": 243,
+      "end": 252,
+      "type": "NUMERO_DOSSIER",
+      "text": "DOS-90413"
+    },
+    {
+      "start": 270,
+      "end": 277,
+      "type": "PERSONNE",
+      "text": "Ferrand"
+    },
+    {
+      "start": 318,
+      "end": 340,
+      "type": "ORGANISATION",
+      "text": "SARL Chevalier Conseil"
+    },
+    {
+      "start": 478,
+      "end": 511,
+      "type": "IBAN",
+      "text": "FR76 5551 7108 4741 9050 8289 476"
+    },
+    {
+      "start": 573,
+      "end": 589,
+      "type": "CARTE",
+      "text": "4191342619444687"
+    },
+    {
+      "start": 724,
+      "end": 737,
+      "type": "PERSONNE",
+      "text": "Sophie HADDAD"
+    },
+    {
+      "start": 952,
+      "end": 964,
+      "type": "PERSONNE",
+      "text": "Sophie Royer"
+    },
+    {
+      "start": 1022,
+      "end": 1039,
+      "type": "TELEPHONE",
+      "text": "+33 6 39 98 43 01"
+    },
+    {
+      "start": 1082,
+      "end": 1094,
+      "type": "PERSONNE",
+      "text": "Inès LACROIX"
+    },
+    {
+      "start": 1095,
+      "end": 1128,
+      "type": "ORGANISATION",
+      "text": "SARL Gauthier Expertise Comptable"
+    },
+    {
+      "start": 1129,
+      "end": 1196,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B, 126 rue de la Fontaine, 59000 Lille"
+    },
+    {
+      "start": 1197,
+      "end": 1211,
+      "type": "TELEPHONE",
+      "text": "03 53 01 85 71"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 182,
+      "end": 192,
+      "type": "DATE",
+      "text": "23/05/2026"
+    },
+    {
+      "start": 344,
+      "end": 360,
+      "type": "DATE",
+      "text": "31 décembre 2025"
+    },
+    {
+      "start": 646,
+      "end": 661,
+      "type": "DATE",
+      "text": "15 février 2025"
+    },
+    {
+      "start": 676,
+      "end": 684,
+      "type": "MONTANT",
+      "text": "21 000 €"
+    },
+    {
+      "start": 769,
+      "end": 777,
+      "type": "LIEU_ISOLE",
+      "text": "Florence"
+    },
+    {
+      "start": 782,
+      "end": 792,
+      "type": "DATE",
+      "text": "28/09/2025"
+    },
+    {
+      "start": 796,
+      "end": 806,
+      "type": "DATE",
+      "text": "30/09/2025"
+    },
+    {
+      "start": 863,
+      "end": 874,
+      "type": "DATE",
+      "text": "19 mai 2026"
+    },
+    {
+      "start": 901,
+      "end": 912,
+      "type": "DATE",
+      "text": "8 juin 2026"
+    }
+  ]
+}

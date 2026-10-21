@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-ec-04",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-lettre-mission",
+  "spans": [
+    {
+      "start": 0,
+      "end": 20,
+      "type": "ORGANISATION",
+      "text": "BENALI EXPERTISE SAS"
+    },
+    {
+      "start": 51,
+      "end": 97,
+      "type": "ADRESSE",
+      "text": "Immeuble Le Belvédère\n7 rue Basse\n44000 Nantes"
+    },
+    {
+      "start": 98,
+      "end": 118,
+      "type": "TELEPHONE",
+      "text": "+33 (0)2 61 91 38 03"
+    },
+    {
+      "start": 121,
+      "end": 148,
+      "type": "EMAIL",
+      "text": "compta@benali-expertise.bzh"
+    },
+    {
+      "start": 155,
+      "end": 172,
+      "type": "SIRET",
+      "text": "260 748 256 00039"
+    },
+    {
+      "start": 179,
+      "end": 196,
+      "type": "TVA_INTRA",
+      "text": "FR 17 260 748 256"
+    },
+    {
+      "start": 198,
+      "end": 231,
+      "type": "ORGANISATION",
+      "text": "Domaine des Pierres Blanches SARL"
+    },
+    {
+      "start": 252,
+      "end": 265,
+      "type": "PERSONNE",
+      "text": "MATHIEU PARIS"
+    },
+    {
+      "start": 266,
+      "end": 303,
+      "type": "ADRESSE",
+      "text": "29 avenue des Peupliers\n29000 QUIMPER"
+    },
+    {
+      "start": 406,
+      "end": 413,
+      "type": "NUMERO_DOSSIER",
+      "text": "SVM9517"
+    },
+    {
+      "start": 715,
+      "end": 748,
+      "type": "ORGANISATION",
+      "text": "DOMAINE DES PIERRES BLANCHES SARL"
+    },
+    {
+      "start": 792,
+      "end": 801,
+      "type": "SIREN",
+      "text": "871794673"
+    },
+    {
+      "start": 819,
+      "end": 833,
+      "type": "SIRET",
+      "text": "87179467300081"
+    },
+    {
+      "start": 865,
+      "end": 878,
+      "type": "TVA_INTRA",
+      "text": "FR94871794673"
+    },
+    {
+      "start": 900,
+      "end": 913,
+      "type": "PERSONNE",
+      "text": "Mathieu PARIS"
+    },
+    {
+      "start": 932,
+      "end": 972,
+      "type": "EMAIL",
+      "text": "m.paris@domaine-des-pierres-blanches.net"
+    },
+    {
+      "start": 975,
+      "end": 985,
+      "type": "TELEPHONE",
+      "text": "0639985613"
+    },
+    {
+      "start": 1641,
+      "end": 1674,
+      "type": "IBAN",
+      "text": "FR76 4268 3807 5321 7035 4796 711"
+    },
+    {
+      "start": 1947,
+      "end": 1960,
+      "type": "PERSONNE",
+      "text": "Claire BENALI"
+    },
+    {
+      "start": 2270,
+      "end": 2290,
+      "type": "ORGANISATION",
+      "text": "Benali Expertise SAS"
+    },
+    {
+      "start": 2292,
+      "end": 2305,
+      "type": "PERSONNE",
+      "text": "Claire BENALI"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 305,
+      "end": 311,
+      "type": "LIEU_ISOLE",
+      "text": "Nantes"
+    },
+    {
+      "start": 316,
+      "end": 332,
+      "type": "DATE",
+      "text": "5 septembre 2026"
+    },
+    {
+      "start": 776,
+      "end": 783,
+      "type": "MONTANT",
+      "text": "1 000 €"
+    },
+    {
+      "start": 1060,
+      "end": 1076,
+      "type": "DATE",
+      "text": "1er janvier 2026"
+    },
+    {
+      "start": 1080,
+      "end": 1096,
+      "type": "DATE",
+      "text": "31 décembre 2026"
+    },
+    {
+      "start": 1430,
+      "end": 1440,
+      "type": "MONTANT",
+      "text": "3 700,00 €"
+    },
+    {
+      "start": 1457,
+      "end": 1467,
+      "type": "MONTANT",
+      "text": "4 440,00 €"
+    },
+    {
+      "start": 1511,
+      "end": 1519,
+      "type": "MONTANT",
+      "text": "370,00 €"
+    },
+    {
+      "start": 1571,
+      "end": 1575,
+      "type": "MONTANT",
+      "text": "35 €"
+    }
+  ]
+}

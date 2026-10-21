@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-avocat-02",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-courrier-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION",
+      "text": "SELARL Cabinet Paris & Associés"
+    },
+    {
+      "start": 32,
+      "end": 63,
+      "type": "ADRESSE",
+      "text": "94 rue des Remparts\n51100 Reims"
+    },
+    {
+      "start": 64,
+      "end": 81,
+      "type": "TELEPHONE",
+      "text": "+33 3 53 01 78 15"
+    },
+    {
+      "start": 84,
+      "end": 118,
+      "type": "EMAIL",
+      "text": "accueil@cabinet-paris-associes.com"
+    },
+    {
+      "start": 155,
+      "end": 169,
+      "type": "PERSONNE",
+      "text": "Pierre MEUNIER"
+    },
+    {
+      "start": 170,
+      "end": 219,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres\n16 allée des Roses\n79000 NIORT"
+    },
+    {
+      "start": 259,
+      "end": 271,
+      "type": "NUMERO_DOSSIER",
+      "text": "SP/2026/6292"
+    },
+    {
+      "start": 282,
+      "end": 289,
+      "type": "PERSONNE",
+      "text": "MEUNIER"
+    },
+    {
+      "start": 293,
+      "end": 300,
+      "type": "PERSONNE",
+      "text": "FERRAND"
+    },
+    {
+      "start": 307,
+      "end": 315,
+      "type": "NUMERO_DOSSIER",
+      "text": "25/02994"
+    },
+    {
+      "start": 524,
+      "end": 537,
+      "type": "PERSONNE",
+      "text": "Manon FERRAND"
+    },
+    {
+      "start": 562,
+      "end": 575,
+      "type": "PERSONNE",
+      "text": "Thomas GUÉRIN"
+    },
+    {
+      "start": 587,
+      "end": 619,
+      "type": "ORGANISATION",
+      "text": "Cabinet Guérin & Associés SELARL"
+    },
+    {
+      "start": 1327,
+      "end": 1340,
+      "type": "PERSONNE",
+      "text": "Yann Florence"
+    },
+    {
+      "start": 1587,
+      "end": 1604,
+      "type": "TELEPHONE",
+      "text": "+33 6 39 98 12 53"
+    },
+    {
+      "start": 1620,
+      "end": 1659,
+      "type": "EMAIL",
+      "text": "sophie.paris@cabinet-paris-associes.com"
+    },
+    {
+      "start": 1743,
+      "end": 1755,
+      "type": "PERSONNE",
+      "text": "Sophie PARIS"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 221,
+      "end": 226,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 231,
+      "end": 246,
+      "type": "DATE",
+      "text": "22 octobre 2026"
+    },
+    {
+      "start": 396,
+      "end": 411,
+      "type": "DATE",
+      "text": "15 octobre 2026"
+    },
+    {
+      "start": 445,
+      "end": 450,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 508,
+      "end": 518,
+      "type": "DATE",
+      "text": "02/10/2026"
+    },
+    {
+      "start": 756,
+      "end": 766,
+      "type": "MONTANT",
+      "text": "7 960,00 €"
+    },
+    {
+      "start": 952,
+      "end": 968,
+      "type": "DATE",
+      "text": "29 novembre 2026"
+    },
+    {
+      "start": 1010,
+      "end": 1024,
+      "type": "DATE",
+      "text": "3 janvier 2027"
+    },
+    {
+      "start": 1056,
+      "end": 1066,
+      "type": "DATE",
+      "text": "03/02/2027"
+    },
+    {
+      "start": 1162,
+      "end": 1177,
+      "type": "DATE",
+      "text": "3 novembre 2026"
+    },
+    {
+      "start": 1466,
+      "end": 1476,
+      "type": "MONTANT",
+      "text": "1 500,00 €"
+    },
+    {
+      "start": 1487,
+      "end": 1497,
+      "type": "DATE",
+      "text": "04/08/2026"
+    },
+    {
+      "start": 1778,
+      "end": 1783,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    }
+  ]
+}

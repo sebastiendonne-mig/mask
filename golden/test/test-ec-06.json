@@ -1,0 +1,214 @@
+{
+  "doc_id": "test-ec-06",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-releve-compte-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION",
+      "text": "SAS Florence Expertise Comptable"
+    },
+    {
+      "start": 33,
+      "end": 60,
+      "type": "ADRESSE",
+      "text": "10 rue du Four, 30000 Nîmes"
+    },
+    {
+      "start": 86,
+      "end": 99,
+      "type": "TVA_INTRA",
+      "text": "FR60552884108"
+    },
+    {
+      "start": 150,
+      "end": 176,
+      "type": "ORGANISATION",
+      "text": "LES JARDINS DU PLATEAU SAS"
+    },
+    {
+      "start": 185,
+      "end": 196,
+      "type": "SIREN",
+      "text": "864 035 837"
+    },
+    {
+      "start": 207,
+      "end": 219,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2025-3008"
+    },
+    {
+      "start": 239,
+      "end": 250,
+      "type": "PERSONNE",
+      "text": "BERTIN Rose"
+    },
+    {
+      "start": 251,
+      "end": 285,
+      "type": "ADRESSE",
+      "text": "68 chemin du Moulin\n86000 Poitiers"
+    },
+    {
+      "start": 825,
+      "end": 844,
+      "type": "CARTE",
+      "text": "4850-9679-1103-8209"
+    },
+    {
+      "start": 989,
+      "end": 1022,
+      "type": "IBAN",
+      "text": "FR76 4049 1074 5928 6124 3574 002"
+    },
+    {
+      "start": 1107,
+      "end": 1120,
+      "type": "PERSONNE",
+      "text": "Aurélie Morel"
+    },
+    {
+      "start": 1124,
+      "end": 1134,
+      "type": "TELEPHONE",
+      "text": "0639989585"
+    },
+    {
+      "start": 1140,
+      "end": 1186,
+      "type": "EMAIL",
+      "text": "aurelie.morel@florence-expertise-comptable.bzh"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 128,
+      "end": 139,
+      "type": "DATE",
+      "text": "31 mai 2026"
+    },
+    {
+      "start": 356,
+      "end": 366,
+      "type": "DATE",
+      "text": "15/12/2025"
+    },
+    {
+      "start": 416,
+      "end": 424,
+      "type": "MONTANT",
+      "text": "416,00 €"
+    },
+    {
+      "start": 425,
+      "end": 435,
+      "type": "DATE",
+      "text": "09/01/2026"
+    },
+    {
+      "start": 467,
+      "end": 477,
+      "type": "MONTANT",
+      "text": "1 080,00 €"
+    },
+    {
+      "start": 486,
+      "end": 496,
+      "type": "MONTANT",
+      "text": "1 496,00 €"
+    },
+    {
+      "start": 497,
+      "end": 507,
+      "type": "DATE",
+      "text": "10/02/2026"
+    },
+    {
+      "start": 540,
+      "end": 550,
+      "type": "MONTANT",
+      "text": "1 080,00 €"
+    },
+    {
+      "start": 559,
+      "end": 567,
+      "type": "MONTANT",
+      "text": "416,00 €"
+    },
+    {
+      "start": 568,
+      "end": 578,
+      "type": "DATE",
+      "text": "02/03/2026"
+    },
+    {
+      "start": 610,
+      "end": 620,
+      "type": "MONTANT",
+      "text": "2 040,00 €"
+    },
+    {
+      "start": 629,
+      "end": 639,
+      "type": "MONTANT",
+      "text": "2 456,00 €"
+    },
+    {
+      "start": 640,
+      "end": 650,
+      "type": "DATE",
+      "text": "03/04/2026"
+    },
+    {
+      "start": 683,
+      "end": 693,
+      "type": "MONTANT",
+      "text": "2 040,00 €"
+    },
+    {
+      "start": 702,
+      "end": 710,
+      "type": "MONTANT",
+      "text": "416,00 €"
+    },
+    {
+      "start": 724,
+      "end": 734,
+      "type": "DATE",
+      "text": "31/05/2026"
+    },
+    {
+      "start": 737,
+      "end": 745,
+      "type": "MONTANT",
+      "text": "416,00 €"
+    },
+    {
+      "start": 776,
+      "end": 784,
+      "type": "MONTANT",
+      "text": "223,32 €"
+    },
+    {
+      "start": 797,
+      "end": 807,
+      "type": "DATE",
+      "text": "10/05/2026"
+    },
+    {
+      "start": 1205,
+      "end": 1210,
+      "type": "LIEU_ISOLE",
+      "text": "Nîmes"
+    },
+    {
+      "start": 1214,
+      "end": 1224,
+      "type": "DATE",
+      "text": "31/05/2026"
+    }
+  ]
+}

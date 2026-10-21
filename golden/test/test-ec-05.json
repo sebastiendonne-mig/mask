@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-ec-05",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-lettre-mission",
+  "spans": [
+    {
+      "start": 0,
+      "end": 25,
+      "type": "ORGANISATION",
+      "text": "LEFEBVRE EXPERTISE SELARL"
+    },
+    {
+      "start": 56,
+      "end": 95,
+      "type": "ADRESSE",
+      "text": "120 boulevard de la Liberté\n21000 Dijon"
+    },
+    {
+      "start": 96,
+      "end": 113,
+      "type": "TELEPHONE",
+      "text": "+33 3 53 01 59 64"
+    },
+    {
+      "start": 116,
+      "end": 146,
+      "type": "EMAIL",
+      "text": "contact@lefebvre-expertise.pro"
+    },
+    {
+      "start": 153,
+      "end": 167,
+      "type": "SIRET",
+      "text": "92438200500032"
+    },
+    {
+      "start": 174,
+      "end": 187,
+      "type": "TVA_INTRA",
+      "text": "FR29924382005"
+    },
+    {
+      "start": 189,
+      "end": 212,
+      "type": "ORGANISATION",
+      "text": "SARL Transports Barbier"
+    },
+    {
+      "start": 234,
+      "end": 246,
+      "type": "PERSONNE",
+      "text": "ROSE BARBIER"
+    },
+    {
+      "start": 247,
+      "end": 284,
+      "type": "ADRESSE",
+      "text": "121 bis allée des Roses\n84000 AVIGNON"
+    },
+    {
+      "start": 384,
+      "end": 396,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2025-0098"
+    },
+    {
+      "start": 696,
+      "end": 719,
+      "type": "ORGANISATION",
+      "text": "SARL TRANSPORTS BARBIER"
+    },
+    {
+      "start": 764,
+      "end": 775,
+      "type": "SIREN",
+      "text": "529 481 970"
+    },
+    {
+      "start": 793,
+      "end": 810,
+      "type": "SIRET",
+      "text": "529 481 970 00034"
+    },
+    {
+      "start": 842,
+      "end": 859,
+      "type": "TVA_INTRA",
+      "text": "FR 15 529 481 970"
+    },
+    {
+      "start": 881,
+      "end": 893,
+      "type": "PERSONNE",
+      "text": "Rose BARBIER"
+    },
+    {
+      "start": 913,
+      "end": 948,
+      "type": "EMAIL",
+      "text": "rose.barbier@transports-barbier.org"
+    },
+    {
+      "start": 951,
+      "end": 965,
+      "type": "TELEPHONE",
+      "text": "06.39.98.14.30"
+    },
+    {
+      "start": 1621,
+      "end": 1654,
+      "type": "IBAN",
+      "text": "FR76 7491 0192 8172 6274 0418 567"
+    },
+    {
+      "start": 1927,
+      "end": 1944,
+      "type": "PERSONNE",
+      "text": "Juliette LEFEBVRE"
+    },
+    {
+      "start": 2252,
+      "end": 2277,
+      "type": "ORGANISATION",
+      "text": "Lefebvre Expertise SELARL"
+    },
+    {
+      "start": 2279,
+      "end": 2296,
+      "type": "PERSONNE",
+      "text": "Juliette LEFEBVRE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 286,
+      "end": 291,
+      "type": "LIEU_ISOLE",
+      "text": "Dijon"
+    },
+    {
+      "start": 296,
+      "end": 310,
+      "type": "DATE",
+      "text": "8 janvier 2026"
+    },
+    {
+      "start": 747,
+      "end": 755,
+      "type": "MONTANT",
+      "text": "37 000 €"
+    },
+    {
+      "start": 1040,
+      "end": 1056,
+      "type": "DATE",
+      "text": "1er janvier 2026"
+    },
+    {
+      "start": 1060,
+      "end": 1076,
+      "type": "DATE",
+      "text": "31 décembre 2026"
+    },
+    {
+      "start": 1410,
+      "end": 1420,
+      "type": "MONTANT",
+      "text": "6 800,00 €"
+    },
+    {
+      "start": 1437,
+      "end": 1447,
+      "type": "MONTANT",
+      "text": "8 160,00 €"
+    },
+    {
+      "start": 1491,
+      "end": 1499,
+      "type": "MONTANT",
+      "text": "680,00 €"
+    },
+    {
+      "start": 1551,
+      "end": 1555,
+      "type": "MONTANT",
+      "text": "28 €"
+    }
+  ]
+}

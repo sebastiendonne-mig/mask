@@ -1,0 +1,118 @@
+{
+  "doc_id": "test-rh-06",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-attestation-emploi",
+  "spans": [
+    {
+      "start": 0,
+      "end": 19,
+      "type": "ORGANISATION",
+      "text": "LEMAIRE & FILS SARL"
+    },
+    {
+      "start": 20,
+      "end": 57,
+      "type": "ADRESSE",
+      "text": "124 allée des Glycines\n25000 Besançon"
+    },
+    {
+      "start": 66,
+      "end": 80,
+      "type": "SIRET",
+      "text": "47187863700092"
+    },
+    {
+      "start": 88,
+      "end": 98,
+      "type": "TELEPHONE",
+      "text": "0353011048"
+    },
+    {
+      "start": 136,
+      "end": 152,
+      "type": "PERSONNE",
+      "text": "Guillaume DELMAS"
+    },
+    {
+      "start": 227,
+      "end": 246,
+      "type": "ORGANISATION",
+      "text": "Lemaire & Fils SARL"
+    },
+    {
+      "start": 270,
+      "end": 283,
+      "type": "PERSONNE",
+      "text": "ROUSSEAU Rose"
+    },
+    {
+      "start": 365,
+      "end": 386,
+      "type": "NIR",
+      "text": "2 92 09 86 057 099 38"
+    },
+    {
+      "start": 398,
+      "end": 474,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B, 54 rue de la Fontaine, 13100 Aix-en-Provence"
+    },
+    {
+      "start": 1033,
+      "end": 1047,
+      "type": "TELEPHONE",
+      "text": "03.53.01.10.48"
+    },
+    {
+      "start": 1063,
+      "end": 1087,
+      "type": "EMAIL",
+      "text": "g.delmas@lemaire-fils.eu"
+    },
+    {
+      "start": 1127,
+      "end": 1143,
+      "type": "PERSONNE",
+      "text": "Guillaume DELMAS"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 292,
+      "end": 302,
+      "type": "DATE",
+      "text": "11/09/1992"
+    },
+    {
+      "start": 305,
+      "end": 313,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 525,
+      "end": 537,
+      "type": "DATE",
+      "text": "26 juin 2023"
+    },
+    {
+      "start": 788,
+      "end": 798,
+      "type": "MONTANT",
+      "text": "2 252,50 €"
+    },
+    {
+      "start": 1097,
+      "end": 1105,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 1110,
+      "end": 1125,
+      "type": "DATE",
+      "text": "25 juillet 2026"
+    }
+  ]
+}

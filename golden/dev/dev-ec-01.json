@@ -1,0 +1,124 @@
+{
+  "doc_id": "dev-ec-01",
+  "persona": "expert-comptable",
+  "split": "dev",
+  "template_id": "ec-attestation-chiffre-affaires",
+  "spans": [
+    {
+      "start": 0,
+      "end": 34,
+      "type": "ORGANISATION",
+      "text": "SARL Cabinet Paris Audit & Conseil"
+    },
+    {
+      "start": 96,
+      "end": 128,
+      "type": "ADRESSE",
+      "text": "12 chemin des Vignes\n51100 Reims"
+    },
+    {
+      "start": 135,
+      "end": 152,
+      "type": "SIRET",
+      "text": "224 853 333 00090"
+    },
+    {
+      "start": 159,
+      "end": 176,
+      "type": "TVA_INTRA",
+      "text": "FR 89 224 853 333"
+    },
+    {
+      "start": 182,
+      "end": 199,
+      "type": "TELEPHONE",
+      "text": "+33 3 53 01 73 30"
+    },
+    {
+      "start": 344,
+      "end": 363,
+      "type": "ORGANISATION",
+      "text": "DA SILVA CONSEIL SA"
+    },
+    {
+      "start": 396,
+      "end": 449,
+      "type": "ADRESSE",
+      "text": "Bâtiment C, 2e étage, 74 place du Marché, 59000 Lille"
+    },
+    {
+      "start": 485,
+      "end": 496,
+      "type": "SIREN",
+      "text": "616 457 263"
+    },
+    {
+      "start": 521,
+      "end": 538,
+      "type": "TVA_INTRA",
+      "text": "FR 65 616 457 263"
+    },
+    {
+      "start": 579,
+      "end": 592,
+      "type": "PERSONNE",
+      "text": "Rose DA SILVA"
+    },
+    {
+      "start": 1303,
+      "end": 1313,
+      "type": "PERSONNE",
+      "text": "Rose PARIS"
+    },
+    {
+      "start": 1340,
+      "end": 1379,
+      "type": "EMAIL",
+      "text": "rparis@cabinet-paris-audit-conseil.immo"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 276,
+      "end": 292,
+      "type": "DATE",
+      "text": "31 décembre 2024"
+    },
+    {
+      "start": 805,
+      "end": 815,
+      "type": "DATE",
+      "text": "01/01/2024"
+    },
+    {
+      "start": 819,
+      "end": 829,
+      "type": "DATE",
+      "text": "31/12/2024"
+    },
+    {
+      "start": 840,
+      "end": 854,
+      "type": "MONTANT",
+      "text": "1 011 891,59 €"
+    },
+    {
+      "start": 863,
+      "end": 875,
+      "type": "MONTANT",
+      "text": "829 751,10 €"
+    },
+    {
+      "start": 1276,
+      "end": 1281,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 1286,
+      "end": 1301,
+      "type": "DATE",
+      "text": "13 octobre 2025"
+    }
+  ]
+}

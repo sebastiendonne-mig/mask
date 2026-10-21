@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-ec-01",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-lettre-mission",
+  "spans": [
+    {
+      "start": 0,
+      "end": 39,
+      "type": "ORGANISATION",
+      "text": "CABINET LEFEBVRE AUDIT & CONSEIL SELARL"
+    },
+    {
+      "start": 70,
+      "end": 104,
+      "type": "ADRESSE",
+      "text": "103 bis rue du Four\n38000 Grenoble"
+    },
+    {
+      "start": 105,
+      "end": 125,
+      "type": "TELEPHONE",
+      "text": "+33 (0)4 65 71 09 41"
+    },
+    {
+      "start": 128,
+      "end": 173,
+      "type": "EMAIL",
+      "text": "secretariat@cabinet-lefebvre-audit-conseil.io"
+    },
+    {
+      "start": 180,
+      "end": 194,
+      "type": "SIRET",
+      "text": "80719813000096"
+    },
+    {
+      "start": 201,
+      "end": 214,
+      "type": "TVA_INTRA",
+      "text": "FR72807198130"
+    },
+    {
+      "start": 216,
+      "end": 245,
+      "type": "ORGANISATION",
+      "text": "EURL Atelier des Trois Chênes"
+    },
+    {
+      "start": 267,
+      "end": 280,
+      "type": "PERSONNE",
+      "text": "ROSE DA SILVA"
+    },
+    {
+      "start": 281,
+      "end": 314,
+      "type": "ADRESSE",
+      "text": "101 chemin des Vignes\n29200 BREST"
+    },
+    {
+      "start": 414,
+      "end": 421,
+      "type": "NUMERO_DOSSIER",
+      "text": "TVW8971"
+    },
+    {
+      "start": 721,
+      "end": 750,
+      "type": "ORGANISATION",
+      "text": "EURL ATELIER DES TROIS CHÊNES"
+    },
+    {
+      "start": 796,
+      "end": 807,
+      "type": "SIREN",
+      "text": "435 393 962"
+    },
+    {
+      "start": 825,
+      "end": 842,
+      "type": "SIRET",
+      "text": "435 393 962 00020"
+    },
+    {
+      "start": 874,
+      "end": 891,
+      "type": "TVA_INTRA",
+      "text": "FR 74 435 393 962"
+    },
+    {
+      "start": 913,
+      "end": 926,
+      "type": "PERSONNE",
+      "text": "Rose DA SILVA"
+    },
+    {
+      "start": 946,
+      "end": 984,
+      "type": "EMAIL",
+      "text": "r.dasilva@atelier-des-trois-chenes.net"
+    },
+    {
+      "start": 987,
+      "end": 1001,
+      "type": "TELEPHONE",
+      "text": "06-39-98-83-55"
+    },
+    {
+      "start": 1657,
+      "end": 1690,
+      "type": "IBAN",
+      "text": "FR76 2727 2988 5790 2217 6849 597"
+    },
+    {
+      "start": 1963,
+      "end": 1979,
+      "type": "PERSONNE",
+      "text": "Mathieu LEFEBVRE"
+    },
+    {
+      "start": 2285,
+      "end": 2324,
+      "type": "ORGANISATION",
+      "text": "Cabinet Lefebvre Audit & Conseil SELARL"
+    },
+    {
+      "start": 2326,
+      "end": 2342,
+      "type": "PERSONNE",
+      "text": "Mathieu LEFEBVRE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 316,
+      "end": 324,
+      "type": "LIEU_ISOLE",
+      "text": "Grenoble"
+    },
+    {
+      "start": 329,
+      "end": 340,
+      "type": "DATE",
+      "text": "2 juin 2026"
+    },
+    {
+      "start": 778,
+      "end": 787,
+      "type": "MONTANT",
+      "text": "100 000 €"
+    },
+    {
+      "start": 1076,
+      "end": 1092,
+      "type": "DATE",
+      "text": "1er janvier 2026"
+    },
+    {
+      "start": 1096,
+      "end": 1112,
+      "type": "DATE",
+      "text": "31 décembre 2026"
+    },
+    {
+      "start": 1446,
+      "end": 1456,
+      "type": "MONTANT",
+      "text": "7 000,00 €"
+    },
+    {
+      "start": 1473,
+      "end": 1483,
+      "type": "MONTANT",
+      "text": "8 400,00 €"
+    },
+    {
+      "start": 1527,
+      "end": 1535,
+      "type": "MONTANT",
+      "text": "700,00 €"
+    },
+    {
+      "start": 1587,
+      "end": 1591,
+      "type": "MONTANT",
+      "text": "40 €"
+    }
+  ]
+}

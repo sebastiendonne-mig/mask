@@ -1,0 +1,142 @@
+{
+  "doc_id": "test-rh-01",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-contrat-travail",
+  "spans": [
+    {
+      "start": 76,
+      "end": 102,
+      "type": "ORGANISATION",
+      "text": "SAS Les Jardins du Plateau"
+    },
+    {
+      "start": 165,
+      "end": 182,
+      "type": "SIRET",
+      "text": "895 278 455 00012"
+    },
+    {
+      "start": 215,
+      "end": 253,
+      "type": "ADRESSE",
+      "text": "110 route de la Forêt, 66000 Perpignan"
+    },
+    {
+      "start": 275,
+      "end": 285,
+      "type": "PERSONNE",
+      "text": "Rose MOREL"
+    },
+    {
+      "start": 380,
+      "end": 391,
+      "type": "PERSONNE",
+      "text": "ROSE BERTIN"
+    },
+    {
+      "start": 445,
+      "end": 466,
+      "type": "NIR",
+      "text": "2 73 03 72 436 543 10"
+    },
+    {
+      "start": 479,
+      "end": 535,
+      "type": "ADRESSE",
+      "text": "Bâtiment C, 2e étage\n58 allée des Glycines\n84000 Avignon"
+    },
+    {
+      "start": 548,
+      "end": 562,
+      "type": "TELEPHONE",
+      "text": "06-39-98-64-08"
+    },
+    {
+      "start": 574,
+      "end": 603,
+      "type": "EMAIL",
+      "text": "rose.bertin@courrier-perso.eu"
+    },
+    {
+      "start": 692,
+      "end": 698,
+      "type": "PERSONNE",
+      "text": "BERTIN"
+    },
+    {
+      "start": 1887,
+      "end": 1897,
+      "type": "PERSONNE",
+      "text": "Rose MOREL"
+    },
+    {
+      "start": 1923,
+      "end": 1934,
+      "type": "PERSONNE",
+      "text": "Rose BERTIN"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 122,
+      "end": 129,
+      "type": "MONTANT",
+      "text": "8 000 €"
+    },
+    {
+      "start": 399,
+      "end": 409,
+      "type": "DATE",
+      "text": "14/03/1973"
+    },
+    {
+      "start": 412,
+      "end": 419,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 724,
+      "end": 739,
+      "type": "DATE",
+      "text": "21 janvier 2026"
+    },
+    {
+      "start": 1136,
+      "end": 1145,
+      "type": "LIEU_ISOLE",
+      "text": "Perpignan"
+    },
+    {
+      "start": 1202,
+      "end": 1207,
+      "type": "LIEU_ISOLE",
+      "text": "Nancy"
+    },
+    {
+      "start": 1465,
+      "end": 1475,
+      "type": "MONTANT",
+      "text": "3 217,25 €"
+    },
+    {
+      "start": 1591,
+      "end": 1598,
+      "type": "MONTANT",
+      "text": "1 200 €"
+    },
+    {
+      "start": 1780,
+      "end": 1789,
+      "type": "LIEU_ISOLE",
+      "text": "Perpignan"
+    },
+    {
+      "start": 1794,
+      "end": 1810,
+      "type": "DATE",
+      "text": "31 décembre 2025"
+    }
+  ]
+}

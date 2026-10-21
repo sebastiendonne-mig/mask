@@ -1,0 +1,14 @@
+{
+  "name": "mask",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pseudonymiseur de documents qui tourne entièrement dans le navigateur.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "golden": "node scripts/generate-golden.mjs"
+  }
+}

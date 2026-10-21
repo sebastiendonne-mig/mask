@@ -1,0 +1,148 @@
+{
+  "doc_id": "dev-avocat-04",
+  "persona": "avocat",
+  "split": "dev",
+  "template_id": "avocat-convention-honoraires",
+  "spans": [
+    {
+      "start": 58,
+      "end": 72,
+      "type": "PERSONNE",
+      "text": "PIERRE BARBIER"
+    },
+    {
+      "start": 109,
+      "end": 161,
+      "type": "ADRESSE",
+      "text": "Immeuble Le Belvédère, 137 cours des Arts, 64000 Pau"
+    },
+    {
+      "start": 176,
+      "end": 190,
+      "type": "TELEPHONE",
+      "text": "06 39 98 12 83"
+    },
+    {
+      "start": 206,
+      "end": 224,
+      "type": "EMAIL",
+      "text": "pbarbier@monmel.fr"
+    },
+    {
+      "start": 263,
+      "end": 298,
+      "type": "ORGANISATION",
+      "text": "SELARL Cabinet Chevalier & Associés"
+    },
+    {
+      "start": 355,
+      "end": 369,
+      "type": "SIRET",
+      "text": "79253179000022"
+    },
+    {
+      "start": 395,
+      "end": 458,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B, 97 rue de la Gare, 83000 Toulon"
+    },
+    {
+      "start": 483,
+      "end": 497,
+      "type": "PERSONNE",
+      "text": "Inès Chevalier"
+    },
+    {
+      "start": 669,
+      "end": 682,
+      "type": "PERSONNE",
+      "text": "Fabrice VIDAL"
+    },
+    {
+      "start": 805,
+      "end": 817,
+      "type": "NUMERO_DOSSIER",
+      "text": "2026-3047-IC"
+    },
+    {
+      "start": 1327,
+      "end": 1354,
+      "type": "IBAN",
+      "text": "FR7669052002172910895870510"
+    },
+    {
+      "start": 1792,
+      "end": 1806,
+      "type": "PERSONNE",
+      "text": "Pierre Barbier"
+    },
+    {
+      "start": 1839,
+      "end": 1851,
+      "type": "PERSONNE",
+      "text": "I. CHEVALIER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 80,
+      "end": 90,
+      "type": "DATE",
+      "text": "08/01/1993"
+    },
+    {
+      "start": 93,
+      "end": 97,
+      "type": "LIEU_ISOLE",
+      "text": "Caen"
+    },
+    {
+      "start": 341,
+      "end": 347,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 883,
+      "end": 893,
+      "type": "MONTANT",
+      "text": "2 400,00 €"
+    },
+    {
+      "start": 903,
+      "end": 913,
+      "type": "MONTANT",
+      "text": "2 880,00 €"
+    },
+    {
+      "start": 1038,
+      "end": 1043,
+      "type": "MONTANT",
+      "text": "250 €"
+    },
+    {
+      "start": 1193,
+      "end": 1201,
+      "type": "MONTANT",
+      "text": "960,00 €"
+    },
+    {
+      "start": 1663,
+      "end": 1669,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 1679,
+      "end": 1685,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 1690,
+      "end": 1705,
+      "type": "DATE",
+      "text": "20 janvier 2026"
+    }
+  ]
+}

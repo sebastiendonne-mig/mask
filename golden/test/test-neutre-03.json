@@ -1,0 +1,45 @@
+{
+  "doc_id": "test-neutre-03",
+  "persona": "aucune",
+  "split": "test",
+  "template_id": "neutre-fiche-prudhommes",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 832,
+      "end": 839,
+      "type": "MONTANT",
+      "text": "2 600 €"
+    },
+    {
+      "start": 860,
+      "end": 867,
+      "type": "MONTANT",
+      "text": "7 800 €"
+    },
+    {
+      "start": 870,
+      "end": 877,
+      "type": "MONTANT",
+      "text": "9 100 €"
+    },
+    {
+      "start": 1022,
+      "end": 1027,
+      "type": "LIEU_ISOLE",
+      "text": "Niort"
+    },
+    {
+      "start": 1085,
+      "end": 1090,
+      "type": "LIEU_ISOLE",
+      "text": "Paris"
+    },
+    {
+      "start": 1114,
+      "end": 1126,
+      "type": "DATE",
+      "text": "27 août 2026"
+    }
+  ]
+}

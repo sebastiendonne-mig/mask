@@ -1,0 +1,39 @@
+{
+  "doc_id": "test-neutre-05",
+  "persona": "aucune",
+  "split": "test",
+  "template_id": "neutre-guide-teletravail",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 49,
+      "end": 64,
+      "type": "DATE",
+      "text": "31 octobre 2026"
+    },
+    {
+      "start": 500,
+      "end": 506,
+      "type": "MONTANT",
+      "text": "2,70 €"
+    },
+    {
+      "start": 549,
+      "end": 556,
+      "type": "MONTANT",
+      "text": "59,40 €"
+    },
+    {
+      "start": 981,
+      "end": 991,
+      "type": "DATE",
+      "text": "31/10/2027"
+    },
+    {
+      "start": 1110,
+      "end": 1115,
+      "type": "LIEU_ISOLE",
+      "text": "Niort"
+    }
+  ]
+}

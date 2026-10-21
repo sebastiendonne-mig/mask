@@ -1,0 +1,118 @@
+{
+  "doc_id": "test-rh-08",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-attestation-emploi",
+  "spans": [
+    {
+      "start": 0,
+      "end": 33,
+      "type": "ORGANISATION",
+      "text": "DOMAINE DES PIERRES BLANCHES EURL"
+    },
+    {
+      "start": 34,
+      "end": 71,
+      "type": "ADRESSE",
+      "text": "47 boulevard de la Liberté\n14000 Caen"
+    },
+    {
+      "start": 80,
+      "end": 97,
+      "type": "SIRET",
+      "text": "202 496 493 00034"
+    },
+    {
+      "start": 105,
+      "end": 125,
+      "type": "TELEPHONE",
+      "text": "+33 (0)2 61 91 43 87"
+    },
+    {
+      "start": 164,
+      "end": 176,
+      "type": "PERSONNE",
+      "text": "Manon BENALI"
+    },
+    {
+      "start": 251,
+      "end": 284,
+      "type": "ORGANISATION",
+      "text": "Domaine des Pierres Blanches EURL"
+    },
+    {
+      "start": 310,
+      "end": 325,
+      "type": "PERSONNE",
+      "text": "DAMIEN FLORENCE"
+    },
+    {
+      "start": 413,
+      "end": 434,
+      "type": "NIR",
+      "text": "1 68 12 63 861 714 90"
+    },
+    {
+      "start": 446,
+      "end": 478,
+      "type": "ADRESSE",
+      "text": "41 rue des Tilleuls\n44000 Nantes"
+    },
+    {
+      "start": 1025,
+      "end": 1035,
+      "type": "TELEPHONE",
+      "text": "0261914387"
+    },
+    {
+      "start": 1051,
+      "end": 1096,
+      "type": "EMAIL",
+      "text": "manon.benali@domaine-des-pierres-blanches.com"
+    },
+    {
+      "start": 1128,
+      "end": 1140,
+      "type": "PERSONNE",
+      "text": "Manon BENALI"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 333,
+      "end": 343,
+      "type": "DATE",
+      "text": "08/12/1968"
+    },
+    {
+      "start": 346,
+      "end": 362,
+      "type": "LIEU_ISOLE",
+      "text": "Clermont-Ferrand"
+    },
+    {
+      "start": 528,
+      "end": 545,
+      "type": "DATE",
+      "text": "28 septembre 2017"
+    },
+    {
+      "start": 781,
+      "end": 791,
+      "type": "MONTANT",
+      "text": "2 290,33 €"
+    },
+    {
+      "start": 1106,
+      "end": 1110,
+      "type": "LIEU_ISOLE",
+      "text": "Caen"
+    },
+    {
+      "start": 1115,
+      "end": 1126,
+      "type": "DATE",
+      "text": "16 mai 2026"
+    }
+  ]
+}

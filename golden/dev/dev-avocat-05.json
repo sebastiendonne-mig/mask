@@ -1,0 +1,148 @@
+{
+  "doc_id": "dev-avocat-05",
+  "persona": "avocat",
+  "split": "dev",
+  "template_id": "avocat-convention-honoraires",
+  "spans": [
+    {
+      "start": 56,
+      "end": 72,
+      "type": "PERSONNE",
+      "text": "MARGAUX FLORENCE"
+    },
+    {
+      "start": 111,
+      "end": 163,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres, 74 allée des Roses, 44000 Nantes"
+    },
+    {
+      "start": 178,
+      "end": 192,
+      "type": "TELEPHONE",
+      "text": "06.39.98.95.46"
+    },
+    {
+      "start": 208,
+      "end": 244,
+      "type": "EMAIL",
+      "text": "florence.margaux@messagerie-libre.fr"
+    },
+    {
+      "start": 284,
+      "end": 314,
+      "type": "ORGANISATION",
+      "text": "SCP Cabinet Ferrand & Associés"
+    },
+    {
+      "start": 376,
+      "end": 390,
+      "type": "SIRET",
+      "text": "89411187100089"
+    },
+    {
+      "start": 416,
+      "end": 488,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B, 68 allée des Glycines, 17000 La Rochelle"
+    },
+    {
+      "start": 513,
+      "end": 527,
+      "type": "PERSONNE",
+      "text": "Sophie Ferrand"
+    },
+    {
+      "start": 707,
+      "end": 739,
+      "type": "ORGANISATION",
+      "text": "Domaine des Pierres Blanches SAS"
+    },
+    {
+      "start": 843,
+      "end": 855,
+      "type": "NUMERO_DOSSIER",
+      "text": "SF/2026/3047"
+    },
+    {
+      "start": 1365,
+      "end": 1398,
+      "type": "IBAN",
+      "text": "FR76 2423 8298 3883 1450 6172 840"
+    },
+    {
+      "start": 1848,
+      "end": 1864,
+      "type": "PERSONNE",
+      "text": "Margaux Florence"
+    },
+    {
+      "start": 1897,
+      "end": 1907,
+      "type": "PERSONNE",
+      "text": "S. FERRAND"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 81,
+      "end": 91,
+      "type": "DATE",
+      "text": "28/02/1987"
+    },
+    {
+      "start": 94,
+      "end": 99,
+      "type": "LIEU_ISOLE",
+      "text": "Lille"
+    },
+    {
+      "start": 357,
+      "end": 368,
+      "type": "LIEU_ISOLE",
+      "text": "La Rochelle"
+    },
+    {
+      "start": 921,
+      "end": 931,
+      "type": "MONTANT",
+      "text": "1 500,00 €"
+    },
+    {
+      "start": 941,
+      "end": 951,
+      "type": "MONTANT",
+      "text": "1 800,00 €"
+    },
+    {
+      "start": 1076,
+      "end": 1081,
+      "type": "MONTANT",
+      "text": "250 €"
+    },
+    {
+      "start": 1231,
+      "end": 1239,
+      "type": "MONTANT",
+      "text": "600,00 €"
+    },
+    {
+      "start": 1707,
+      "end": 1718,
+      "type": "LIEU_ISOLE",
+      "text": "La Rochelle"
+    },
+    {
+      "start": 1728,
+      "end": 1739,
+      "type": "LIEU_ISOLE",
+      "text": "La Rochelle"
+    },
+    {
+      "start": 1744,
+      "end": 1761,
+      "type": "DATE",
+      "text": "1er novembre 2025"
+    }
+  ]
+}

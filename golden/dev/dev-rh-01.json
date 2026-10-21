@@ -1,0 +1,100 @@
+{
+  "doc_id": "dev-rh-01",
+  "persona": "rh",
+  "split": "dev",
+  "template_id": "rh-promesse-embauche",
+  "spans": [
+    {
+      "start": 0,
+      "end": 17,
+      "type": "ORGANISATION",
+      "text": "SA STUDIO ARDOISE"
+    },
+    {
+      "start": 18,
+      "end": 48,
+      "type": "ADRESSE",
+      "text": "94 rue de la Gare\n56000 Vannes"
+    },
+    {
+      "start": 57,
+      "end": 71,
+      "type": "SIRET",
+      "text": "13120136000073"
+    },
+    {
+      "start": 80,
+      "end": 93,
+      "type": "PERSONNE",
+      "text": "Rose FLORENCE"
+    },
+    {
+      "start": 94,
+      "end": 126,
+      "type": "ADRESSE",
+      "text": "128 rue des Tilleuls\n30000 NÎMES"
+    },
+    {
+      "start": 460,
+      "end": 474,
+      "type": "PERSONNE",
+      "text": "Nathalie Vidal"
+    },
+    {
+      "start": 754,
+      "end": 787,
+      "type": "EMAIL",
+      "text": "nathalie.vidal@studio-ardoise.org"
+    },
+    {
+      "start": 869,
+      "end": 879,
+      "type": "TELEPHONE",
+      "text": "0261910908"
+    },
+    {
+      "start": 1000,
+      "end": 1014,
+      "type": "PERSONNE",
+      "text": "Nathalie VIDAL"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 128,
+      "end": 134,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 139,
+      "end": 151,
+      "type": "DATE",
+      "text": "21 août 2026"
+    },
+    {
+      "start": 377,
+      "end": 391,
+      "type": "DATE",
+      "text": "8 octobre 2026"
+    },
+    {
+      "start": 425,
+      "end": 428,
+      "type": "LIEU_ISOLE",
+      "text": "Pau"
+    },
+    {
+      "start": 518,
+      "end": 530,
+      "type": "MONTANT",
+      "text": "31 000 euros"
+    },
+    {
+      "start": 671,
+      "end": 681,
+      "type": "DATE",
+      "text": "31/08/2026"
+    }
+  ]
+}

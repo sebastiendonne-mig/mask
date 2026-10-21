@@ -1,0 +1,244 @@
+{
+  "doc_id": "test-avocat-07",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-assignation",
+  "spans": [
+    {
+      "start": 194,
+      "end": 207,
+      "type": "PERSONNE",
+      "text": "Pierre BERTIN"
+    },
+    {
+      "start": 295,
+      "end": 338,
+      "type": "ADRESSE",
+      "text": "142 ter route de la Forêt, 67000 Strasbourg"
+    },
+    {
+      "start": 376,
+      "end": 388,
+      "type": "PERSONNE",
+      "text": "Pierre ROCHE"
+    },
+    {
+      "start": 428,
+      "end": 457,
+      "type": "ORGANISATION",
+      "text": "Roche Avocats Associés SELARL"
+    },
+    {
+      "start": 459,
+      "end": 502,
+      "type": "ADRESSE",
+      "text": "86 chemin des Crêtes, 13100 Aix-en-Provence"
+    },
+    {
+      "start": 509,
+      "end": 519,
+      "type": "TELEPHONE",
+      "text": "0465712744"
+    },
+    {
+      "start": 521,
+      "end": 555,
+      "type": "EMAIL",
+      "text": "p.roche@roche-avocats-associes.net"
+    },
+    {
+      "start": 623,
+      "end": 635,
+      "type": "PERSONNE",
+      "text": "Karim NGUYEN"
+    },
+    {
+      "start": 711,
+      "end": 738,
+      "type": "ORGANISATION",
+      "text": "EURL LES JARDINS DU PLATEAU"
+    },
+    {
+      "start": 842,
+      "end": 853,
+      "type": "SIREN",
+      "text": "853 858 942"
+    },
+    {
+      "start": 886,
+      "end": 919,
+      "type": "ADRESSE",
+      "text": "8 impasse des Lilas, 44000 Nantes"
+    },
+    {
+      "start": 1449,
+      "end": 1455,
+      "type": "PERSONNE",
+      "text": "BERTIN"
+    },
+    {
+      "start": 1486,
+      "end": 1513,
+      "type": "ORGANISATION",
+      "text": "EURL Les Jardins du Plateau"
+    },
+    {
+      "start": 1693,
+      "end": 1718,
+      "type": "ORGANISATION",
+      "text": "SAS Expertises Auto Vidal"
+    },
+    {
+      "start": 1890,
+      "end": 1896,
+      "type": "PERSONNE",
+      "text": "BERTIN"
+    },
+    {
+      "start": 2437,
+      "end": 2464,
+      "type": "ORGANISATION",
+      "text": "EURL LES JARDINS DU PLATEAU"
+    },
+    {
+      "start": 2484,
+      "end": 2497,
+      "type": "PERSONNE",
+      "text": "Pierre BERTIN"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 45,
+      "end": 60,
+      "type": "LIEU_ISOLE",
+      "text": "AIX-EN-PROVENCE"
+    },
+    {
+      "start": 149,
+      "end": 163,
+      "type": "DATE",
+      "text": "2 octobre 2026"
+    },
+    {
+      "start": 215,
+      "end": 231,
+      "type": "DATE",
+      "text": "14 décembre 1993"
+    },
+    {
+      "start": 234,
+      "end": 239,
+      "type": "LIEU_ISOLE",
+      "text": "Lille"
+    },
+    {
+      "start": 411,
+      "end": 426,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    },
+    {
+      "start": 662,
+      "end": 668,
+      "type": "LIEU_ISOLE",
+      "text": "Nantes"
+    },
+    {
+      "start": 754,
+      "end": 762,
+      "type": "MONTANT",
+      "text": "37 000 €"
+    },
+    {
+      "start": 820,
+      "end": 826,
+      "type": "LIEU_ISOLE",
+      "text": "Nantes"
+    },
+    {
+      "start": 1064,
+      "end": 1079,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    },
+    {
+      "start": 1111,
+      "end": 1127,
+      "type": "DATE",
+      "text": "19 novembre 2026"
+    },
+    {
+      "start": 1423,
+      "end": 1438,
+      "type": "DATE",
+      "text": "3 décembre 2025"
+    },
+    {
+      "start": 1549,
+      "end": 1560,
+      "type": "MONTANT",
+      "text": "21 000,00 €"
+    },
+    {
+      "start": 1586,
+      "end": 1601,
+      "type": "DATE",
+      "text": "14 janvier 2026"
+    },
+    {
+      "start": 1667,
+      "end": 1677,
+      "type": "DATE",
+      "text": "25/02/2026"
+    },
+    {
+      "start": 1867,
+      "end": 1879,
+      "type": "DATE",
+      "text": "25 mars 2026"
+    },
+    {
+      "start": 2401,
+      "end": 2411,
+      "type": "DATE",
+      "text": "03/12/2025"
+    },
+    {
+      "start": 2510,
+      "end": 2521,
+      "type": "MONTANT",
+      "text": "21 000,00 €"
+    },
+    {
+      "start": 2598,
+      "end": 2608,
+      "type": "MONTANT",
+      "text": "2 841,95 €"
+    },
+    {
+      "start": 2700,
+      "end": 2707,
+      "type": "MONTANT",
+      "text": "2 500 €"
+    },
+    {
+      "start": 2854,
+      "end": 2864,
+      "type": "DATE",
+      "text": "03/12/2025"
+    },
+    {
+      "start": 2899,
+      "end": 2909,
+      "type": "DATE",
+      "text": "25/02/2026"
+    },
+    {
+      "start": 2932,
+      "end": 2942,
+      "type": "DATE",
+      "text": "25/03/2026"
+    }
+  ]
+}

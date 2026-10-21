@@ -1,0 +1,118 @@
+{
+  "doc_id": "test-rh-09",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-attestation-emploi",
+  "spans": [
+    {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION",
+      "text": "SA DOMAINE DES PIERRES BLANCHES"
+    },
+    {
+      "start": 32,
+      "end": 92,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n101 cours des Arts\n57000 Metz"
+    },
+    {
+      "start": 101,
+      "end": 115,
+      "type": "SIRET",
+      "text": "57753859800068"
+    },
+    {
+      "start": 123,
+      "end": 133,
+      "type": "TELEPHONE",
+      "text": "0353013348"
+    },
+    {
+      "start": 171,
+      "end": 185,
+      "type": "PERSONNE",
+      "text": "Mehdi MARCHAND"
+    },
+    {
+      "start": 260,
+      "end": 291,
+      "type": "ORGANISATION",
+      "text": "SA Domaine des Pierres Blanches"
+    },
+    {
+      "start": 315,
+      "end": 326,
+      "type": "PERSONNE",
+      "text": "DELMAS Rose"
+    },
+    {
+      "start": 407,
+      "end": 422,
+      "type": "NIR",
+      "text": "291067295694948"
+    },
+    {
+      "start": 434,
+      "end": 479,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres, 126 rue Basse, 69003 Lyon"
+    },
+    {
+      "start": 1051,
+      "end": 1065,
+      "type": "TELEPHONE",
+      "text": "03-53-01-33-48"
+    },
+    {
+      "start": 1081,
+      "end": 1124,
+      "type": "EMAIL",
+      "text": "m.marchand@domaine-des-pierres-blanches.net"
+    },
+    {
+      "start": 1158,
+      "end": 1172,
+      "type": "PERSONNE",
+      "text": "Mehdi MARCHAND"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 335,
+      "end": 345,
+      "type": "DATE",
+      "text": "27/06/1991"
+    },
+    {
+      "start": 348,
+      "end": 355,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 530,
+      "end": 541,
+      "type": "DATE",
+      "text": "2 août 2012"
+    },
+    {
+      "start": 792,
+      "end": 802,
+      "type": "MONTANT",
+      "text": "4 503,50 €"
+    },
+    {
+      "start": 1134,
+      "end": 1138,
+      "type": "LIEU_ISOLE",
+      "text": "Metz"
+    },
+    {
+      "start": 1143,
+      "end": 1156,
+      "type": "DATE",
+      "text": "29 avril 2026"
+    }
+  ]
+}

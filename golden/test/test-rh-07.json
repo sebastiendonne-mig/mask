@@ -1,0 +1,118 @@
+{
+  "doc_id": "test-rh-07",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-attestation-emploi",
+  "spans": [
+    {
+      "start": 0,
+      "end": 19,
+      "type": "ORGANISATION",
+      "text": "PARIS BÂTIMENT EURL"
+    },
+    {
+      "start": 20,
+      "end": 61,
+      "type": "ADRESSE",
+      "text": "75 ter chemin du Moulin\n34000 Montpellier"
+    },
+    {
+      "start": 70,
+      "end": 84,
+      "type": "SIRET",
+      "text": "82185908900061"
+    },
+    {
+      "start": 92,
+      "end": 102,
+      "type": "TELEPHONE",
+      "text": "0465714619"
+    },
+    {
+      "start": 141,
+      "end": 155,
+      "type": "PERSONNE",
+      "text": "Laure LEFEBVRE"
+    },
+    {
+      "start": 230,
+      "end": 249,
+      "type": "ORGANISATION",
+      "text": "Paris Bâtiment EURL"
+    },
+    {
+      "start": 275,
+      "end": 290,
+      "type": "PERSONNE",
+      "text": "GAUTHIER Pierre"
+    },
+    {
+      "start": 378,
+      "end": 399,
+      "type": "NIR",
+      "text": "1 87 03 99 139 246 92"
+    },
+    {
+      "start": 411,
+      "end": 436,
+      "type": "ADRESSE",
+      "text": "20 rue Basse\n44000 Nantes"
+    },
+    {
+      "start": 1004,
+      "end": 1021,
+      "type": "TELEPHONE",
+      "text": "+33 4 65 71 46 19"
+    },
+    {
+      "start": 1037,
+      "end": 1070,
+      "type": "EMAIL",
+      "text": "laure.lefebvre@paris-batiment.pro"
+    },
+    {
+      "start": 1114,
+      "end": 1128,
+      "type": "PERSONNE",
+      "text": "Laure LEFEBVRE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 298,
+      "end": 308,
+      "type": "DATE",
+      "text": "31/03/1987"
+    },
+    {
+      "start": 311,
+      "end": 316,
+      "type": "LIEU_ISOLE",
+      "text": "Porto"
+    },
+    {
+      "start": 486,
+      "end": 497,
+      "type": "DATE",
+      "text": "9 mars 2021"
+    },
+    {
+      "start": 746,
+      "end": 756,
+      "type": "MONTANT",
+      "text": "5 191,00 €"
+    },
+    {
+      "start": 1080,
+      "end": 1091,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
+    },
+    {
+      "start": 1096,
+      "end": 1112,
+      "type": "DATE",
+      "text": "26 novembre 2026"
+    }
+  ]
+}

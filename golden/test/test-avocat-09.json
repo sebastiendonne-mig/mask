@@ -1,0 +1,244 @@
+{
+  "doc_id": "test-avocat-09",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-assignation",
+  "spans": [
+    {
+      "start": 187,
+      "end": 200,
+      "type": "PERSONNE",
+      "text": "Antoine ROYER"
+    },
+    {
+      "start": 290,
+      "end": 342,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres, 18 rue de la Fontaine, 64000 Pau"
+    },
+    {
+      "start": 380,
+      "end": 396,
+      "type": "PERSONNE",
+      "text": "Margaux ROUSSEAU"
+    },
+    {
+      "start": 429,
+      "end": 461,
+      "type": "ORGANISATION",
+      "text": "Rousseau Avocats Associés SELARL"
+    },
+    {
+      "start": 463,
+      "end": 490,
+      "type": "ADRESSE",
+      "text": "39 rue Basse, 45000 Orléans"
+    },
+    {
+      "start": 497,
+      "end": 511,
+      "type": "TELEPHONE",
+      "text": "02-61-91-99-84"
+    },
+    {
+      "start": 513,
+      "end": 552,
+      "type": "EMAIL",
+      "text": "mrousseau@rousseau-avocats-associes.bzh"
+    },
+    {
+      "start": 620,
+      "end": 633,
+      "type": "PERSONNE",
+      "text": "Aurélie ROCHE"
+    },
+    {
+      "start": 710,
+      "end": 730,
+      "type": "ORGANISATION",
+      "text": "SAS FERRAND BÂTIMENT"
+    },
+    {
+      "start": 833,
+      "end": 844,
+      "type": "SIREN",
+      "text": "146 493 226"
+    },
+    {
+      "start": 877,
+      "end": 911,
+      "type": "ADRESSE",
+      "text": "3 allée des Glycines, 56000 Vannes"
+    },
+    {
+      "start": 1426,
+      "end": 1431,
+      "type": "PERSONNE",
+      "text": "ROYER"
+    },
+    {
+      "start": 1462,
+      "end": 1482,
+      "type": "ORGANISATION",
+      "text": "SAS Ferrand Bâtiment"
+    },
+    {
+      "start": 1661,
+      "end": 1689,
+      "type": "ORGANISATION",
+      "text": "EURL Expertises Auto Ferrand"
+    },
+    {
+      "start": 1861,
+      "end": 1866,
+      "type": "PERSONNE",
+      "text": "ROYER"
+    },
+    {
+      "start": 2407,
+      "end": 2427,
+      "type": "ORGANISATION",
+      "text": "SAS FERRAND BÂTIMENT"
+    },
+    {
+      "start": 2447,
+      "end": 2460,
+      "type": "PERSONNE",
+      "text": "Antoine ROYER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 45,
+      "end": 52,
+      "type": "LIEU_ISOLE",
+      "text": "ORLÉANS"
+    },
+    {
+      "start": 141,
+      "end": 156,
+      "type": "DATE",
+      "text": "23 février 2026"
+    },
+    {
+      "start": 208,
+      "end": 223,
+      "type": "DATE",
+      "text": "2 novembre 1962"
+    },
+    {
+      "start": 226,
+      "end": 234,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    },
+    {
+      "start": 420,
+      "end": 427,
+      "type": "LIEU_ISOLE",
+      "text": "Orléans"
+    },
+    {
+      "start": 660,
+      "end": 667,
+      "type": "LIEU_ISOLE",
+      "text": "Orléans"
+    },
+    {
+      "start": 746,
+      "end": 753,
+      "type": "MONTANT",
+      "text": "5 000 €"
+    },
+    {
+      "start": 811,
+      "end": 817,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1056,
+      "end": 1063,
+      "type": "LIEU_ISOLE",
+      "text": "Orléans"
+    },
+    {
+      "start": 1095,
+      "end": 1108,
+      "type": "DATE",
+      "text": "19 avril 2026"
+    },
+    {
+      "start": 1404,
+      "end": 1415,
+      "type": "DATE",
+      "text": "23 mai 2025"
+    },
+    {
+      "start": 1518,
+      "end": 1529,
+      "type": "MONTANT",
+      "text": "31 990,00 €"
+    },
+    {
+      "start": 1555,
+      "end": 1569,
+      "type": "DATE",
+      "text": "3 juillet 2025"
+    },
+    {
+      "start": 1635,
+      "end": 1645,
+      "type": "DATE",
+      "text": "30/07/2025"
+    },
+    {
+      "start": 1838,
+      "end": 1850,
+      "type": "DATE",
+      "text": "17 août 2025"
+    },
+    {
+      "start": 2371,
+      "end": 2381,
+      "type": "DATE",
+      "text": "23/05/2025"
+    },
+    {
+      "start": 2473,
+      "end": 2484,
+      "type": "MONTANT",
+      "text": "31 990,00 €"
+    },
+    {
+      "start": 2561,
+      "end": 2571,
+      "type": "MONTANT",
+      "text": "4 298,35 €"
+    },
+    {
+      "start": 2663,
+      "end": 2670,
+      "type": "MONTANT",
+      "text": "2 500 €"
+    },
+    {
+      "start": 2817,
+      "end": 2827,
+      "type": "DATE",
+      "text": "23/05/2025"
+    },
+    {
+      "start": 2862,
+      "end": 2872,
+      "type": "DATE",
+      "text": "30/07/2025"
+    },
+    {
+      "start": 2895,
+      "end": 2905,
+      "type": "DATE",
+      "text": "17/08/2025"
+    }
+  ]
+}

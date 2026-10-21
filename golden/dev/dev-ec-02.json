@@ -1,0 +1,124 @@
+{
+  "doc_id": "dev-ec-02",
+  "persona": "expert-comptable",
+  "split": "dev",
+  "template_id": "ec-attestation-chiffre-affaires",
+  "spans": [
+    {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION",
+      "text": "Benali Expertise Comptable SARL"
+    },
+    {
+      "start": 93,
+      "end": 154,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n48 rue des Écoles\n56000 Vannes"
+    },
+    {
+      "start": 161,
+      "end": 178,
+      "type": "SIRET",
+      "text": "815 697 636 00018"
+    },
+    {
+      "start": 185,
+      "end": 198,
+      "type": "TVA_INTRA",
+      "text": "FR06815697636"
+    },
+    {
+      "start": 204,
+      "end": 218,
+      "type": "TELEPHONE",
+      "text": "02 61 91 03 51"
+    },
+    {
+      "start": 363,
+      "end": 389,
+      "type": "ORGANISATION",
+      "text": "BISCUITERIE DE L'ÉTANG SAS"
+    },
+    {
+      "start": 422,
+      "end": 459,
+      "type": "ADRESSE",
+      "text": "31 bis chemin des Vignes, 79000 Niort"
+    },
+    {
+      "start": 495,
+      "end": 506,
+      "type": "SIREN",
+      "text": "612 659 664"
+    },
+    {
+      "start": 531,
+      "end": 544,
+      "type": "TVA_INTRA",
+      "text": "FR15612659664"
+    },
+    {
+      "start": 584,
+      "end": 596,
+      "type": "PERSONNE",
+      "text": "Pierre PARIS"
+    },
+    {
+      "start": 1311,
+      "end": 1325,
+      "type": "PERSONNE",
+      "text": "Aurélie BENALI"
+    },
+    {
+      "start": 1352,
+      "end": 1397,
+      "type": "EMAIL",
+      "text": "aurelie.benali@benali-expertise-comptable.org"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 295,
+      "end": 311,
+      "type": "DATE",
+      "text": "31 décembre 2025"
+    },
+    {
+      "start": 809,
+      "end": 819,
+      "type": "DATE",
+      "text": "01/01/2025"
+    },
+    {
+      "start": 823,
+      "end": 833,
+      "type": "DATE",
+      "text": "31/12/2025"
+    },
+    {
+      "start": 844,
+      "end": 858,
+      "type": "MONTANT",
+      "text": "1 863 665,02 €"
+    },
+    {
+      "start": 867,
+      "end": 881,
+      "type": "MONTANT",
+      "text": "1 956 848,27 €"
+    },
+    {
+      "start": 1282,
+      "end": 1288,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1293,
+      "end": 1309,
+      "type": "DATE",
+      "text": "22 décembre 2026"
+    }
+  ]
+}

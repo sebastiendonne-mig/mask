@@ -1,0 +1,124 @@
+{
+  "doc_id": "dev-ec-03",
+  "persona": "expert-comptable",
+  "split": "dev",
+  "template_id": "ec-attestation-chiffre-affaires",
+  "spans": [
+    {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION",
+      "text": "SARL Perrot Expertise Comptable"
+    },
+    {
+      "start": 93,
+      "end": 127,
+      "type": "ADRESSE",
+      "text": "105 route de la Forêt\n35000 Rennes"
+    },
+    {
+      "start": 134,
+      "end": 151,
+      "type": "SIRET",
+      "text": "113 490 056 00042"
+    },
+    {
+      "start": 158,
+      "end": 171,
+      "type": "TVA_INTRA",
+      "text": "FR83113490056"
+    },
+    {
+      "start": 177,
+      "end": 191,
+      "type": "TELEPHONE",
+      "text": "02-61-91-82-65"
+    },
+    {
+      "start": 336,
+      "end": 358,
+      "type": "ORGANISATION",
+      "text": "FLORENCE BÂTIMENT SARL"
+    },
+    {
+      "start": 391,
+      "end": 419,
+      "type": "ADRESSE",
+      "text": "83 rue du Four, 44000 Nantes"
+    },
+    {
+      "start": 455,
+      "end": 464,
+      "type": "SIREN",
+      "text": "996238838"
+    },
+    {
+      "start": 489,
+      "end": 506,
+      "type": "TVA_INTRA",
+      "text": "FR 56 996 238 838"
+    },
+    {
+      "start": 547,
+      "end": 562,
+      "type": "PERSONNE",
+      "text": "Sophie FLORENCE"
+    },
+    {
+      "start": 1269,
+      "end": 1282,
+      "type": "PERSONNE",
+      "text": "Hélène PERROT"
+    },
+    {
+      "start": 1309,
+      "end": 1346,
+      "type": "EMAIL",
+      "text": "hperrot@perrot-expertise-comptable.fr"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 268,
+      "end": 284,
+      "type": "DATE",
+      "text": "31 décembre 2024"
+    },
+    {
+      "start": 775,
+      "end": 785,
+      "type": "DATE",
+      "text": "01/01/2024"
+    },
+    {
+      "start": 789,
+      "end": 799,
+      "type": "DATE",
+      "text": "31/12/2024"
+    },
+    {
+      "start": 810,
+      "end": 822,
+      "type": "MONTANT",
+      "text": "613 850,48 €"
+    },
+    {
+      "start": 831,
+      "end": 843,
+      "type": "MONTANT",
+      "text": "540 188,42 €"
+    },
+    {
+      "start": 1244,
+      "end": 1250,
+      "type": "LIEU_ISOLE",
+      "text": "Rennes"
+    },
+    {
+      "start": 1255,
+      "end": 1267,
+      "type": "DATE",
+      "text": "30 août 2025"
+    }
+  ]
+}

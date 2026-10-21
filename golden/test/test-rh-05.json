@@ -1,0 +1,142 @@
+{
+  "doc_id": "test-rh-05",
+  "persona": "rh",
+  "split": "test",
+  "template_id": "rh-contrat-travail",
+  "spans": [
+    {
+      "start": 76,
+      "end": 95,
+      "type": "ORGANISATION",
+      "text": "Optique Horizon SAS"
+    },
+    {
+      "start": 158,
+      "end": 175,
+      "type": "SIRET",
+      "text": "638 144 030 00068"
+    },
+    {
+      "start": 208,
+      "end": 242,
+      "type": "ADRESSE",
+      "text": "87 ter rue du Four, 86000 Poitiers"
+    },
+    {
+      "start": 263,
+      "end": 276,
+      "type": "PERSONNE",
+      "text": "Fabrice ROCHE"
+    },
+    {
+      "start": 370,
+      "end": 384,
+      "type": "PERSONNE",
+      "text": "ROSE CHEVALIER"
+    },
+    {
+      "start": 437,
+      "end": 452,
+      "type": "NIR",
+      "text": "200084961078488"
+    },
+    {
+      "start": 465,
+      "end": 515,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres\n44 chemin du Moulin\n30000 Nîmes"
+    },
+    {
+      "start": 528,
+      "end": 542,
+      "type": "TELEPHONE",
+      "text": "06-39-98-82-87"
+    },
+    {
+      "start": 554,
+      "end": 580,
+      "type": "EMAIL",
+      "text": "chevalier.rose@postebox.io"
+    },
+    {
+      "start": 669,
+      "end": 678,
+      "type": "PERSONNE",
+      "text": "CHEVALIER"
+    },
+    {
+      "start": 1859,
+      "end": 1872,
+      "type": "PERSONNE",
+      "text": "Fabrice ROCHE"
+    },
+    {
+      "start": 1898,
+      "end": 1912,
+      "type": "PERSONNE",
+      "text": "Rose CHEVALIER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 115,
+      "end": 122,
+      "type": "MONTANT",
+      "text": "8 000 €"
+    },
+    {
+      "start": 392,
+      "end": 402,
+      "type": "DATE",
+      "text": "21/08/2000"
+    },
+    {
+      "start": 405,
+      "end": 411,
+      "type": "LIEU_ISOLE",
+      "text": "Angers"
+    },
+    {
+      "start": 704,
+      "end": 716,
+      "type": "DATE",
+      "text": "13 juin 2026"
+    },
+    {
+      "start": 1111,
+      "end": 1119,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 1176,
+      "end": 1187,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
+    },
+    {
+      "start": 1445,
+      "end": 1455,
+      "type": "MONTANT",
+      "text": "3 566,25 €"
+    },
+    {
+      "start": 1571,
+      "end": 1576,
+      "type": "MONTANT",
+      "text": "800 €"
+    },
+    {
+      "start": 1758,
+      "end": 1766,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 1771,
+      "end": 1782,
+      "type": "DATE",
+      "text": "2 juin 2026"
+    }
+  ]
+}

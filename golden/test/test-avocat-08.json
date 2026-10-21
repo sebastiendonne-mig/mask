@@ -1,0 +1,244 @@
+{
+  "doc_id": "test-avocat-08",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-assignation",
+  "spans": [
+    {
+      "start": 184,
+      "end": 197,
+      "type": "PERSONNE",
+      "text": "Hugo FLORENCE"
+    },
+    {
+      "start": 287,
+      "end": 321,
+      "type": "ADRESSE",
+      "text": "3 chemin du Moulin, 33000 Bordeaux"
+    },
+    {
+      "start": 359,
+      "end": 370,
+      "type": "PERSONNE",
+      "text": "Yann BERTIN"
+    },
+    {
+      "start": 403,
+      "end": 424,
+      "type": "ORGANISATION",
+      "text": "Bertin Avocats SELARL"
+    },
+    {
+      "start": 426,
+      "end": 460,
+      "type": "ADRESSE",
+      "text": "61 place du Marché, 25000 Besançon"
+    },
+    {
+      "start": 467,
+      "end": 481,
+      "type": "TELEPHONE",
+      "text": "03.53.01.54.99"
+    },
+    {
+      "start": 483,
+      "end": 509,
+      "type": "EMAIL",
+      "text": "ybertin@bertin-avocats.pro"
+    },
+    {
+      "start": 577,
+      "end": 592,
+      "type": "PERSONNE",
+      "text": "Yasmine FERRAND"
+    },
+    {
+      "start": 666,
+      "end": 689,
+      "type": "ORGANISATION",
+      "text": "SARL BOULANGERIE PERROT"
+    },
+    {
+      "start": 791,
+      "end": 802,
+      "type": "SIREN",
+      "text": "548 570 258"
+    },
+    {
+      "start": 835,
+      "end": 863,
+      "type": "ADRESSE",
+      "text": "8 rue du Château, 69003 Lyon"
+    },
+    {
+      "start": 1382,
+      "end": 1390,
+      "type": "PERSONNE",
+      "text": "FLORENCE"
+    },
+    {
+      "start": 1421,
+      "end": 1444,
+      "type": "ORGANISATION",
+      "text": "SARL Boulangerie Perrot"
+    },
+    {
+      "start": 1626,
+      "end": 1654,
+      "type": "ORGANISATION",
+      "text": "Expertises Auto Le Goff SARL"
+    },
+    {
+      "start": 1829,
+      "end": 1837,
+      "type": "PERSONNE",
+      "text": "FLORENCE"
+    },
+    {
+      "start": 2378,
+      "end": 2401,
+      "type": "ORGANISATION",
+      "text": "SARL BOULANGERIE PERROT"
+    },
+    {
+      "start": 2421,
+      "end": 2434,
+      "type": "PERSONNE",
+      "text": "Hugo FLORENCE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 45,
+      "end": 53,
+      "type": "LIEU_ISOLE",
+      "text": "BESANÇON"
+    },
+    {
+      "start": 142,
+      "end": 153,
+      "type": "DATE",
+      "text": "7 juin 2026"
+    },
+    {
+      "start": 205,
+      "end": 220,
+      "type": "DATE",
+      "text": "19 janvier 1971"
+    },
+    {
+      "start": 223,
+      "end": 231,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 393,
+      "end": 401,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 619,
+      "end": 623,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
+    },
+    {
+      "start": 705,
+      "end": 713,
+      "type": "MONTANT",
+      "text": "15 000 €"
+    },
+    {
+      "start": 771,
+      "end": 775,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
+    },
+    {
+      "start": 1008,
+      "end": 1016,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 1048,
+      "end": 1063,
+      "type": "DATE",
+      "text": "30 juillet 2026"
+    },
+    {
+      "start": 1359,
+      "end": 1371,
+      "type": "DATE",
+      "text": "14 août 2025"
+    },
+    {
+      "start": 1480,
+      "end": 1491,
+      "type": "MONTANT",
+      "text": "14 990,00 €"
+    },
+    {
+      "start": 1517,
+      "end": 1534,
+      "type": "DATE",
+      "text": "13 septembre 2025"
+    },
+    {
+      "start": 1600,
+      "end": 1610,
+      "type": "DATE",
+      "text": "03/10/2025"
+    },
+    {
+      "start": 1803,
+      "end": 1818,
+      "type": "DATE",
+      "text": "3 novembre 2025"
+    },
+    {
+      "start": 2342,
+      "end": 2352,
+      "type": "DATE",
+      "text": "14/08/2025"
+    },
+    {
+      "start": 2447,
+      "end": 2458,
+      "type": "MONTANT",
+      "text": "14 990,00 €"
+    },
+    {
+      "start": 2535,
+      "end": 2545,
+      "type": "MONTANT",
+      "text": "4 033,32 €"
+    },
+    {
+      "start": 2637,
+      "end": 2644,
+      "type": "MONTANT",
+      "text": "2 500 €"
+    },
+    {
+      "start": 2791,
+      "end": 2801,
+      "type": "DATE",
+      "text": "14/08/2025"
+    },
+    {
+      "start": 2836,
+      "end": 2846,
+      "type": "DATE",
+      "text": "03/10/2025"
+    },
+    {
+      "start": 2869,
+      "end": 2879,
+      "type": "DATE",
+      "text": "03/11/2025"
+    }
+  ]
+}

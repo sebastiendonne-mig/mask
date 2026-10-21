@@ -1,0 +1,100 @@
+{
+  "doc_id": "dev-rh-02",
+  "persona": "rh",
+  "split": "dev",
+  "template_id": "rh-promesse-embauche",
+  "spans": [
+    {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION",
+      "text": "ÉTABLISSEMENTS PARIS SA"
+    },
+    {
+      "start": 24,
+      "end": 53,
+      "type": "ADRESSE",
+      "text": "69 rue du Four\n86000 Poitiers"
+    },
+    {
+      "start": 62,
+      "end": 79,
+      "type": "SIRET",
+      "text": "261 250 393 00079"
+    },
+    {
+      "start": 90,
+      "end": 107,
+      "type": "PERSONNE",
+      "text": "Pierre CARPENTIER"
+    },
+    {
+      "start": 108,
+      "end": 132,
+      "type": "ADRESSE",
+      "text": "20 rue du Four\n64000 PAU"
+    },
+    {
+      "start": 474,
+      "end": 487,
+      "type": "PERSONNE",
+      "text": "Mehdi Meunier"
+    },
+    {
+      "start": 767,
+      "end": 801,
+      "type": "EMAIL",
+      "text": "m.meunier@etablissements-paris.org"
+    },
+    {
+      "start": 883,
+      "end": 897,
+      "type": "TELEPHONE",
+      "text": "05.36.49.48.89"
+    },
+    {
+      "start": 1020,
+      "end": 1033,
+      "type": "PERSONNE",
+      "text": "Mehdi MEUNIER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 134,
+      "end": 142,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 147,
+      "end": 158,
+      "type": "DATE",
+      "text": "27 mai 2026"
+    },
+    {
+      "start": 386,
+      "end": 401,
+      "type": "DATE",
+      "text": "24 juillet 2026"
+    },
+    {
+      "start": 435,
+      "end": 443,
+      "type": "LIEU_ISOLE",
+      "text": "Grenoble"
+    },
+    {
+      "start": 531,
+      "end": 543,
+      "type": "MONTANT",
+      "text": "47 000 euros"
+    },
+    {
+      "start": 684,
+      "end": 694,
+      "type": "DATE",
+      "text": "06/06/2026"
+    }
+  ]
+}

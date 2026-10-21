@@ -1,0 +1,51 @@
+{
+  "doc_id": "dev-neutre-02",
+  "persona": "aucune",
+  "split": "dev",
+  "template_id": "neutre-fiche-conges",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 84,
+      "end": 97,
+      "type": "DATE",
+      "text": "1er juin 2026"
+    },
+    {
+      "start": 101,
+      "end": 112,
+      "type": "DATE",
+      "text": "31 mai 2027"
+    },
+    {
+      "start": 322,
+      "end": 332,
+      "type": "DATE",
+      "text": "01/05/2027"
+    },
+    {
+      "start": 339,
+      "end": 349,
+      "type": "DATE",
+      "text": "31/10/2027"
+    },
+    {
+      "start": 388,
+      "end": 401,
+      "type": "DATE",
+      "text": "1er mars 2027"
+    },
+    {
+      "start": 664,
+      "end": 675,
+      "type": "MONTANT",
+      "text": "30 000,00 €"
+    },
+    {
+      "start": 708,
+      "end": 718,
+      "type": "MONTANT",
+      "text": "3 000,00 €"
+    }
+  ]
+}

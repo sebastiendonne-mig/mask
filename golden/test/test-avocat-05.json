@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-avocat-05",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-courrier-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 19,
+      "type": "ORGANISATION",
+      "text": "Morel Avocats SELAS"
+    },
+    {
+      "start": 20,
+      "end": 54,
+      "type": "ADRESSE",
+      "text": "16 rue des Tilleuls\n25000 Besançon"
+    },
+    {
+      "start": 55,
+      "end": 72,
+      "type": "TELEPHONE",
+      "text": "+33 3 53 01 59 24"
+    },
+    {
+      "start": 75,
+      "end": 98,
+      "type": "EMAIL",
+      "text": "compta@morel-avocats.eu"
+    },
+    {
+      "start": 133,
+      "end": 145,
+      "type": "PERSONNE",
+      "text": "Rose MEUNIER"
+    },
+    {
+      "start": 146,
+      "end": 206,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n30 rue des Écoles\n37000 Tours"
+    },
+    {
+      "start": 248,
+      "end": 260,
+      "type": "NUMERO_DOSSIER",
+      "text": "MM/2025/1299"
+    },
+    {
+      "start": 271,
+      "end": 278,
+      "type": "PERSONNE",
+      "text": "MEUNIER"
+    },
+    {
+      "start": 282,
+      "end": 288,
+      "type": "PERSONNE",
+      "text": "NGUYEN"
+    },
+    {
+      "start": 295,
+      "end": 303,
+      "type": "NUMERO_DOSSIER",
+      "text": "25/08281"
+    },
+    {
+      "start": 515,
+      "end": 530,
+      "type": "PERSONNE",
+      "text": "Nathalie NGUYEN"
+    },
+    {
+      "start": 555,
+      "end": 569,
+      "type": "PERSONNE",
+      "text": "Claire VALENCE"
+    },
+    {
+      "start": 581,
+      "end": 614,
+      "type": "ORGANISATION",
+      "text": "SELARL Cabinet Valence & Associés"
+    },
+    {
+      "start": 1321,
+      "end": 1333,
+      "type": "PERSONNE",
+      "text": "Claire Royer"
+    },
+    {
+      "start": 1580,
+      "end": 1594,
+      "type": "TELEPHONE",
+      "text": "06-39-98-07-85"
+    },
+    {
+      "start": 1610,
+      "end": 1640,
+      "type": "EMAIL",
+      "text": "mathieu.morel@morel-avocats.eu"
+    },
+    {
+      "start": 1723,
+      "end": 1736,
+      "type": "PERSONNE",
+      "text": "Mathieu MOREL"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 208,
+      "end": 216,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 221,
+      "end": 235,
+      "type": "DATE",
+      "text": "7 janvier 2026"
+    },
+    {
+      "start": 383,
+      "end": 399,
+      "type": "DATE",
+      "text": "24 décembre 2025"
+    },
+    {
+      "start": 433,
+      "end": 441,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 499,
+      "end": 509,
+      "type": "DATE",
+      "text": "01/12/2025"
+    },
+    {
+      "start": 751,
+      "end": 761,
+      "type": "MONTANT",
+      "text": "6 826,00 €"
+    },
+    {
+      "start": 947,
+      "end": 962,
+      "type": "DATE",
+      "text": "10 février 2026"
+    },
+    {
+      "start": 1004,
+      "end": 1016,
+      "type": "DATE",
+      "text": "25 mars 2026"
+    },
+    {
+      "start": 1048,
+      "end": 1058,
+      "type": "DATE",
+      "text": "28/04/2026"
+    },
+    {
+      "start": 1154,
+      "end": 1169,
+      "type": "DATE",
+      "text": "27 janvier 2026"
+    },
+    {
+      "start": 1459,
+      "end": 1469,
+      "type": "MONTANT",
+      "text": "1 500,00 €"
+    },
+    {
+      "start": 1480,
+      "end": 1490,
+      "type": "DATE",
+      "text": "16/10/2025"
+    },
+    {
+      "start": 1758,
+      "end": 1766,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    }
+  ]
+}

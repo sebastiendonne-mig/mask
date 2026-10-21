@@ -1,0 +1,244 @@
+{
+  "doc_id": "test-avocat-06",
+  "persona": "avocat",
+  "split": "test",
+  "template_id": "avocat-assignation",
+  "spans": [
+    {
+      "start": 181,
+      "end": 192,
+      "type": "PERSONNE",
+      "text": "Rose PERROT"
+    },
+    {
+      "start": 288,
+      "end": 328,
+      "type": "ADRESSE",
+      "text": "126 boulevard de la Liberté, 59000 Lille"
+    },
+    {
+      "start": 366,
+      "end": 378,
+      "type": "PERSONNE",
+      "text": "Laure BENALI"
+    },
+    {
+      "start": 411,
+      "end": 440,
+      "type": "ORGANISATION",
+      "text": "SELAS Benali Avocats Associés"
+    },
+    {
+      "start": 442,
+      "end": 475,
+      "type": "ADRESSE",
+      "text": "146 rue du Château, 84000 Avignon"
+    },
+    {
+      "start": 482,
+      "end": 496,
+      "type": "TELEPHONE",
+      "text": "04-65-71-05-04"
+    },
+    {
+      "start": 498,
+      "end": 538,
+      "type": "EMAIL",
+      "text": "laure.benali@benali-avocats-associes.org"
+    },
+    {
+      "start": 606,
+      "end": 620,
+      "type": "PERSONNE",
+      "text": "Pierre BARBIER"
+    },
+    {
+      "start": 696,
+      "end": 729,
+      "type": "ORGANISATION",
+      "text": "EURL DOMAINE DES PIERRES BLANCHES"
+    },
+    {
+      "start": 833,
+      "end": 844,
+      "type": "SIREN",
+      "text": "707 749 776"
+    },
+    {
+      "start": 877,
+      "end": 905,
+      "type": "ADRESSE",
+      "text": "37 rue du Four, 83000 Toulon"
+    },
+    {
+      "start": 1417,
+      "end": 1423,
+      "type": "PERSONNE",
+      "text": "PERROT"
+    },
+    {
+      "start": 1454,
+      "end": 1487,
+      "type": "ORGANISATION",
+      "text": "EURL Domaine des Pierres Blanches"
+    },
+    {
+      "start": 1666,
+      "end": 1693,
+      "type": "ORGANISATION",
+      "text": "Expertises Auto Benali EURL"
+    },
+    {
+      "start": 1863,
+      "end": 1869,
+      "type": "PERSONNE",
+      "text": "PERROT"
+    },
+    {
+      "start": 2410,
+      "end": 2443,
+      "type": "ORGANISATION",
+      "text": "EURL DOMAINE DES PIERRES BLANCHES"
+    },
+    {
+      "start": 2461,
+      "end": 2472,
+      "type": "PERSONNE",
+      "text": "Rose PERROT"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 45,
+      "end": 52,
+      "type": "LIEU_ISOLE",
+      "text": "AVIGNON"
+    },
+    {
+      "start": 141,
+      "end": 152,
+      "type": "DATE",
+      "text": "27 mai 2026"
+    },
+    {
+      "start": 201,
+      "end": 216,
+      "type": "DATE",
+      "text": "14 janvier 1985"
+    },
+    {
+      "start": 219,
+      "end": 225,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 402,
+      "end": 409,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 647,
+      "end": 653,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 745,
+      "end": 753,
+      "type": "MONTANT",
+      "text": "10 000 €"
+    },
+    {
+      "start": 811,
+      "end": 817,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 1050,
+      "end": 1057,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 1089,
+      "end": 1100,
+      "type": "DATE",
+      "text": "5 août 2026"
+    },
+    {
+      "start": 1396,
+      "end": 1408,
+      "type": "DATE",
+      "text": "16 juin 2025"
+    },
+    {
+      "start": 1523,
+      "end": 1534,
+      "type": "MONTANT",
+      "text": "14 490,00 €"
+    },
+    {
+      "start": 1560,
+      "end": 1574,
+      "type": "DATE",
+      "text": "2 juillet 2025"
+    },
+    {
+      "start": 1640,
+      "end": 1650,
+      "type": "DATE",
+      "text": "05/08/2025"
+    },
+    {
+      "start": 1842,
+      "end": 1854,
+      "type": "DATE",
+      "text": "26 août 2025"
+    },
+    {
+      "start": 2374,
+      "end": 2384,
+      "type": "DATE",
+      "text": "16/06/2025"
+    },
+    {
+      "start": 2485,
+      "end": 2496,
+      "type": "MONTANT",
+      "text": "14 490,00 €"
+    },
+    {
+      "start": 2573,
+      "end": 2583,
+      "type": "MONTANT",
+      "text": "1 870,84 €"
+    },
+    {
+      "start": 2675,
+      "end": 2682,
+      "type": "MONTANT",
+      "text": "2 000 €"
+    },
+    {
+      "start": 2829,
+      "end": 2839,
+      "type": "DATE",
+      "text": "16/06/2025"
+    },
+    {
+      "start": 2874,
+      "end": 2884,
+      "type": "DATE",
+      "text": "05/08/2025"
+    },
+    {
+      "start": 2907,
+      "end": 2917,
+      "type": "DATE",
+      "text": "26/08/2025"
+    }
+  ]
+}

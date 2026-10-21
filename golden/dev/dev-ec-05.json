@@ -1,0 +1,172 @@
+{
+  "doc_id": "dev-ec-05",
+  "persona": "expert-comptable",
+  "split": "dev",
+  "template_id": "ec-relance-pieces",
+  "spans": [
+    {
+      "start": 5,
+      "end": 18,
+      "type": "PERSONNE",
+      "text": "Yann Florence"
+    },
+    {
+      "start": 20,
+      "end": 62,
+      "type": "EMAIL",
+      "text": "yflorence@florence-expertise-comptable.pro"
+    },
+    {
+      "start": 68,
+      "end": 83,
+      "type": "PERSONNE",
+      "text": "Pierre Marchand"
+    },
+    {
+      "start": 85,
+      "end": 129,
+      "type": "EMAIL",
+      "text": "pierre.marchand@atelier-des-trois-chenes.bzh"
+    },
+    {
+      "start": 136,
+      "end": 151,
+      "type": "PERSONNE",
+      "text": "Nathalie Guérin"
+    },
+    {
+      "start": 153,
+      "end": 194,
+      "type": "EMAIL",
+      "text": "n.guerin@florence-expertise-comptable.pro"
+    },
+    {
+      "start": 264,
+      "end": 276,
+      "type": "NUMERO_DOSSIER",
+      "text": "EC-2025-8138"
+    },
+    {
+      "start": 296,
+      "end": 304,
+      "type": "PERSONNE",
+      "text": "Marchand"
+    },
+    {
+      "start": 345,
+      "end": 372,
+      "type": "ORGANISATION",
+      "text": "Atelier des Trois Chênes SA"
+    },
+    {
+      "start": 510,
+      "end": 537,
+      "type": "IBAN",
+      "text": "FR7672726750097830455455270"
+    },
+    {
+      "start": 599,
+      "end": 618,
+      "type": "CARTE",
+      "text": "5340-9048-6622-7722"
+    },
+    {
+      "start": 756,
+      "end": 770,
+      "type": "PERSONNE",
+      "text": "Nathalie VIDAL"
+    },
+    {
+      "start": 985,
+      "end": 1000,
+      "type": "PERSONNE",
+      "text": "Nathalie Guérin"
+    },
+    {
+      "start": 1058,
+      "end": 1072,
+      "type": "TELEPHONE",
+      "text": "06.39.98.28.37"
+    },
+    {
+      "start": 1115,
+      "end": 1128,
+      "type": "PERSONNE",
+      "text": "Yann FLORENCE"
+    },
+    {
+      "start": 1129,
+      "end": 1164,
+      "type": "ORGANISATION",
+      "text": "Florence Expertise Comptable SELARL"
+    },
+    {
+      "start": 1165,
+      "end": 1199,
+      "type": "ADRESSE",
+      "text": "82 chemin des Vignes, 49000 Angers"
+    },
+    {
+      "start": 1200,
+      "end": 1210,
+      "type": "TELEPHONE",
+      "text": "0261917488"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 203,
+      "end": 213,
+      "type": "DATE",
+      "text": "04/02/2027"
+    },
+    {
+      "start": 376,
+      "end": 392,
+      "type": "DATE",
+      "text": "31 décembre 2026"
+    },
+    {
+      "start": 675,
+      "end": 693,
+      "type": "DATE",
+      "text": "1er septembre 2026"
+    },
+    {
+      "start": 708,
+      "end": 716,
+      "type": "MONTANT",
+      "text": "30 000 €"
+    },
+    {
+      "start": 802,
+      "end": 806,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
+    },
+    {
+      "start": 811,
+      "end": 821,
+      "type": "DATE",
+      "text": "12/02/2026"
+    },
+    {
+      "start": 825,
+      "end": 835,
+      "type": "DATE",
+      "text": "14/02/2026"
+    },
+    {
+      "start": 892,
+      "end": 903,
+      "type": "DATE",
+      "text": "19 mai 2027"
+    },
+    {
+      "start": 930,
+      "end": 945,
+      "type": "DATE",
+      "text": "18 février 2027"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "doc_id": "test-neutre-02",
+  "persona": "aucune",
+  "split": "test",
+  "template_id": "neutre-compte-rendu-reunion",
+  "spans": [],
+  "non_masques": [
+    {
+      "start": 70,
+      "end": 82,
+      "type": "DATE",
+      "text": "15 mars 2026"
+    },
+    {
+      "start": 318,
+      "end": 328,
+      "type": "DATE",
+      "text": "31/12/2015"
+    },
+    {
+      "start": 409,
+      "end": 416,
+      "type": "LIEU_ISOLE",
+      "text": "Valence"
+    },
+    {
+      "start": 449,
+      "end": 459,
+      "type": "DATE",
+      "text": "22/04/2026"
+    },
+    {
+      "start": 501,
+      "end": 512,
+      "type": "MONTANT",
+      "text": "12 400,00 €"
+    },
+    {
+      "start": 534,
+      "end": 542,
+      "type": "MONTANT",
+      "text": "20 000 €"
+    },
+    {
+      "start": 930,
+      "end": 940,
+      "type": "DATE",
+      "text": "7 mai 2026"
+    },
+    {
+      "start": 963,
+      "end": 973,
+      "type": "DATE",
+      "text": "31/05/2026"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "doc_id": "dev-avocat-02",
+  "persona": "avocat",
+  "split": "dev",
+  "template_id": "avocat-mise-en-demeure",
+  "spans": [
+    {
+      "start": 0,
+      "end": 29,
+      "type": "ORGANISATION",
+      "text": "SELAS DELMAS AVOCATS ASSOCIÉS"
+    },
+    {
+      "start": 60,
+      "end": 98,
+      "type": "ADRESSE",
+      "text": "8 bis rue de la Fontaine\n84000 Avignon"
+    },
+    {
+      "start": 106,
+      "end": 123,
+      "type": "TELEPHONE",
+      "text": "+33 4 65 71 05 08"
+    },
+    {
+      "start": 126,
+      "end": 160,
+      "type": "EMAIL",
+      "text": "accueil@delmas-avocats-associes.io"
+    },
+    {
+      "start": 162,
+      "end": 183,
+      "type": "ORGANISATION",
+      "text": "Menuiserie Royer SARL"
+    },
+    {
+      "start": 204,
+      "end": 218,
+      "type": "PERSONNE",
+      "text": "Pierre LEMAIRE"
+    },
+    {
+      "start": 227,
+      "end": 255,
+      "type": "ADRESSE",
+      "text": "43 rue du Four\n29000 QUIMPER"
+    },
+    {
+      "start": 342,
+      "end": 354,
+      "type": "NUMERO_DOSSIER",
+      "text": "YD/2026/4644"
+    },
+    {
+      "start": 447,
+      "end": 460,
+      "type": "PERSONNE",
+      "text": "Pierre GUÉRIN"
+    },
+    {
+      "start": 472,
+      "end": 523,
+      "type": "ADRESSE",
+      "text": "Le Clos des Cèdres, 74 rue du Château, 83000 Toulon"
+    },
+    {
+      "start": 1253,
+      "end": 1286,
+      "type": "IBAN",
+      "text": "FR76 4419 7553 4338 8948 9701 664"
+    },
+    {
+      "start": 1697,
+      "end": 1707,
+      "type": "TELEPHONE",
+      "text": "0639986458"
+    },
+    {
+      "start": 1723,
+      "end": 1764,
+      "type": "EMAIL",
+      "text": "yasmine.delmas@delmas-avocats-associes.io"
+    },
+    {
+      "start": 1855,
+      "end": 1869,
+      "type": "PERSONNE",
+      "text": "Yasmine DELMAS"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 52,
+      "end": 59,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 257,
+      "end": 264,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 269,
+      "end": 285,
+      "type": "DATE",
+      "text": "30 décembre 2026"
+    },
+    {
+      "start": 574,
+      "end": 586,
+      "type": "DATE",
+      "text": "20 juin 2026"
+    },
+    {
+      "start": 693,
+      "end": 704,
+      "type": "MONTANT",
+      "text": "24 006,00 €"
+    },
+    {
+      "start": 733,
+      "end": 743,
+      "type": "DATE",
+      "text": "01/07/2026"
+    },
+    {
+      "start": 795,
+      "end": 807,
+      "type": "DATE",
+      "text": "22 août 2026"
+    },
+    {
+      "start": 955,
+      "end": 971,
+      "type": "DATE",
+      "text": "3 septembre 2026"
+    },
+    {
+      "start": 1089,
+      "end": 1099,
+      "type": "MONTANT",
+      "text": "9 602,40 €"
+    },
+    {
+      "start": 1371,
+      "end": 1378,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    }
+  ]
+}

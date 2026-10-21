@@ -1,0 +1,154 @@
+{
+  "doc_id": "dev-avocat-01",
+  "persona": "avocat",
+  "split": "dev",
+  "template_id": "avocat-mise-en-demeure",
+  "spans": [
+    {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION",
+      "text": "CABINET MEUNIER & ASSOCIÉS SELAS"
+    },
+    {
+      "start": 64,
+      "end": 97,
+      "type": "ADRESSE",
+      "text": "88 ter rue du Four\n31000 Toulouse"
+    },
+    {
+      "start": 105,
+      "end": 119,
+      "type": "TELEPHONE",
+      "text": "05 36 49 64 91"
+    },
+    {
+      "start": 122,
+      "end": 156,
+      "type": "EMAIL",
+      "text": "compta@cabinet-meunier-associes.fr"
+    },
+    {
+      "start": 158,
+      "end": 183,
+      "type": "ORGANISATION",
+      "text": "Établissements Lemaire SA"
+    },
+    {
+      "start": 205,
+      "end": 218,
+      "type": "PERSONNE",
+      "text": "Camille ROYER"
+    },
+    {
+      "start": 231,
+      "end": 274,
+      "type": "ADRESSE",
+      "text": "1 bis allée des Roses\n13100 AIX-EN-PROVENCE"
+    },
+    {
+      "start": 358,
+      "end": 370,
+      "type": "NUMERO_DOSSIER",
+      "text": "2025-6921-IM"
+    },
+    {
+      "start": 461,
+      "end": 474,
+      "type": "PERSONNE",
+      "text": "Rose MARCHAND"
+    },
+    {
+      "start": 486,
+      "end": 518,
+      "type": "ADRESSE",
+      "text": "39 rue de la Fontaine, 64000 Pau"
+    },
+    {
+      "start": 1254,
+      "end": 1287,
+      "type": "IBAN",
+      "text": "FR76 8728 8099 7968 7257 0848 504"
+    },
+    {
+      "start": 1699,
+      "end": 1713,
+      "type": "TELEPHONE",
+      "text": "06 39 98 01 05"
+    },
+    {
+      "start": 1729,
+      "end": 1766,
+      "type": "EMAIL",
+      "text": "i.meunier@cabinet-meunier-associes.fr"
+    },
+    {
+      "start": 1857,
+      "end": 1869,
+      "type": "PERSONNE",
+      "text": "Inès MEUNIER"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 55,
+      "end": 63,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    },
+    {
+      "start": 276,
+      "end": 284,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    },
+    {
+      "start": 289,
+      "end": 301,
+      "type": "DATE",
+      "text": "20 mars 2026"
+    },
+    {
+      "start": 569,
+      "end": 585,
+      "type": "DATE",
+      "text": "9 septembre 2025"
+    },
+    {
+      "start": 692,
+      "end": 703,
+      "type": "MONTANT",
+      "text": "31 195,85 €"
+    },
+    {
+      "start": 732,
+      "end": 742,
+      "type": "DATE",
+      "text": "14/09/2025"
+    },
+    {
+      "start": 794,
+      "end": 809,
+      "type": "DATE",
+      "text": "9 décembre 2025"
+    },
+    {
+      "start": 957,
+      "end": 971,
+      "type": "DATE",
+      "text": "4 janvier 2026"
+    },
+    {
+      "start": 1089,
+      "end": 1100,
+      "type": "MONTANT",
+      "text": "12 478,34 €"
+    },
+    {
+      "start": 1372,
+      "end": 1380,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    }
+  ]
+}

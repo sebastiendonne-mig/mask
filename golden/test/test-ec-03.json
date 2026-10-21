@@ -1,0 +1,190 @@
+{
+  "doc_id": "test-ec-03",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-lettre-mission",
+  "spans": [
+    {
+      "start": 0,
+      "end": 24,
+      "type": "ORGANISATION",
+      "text": "FERRAND EXPERTISE SELARL"
+    },
+    {
+      "start": 55,
+      "end": 84,
+      "type": "ADRESSE",
+      "text": "7 chemin des Vignes\n64000 Pau"
+    },
+    {
+      "start": 85,
+      "end": 99,
+      "type": "TELEPHONE",
+      "text": "05-36-49-40-50"
+    },
+    {
+      "start": 102,
+      "end": 130,
+      "type": "EMAIL",
+      "text": "contact@ferrand-expertise.io"
+    },
+    {
+      "start": 137,
+      "end": 151,
+      "type": "SIRET",
+      "text": "94316882300087"
+    },
+    {
+      "start": 158,
+      "end": 171,
+      "type": "TVA_INTRA",
+      "text": "FR88943168823"
+    },
+    {
+      "start": 173,
+      "end": 203,
+      "type": "ORGANISATION",
+      "text": "Logistique Quatre Saisons SARL"
+    },
+    {
+      "start": 225,
+      "end": 240,
+      "type": "PERSONNE",
+      "text": "SOPHIE FLORENCE"
+    },
+    {
+      "start": 241,
+      "end": 270,
+      "type": "ADRESSE",
+      "text": "2 rue de la Gare\n49000 ANGERS"
+    },
+    {
+      "start": 370,
+      "end": 379,
+      "type": "NUMERO_DOSSIER",
+      "text": "DOS-13140"
+    },
+    {
+      "start": 679,
+      "end": 709,
+      "type": "ORGANISATION",
+      "text": "LOGISTIQUE QUATRE SAISONS SARL"
+    },
+    {
+      "start": 755,
+      "end": 766,
+      "type": "SIREN",
+      "text": "170 050 041"
+    },
+    {
+      "start": 784,
+      "end": 801,
+      "type": "SIRET",
+      "text": "170 050 041 00020"
+    },
+    {
+      "start": 833,
+      "end": 850,
+      "type": "TVA_INTRA",
+      "text": "FR 72 170 050 041"
+    },
+    {
+      "start": 872,
+      "end": 887,
+      "type": "PERSONNE",
+      "text": "Sophie FLORENCE"
+    },
+    {
+      "start": 907,
+      "end": 952,
+      "type": "EMAIL",
+      "text": "sophie.florence@logistique-quatre-saisons.bzh"
+    },
+    {
+      "start": 955,
+      "end": 975,
+      "type": "TELEPHONE",
+      "text": "+33 (0)6 39 98 05 45"
+    },
+    {
+      "start": 1631,
+      "end": 1664,
+      "type": "IBAN",
+      "text": "FR76 5521 5640 0063 3926 8215 960"
+    },
+    {
+      "start": 1937,
+      "end": 1953,
+      "type": "PERSONNE",
+      "text": "Juliette FERRAND"
+    },
+    {
+      "start": 2261,
+      "end": 2285,
+      "type": "ORGANISATION",
+      "text": "Ferrand Expertise SELARL"
+    },
+    {
+      "start": 2287,
+      "end": 2303,
+      "type": "PERSONNE",
+      "text": "Juliette FERRAND"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 272,
+      "end": 275,
+      "type": "LIEU_ISOLE",
+      "text": "Pau"
+    },
+    {
+      "start": 280,
+      "end": 296,
+      "type": "DATE",
+      "text": "27 novembre 2026"
+    },
+    {
+      "start": 737,
+      "end": 746,
+      "type": "MONTANT",
+      "text": "100 000 €"
+    },
+    {
+      "start": 1050,
+      "end": 1066,
+      "type": "DATE",
+      "text": "1er janvier 2026"
+    },
+    {
+      "start": 1070,
+      "end": 1086,
+      "type": "DATE",
+      "text": "31 décembre 2026"
+    },
+    {
+      "start": 1420,
+      "end": 1430,
+      "type": "MONTANT",
+      "text": "7 000,00 €"
+    },
+    {
+      "start": 1447,
+      "end": 1457,
+      "type": "MONTANT",
+      "text": "8 400,00 €"
+    },
+    {
+      "start": 1501,
+      "end": 1509,
+      "type": "MONTANT",
+      "text": "700,00 €"
+    },
+    {
+      "start": 1561,
+      "end": 1565,
+      "type": "MONTANT",
+      "text": "32 €"
+    }
+  ]
+}

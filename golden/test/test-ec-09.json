@@ -1,0 +1,232 @@
+{
+  "doc_id": "test-ec-09",
+  "persona": "expert-comptable",
+  "split": "test",
+  "template_id": "ec-releve-compte-client",
+  "spans": [
+    {
+      "start": 0,
+      "end": 36,
+      "type": "ORGANISATION",
+      "text": "SARL Cabinet Lemaire Audit & Conseil"
+    },
+    {
+      "start": 37,
+      "end": 64,
+      "type": "ADRESSE",
+      "text": "136 rue Basse\n87000 Limoges"
+    },
+    {
+      "start": 90,
+      "end": 103,
+      "type": "TVA_INTRA",
+      "text": "FR63436391668"
+    },
+    {
+      "start": 157,
+      "end": 175,
+      "type": "ORGANISATION",
+      "text": "SARL GARAGE BERTIN"
+    },
+    {
+      "start": 184,
+      "end": 193,
+      "type": "SIREN",
+      "text": "686311820"
+    },
+    {
+      "start": 204,
+      "end": 213,
+      "type": "NUMERO_DOSSIER",
+      "text": "DOS-78236"
+    },
+    {
+      "start": 233,
+      "end": 244,
+      "type": "PERSONNE",
+      "text": "BERTIN Rose"
+    },
+    {
+      "start": 245,
+      "end": 320,
+      "type": "ADRESSE",
+      "text": "Résidence Les Iris, bâtiment B\n39 allée des Glycines\n63000 Clermont-Ferrand"
+    },
+    {
+      "start": 922,
+      "end": 941,
+      "type": "CARTE",
+      "text": "5402-9833-4096-1226"
+    },
+    {
+      "start": 1086,
+      "end": 1119,
+      "type": "IBAN",
+      "text": "FR76 8187 3881 4282 5933 4932 881"
+    },
+    {
+      "start": 1204,
+      "end": 1218,
+      "type": "PERSONNE",
+      "text": "Rémi Chevalier"
+    },
+    {
+      "start": 1222,
+      "end": 1236,
+      "type": "TELEPHONE",
+      "text": "06-39-98-42-45"
+    },
+    {
+      "start": 1242,
+      "end": 1286,
+      "type": "EMAIL",
+      "text": "rchevalier@cabinet-lemaire-audit-conseil.net"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 132,
+      "end": 146,
+      "type": "DATE",
+      "text": "4 février 2026"
+    },
+    {
+      "start": 391,
+      "end": 401,
+      "type": "DATE",
+      "text": "23/08/2025"
+    },
+    {
+      "start": 451,
+      "end": 459,
+      "type": "MONTANT",
+      "text": "154,00 €"
+    },
+    {
+      "start": 460,
+      "end": 470,
+      "type": "DATE",
+      "text": "07/09/2025"
+    },
+    {
+      "start": 502,
+      "end": 510,
+      "type": "MONTANT",
+      "text": "720,00 €"
+    },
+    {
+      "start": 519,
+      "end": 527,
+      "type": "MONTANT",
+      "text": "874,00 €"
+    },
+    {
+      "start": 528,
+      "end": 538,
+      "type": "DATE",
+      "text": "03/10/2025"
+    },
+    {
+      "start": 571,
+      "end": 579,
+      "type": "MONTANT",
+      "text": "720,00 €"
+    },
+    {
+      "start": 588,
+      "end": 596,
+      "type": "MONTANT",
+      "text": "154,00 €"
+    },
+    {
+      "start": 597,
+      "end": 607,
+      "type": "DATE",
+      "text": "24/10/2025"
+    },
+    {
+      "start": 639,
+      "end": 647,
+      "type": "MONTANT",
+      "text": "360,00 €"
+    },
+    {
+      "start": 656,
+      "end": 664,
+      "type": "MONTANT",
+      "text": "514,00 €"
+    },
+    {
+      "start": 665,
+      "end": 675,
+      "type": "DATE",
+      "text": "11/11/2025"
+    },
+    {
+      "start": 708,
+      "end": 716,
+      "type": "MONTANT",
+      "text": "360,00 €"
+    },
+    {
+      "start": 725,
+      "end": 733,
+      "type": "MONTANT",
+      "text": "154,00 €"
+    },
+    {
+      "start": 734,
+      "end": 744,
+      "type": "DATE",
+      "text": "28/11/2025"
+    },
+    {
+      "start": 776,
+      "end": 786,
+      "type": "MONTANT",
+      "text": "1 800,00 €"
+    },
+    {
+      "start": 795,
+      "end": 805,
+      "type": "MONTANT",
+      "text": "1 954,00 €"
+    },
+    {
+      "start": 819,
+      "end": 829,
+      "type": "DATE",
+      "text": "04/02/2026"
+    },
+    {
+      "start": 832,
+      "end": 842,
+      "type": "MONTANT",
+      "text": "1 954,00 €"
+    },
+    {
+      "start": 873,
+      "end": 881,
+      "type": "MONTANT",
+      "text": "203,19 €"
+    },
+    {
+      "start": 894,
+      "end": 904,
+      "type": "DATE",
+      "text": "26/01/2026"
+    },
+    {
+      "start": 1305,
+      "end": 1312,
+      "type": "LIEU_ISOLE",
+      "text": "Limoges"
+    },
+    {
+      "start": 1316,
+      "end": 1326,
+      "type": "DATE",
+      "text": "04/02/2026"
+    }
+  ]
+}
