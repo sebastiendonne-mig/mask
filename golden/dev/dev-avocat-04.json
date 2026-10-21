@@ -91,18 +91,6 @@
       "text": "08/01/1993"
     },
     {
-      "start": 93,
-      "end": 97,
-      "type": "LIEU_ISOLE",
-      "text": "Caen"
-    },
-    {
-      "start": 341,
-      "end": 347,
-      "type": "LIEU_ISOLE",
-      "text": "Toulon"
-    },
-    {
       "start": 883,
       "end": 893,
       "type": "MONTANT",
@@ -127,6 +115,44 @@
       "text": "960,00 €"
     },
     {
+      "start": 1690,
+      "end": 1705,
+      "type": "DATE",
+      "text": "20 janvier 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 93,
+      "end": 97,
+      "type": "LIEU_ISOLE",
+      "text": "Caen"
+    },
+    {
+      "start": 330,
+      "end": 337,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 341,
+      "end": 347,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 1631,
+      "end": 1648,
+      "type": "INSTITUTION",
+      "text": "ordre des avocats"
+    },
+    {
+      "start": 1652,
+      "end": 1659,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
       "start": 1663,
       "end": 1669,
       "type": "LIEU_ISOLE",
@@ -137,12 +163,6 @@
       "end": 1685,
       "type": "LIEU_ISOLE",
       "text": "Toulon"
-    },
-    {
-      "start": 1690,
-      "end": 1705,
-      "type": "DATE",
-      "text": "20 janvier 2026"
     }
   ]
 }

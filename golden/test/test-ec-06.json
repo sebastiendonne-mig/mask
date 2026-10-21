@@ -199,16 +199,18 @@
       "text": "10/05/2026"
     },
     {
-      "start": 1205,
-      "end": 1210,
-      "type": "LIEU_ISOLE",
-      "text": "Nîmes"
-    },
-    {
       "start": 1214,
       "end": 1224,
       "type": "DATE",
       "text": "31/05/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 1205,
+      "end": 1210,
+      "type": "LIEU_ISOLE",
+      "text": "Nîmes"
     }
   ]
 }

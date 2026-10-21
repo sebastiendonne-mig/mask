@@ -133,12 +133,6 @@
   ],
   "non_masques": [
     {
-      "start": 316,
-      "end": 324,
-      "type": "LIEU_ISOLE",
-      "text": "Grenoble"
-    },
-    {
       "start": 329,
       "end": 340,
       "type": "DATE",
@@ -185,6 +179,20 @@
       "end": 1591,
       "type": "MONTANT",
       "text": "40 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 316,
+      "end": 324,
+      "type": "LIEU_ISOLE",
+      "text": "Grenoble"
+    },
+    {
+      "start": 2022,
+      "end": 2027,
+      "type": "INSTITUTION",
+      "text": "Ordre"
     }
   ]
 }

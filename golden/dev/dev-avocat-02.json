@@ -91,18 +91,6 @@
   ],
   "non_masques": [
     {
-      "start": 52,
-      "end": 59,
-      "type": "LIEU_ISOLE",
-      "text": "Avignon"
-    },
-    {
-      "start": 257,
-      "end": 264,
-      "type": "LIEU_ISOLE",
-      "text": "Avignon"
-    },
-    {
       "start": 269,
       "end": 285,
       "type": "DATE",
@@ -143,6 +131,32 @@
       "end": 1099,
       "type": "MONTANT",
       "text": "9 602,40 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 41,
+      "end": 48,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 52,
+      "end": 59,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 257,
+      "end": 264,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 1348,
+      "end": 1367,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
     },
     {
       "start": 1371,

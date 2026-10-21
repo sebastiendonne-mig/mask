@@ -85,12 +85,6 @@
       "text": "11/09/1992"
     },
     {
-      "start": 305,
-      "end": 313,
-      "type": "LIEU_ISOLE",
-      "text": "Poitiers"
-    },
-    {
       "start": 525,
       "end": 537,
       "type": "DATE",
@@ -103,16 +97,24 @@
       "text": "2 252,50 €"
     },
     {
-      "start": 1097,
-      "end": 1105,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
-    },
-    {
       "start": 1110,
       "end": 1125,
       "type": "DATE",
       "text": "25 juillet 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 305,
+      "end": 313,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 1097,
+      "end": 1105,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
     }
   ]
 }

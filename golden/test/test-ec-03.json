@@ -133,12 +133,6 @@
   ],
   "non_masques": [
     {
-      "start": 272,
-      "end": 275,
-      "type": "LIEU_ISOLE",
-      "text": "Pau"
-    },
-    {
       "start": 280,
       "end": 296,
       "type": "DATE",
@@ -185,6 +179,20 @@
       "end": 1565,
       "type": "MONTANT",
       "text": "32 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 272,
+      "end": 275,
+      "type": "LIEU_ISOLE",
+      "text": "Pau"
+    },
+    {
+      "start": 1997,
+      "end": 2002,
+      "type": "INSTITUTION",
+      "text": "Ordre"
     }
   ]
 }

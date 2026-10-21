@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 45,
-      "end": 52,
-      "type": "LIEU_ISOLE",
-      "text": "AVIGNON"
-    },
-    {
       "start": 141,
       "end": 152,
       "type": "DATE",
@@ -127,40 +121,10 @@
       "text": "14 janvier 1985"
     },
     {
-      "start": 219,
-      "end": 225,
-      "type": "LIEU_ISOLE",
-      "text": "Vannes"
-    },
-    {
-      "start": 402,
-      "end": 409,
-      "type": "LIEU_ISOLE",
-      "text": "Avignon"
-    },
-    {
-      "start": 647,
-      "end": 653,
-      "type": "LIEU_ISOLE",
-      "text": "Toulon"
-    },
-    {
       "start": 745,
       "end": 753,
       "type": "MONTANT",
       "text": "10 000 €"
-    },
-    {
-      "start": 811,
-      "end": 817,
-      "type": "LIEU_ISOLE",
-      "text": "Toulon"
-    },
-    {
-      "start": 1050,
-      "end": 1057,
-      "type": "LIEU_ISOLE",
-      "text": "Avignon"
     },
     {
       "start": 1089,
@@ -239,6 +203,74 @@
       "end": 2917,
       "type": "DATE",
       "text": "26/08/2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 22,
+      "end": 41,
+      "type": "INSTITUTION",
+      "text": "TRIBUNAL JUDICIAIRE"
+    },
+    {
+      "start": 45,
+      "end": 52,
+      "type": "LIEU_ISOLE",
+      "text": "AVIGNON"
+    },
+    {
+      "start": 219,
+      "end": 225,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 391,
+      "end": 398,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 402,
+      "end": 409,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 647,
+      "end": 653,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 771,
+      "end": 807,
+      "type": "INSTITUTION",
+      "text": "registre du commerce et des sociétés"
+    },
+    {
+      "start": 811,
+      "end": 817,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 1027,
+      "end": 1046,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 1050,
+      "end": 1057,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 2308,
+      "end": 2316,
+      "type": "INSTITUTION",
+      "text": "tribunal"
     }
   ]
 }

@@ -18,12 +18,6 @@
       "text": "31/12/2015"
     },
     {
-      "start": 409,
-      "end": 416,
-      "type": "LIEU_ISOLE",
-      "text": "Valence"
-    },
-    {
       "start": 449,
       "end": 459,
       "type": "DATE",
@@ -52,6 +46,14 @@
       "end": 973,
       "type": "DATE",
       "text": "31/05/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 409,
+      "end": 416,
+      "type": "LIEU_ISOLE",
+      "text": "Valence"
     }
   ]
 }

@@ -61,12 +61,6 @@
   ],
   "non_masques": [
     {
-      "start": 134,
-      "end": 142,
-      "type": "LIEU_ISOLE",
-      "text": "Poitiers"
-    },
-    {
       "start": 147,
       "end": 158,
       "type": "DATE",
@@ -79,12 +73,6 @@
       "text": "24 juillet 2026"
     },
     {
-      "start": 435,
-      "end": 443,
-      "type": "LIEU_ISOLE",
-      "text": "Grenoble"
-    },
-    {
       "start": 531,
       "end": 543,
       "type": "MONTANT",
@@ -95,6 +83,20 @@
       "end": 694,
       "type": "DATE",
       "text": "06/06/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 134,
+      "end": 142,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 435,
+      "end": 443,
+      "type": "LIEU_ISOLE",
+      "text": "Grenoble"
     }
   ]
 }

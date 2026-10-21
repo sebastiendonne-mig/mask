@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 45,
-      "end": 60,
-      "type": "LIEU_ISOLE",
-      "text": "AIX-EN-PROVENCE"
-    },
-    {
       "start": 149,
       "end": 163,
       "type": "DATE",
@@ -127,40 +121,10 @@
       "text": "14 décembre 1993"
     },
     {
-      "start": 234,
-      "end": 239,
-      "type": "LIEU_ISOLE",
-      "text": "Lille"
-    },
-    {
-      "start": 411,
-      "end": 426,
-      "type": "LIEU_ISOLE",
-      "text": "Aix-en-Provence"
-    },
-    {
-      "start": 662,
-      "end": 668,
-      "type": "LIEU_ISOLE",
-      "text": "Nantes"
-    },
-    {
       "start": 754,
       "end": 762,
       "type": "MONTANT",
       "text": "37 000 €"
-    },
-    {
-      "start": 820,
-      "end": 826,
-      "type": "LIEU_ISOLE",
-      "text": "Nantes"
-    },
-    {
-      "start": 1064,
-      "end": 1079,
-      "type": "LIEU_ISOLE",
-      "text": "Aix-en-Provence"
     },
     {
       "start": 1111,
@@ -239,6 +203,74 @@
       "end": 2942,
       "type": "DATE",
       "text": "25/03/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 22,
+      "end": 41,
+      "type": "INSTITUTION",
+      "text": "TRIBUNAL JUDICIAIRE"
+    },
+    {
+      "start": 45,
+      "end": 60,
+      "type": "LIEU_ISOLE",
+      "text": "AIX-EN-PROVENCE"
+    },
+    {
+      "start": 234,
+      "end": 239,
+      "type": "LIEU_ISOLE",
+      "text": "Lille"
+    },
+    {
+      "start": 400,
+      "end": 407,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 411,
+      "end": 426,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    },
+    {
+      "start": 662,
+      "end": 668,
+      "type": "LIEU_ISOLE",
+      "text": "Nantes"
+    },
+    {
+      "start": 780,
+      "end": 816,
+      "type": "INSTITUTION",
+      "text": "registre du commerce et des sociétés"
+    },
+    {
+      "start": 820,
+      "end": 826,
+      "type": "LIEU_ISOLE",
+      "text": "Nantes"
+    },
+    {
+      "start": 1041,
+      "end": 1060,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 1064,
+      "end": 1079,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    },
+    {
+      "start": 2335,
+      "end": 2343,
+      "type": "INSTITUTION",
+      "text": "tribunal"
     }
   ]
 }

@@ -2,7 +2,7 @@
 // Ne pas lire ce fichier pour mettre au point les règles : utiliser modeles-dev.mjs.
 
 import {
-  f, S, NOMS, VILLES, piege, personne, organisation, civ, civLong, accord, fonctionDirigeant, emailPro,
+  f, S, I, NOMS, VILLES, piege, personne, organisation, civ, civLong, accord, fonctionDirigeant, emailPro,
   modelesCabinetAvocats, modelesCabinetComptable, numeroDossier, date, plusJours, iban, fmtIban,
   carte, fmtCarte, fmtSiren, fmtSiret, fmtTva, fmtNir, maj, per, org, adr, dt, mt, lieu, tel, mail,
   dossier, lieuNaissance, arrondi,
@@ -45,7 +45,7 @@ RG n° ${dossier(numeroDossier(alea, 'rg'))}
 
 ${cher},
 
-Je reviens vers vous à la suite de l'audience d'orientation du ${dt(dAudience)} devant le tribunal judiciaire de ${lieu(ville)}.
+Je reviens vers vous à la suite de l'audience d'orientation du ${dt(dAudience)} devant le ${I('tribunal judiciaire')} de ${lieu(ville)}.
 
 Comme je vous l'indiquais lors de notre rendez-vous du ${dt(dEntretien, 'num')}, ${civ(voisin)} ${per(voisin, 'pN')}, représenté${accord(voisin, 'e', '')} par Maître ${per(confrere, 'pN')} du cabinet ${org(cabinetAdverse)}, conteste que le mur de pierre séparant vos deux propriétés soit mitoyen. ${accord(voisin, 'Elle', 'Il')} sollicite en outre, à titre reconventionnel, la somme de ${mt(reconv)} au titre de l'élagage des rosiers et de la haie qui, selon ${accord(voisin, 'elle', 'lui')}, empiètent sur son terrain.
 
@@ -66,7 +66,7 @@ Je reste à votre disposition au ${tel(alea, avocat.tel)} ou à l'adresse ${mail
 Je vous prie de croire, ${cher}, à l'assurance de mes sentiments dévoués.
 
 ${per(avocat, 'pN')}
-Avocat${accord(avocat, 'e', '')} au barreau de ${lieu(ville)}
+Avocat${accord(avocat, 'e', '')} au ${I('barreau')} de ${lieu(ville)}
 `;
 }
 
@@ -89,7 +89,7 @@ function assignation(alea, rang) {
   const reparations = arrondi(alea.entier(800, 4500) + alea.entier(0, 99) / 100);
   const profession = alea.choix(['infirmier', 'agent immobilier', 'professeur des écoles', 'technicien informatique', 'artisan plombier']);
   const titre = civLong(demandeur);
-  return f`ASSIGNATION DEVANT LE TRIBUNAL JUDICIAIRE DE ${lieu(maj(ville))}
+  return f`ASSIGNATION DEVANT LE ${I('TRIBUNAL JUDICIAIRE')} DE ${lieu(maj(ville))}
 (procédure écrite ordinaire — articles 750 et suivants du code de procédure civile)
 
 Le ${dt(dActe)},
@@ -98,15 +98,15 @@ Le ${dt(dActe)},
 
 ${titre} ${per(demandeur, 'pN')}, ${accord(demandeur, 'née', 'né')} le ${dt(demandeur.dateNaissance)} à ${lieuNaissance(demandeur)}, de nationalité française, ${profession}, demeurant ${adr(demandeur.adresse)},
 
-Ayant pour avocat constitué Maître ${per(avocat, 'pN')}, avocat${accord(avocat, 'e', '')} au barreau de ${lieu(ville)}, ${org(cabinet)}, ${adr(cabinet.adresse)}, tél. ${tel(alea, cabinet.tel)}, ${mail(emailPro(alea, avocat, cabinet))}, au cabinet duquel il est fait élection de domicile,
+Ayant pour avocat constitué Maître ${per(avocat, 'pN')}, avocat${accord(avocat, 'e', '')} au ${I('barreau')} de ${lieu(ville)}, ${org(cabinet)}, ${adr(cabinet.adresse)}, tél. ${tel(alea, cabinet.tel)}, ${mail(emailPro(alea, avocat, cabinet))}, au cabinet duquel il est fait élection de domicile,
 
 Nous, Maître ${per(commissaire, 'pN')}, commissaire de justice à ${lieu(alea.choix([ville, villeRcs]))},
 
 AVONS DONNÉ ASSIGNATION À :
 
-La société ${org(defenderesse, 'raisonMaj')}, au capital de ${mt(defenderesse.capital, { centimes: false })}, immatriculée au registre du commerce et des sociétés de ${lieu(villeRcs)} sous le numéro ${S('SIREN', fmtSiren(defenderesse.siren, true))}, dont le siège social est situé ${adr(defenderesse.adresse)}, prise en la personne de son représentant légal domicilié en cette qualité audit siège,
+La société ${org(defenderesse, 'raisonMaj')}, au capital de ${mt(defenderesse.capital, { centimes: false })}, immatriculée au ${I('registre du commerce et des sociétés')} de ${lieu(villeRcs)} sous le numéro ${S('SIREN', fmtSiren(defenderesse.siren, true))}, dont le siège social est situé ${adr(defenderesse.adresse)}, prise en la personne de son représentant légal domicilié en cette qualité audit siège,
 
-D'AVOIR À COMPARAÎTRE devant le tribunal judiciaire de ${lieu(ville)}, à l'audience d'orientation du ${dt(dAudience)} à 9 h 30.
+D'AVOIR À COMPARAÎTRE devant le ${I('tribunal judiciaire')} de ${lieu(ville)}, à l'audience d'orientation du ${dt(dAudience)} à 9 h 30.
 
 TRÈS IMPORTANT : vous êtes tenu de constituer avocat dans un délai de quinze jours à compter de la présente assignation. À défaut, vous vous exposez à ce qu'un jugement soit rendu contre vous sur les seuls éléments fournis par votre adversaire.
 
@@ -126,7 +126,7 @@ En application des articles 1641 et suivants du code civil, le vendeur est tenu 
 
 PAR CES MOTIFS
 
-Il est demandé au tribunal de :
+Il est demandé au ${I('tribunal')} de :
 - PRONONCER la résolution de la vente intervenue le ${dt(dAchat, 'num')} ;
 - CONDAMNER la société ${org(defenderesse, 'raisonMaj')} à payer à ${titre} ${per(demandeur, 'pN')} la somme de ${mt(prix)} au titre de la restitution du prix ;
 - LA CONDAMNER à lui payer la somme de ${mt(reparations)} au titre des frais de remorquage et de diagnostic ;
@@ -193,7 +193,7 @@ Les prélèvements seront effectués sur le compte ${S('IBAN', fmtIban(iban(alea
 La présente mission est conclue pour une durée d'un an, renouvelable par tacite reconduction, sauf dénonciation par lettre recommandée trois mois avant la date de clôture de l'exercice.
 
 5. Interlocuteurs
-Votre dossier est suivi par ${per(expert, 'pN')}, expert-comptable inscrit${accord(expert, 'e', '')} au tableau de l'Ordre, assisté${accord(expert, 'e', '')} d'un collaborateur dédié.
+Votre dossier est suivi par ${per(expert, 'pN')}, expert-comptable inscrit${accord(expert, 'e', '')} au tableau de l'${I('Ordre')}, assisté${accord(expert, 'e', '')} d'un collaborateur dédié.
 
 Nous vous remercions de nous retourner un exemplaire de la présente lettre revêtu de votre signature, précédée de la mention « Bon pour accord ».
 
@@ -291,7 +291,7 @@ ci-après « le Salarié »,
 IL A ÉTÉ CONVENU CE QUI SUIT :
 
 Article 1 — Engagement
-${civLong(salarie)} ${per(salarie, 'N')} est engagé${accord(salarie, 'e', '')} à compter du ${dt(dEmbauche)} en qualité de ${poste}, statut employé, niveau III de la convention collective applicable. La déclaration préalable à l'embauche a été effectuée auprès de l'URSSAF.
+${civLong(salarie)} ${per(salarie, 'N')} est engagé${accord(salarie, 'e', '')} à compter du ${dt(dEmbauche)} en qualité de ${poste}, statut employé, niveau III de la convention collective applicable. La déclaration préalable à l'embauche a été effectuée auprès de l'${I('URSSAF')}.
 
 Article 2 — Période d'essai
 Le contrat ne deviendra définitif qu'à l'issue d'une période d'essai de deux mois, renouvelable une fois d'un commun accord.
@@ -324,7 +324,7 @@ function attestationEmployeur(alea, rang) {
   const dAttest = date(alea, 2026, 2026);
   const salaire = arrondi(alea.entier(2000, 5200) + alea.choix([0, 0.33, 0.5]));
   const poste = alea.choix(['comptable unique', 'conducteur poids lourd', 'assistant de direction', 'responsable des achats', 'boulanger']);
-  const objet = alea.choix(['la constitution de son dossier de location', 'sa demande de prêt immobilier', "son dossier auprès de la caisse d'allocations familiales"]);
+  const objet = alea.choix(['la constitution de son dossier de location', 'sa demande de prêt immobilier', f`son dossier auprès de la ${I("caisse d'allocations familiales")}`]);
   return f`${org(entreprise, 'raisonMaj')}
 ${adr(entreprise.adresse, 'lignes')}
 SIRET : ${S('SIRET', fmtSiret(entreprise.siret, alea.chance(0.5)))}
@@ -402,10 +402,10 @@ Prochaine réunion : ${dt(plusJours(dReunion, alea.entier(60, 90)), 'num')}.
 }
 
 function fichePrudhommes(alea) {
-  return f`FICHE PRATIQUE — SAISIR LE CONSEIL DE PRUD'HOMMES
+  return f`FICHE PRATIQUE — SAISIR LE ${I("CONSEIL DE PRUD'HOMMES")}
 
 À quoi sert-il ?
-Le conseil de prud'hommes règle les litiges individuels nés du contrat de travail : licenciement, salaires impayés, heures supplémentaires, sanctions disciplinaires.
+Le ${I("conseil de prud'hommes")} règle les litiges individuels nés du contrat de travail : licenciement, salaires impayés, heures supplémentaires, sanctions disciplinaires.
 
 Dans quels délais ?
 - Contestation d'un licenciement : 12 mois à compter de sa notification ;
@@ -413,7 +413,7 @@ Dans quels délais ?
 - Discrimination ou harcèlement : 5 ans.
 
 Comment ?
-La saisine se fait par requête déposée au greffe ou envoyée par lettre recommandée, ou en ligne. Elle doit exposer les demandes et les pièces sur lesquelles elles reposent.
+La saisine se fait par requête déposée au ${I('greffe')} ou envoyée par lettre recommandée, ou en ligne. Elle doit exposer les demandes et les pièces sur lesquelles elles reposent.
 
 Combien ?
 La saisine est gratuite. En cas de licenciement sans cause réelle et sérieuse, l'indemnité est encadrée par un barème : par exemple, pour un salarié comptant deux ans d'ancienneté, entre 3 et 3,5 mois de salaire brut. Pour un salaire de ${mt(2600, { centimes: false })}, cela représente de ${mt(7800, { centimes: false })} à ${mt(9100, { centimes: false })}.

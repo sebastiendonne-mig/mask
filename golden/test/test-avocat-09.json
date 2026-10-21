@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 45,
-      "end": 52,
-      "type": "LIEU_ISOLE",
-      "text": "ORLÉANS"
-    },
-    {
       "start": 141,
       "end": 156,
       "type": "DATE",
@@ -127,40 +121,10 @@
       "text": "2 novembre 1962"
     },
     {
-      "start": 226,
-      "end": 234,
-      "type": "LIEU_ISOLE",
-      "text": "Toulouse"
-    },
-    {
-      "start": 420,
-      "end": 427,
-      "type": "LIEU_ISOLE",
-      "text": "Orléans"
-    },
-    {
-      "start": 660,
-      "end": 667,
-      "type": "LIEU_ISOLE",
-      "text": "Orléans"
-    },
-    {
       "start": 746,
       "end": 753,
       "type": "MONTANT",
       "text": "5 000 €"
-    },
-    {
-      "start": 811,
-      "end": 817,
-      "type": "LIEU_ISOLE",
-      "text": "Vannes"
-    },
-    {
-      "start": 1056,
-      "end": 1063,
-      "type": "LIEU_ISOLE",
-      "text": "Orléans"
     },
     {
       "start": 1095,
@@ -239,6 +203,74 @@
       "end": 2905,
       "type": "DATE",
       "text": "17/08/2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 22,
+      "end": 41,
+      "type": "INSTITUTION",
+      "text": "TRIBUNAL JUDICIAIRE"
+    },
+    {
+      "start": 45,
+      "end": 52,
+      "type": "LIEU_ISOLE",
+      "text": "ORLÉANS"
+    },
+    {
+      "start": 226,
+      "end": 234,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    },
+    {
+      "start": 409,
+      "end": 416,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 420,
+      "end": 427,
+      "type": "LIEU_ISOLE",
+      "text": "Orléans"
+    },
+    {
+      "start": 660,
+      "end": 667,
+      "type": "LIEU_ISOLE",
+      "text": "Orléans"
+    },
+    {
+      "start": 771,
+      "end": 807,
+      "type": "INSTITUTION",
+      "text": "registre du commerce et des sociétés"
+    },
+    {
+      "start": 811,
+      "end": 817,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1033,
+      "end": 1052,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 1056,
+      "end": 1063,
+      "type": "LIEU_ISOLE",
+      "text": "Orléans"
+    },
+    {
+      "start": 2305,
+      "end": 2313,
+      "type": "INSTITUTION",
+      "text": "tribunal"
     }
   ]
 }

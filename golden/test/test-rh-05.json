@@ -91,28 +91,10 @@
       "text": "21/08/2000"
     },
     {
-      "start": 405,
-      "end": 411,
-      "type": "LIEU_ISOLE",
-      "text": "Angers"
-    },
-    {
       "start": 704,
       "end": 716,
       "type": "DATE",
       "text": "13 juin 2026"
-    },
-    {
-      "start": 1111,
-      "end": 1119,
-      "type": "LIEU_ISOLE",
-      "text": "Poitiers"
-    },
-    {
-      "start": 1176,
-      "end": 1187,
-      "type": "LIEU_ISOLE",
-      "text": "Montpellier"
     },
     {
       "start": 1445,
@@ -127,16 +109,42 @@
       "text": "800 €"
     },
     {
-      "start": 1758,
-      "end": 1766,
-      "type": "LIEU_ISOLE",
-      "text": "Poitiers"
-    },
-    {
       "start": 1771,
       "end": 1782,
       "type": "DATE",
       "text": "2 juin 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 405,
+      "end": 411,
+      "type": "LIEU_ISOLE",
+      "text": "Angers"
+    },
+    {
+      "start": 884,
+      "end": 890,
+      "type": "INSTITUTION",
+      "text": "URSSAF"
+    },
+    {
+      "start": 1111,
+      "end": 1119,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
+    },
+    {
+      "start": 1176,
+      "end": 1187,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
+    },
+    {
+      "start": 1758,
+      "end": 1766,
+      "type": "LIEU_ISOLE",
+      "text": "Poitiers"
     }
   ]
 }

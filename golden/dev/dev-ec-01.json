@@ -109,16 +109,24 @@
       "text": "829 751,10 €"
     },
     {
-      "start": 1276,
-      "end": 1281,
-      "type": "LIEU_ISOLE",
-      "text": "Reims"
-    },
-    {
       "start": 1286,
       "end": 1301,
       "type": "DATE",
       "text": "13 octobre 2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 90,
+      "end": 95,
+      "type": "INSTITUTION",
+      "text": "Ordre"
+    },
+    {
+      "start": 1276,
+      "end": 1281,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
     }
   ]
 }

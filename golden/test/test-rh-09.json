@@ -85,12 +85,6 @@
       "text": "27/06/1991"
     },
     {
-      "start": 348,
-      "end": 355,
-      "type": "LIEU_ISOLE",
-      "text": "Le Mans"
-    },
-    {
       "start": 530,
       "end": 541,
       "type": "DATE",
@@ -103,16 +97,30 @@
       "text": "4 503,50 €"
     },
     {
-      "start": 1134,
-      "end": 1138,
-      "type": "LIEU_ISOLE",
-      "text": "Metz"
-    },
-    {
       "start": 1143,
       "end": 1156,
       "type": "DATE",
       "text": "29 avril 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 348,
+      "end": 355,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 896,
+      "end": 927,
+      "type": "INSTITUTION",
+      "text": "caisse d'allocations familiales"
+    },
+    {
+      "start": 1134,
+      "end": 1138,
+      "type": "LIEU_ISOLE",
+      "text": "Metz"
     }
   ]
 }

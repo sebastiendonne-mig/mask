@@ -91,28 +91,10 @@
       "text": "14/03/1973"
     },
     {
-      "start": 412,
-      "end": 419,
-      "type": "LIEU_ISOLE",
-      "text": "Le Mans"
-    },
-    {
       "start": 724,
       "end": 739,
       "type": "DATE",
       "text": "21 janvier 2026"
-    },
-    {
-      "start": 1136,
-      "end": 1145,
-      "type": "LIEU_ISOLE",
-      "text": "Perpignan"
-    },
-    {
-      "start": 1202,
-      "end": 1207,
-      "type": "LIEU_ISOLE",
-      "text": "Nancy"
     },
     {
       "start": 1465,
@@ -127,16 +109,42 @@
       "text": "1 200 €"
     },
     {
-      "start": 1780,
-      "end": 1789,
-      "type": "LIEU_ISOLE",
-      "text": "Perpignan"
-    },
-    {
       "start": 1794,
       "end": 1810,
       "type": "DATE",
       "text": "31 décembre 2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 412,
+      "end": 419,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 909,
+      "end": 915,
+      "type": "INSTITUTION",
+      "text": "URSSAF"
+    },
+    {
+      "start": 1136,
+      "end": 1145,
+      "type": "LIEU_ISOLE",
+      "text": "Perpignan"
+    },
+    {
+      "start": 1202,
+      "end": 1207,
+      "type": "LIEU_ISOLE",
+      "text": "Nancy"
+    },
+    {
+      "start": 1780,
+      "end": 1789,
+      "type": "LIEU_ISOLE",
+      "text": "Perpignan"
     }
   ]
 }

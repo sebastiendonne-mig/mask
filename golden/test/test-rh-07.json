@@ -85,12 +85,6 @@
       "text": "31/03/1987"
     },
     {
-      "start": 311,
-      "end": 316,
-      "type": "LIEU_ISOLE",
-      "text": "Porto"
-    },
-    {
       "start": 486,
       "end": 497,
       "type": "DATE",
@@ -103,16 +97,30 @@
       "text": "5 191,00 €"
     },
     {
-      "start": 1080,
-      "end": 1091,
-      "type": "LIEU_ISOLE",
-      "text": "Montpellier"
-    },
-    {
       "start": 1096,
       "end": 1112,
       "type": "DATE",
       "text": "26 novembre 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 311,
+      "end": 316,
+      "type": "LIEU_ISOLE",
+      "text": "Porto"
+    },
+    {
+      "start": 849,
+      "end": 880,
+      "type": "INSTITUTION",
+      "text": "caisse d'allocations familiales"
+    },
+    {
+      "start": 1080,
+      "end": 1091,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
     }
   ]
 }

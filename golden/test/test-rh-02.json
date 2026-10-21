@@ -91,28 +91,10 @@
       "text": "09/05/1991"
     },
     {
-      "start": 423,
-      "end": 433,
-      "type": "LIEU_ISOLE",
-      "text": "Casablanca"
-    },
-    {
       "start": 738,
       "end": 752,
       "type": "DATE",
       "text": "2 juillet 2026"
-    },
-    {
-      "start": 1150,
-      "end": 1155,
-      "type": "LIEU_ISOLE",
-      "text": "Reims"
-    },
-    {
-      "start": 1212,
-      "end": 1219,
-      "type": "LIEU_ISOLE",
-      "text": "Avignon"
     },
     {
       "start": 1477,
@@ -127,16 +109,42 @@
       "text": "1 000 €"
     },
     {
-      "start": 1792,
-      "end": 1797,
-      "type": "LIEU_ISOLE",
-      "text": "Reims"
-    },
-    {
       "start": 1802,
       "end": 1814,
       "type": "DATE",
       "text": "16 juin 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 423,
+      "end": 433,
+      "type": "LIEU_ISOLE",
+      "text": "Casablanca"
+    },
+    {
+      "start": 923,
+      "end": 929,
+      "type": "INSTITUTION",
+      "text": "URSSAF"
+    },
+    {
+      "start": 1150,
+      "end": 1155,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 1212,
+      "end": 1219,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    },
+    {
+      "start": 1792,
+      "end": 1797,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
     }
   ]
 }

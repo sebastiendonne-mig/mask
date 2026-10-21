@@ -109,16 +109,24 @@
       "text": "1 956 848,27 €"
     },
     {
-      "start": 1282,
-      "end": 1288,
-      "type": "LIEU_ISOLE",
-      "text": "Vannes"
-    },
-    {
       "start": 1293,
       "end": 1309,
       "type": "DATE",
       "text": "22 décembre 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 87,
+      "end": 92,
+      "type": "INSTITUTION",
+      "text": "Ordre"
+    },
+    {
+      "start": 1282,
+      "end": 1288,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
     }
   ]
 }

@@ -24,12 +24,6 @@
       "text": "150 €"
     },
     {
-      "start": 921,
-      "end": 929,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
-    },
-    {
       "start": 933,
       "end": 947,
       "type": "DATE",
@@ -40,6 +34,14 @@
       "end": 986,
       "type": "DATE",
       "text": "12/06/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 921,
+      "end": 929,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
     }
   ]
 }

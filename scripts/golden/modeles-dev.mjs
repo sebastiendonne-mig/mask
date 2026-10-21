@@ -2,7 +2,7 @@
 // Aucun de ces modèles n'est utilisé pour le jeu de test (voir modeles-test.mjs).
 
 import {
-  f, S, NOMS, VILLES, piege, personne, organisation, civ, civLong, accord, fonctionDirigeant, emailPro,
+  f, S, I, NOMS, VILLES, piege, personne, organisation, civ, civLong, accord, fonctionDirigeant, emailPro,
   modelesCabinetAvocats, modelesCabinetComptable, numeroDossier, date, plusJours, iban, fmtIban,
   carte, fmtCarte, fmtSiren, fmtSiret, fmtTva, fmtNir, per, org, adr, dt, mt, lieu, tel, mail, dossier,
   lieuNaissance, arrondi,
@@ -25,7 +25,7 @@ function miseEnDemeure(alea, rang) {
   const prix = arrondi(alea.entier(4800, 38000) + alea.entier(0, 99) / 100);
   const ma = accord(client, 'ma cliente', 'mon client');
   return f`${org(cabinet, 'raisonMaj')}
-Avocats au barreau de ${lieu(villeCab)}
+Avocats au ${I('barreau')} de ${lieu(villeCab)}
 ${adr(cabinet.adresse, 'lignes')}
 Tél. : ${tel(alea, cabinet.tel)} — ${mail(cabinet.email)}
 
@@ -49,7 +49,7 @@ Le ${dt(dDevis)}, ${ma} vous a confié la rénovation complète de sa cuisine, s
 En conséquence, je vous mets en demeure de rembourser à ${ma} la somme de ${mt(arrondi(prix * 0.4))}, correspondant aux prestations non exécutées, dans un délai de quinze jours à compter de la réception de la présente, par virement sur son compte :
 IBAN ${S('IBAN', fmtIban(iban(alea)))}
 
-À défaut, j'ai d'ores et déjà reçu instruction de saisir le tribunal judiciaire de ${lieu(villeCab)}, afin d'obtenir ce remboursement, outre des dommages et intérêts et la prise en charge des frais de procédure.
+À défaut, j'ai d'ores et déjà reçu instruction de saisir le ${I('tribunal judiciaire')} de ${lieu(villeCab)}, afin d'obtenir ce remboursement, outre des dommages et intérêts et la prise en charge des frais de procédure.
 
 Je vous précise que la présente vaut mise en demeure au sens de l'article 1344 du code civil et fait courir les intérêts au taux légal.
 
@@ -88,7 +88,7 @@ ci-après dénommé${accord(client, 'e', '')} « le Client »,
 
 Et
 
-${org(cabinet)}, société d'avocats inscrite au barreau de ${lieu(ville)}, SIRET ${S('SIRET', fmtSiret(cabinet.siret, alea.chance(0.5)))}, dont le siège est situé ${adr(cabinet.adresse)}, représentée par Maître ${per(avocat, 'pn')},
+${org(cabinet)}, société d'avocats inscrite au ${I('barreau')} de ${lieu(ville)}, SIRET ${S('SIRET', fmtSiret(cabinet.siret, alea.chance(0.5)))}, dont le siège est situé ${adr(cabinet.adresse)}, représentée par Maître ${per(avocat, 'pn')},
 ci-après dénommée « l'Avocat »,
 
 Il a été convenu ce qui suit.
@@ -106,7 +106,7 @@ Article 4 — Dessaisissement
 Le Client peut à tout moment dessaisir l'Avocat. Les honoraires restent dus au prorata des diligences accomplies jusqu'à la date du dessaisissement.
 
 Article 5 — Différend
-Toute contestation relative aux honoraires est soumise au bâtonnier de l'ordre des avocats du barreau de ${lieu(ville)}.
+Toute contestation relative aux honoraires est soumise au bâtonnier de l'${I('ordre des avocats')} du ${I('barreau')} de ${lieu(ville)}.
 
 Fait à ${lieu(ville)}, le ${dt(dSignature)}, en deux exemplaires originaux.
 
@@ -127,7 +127,7 @@ function attestationChiffreAffaires(alea, rang) {
   const caPrec = arrondi(ca * (0.8 + alea.entier(0, 35) / 100));
   const dAttestation = date(alea, an + 1, an + 1);
   return f`${org(cabinet)}
-Société d'expertise comptable inscrite au tableau de l'Ordre
+Société d'expertise comptable inscrite au tableau de l'${I('Ordre')}
 ${adr(cabinet.adresse, 'lignes')}
 SIRET ${S('SIRET', fmtSiret(cabinet.siret, true))} — TVA ${S('TVA_INTRA', fmtTva(cabinet.siren, alea.chance(0.5)))}
 Tél. ${tel(alea, cabinet.tel)}

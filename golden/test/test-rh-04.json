@@ -91,28 +91,10 @@
       "text": "29 décembre 1991"
     },
     {
-      "start": 420,
-      "end": 425,
-      "type": "LIEU_ISOLE",
-      "text": "Reims"
-    },
-    {
       "start": 731,
       "end": 742,
       "type": "DATE",
       "text": "5 mars 2026"
-    },
-    {
-      "start": 1137,
-      "end": 1148,
-      "type": "LIEU_ISOLE",
-      "text": "Montpellier"
-    },
-    {
-      "start": 1205,
-      "end": 1212,
-      "type": "LIEU_ISOLE",
-      "text": "Le Mans"
     },
     {
       "start": 1470,
@@ -127,16 +109,42 @@
       "text": "500 €"
     },
     {
-      "start": 1783,
-      "end": 1794,
-      "type": "LIEU_ISOLE",
-      "text": "Montpellier"
-    },
-    {
       "start": 1799,
       "end": 1814,
       "type": "DATE",
       "text": "15 février 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 420,
+      "end": 425,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 910,
+      "end": 916,
+      "type": "INSTITUTION",
+      "text": "URSSAF"
+    },
+    {
+      "start": 1137,
+      "end": 1148,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
+    },
+    {
+      "start": 1205,
+      "end": 1212,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
+    },
+    {
+      "start": 1783,
+      "end": 1794,
+      "type": "LIEU_ISOLE",
+      "text": "Montpellier"
     }
   ]
 }

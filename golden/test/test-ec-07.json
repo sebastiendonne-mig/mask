@@ -217,16 +217,18 @@
       "text": "23/12/2025"
     },
     {
-      "start": 1332,
-      "end": 1337,
-      "type": "LIEU_ISOLE",
-      "text": "Rouen"
-    },
-    {
       "start": 1341,
       "end": 1351,
       "type": "DATE",
       "text": "07/01/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 1332,
+      "end": 1337,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
     }
   ]
 }

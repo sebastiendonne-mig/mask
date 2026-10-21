@@ -217,16 +217,18 @@
       "text": "26/01/2026"
     },
     {
-      "start": 1305,
-      "end": 1312,
-      "type": "LIEU_ISOLE",
-      "text": "Limoges"
-    },
-    {
       "start": 1316,
       "end": 1326,
       "type": "DATE",
       "text": "04/02/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 1305,
+      "end": 1312,
+      "type": "LIEU_ISOLE",
+      "text": "Limoges"
     }
   ]
 }

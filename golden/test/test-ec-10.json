@@ -217,16 +217,18 @@
       "text": "31/10/2026"
     },
     {
-      "start": 1312,
-      "end": 1318,
-      "type": "LIEU_ISOLE",
-      "text": "Annecy"
-    },
-    {
       "start": 1322,
       "end": 1332,
       "type": "DATE",
       "text": "09/11/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 1312,
+      "end": 1318,
+      "type": "LIEU_ISOLE",
+      "text": "Annecy"
     }
   ]
 }

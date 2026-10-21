@@ -24,12 +24,6 @@
       "text": "110 €"
     },
     {
-      "start": 446,
-      "end": 451,
-      "type": "LIEU_ISOLE",
-      "text": "Paris"
-    },
-    {
       "start": 454,
       "end": 459,
       "type": "MONTANT",
@@ -40,6 +34,14 @@
       "end": 730,
       "type": "DATE",
       "text": "05/12/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 446,
+      "end": 451,
+      "type": "LIEU_ISOLE",
+      "text": "Paris"
     },
     {
       "start": 785,

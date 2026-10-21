@@ -41,12 +41,16 @@ Vérifications faites à chaque génération :
 
 ```json
 {
-  "doc_id": "dev-rh-03",
-  "persona": "rh",
+  "doc_id": "dev-avocat-01",
+  "persona": "avocat",
   "split": "dev",
-  "template_id": "rh-bulletin-paie",
-  "spans": [ { "start": 200, "end": 212, "type": "PERSONNE", "text": "TESSIER Rose" } ],
-  "non_masques": [ { "start": 28, "end": 38, "type": "DATE", "text": "01/01/2026" } ]
+  "template_id": "avocat-mise-en-demeure",
+  "spans": [ { "start": 205, "end": 218, "type": "PERSONNE", "text": "Camille ROYER" } ],
+  "non_masques": [ { "start": 289, "end": 301, "type": "DATE", "text": "20 mars 2026" } ],
+  "neutres": [
+    { "start": 44, "end": 51, "type": "INSTITUTION", "text": "barreau" },
+    { "start": 55, "end": 63, "type": "LIEU_ISOLE", "text": "Toulouse" }
+  ]
 }
 ```
 
@@ -54,19 +58,22 @@ Vérifications faites à chaque génération :
 - `start` / `end` : positions dans le texte, `end` exclu. Ce sont des indices de chaîne JavaScript ; comme le texte ne contient que des caractères du plan multilingue de base, ils sont identiques aux indices de caractères en Python.
 - Les étiquettes sont triées par position et ne se chevauchent jamais.
 - `spans` : ce qui doit être masqué. Types : `PERSONNE`, `ADRESSE`, `ORGANISATION`, `IBAN`, `SIREN`, `SIRET`, `TVA_INTRA`, `NIR`, `CARTE`, `EMAIL`, `TELEPHONE`, `NUMERO_DOSSIER`.
-- `non_masques` : ce qui ne doit PAS être masqué ; sert à compter les faux positifs. Types : `DATE`, `MONTANT`, `LIEU_ISOLE`.
+- `non_masques` : ce qui ne doit PAS être masqué ; un masque dessus est une erreur (faux positif). Types : `DATE`, `MONTANT`.
+- `neutres` : éléments qui ne comptent ni comme réussite ni comme erreur et sont rapportés à part (`seuils.md`, amendement du 21/10/2026 (2)). Types : `INSTITUTION`, `LIEU_ISOLE`. Un masque posé dessus n'est pas une erreur ; l'app peut ne pas les masquer, c'est une décision ultérieure pour les lieux isolés.
+- Aucune étiquette de `neutres` ne chevauche une étiquette de `spans` (ni de `non_masques`) : le script le vérifie.
 
 ### Conventions d'étiquetage
 
 - **PERSONNE** : le nom tel qu'il est écrit (« Rose FLORENCE », « MOREL Pierre », « P. MOREL », « FLORENCE » seul). La civilité (M., Mme, Madame, Maître) est hors étiquette. Toutes les personnes physiques sont étiquetées : parties, avocats, signataires, témoins, collaborateurs.
 - **ADRESSE** : de la voie (ou du complément « Résidence… ») jusqu'à la ville, code postal compris. Une adresse sur plusieurs lignes est une seule étiquette, qui contient les retours à la ligne.
-- **ORGANISATION** : la raison sociale, forme juridique comprise quand elle y est accolée (« SARL Morel Bâtiment », « LA ROSE DES PRÉS SAS ») ; « la société » est hors étiquette. Seules les entités privées sont étiquetées : un tribunal, l'URSSAF ou une mairie ne le sont pas.
+- **ORGANISATION** : la raison sociale, forme juridique comprise quand elle y est accolée (« SARL Morel Bâtiment », « LA ROSE DES PRÉS SAS ») ; « la société » est hors étiquette. Seules les entités privées sont étiquetées ORGANISATION : les institutions publiques sont des éléments neutres (INSTITUTION, voir plus bas).
 - **Imbrication** : un nom de personne contenu dans une raison sociale ou une adresse électronique n'est pas étiqueté à part ; l'étiquette englobante l'emporte.
 - **Identifiants** : la valeur entière telle qu'écrite, espaces compris (« FR76 1234 … », « +33 (0)6 39 98 12 34 », « 2 93 02 64 025 432 31 »).
 - **NUMERO_DOSSIER** : référence de dossier du cabinet, numéro de rôle (RG), numéro de dossier comptable. Les numéros de facture ne sont pas étiquetés.
 - **DATE** : toutes les dates, y compris les dates de naissance (`seuils.md`, décision c).
 - **MONTANT** : le nombre et son unité (« 2 450,00 € », « 31 000 euros »), hors mentions HT/TTC.
-- **LIEU_ISOLE** : toute ville hors d'une adresse (« Fait à Lyon », « barreau de Nantes », « tribunal judiciaire de Rennes », « RCS Lille », lieu de naissance, lieu de travail). Le pays d'un lieu de naissance (« Florence (Italie) ») n'est pas étiqueté.
+- **INSTITUTION** (neutre) : juridictions, organismes et administrations publics, collectivités, ordres professionnels. L'étiquette couvre la désignation seule, sans la ville : « tribunal judiciaire », pas « tribunal judiciaire de Rennes » (la ville reste un LIEU_ISOLE). Désignations retenues, sous leurs formes génériques : tribunal, tribunal judiciaire, conseil de prud'hommes, greffe, registre du commerce et des sociétés, URSSAF, caisse d'allocations familiales, barreau, ordre des avocats, Ordre (des experts-comptables). Une fonction ou une profession (bâtonnier, commissaire de justice) n'est pas une institution ; une désignation générique (« une juridiction commerciale », « l'établissement bancaire ») n'est pas étiquetée. Chaque occurrence d'une désignation retenue est étiquetée, majuscules comprises.
+- **LIEU_ISOLE** (neutre, depuis l'amendement du 21/10/2026 (2) ; auparavant dans `non_masques`) : toute ville hors d'une adresse (« Fait à Lyon », « barreau de Nantes » où seule la ville est un lieu isolé, « RCS Lille », lieu de naissance, lieu de travail). Le pays d'un lieu de naissance (« Florence (Italie) ») n'est pas étiqueté.
 
 ## Règles de génération
 

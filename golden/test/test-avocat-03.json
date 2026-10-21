@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 194,
-      "end": 199,
-      "type": "LIEU_ISOLE",
-      "text": "Tours"
-    },
-    {
       "start": 204,
       "end": 222,
       "type": "DATE",
@@ -125,12 +119,6 @@
       "end": 384,
       "type": "DATE",
       "text": "17 août 2026"
-    },
-    {
-      "start": 418,
-      "end": 423,
-      "type": "LIEU_ISOLE",
-      "text": "Tours"
     },
     {
       "start": 481,
@@ -179,6 +167,32 @@
       "end": 1457,
       "type": "DATE",
       "text": "12/07/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 194,
+      "end": 199,
+      "type": "LIEU_ISOLE",
+      "text": "Tours"
+    },
+    {
+      "start": 395,
+      "end": 414,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 418,
+      "end": 423,
+      "type": "LIEU_ISOLE",
+      "text": "Tours"
+    },
+    {
+      "start": 1713,
+      "end": 1720,
+      "type": "INSTITUTION",
+      "text": "barreau"
     },
     {
       "start": 1724,

@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 45,
-      "end": 53,
-      "type": "LIEU_ISOLE",
-      "text": "BESANÇON"
-    },
-    {
       "start": 142,
       "end": 153,
       "type": "DATE",
@@ -127,40 +121,10 @@
       "text": "19 janvier 1971"
     },
     {
-      "start": 223,
-      "end": 231,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
-    },
-    {
-      "start": 393,
-      "end": 401,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
-    },
-    {
-      "start": 619,
-      "end": 623,
-      "type": "LIEU_ISOLE",
-      "text": "Lyon"
-    },
-    {
       "start": 705,
       "end": 713,
       "type": "MONTANT",
       "text": "15 000 €"
-    },
-    {
-      "start": 771,
-      "end": 775,
-      "type": "LIEU_ISOLE",
-      "text": "Lyon"
-    },
-    {
-      "start": 1008,
-      "end": 1016,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
     },
     {
       "start": 1048,
@@ -239,6 +203,74 @@
       "end": 2879,
       "type": "DATE",
       "text": "03/11/2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 22,
+      "end": 41,
+      "type": "INSTITUTION",
+      "text": "TRIBUNAL JUDICIAIRE"
+    },
+    {
+      "start": 45,
+      "end": 53,
+      "type": "LIEU_ISOLE",
+      "text": "BESANÇON"
+    },
+    {
+      "start": 223,
+      "end": 231,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 382,
+      "end": 389,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 393,
+      "end": 401,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 619,
+      "end": 623,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
+    },
+    {
+      "start": 731,
+      "end": 767,
+      "type": "INSTITUTION",
+      "text": "registre du commerce et des sociétés"
+    },
+    {
+      "start": 771,
+      "end": 775,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
+    },
+    {
+      "start": 985,
+      "end": 1004,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 1008,
+      "end": 1016,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 2276,
+      "end": 2284,
+      "type": "INSTITUTION",
+      "text": "tribunal"
     }
   ]
 }

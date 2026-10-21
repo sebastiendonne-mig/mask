@@ -85,12 +85,6 @@
       "text": "06/01/1969"
     },
     {
-      "start": 316,
-      "end": 331,
-      "type": "LIEU_ISOLE",
-      "text": "Aix-en-Provence"
-    },
-    {
       "start": 510,
       "end": 526,
       "type": "DATE",
@@ -103,16 +97,24 @@
       "text": "3 412,00 €"
     },
     {
-      "start": 1074,
-      "end": 1081,
-      "type": "LIEU_ISOLE",
-      "text": "Le Mans"
-    },
-    {
       "start": 1086,
       "end": 1101,
       "type": "DATE",
       "text": "9 novembre 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 316,
+      "end": 331,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    },
+    {
+      "start": 1074,
+      "end": 1081,
+      "type": "LIEU_ISOLE",
+      "text": "Le Mans"
     }
   ]
 }

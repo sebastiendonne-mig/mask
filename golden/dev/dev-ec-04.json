@@ -139,12 +139,6 @@
       "text": "21 000 €"
     },
     {
-      "start": 769,
-      "end": 777,
-      "type": "LIEU_ISOLE",
-      "text": "Florence"
-    },
-    {
       "start": 782,
       "end": 792,
       "type": "DATE",
@@ -167,6 +161,14 @@
       "end": 912,
       "type": "DATE",
       "text": "8 juin 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 769,
+      "end": 777,
+      "type": "LIEU_ISOLE",
+      "text": "Florence"
     }
   ]
 }

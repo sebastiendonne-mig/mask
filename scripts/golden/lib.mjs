@@ -55,13 +55,19 @@ export class Fragment {
     this.text = '';
     this.spans = [];
     this.non_masques = [];
+    this.neutres = [];
   }
 }
 
 // Donnée à masquer.
 export const S = (type, text) => ({ [ETIQUETTE]: 'spans', type, text });
-// Donnée à NE PAS masquer (sert à mesurer les faux positifs).
+// Donnée à NE PAS masquer (sert à mesurer les faux positifs) : un masque dessus est une erreur.
 export const N = (type, text) => ({ [ETIQUETTE]: 'non_masques', type, text });
+// Élément neutre : un masque dessus n'est ni une réussite ni une erreur (voir seuils.md).
+export const neutre = (type, text) => ({ [ETIQUETTE]: 'neutres', type, text });
+// Institution publique : juridiction, organisme, administration, collectivité, ordre professionnel.
+// L'étiquette couvre la désignation seule, sans la ville (« tribunal judiciaire », pas « … de Rennes »).
+export const I = (text) => neutre('INSTITUTION', text);
 
 function ajouter(sortie, valeur) {
   if (valeur === null || valeur === undefined || valeur === false) return;
@@ -72,7 +78,7 @@ function ajouter(sortie, valeur) {
   if (valeur instanceof Fragment) {
     const decalage = sortie.text.length;
     sortie.text += valeur.text;
-    for (const cle of ['spans', 'non_masques']) {
+    for (const cle of ['spans', 'non_masques', 'neutres']) {
       for (const e of valeur[cle]) {
         sortie[cle].push({ ...e, start: e.start + decalage, end: e.end + decalage });
       }
@@ -442,7 +448,7 @@ export const org = (o, champ = 'raison') => S('ORGANISATION', o[champ]);
 export const adr = (a, style = 'ligne', villeMaj = false) => S('ADRESSE', fmtAdresse(a, style, villeMaj));
 export const dt = (d, style = 'long') => N('DATE', fmtDate(d, style));
 export const mt = (v, opts) => N('MONTANT', montant(v, opts));
-export const lieu = (v) => N('LIEU_ISOLE', v);
+export const lieu = (v) => neutre('LIEU_ISOLE', v);
 export const tel = (alea, t) => S('TELEPHONE', fmtTel(alea, t));
 export const mail = (e) => S('EMAIL', e);
 export const dossier = (n) => S('NUMERO_DOSSIER', n);

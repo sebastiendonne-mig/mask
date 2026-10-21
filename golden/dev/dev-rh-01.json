@@ -61,12 +61,6 @@
   ],
   "non_masques": [
     {
-      "start": 128,
-      "end": 134,
-      "type": "LIEU_ISOLE",
-      "text": "Vannes"
-    },
-    {
       "start": 139,
       "end": 151,
       "type": "DATE",
@@ -79,12 +73,6 @@
       "text": "8 octobre 2026"
     },
     {
-      "start": 425,
-      "end": 428,
-      "type": "LIEU_ISOLE",
-      "text": "Pau"
-    },
-    {
       "start": 518,
       "end": 530,
       "type": "MONTANT",
@@ -95,6 +83,20 @@
       "end": 681,
       "type": "DATE",
       "text": "31/08/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 128,
+      "end": 134,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 425,
+      "end": 428,
+      "type": "LIEU_ISOLE",
+      "text": "Pau"
     }
   ]
 }

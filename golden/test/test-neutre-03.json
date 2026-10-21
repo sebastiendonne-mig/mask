@@ -24,6 +24,32 @@
       "text": "9 100 €"
     },
     {
+      "start": 1114,
+      "end": 1126,
+      "type": "DATE",
+      "text": "27 août 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 27,
+      "end": 49,
+      "type": "INSTITUTION",
+      "text": "CONSEIL DE PRUD'HOMMES"
+    },
+    {
+      "start": 71,
+      "end": 93,
+      "type": "INSTITUTION",
+      "text": "conseil de prud'hommes"
+    },
+    {
+      "start": 453,
+      "end": 459,
+      "type": "INSTITUTION",
+      "text": "greffe"
+    },
+    {
       "start": 1022,
       "end": 1027,
       "type": "LIEU_ISOLE",
@@ -34,12 +60,6 @@
       "end": 1090,
       "type": "LIEU_ISOLE",
       "text": "Paris"
-    },
-    {
-      "start": 1114,
-      "end": 1126,
-      "type": "DATE",
-      "text": "27 août 2026"
     }
   ]
 }

@@ -91,18 +91,6 @@
   ],
   "non_masques": [
     {
-      "start": 55,
-      "end": 63,
-      "type": "LIEU_ISOLE",
-      "text": "Toulouse"
-    },
-    {
-      "start": 276,
-      "end": 284,
-      "type": "LIEU_ISOLE",
-      "text": "Toulouse"
-    },
-    {
       "start": 289,
       "end": 301,
       "type": "DATE",
@@ -143,6 +131,32 @@
       "end": 1100,
       "type": "MONTANT",
       "text": "12 478,34 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 44,
+      "end": 51,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 55,
+      "end": 63,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    },
+    {
+      "start": 276,
+      "end": 284,
+      "type": "LIEU_ISOLE",
+      "text": "Toulouse"
+    },
+    {
+      "start": 1349,
+      "end": 1368,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
     },
     {
       "start": 1372,

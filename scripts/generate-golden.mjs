@@ -17,7 +17,11 @@ const GRAINE = 'mask-golden-v1';
 const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'golden');
 
 const TYPES_SPANS = ['PERSONNE', 'ADRESSE', 'ORGANISATION', 'IBAN', 'SIREN', 'SIRET', 'TVA_INTRA', 'NIR', 'CARTE', 'EMAIL', 'TELEPHONE', 'NUMERO_DOSSIER'];
-const TYPES_NON_MASQUES = ['DATE', 'MONTANT', 'LIEU_ISOLE'];
+// Masqués = erreur (faux positif).
+const TYPES_NON_MASQUES = ['DATE', 'MONTANT'];
+// Neutres : ignorés dans le comptage, rapportés à part (seuils.md, amendement (2)).
+const TYPES_NEUTRES = ['INSTITUTION', 'LIEU_ISOLE'];
+const TYPES_PAR_LISTE = { spans: TYPES_SPANS, non_masques: TYPES_NON_MASQUES, neutres: TYPES_NEUTRES };
 const COURT = { avocat: 'avocat', 'expert-comptable': 'ec', rh: 'rh', aucune: 'neutre' };
 
 // Nombre de documents par modèle.
@@ -66,6 +70,7 @@ function generer() {
           text: fragment.text,
           spans: [...fragment.spans].sort(parPosition),
           non_masques: [...fragment.non_masques].sort(parPosition),
+          neutres: [...fragment.neutres].sort(parPosition),
         });
       }
     }
@@ -87,15 +92,16 @@ function verifierDocument(doc, erreurs) {
   const toutes = [
     ...doc.spans.map((e) => ({ ...e, liste: 'spans' })),
     ...doc.non_masques.map((e) => ({ ...e, liste: 'non_masques' })),
+    ...doc.neutres.map((e) => ({ ...e, liste: 'neutres' })),
   ].sort((a, b) => a.start - b.start);
 
   let fin = 0;
   for (const e of toutes) {
-    const types = e.liste === 'spans' ? TYPES_SPANS : TYPES_NON_MASQUES;
+    const types = TYPES_PAR_LISTE[e.liste];
     if (!types.includes(e.type)) err(`type ${e.type} interdit dans ${e.liste}`);
     if (text.slice(e.start, e.end) !== e.text) err(`position fausse pour « ${e.text} »`);
     if (!e.text || e.text.trim() !== e.text) err(`étiquette vide ou bordée d'espaces : « ${e.text} »`);
-    if (e.start < fin) err(`chevauchement sur « ${e.text} »`);
+    if (e.start < fin) err(`chevauchement (spans, non_masques, neutres) sur « ${e.text} »`);
     fin = Math.max(fin, e.end);
     if (e.liste === 'spans') {
       const raison = verifierIdentifiant(e.type, e.text);
@@ -150,7 +156,8 @@ function statistiques(documents) {
     const docs = documents.filter((d) => d.split === split);
     const spans = docs.flatMap((d) => d.spans);
     const nm = docs.flatMap((d) => d.non_masques);
-    for (const e of [...spans, ...nm]) {
+    const neutres = docs.flatMap((d) => d.neutres);
+    for (const e of [...spans, ...nm, ...neutres]) {
       parType[e.type] ??= {};
       parType[e.type][split] = (parType[e.type][split] ?? 0) + 1;
     }
@@ -169,12 +176,12 @@ function statistiques(documents) {
       'Nom de famille = ville (Florence, Paris, Valence)': personnes.filter((e) => MOTS_NOMS_VILLES.some((v) => contientMot(e.text, v))).length,
       'Nom en MAJUSCULES': personnes.filter((e) => /(^|[^\p{L}])\p{Lu}{2,}([^\p{L}]|$)/u.test(e.text)).length,
       'Adresse sur plusieurs lignes': spans.filter((e) => e.type === 'ADRESSE' && e.text.includes('\n')).length,
-      'Ville homonyme d\'un nom (Florence, Paris, Valence) comme lieu ou dans une adresse': [...spans, ...nm].filter((e) => ['ADRESSE', 'LIEU_ISOLE'].includes(e.type) && MOTS_NOMS_VILLES.some((v) => contientMot(e.text, v))).length,
+      'Ville homonyme d\'un nom (Florence, Paris, Valence) comme lieu ou dans une adresse': [...spans, ...neutres].filter((e) => ['ADRESSE', 'LIEU_ISOLE'].includes(e.type) && MOTS_NOMS_VILLES.some((v) => contientMot(e.text, v))).length,
       'Entreprise portant un nom de famille': spans.filter((e) => e.type === 'ORGANISATION' && NOMS.some((n) => contientMot(e.text, n))).length,
       'Mot « pierre/rose » hors nom de personne': motsHorsNoms,
       'Dates (toutes)': nm.filter((e) => e.type === 'DATE').length,
       'Dates de naissance': docs.reduce((n, d) => n + d.non_masques.filter((e) => e.type === 'DATE' && /n[ée]e? le $/i.test(d.text.slice(Math.max(0, e.start - 8), e.start))).length, 0),
-      'Villes isolées hors adresse': nm.filter((e) => e.type === 'LIEU_ISOLE').length,
+      'Villes isolées hors adresse': neutres.filter((e) => e.type === 'LIEU_ISOLE').length,
       'Montants': nm.filter((e) => e.type === 'MONTANT').length,
       'Montants avec espaces insécables': nm.filter((e) => e.type === 'MONTANT' && e.text.includes(' ')).length,
     };
@@ -199,6 +206,7 @@ function ecrire(documents) {
       template_id: d.template_id,
       spans: d.spans.map(({ start, end, type, text }) => ({ start, end, type, text })),
       non_masques: d.non_masques.map(({ start, end, type, text }) => ({ start, end, type, text })),
+      neutres: d.neutres.map(({ start, end, type, text }) => ({ start, end, type, text })),
     };
     fs.writeFileSync(path.join(dossier, `${d.doc_id}.txt`), d.text);
     fs.writeFileSync(path.join(dossier, `${d.doc_id}.json`), JSON.stringify(etiquettes, null, 2) + '\n');
@@ -229,15 +237,15 @@ if (erreurs.length > 0) {
 
 const nbManifeste = ecrire(documents);
 const { parType, pieges } = statistiques(documents);
-const nbEtiquettes = documents.reduce((n, d) => n + d.spans.length + d.non_masques.length, 0);
+const nbEtiquettes = documents.reduce((n, d) => n + d.spans.length + d.non_masques.length + d.neutres.length, 0);
 
 console.log(`Documents : ${documents.filter((d) => d.split === 'dev').length} dev, ${documents.filter((d) => d.split === 'test').length} test.`);
 console.log(`Vérifications réussies : ${nbEtiquettes} étiquettes (positions, chevauchements, couverture), clés de contrôle de chaque identifiant, séparation des modèles.`);
 console.log(`Manifeste : golden/test/MANIFEST.sha256 (${nbManifeste} fichiers).\n`);
 console.log('Étiquettes par type et par jeu');
 console.log('| Type | Liste | dev | test |\n|---|---|---|---|');
-for (const t of [...TYPES_SPANS, ...TYPES_NON_MASQUES]) {
-  const liste = TYPES_SPANS.includes(t) ? 'spans' : 'non_masques';
+for (const t of [...TYPES_SPANS, ...TYPES_NON_MASQUES, ...TYPES_NEUTRES]) {
+  const liste = Object.keys(TYPES_PAR_LISTE).find((l) => TYPES_PAR_LISTE[l].includes(t));
   console.log(`| ${t} | ${liste} | ${parType[t]?.dev ?? 0} | ${parType[t]?.test ?? 0} |`);
 }
 console.log('\nPièges par jeu');

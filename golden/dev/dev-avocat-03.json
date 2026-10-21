@@ -91,18 +91,6 @@
       "text": "23/10/1995"
     },
     {
-      "start": 91,
-      "end": 102,
-      "type": "LIEU_ISOLE",
-      "text": "La Rochelle"
-    },
-    {
-      "start": 333,
-      "end": 339,
-      "type": "LIEU_ISOLE",
-      "text": "Vannes"
-    },
-    {
       "start": 813,
       "end": 823,
       "type": "MONTANT",
@@ -127,6 +115,44 @@
       "text": "1 440,00 €"
     },
     {
+      "start": 1622,
+      "end": 1638,
+      "type": "DATE",
+      "text": "10 décembre 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 91,
+      "end": 102,
+      "type": "LIEU_ISOLE",
+      "text": "La Rochelle"
+    },
+    {
+      "start": 322,
+      "end": 329,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 333,
+      "end": 339,
+      "type": "LIEU_ISOLE",
+      "text": "Vannes"
+    },
+    {
+      "start": 1563,
+      "end": 1580,
+      "type": "INSTITUTION",
+      "text": "ordre des avocats"
+    },
+    {
+      "start": 1584,
+      "end": 1591,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
       "start": 1595,
       "end": 1601,
       "type": "LIEU_ISOLE",
@@ -137,12 +163,6 @@
       "end": 1617,
       "type": "LIEU_ISOLE",
       "text": "Vannes"
-    },
-    {
-      "start": 1622,
-      "end": 1638,
-      "type": "DATE",
-      "text": "10 décembre 2026"
     }
   ]
 }

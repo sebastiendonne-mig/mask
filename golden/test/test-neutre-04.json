@@ -6,12 +6,6 @@
   "spans": [],
   "non_masques": [
     {
-      "start": 67,
-      "end": 75,
-      "type": "LIEU_ISOLE",
-      "text": "Florence"
-    },
-    {
       "start": 80,
       "end": 92,
       "type": "DATE",
@@ -22,12 +16,6 @@
       "end": 108,
       "type": "DATE",
       "text": "16 mars 2027"
-    },
-    {
-      "start": 425,
-      "end": 429,
-      "type": "LIEU_ISOLE",
-      "text": "Lyon"
     },
     {
       "start": 480,
@@ -52,6 +40,20 @@
       "end": 752,
       "type": "DATE",
       "text": "16/01/2027"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 67,
+      "end": 75,
+      "type": "LIEU_ISOLE",
+      "text": "Florence"
+    },
+    {
+      "start": 425,
+      "end": 429,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
     }
   ]
 }

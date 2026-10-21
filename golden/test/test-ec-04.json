@@ -133,12 +133,6 @@
   ],
   "non_masques": [
     {
-      "start": 305,
-      "end": 311,
-      "type": "LIEU_ISOLE",
-      "text": "Nantes"
-    },
-    {
       "start": 316,
       "end": 332,
       "type": "DATE",
@@ -185,6 +179,20 @@
       "end": 1575,
       "type": "MONTANT",
       "text": "35 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 305,
+      "end": 311,
+      "type": "LIEU_ISOLE",
+      "text": "Nantes"
+    },
+    {
+      "start": 2004,
+      "end": 2009,
+      "type": "INSTITUTION",
+      "text": "Ordre"
     }
   ]
 }

@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 208,
-      "end": 216,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
-    },
-    {
       "start": 221,
       "end": 236,
       "type": "DATE",
@@ -125,12 +119,6 @@
       "end": 397,
       "type": "DATE",
       "text": "5 janvier 2026"
-    },
-    {
-      "start": 431,
-      "end": 439,
-      "type": "LIEU_ISOLE",
-      "text": "Besançon"
     },
     {
       "start": 497,
@@ -179,6 +167,32 @@
       "end": 1490,
       "type": "DATE",
       "text": "30/11/2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 208,
+      "end": 216,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 408,
+      "end": 427,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 431,
+      "end": 439,
+      "type": "LIEU_ISOLE",
+      "text": "Besançon"
+    },
+    {
+      "start": 1749,
+      "end": 1756,
+      "type": "INSTITUTION",
+      "text": "barreau"
     },
     {
       "start": 1760,

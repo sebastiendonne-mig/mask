@@ -235,16 +235,18 @@
       "text": "10/01/2026"
     },
     {
-      "start": 1369,
-      "end": 1376,
-      "type": "LIEU_ISOLE",
-      "text": "Avignon"
-    },
-    {
       "start": 1380,
       "end": 1390,
       "type": "DATE",
       "text": "28/01/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 1369,
+      "end": 1376,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
     }
   ]
 }

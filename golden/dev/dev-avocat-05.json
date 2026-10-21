@@ -91,18 +91,6 @@
       "text": "28/02/1987"
     },
     {
-      "start": 94,
-      "end": 99,
-      "type": "LIEU_ISOLE",
-      "text": "Lille"
-    },
-    {
-      "start": 357,
-      "end": 368,
-      "type": "LIEU_ISOLE",
-      "text": "La Rochelle"
-    },
-    {
       "start": 921,
       "end": 931,
       "type": "MONTANT",
@@ -127,6 +115,44 @@
       "text": "600,00 €"
     },
     {
+      "start": 1744,
+      "end": 1761,
+      "type": "DATE",
+      "text": "1er novembre 2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 94,
+      "end": 99,
+      "type": "LIEU_ISOLE",
+      "text": "Lille"
+    },
+    {
+      "start": 346,
+      "end": 353,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 357,
+      "end": 368,
+      "type": "LIEU_ISOLE",
+      "text": "La Rochelle"
+    },
+    {
+      "start": 1675,
+      "end": 1692,
+      "type": "INSTITUTION",
+      "text": "ordre des avocats"
+    },
+    {
+      "start": 1696,
+      "end": 1703,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
       "start": 1707,
       "end": 1718,
       "type": "LIEU_ISOLE",
@@ -137,12 +163,6 @@
       "end": 1739,
       "type": "LIEU_ISOLE",
       "text": "La Rochelle"
-    },
-    {
-      "start": 1744,
-      "end": 1761,
-      "type": "DATE",
-      "text": "1er novembre 2025"
     }
   ]
 }

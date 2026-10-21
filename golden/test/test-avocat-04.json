@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 223,
-      "end": 228,
-      "type": "LIEU_ISOLE",
-      "text": "Rouen"
-    },
-    {
       "start": 233,
       "end": 244,
       "type": "DATE",
@@ -125,12 +119,6 @@
       "end": 409,
       "type": "DATE",
       "text": "24 juillet 2026"
-    },
-    {
-      "start": 443,
-      "end": 448,
-      "type": "LIEU_ISOLE",
-      "text": "Rouen"
     },
     {
       "start": 506,
@@ -179,6 +167,32 @@
       "end": 1489,
       "type": "DATE",
       "text": "26/05/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 223,
+      "end": 228,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
+    },
+    {
+      "start": 420,
+      "end": 439,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 443,
+      "end": 448,
+      "type": "LIEU_ISOLE",
+      "text": "Rouen"
+    },
+    {
+      "start": 1751,
+      "end": 1758,
+      "type": "INSTITUTION",
+      "text": "barreau"
     },
     {
       "start": 1762,

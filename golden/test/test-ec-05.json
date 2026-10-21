@@ -133,12 +133,6 @@
   ],
   "non_masques": [
     {
-      "start": 286,
-      "end": 291,
-      "type": "LIEU_ISOLE",
-      "text": "Dijon"
-    },
-    {
       "start": 296,
       "end": 310,
       "type": "DATE",
@@ -185,6 +179,20 @@
       "end": 1555,
       "type": "MONTANT",
       "text": "28 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 286,
+      "end": 291,
+      "type": "LIEU_ISOLE",
+      "text": "Dijon"
+    },
+    {
+      "start": 1988,
+      "end": 1993,
+      "type": "INSTITUTION",
+      "text": "Ordre"
     }
   ]
 }

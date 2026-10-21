@@ -133,12 +133,6 @@
   ],
   "non_masques": [
     {
-      "start": 282,
-      "end": 298,
-      "type": "LIEU_ISOLE",
-      "text": "Clermont-Ferrand"
-    },
-    {
       "start": 303,
       "end": 314,
       "type": "DATE",
@@ -185,6 +179,20 @@
       "end": 1548,
       "type": "MONTANT",
       "text": "35 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 282,
+      "end": 298,
+      "type": "LIEU_ISOLE",
+      "text": "Clermont-Ferrand"
+    },
+    {
+      "start": 1972,
+      "end": 1977,
+      "type": "INSTITUTION",
+      "text": "Ordre"
     }
   ]
 }

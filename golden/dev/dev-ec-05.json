@@ -139,12 +139,6 @@
       "text": "30 000 €"
     },
     {
-      "start": 802,
-      "end": 806,
-      "type": "LIEU_ISOLE",
-      "text": "Lyon"
-    },
-    {
       "start": 811,
       "end": 821,
       "type": "DATE",
@@ -167,6 +161,14 @@
       "end": 945,
       "type": "DATE",
       "text": "18 février 2027"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 802,
+      "end": 806,
+      "type": "LIEU_ISOLE",
+      "text": "Lyon"
     }
   ]
 }

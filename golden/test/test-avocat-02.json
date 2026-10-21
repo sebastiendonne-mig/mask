@@ -109,12 +109,6 @@
   ],
   "non_masques": [
     {
-      "start": 221,
-      "end": 226,
-      "type": "LIEU_ISOLE",
-      "text": "Reims"
-    },
-    {
       "start": 231,
       "end": 246,
       "type": "DATE",
@@ -125,12 +119,6 @@
       "end": 411,
       "type": "DATE",
       "text": "15 octobre 2026"
-    },
-    {
-      "start": 445,
-      "end": 450,
-      "type": "LIEU_ISOLE",
-      "text": "Reims"
     },
     {
       "start": 508,
@@ -179,6 +167,32 @@
       "end": 1497,
       "type": "DATE",
       "text": "04/08/2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 221,
+      "end": 226,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 422,
+      "end": 441,
+      "type": "INSTITUTION",
+      "text": "tribunal judiciaire"
+    },
+    {
+      "start": 445,
+      "end": 450,
+      "type": "LIEU_ISOLE",
+      "text": "Reims"
+    },
+    {
+      "start": 1767,
+      "end": 1774,
+      "type": "INSTITUTION",
+      "text": "barreau"
     },
     {
       "start": 1778,
