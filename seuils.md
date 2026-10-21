@@ -82,3 +82,12 @@ Règle de mesure : même bibliothèque que l'app (Transformers.js), pour que les
 - Jeu de développement : en plus du golden set (désormais « jeu de test », 3 × 10 + 5 documents), un jeu de développement séparé, généré à partir d'autres modèles de documents, sert à mettre au point les règles. Le jeu de test n'est utilisé qu'une fois, pour la mesure finale ; ses empreintes SHA-256 sont commitées à sa création.
 - Formats : le golden set est d'abord généré en texte brut ; les variantes .docx et PDF (pièges du tableau et de la coupure de ligne) seront ajoutées avec la lecture de documents, avant la mesure finale, et leurs empreintes commitées à leur création.
 - Licence du dépôt : MIT.
+
+### 21/10/2026 (2) — protocole de comptage, avant l'écriture des règles
+
+- Un élément étiqueté est « retrouvé » seulement s'il est entièrement couvert par les masques ; un masquage partiel (par exemple le prénom seul) compte comme un oubli. Le taux de couverture partielle est rapporté à titre d'information.
+- Précision (S6) : un masque est une erreur s'il ne recouvre aucun élément étiqueté à masquer ni aucun élément neutre.
+- Éléments neutres, qui ne comptent ni comme réussite ni comme erreur et sont rapportés à part : les institutions publiques (juridictions, organismes et administrations publics, collectivités, ordres professionnels), étiquetées INSTITUTION, et les lieux isolés (LIEU_ISOLE).
+- Les dates (DATE) et montants (MONTANT) masqués comptent comme des erreurs (décisions a et c).
+- Le traitement des lieux isolés dans l'app (masqués ou non) est décidé après les mesures sur le jeu de développement et avant l'ouverture du jeu de test.
+- Les étiquettes INSTITUTION sont ajoutées aux deux jeux avant l'écriture des règles ; le texte des documents est inchangé, seuls les fichiers d'étiquettes et le manifeste sont mis à jour.
