@@ -12,5 +12,8 @@
     "golden": "node scripts/generate-golden.mjs",
     "test": "node --test tests/*.test.mjs",
     "evaluer": "node scripts/evaluer.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.1"
   }
 }
