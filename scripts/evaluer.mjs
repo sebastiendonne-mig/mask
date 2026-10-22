@@ -5,8 +5,10 @@
 // ESM qui exporte nom, version et detecter(texte) → [{ start, end, type }].
 // Aucune dépendance : bibliothèque standard de Node uniquement.
 //
-//   node scripts/evaluer.mjs [--detecteur src/regles.mjs] [--split dev] [--sortie dossier]
+//   node scripts/evaluer.mjs [--detecteur src/regles.mjs] [--split dev|test|robustesse] [--sortie dossier]
 //
+// Jeux : « dev » (par défaut, mise au point) ; « robustesse » (rédigé à la main, cas difficiles,
+// indicatif, jamais pour la mise au point : seuils.md, amendement (4)).
 // Le jeu de test ne s'évalue qu'avec --split test --mesure-finale (mesure finale,
 // une seule fois, sur demande explicite de Sébastien).
 
@@ -33,6 +35,11 @@ export const SEUILS = [
 ];
 
 export const MENTION_DEV = 'jeu de développement : indicatif, pas la mesure finale';
+export const MENTION_ROBUSTESSE = 'jeu de robustesse : rédigé à la main, cas difficiles assumés, petit échantillon ; indicatif, ne modifie pas les seuils';
+
+// Mention du rapport et listes détaillées par jeu ; le jeu de test n'a ni l'une ni l'autre.
+const MENTIONS = { dev: MENTION_DEV, robustesse: MENTION_ROBUSTESSE, test: null };
+const AVEC_LISTES = ['dev', 'robustesse'];
 
 // Amendement (3) : « entièrement couvert » s'apprécie sur les lettres et les chiffres.
 const SIGNIFIANT = /[\p{L}\p{N}]/u;
@@ -335,7 +342,7 @@ export function verifierArguments(args) {
       sortie: { type: 'string' },
     },
   });
-  if (!['dev', 'test'].includes(values.split)) throw new Error(`--split : « dev » ou « test », pas « ${values.split} »`);
+  if (!Object.hasOwn(MENTIONS, values.split)) throw new Error(`--split : « dev », « test » ou « robustesse », pas « ${values.split} »`);
   if (values.split === 'test' && !values['mesure-finale']) {
     throw new Error('refus : le jeu de test est scellé. Il ne sert qu’une fois, pour la mesure finale, sur demande explicite : --split test --mesure-finale.');
   }
@@ -381,12 +388,12 @@ async function principal() {
     git,
     detecteur: { nom: detecteur.nom, version: detecteur.version, module: path.relative(RACINE, cheminDetecteur) },
     split: options.split,
-    mention: options.split === 'dev' ? MENTION_DEV : null,
+    mention: MENTIONS[options.split],
     documents: docs.length,
     protocole: 'seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur',
     ...agregat,
-    // Listes détaillées pour le jeu de développement uniquement.
-    listes: options.split === 'dev' ? listes : undefined,
+    // Listes détaillées pour le jeu de développement et le jeu de robustesse, jamais pour le jeu de test.
+    listes: AVEC_LISTES.includes(options.split) ? listes : undefined,
   };
 
   const sortie = options.sortie ? path.resolve(process.cwd(), options.sortie) : path.join(RACINE, 'resultats', options.split);

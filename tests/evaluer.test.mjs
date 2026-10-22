@@ -212,3 +212,9 @@ test('rapport Markdown : mention du jeu de développement et état git', () => {
   assert.match(md, /abc1234` \+ modifications non commitées/);
   assert.match(md, /\| S3 \| Rappel PERSONNE \| 100,0 % \(1\/1\)/);
 });
+
+test('le jeu de robustesse s’évalue sans --mesure-finale', () => {
+  const o = verifierArguments(['--split', 'robustesse']);
+  assert.equal(o.split, 'robustesse');
+  assert.equal(o.mesureFinale, false);
+});
