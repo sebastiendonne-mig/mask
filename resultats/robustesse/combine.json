@@ -1,0 +1,318 @@
+{
+  "date": "2026-10-22T08:51:36.933Z",
+  "git": {
+    "hash": "9aaafc427aba7ecce6b9c4a381d702daf269fa4e",
+    "propre": true
+  },
+  "detecteur": {
+    "nom": "combine",
+    "version": "0.1.0+regles@0.4.0+modele@0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8",
+    "module": "src/combine.mjs"
+  },
+  "split": "robustesse",
+  "mention": "jeu de robustesse : rédigé à la main, cas difficiles assumés, petit échantillon ; indicatif, ne modifie pas les seuils",
+  "documents": 15,
+  "protocole": "seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur",
+  "seuils": [
+    {
+      "id": "S2",
+      "critere": "Rappel des formats fixes",
+      "seuil": 1,
+      "bloquant": true,
+      "trouves": 40,
+      "total": 42,
+      "valeur": 0.9523809523809523,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S3",
+      "critere": "Rappel PERSONNE",
+      "seuil": 0.95,
+      "bloquant": true,
+      "trouves": 87,
+      "total": 90,
+      "valeur": 0.9666666666666667,
+      "statut": "atteint"
+    },
+    {
+      "id": "S4",
+      "critere": "Rappel ADRESSE",
+      "seuil": 0.9,
+      "bloquant": true,
+      "trouves": 12,
+      "total": 19,
+      "valeur": 0.631578947368421,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S5",
+      "critere": "Rappel ORGANISATION",
+      "seuil": 0.85,
+      "bloquant": false,
+      "trouves": 35,
+      "total": 35,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S6",
+      "critere": "Précision globale",
+      "seuil": 0.8,
+      "bloquant": false,
+      "corrects": 197,
+      "erreurs": 2,
+      "valeur": 0.9899497487437185,
+      "statut": "atteint"
+    }
+  ],
+  "rappelParType": {
+    "ADRESSE": {
+      "total": 19,
+      "trouves": 12,
+      "partiels": 7,
+      "rappel": 0.631578947368421
+    },
+    "CARTE": {
+      "total": 1,
+      "trouves": 1,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "EMAIL": {
+      "total": 16,
+      "trouves": 16,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "IBAN": {
+      "total": 3,
+      "trouves": 2,
+      "partiels": 1,
+      "rappel": 0.6666666666666666
+    },
+    "NIR": {
+      "total": 2,
+      "trouves": 1,
+      "partiels": 0,
+      "rappel": 0.5
+    },
+    "NUMERO_DOSSIER": {
+      "total": 6,
+      "trouves": 4,
+      "partiels": 0,
+      "rappel": 0.6666666666666666
+    },
+    "ORGANISATION": {
+      "total": 35,
+      "trouves": 35,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "PERSONNE": {
+      "total": 90,
+      "trouves": 87,
+      "partiels": 2,
+      "rappel": 0.9666666666666667
+    },
+    "SIREN": {
+      "total": 4,
+      "trouves": 4,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIRET": {
+      "total": 5,
+      "trouves": 5,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TELEPHONE": {
+      "total": 11,
+      "trouves": 11,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TVA_INTRA": {
+      "total": 3,
+      "trouves": 3,
+      "partiels": 0,
+      "rappel": 1
+    }
+  },
+  "couverturePartielle": {
+    "partiels": 10,
+    "total": 195,
+    "taux": 0.05128205128205128
+  },
+  "precision": {
+    "corrects": 197,
+    "erreurs": 2,
+    "valeur": 0.9899497487437185,
+    "erreursParCategorie": {
+      "NON_ETIQUETE": 2
+    },
+    "masques": 222,
+    "masquesNeutresSeuls": 23,
+    "masquesNeutreEtDateSansSpan": 0
+  },
+  "neutres": {
+    "masques": {
+      "LIEU_ISOLE": 22,
+      "INSTITUTION": 2
+    },
+    "total": {
+      "INSTITUTION": 10,
+      "LIEU_ISOLE": 22
+    }
+  },
+  "debordement": {
+    "lettresChiffresHorsEtiquettes": 49,
+    "lettresChiffresMasques": 3095,
+    "part": 0.015831987075928918
+  },
+  "typesDifferents": 7,
+  "listes": {
+    "oublis": [
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "nancy fournier"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "partiel",
+        "extrait": "nancy fournier"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "parc d'activités des Gabrielles, lot 14…"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "lieu-dit Les Bastidons, chemin des Oliv…"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "26-0412-OB"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "BP 207, 06002 Nice Cedex 1"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "partiel",
+        "extrait": "N’DIAYE"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "5 impasse des Glycines, appartement 3, …"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "2021-0457"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "IBAN",
+        "statut": "partiel",
+        "extrait": "FR76 1660 7003 2108 7654⏎3210 957"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "route de Lyon"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Mas de la Cabrière, quartier Saint-Mart…"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "2 91 07 99 351 048 / 53"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Les Hauts de Saint-Jean, bâtiment 4⏎831…"
+      }
+    ],
+    "erreurs": [
+      {
+        "doc_id": "rob-avocat-02",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Noël"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Qualité"
+      }
+    ],
+    "typesDifferents": [
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "propose": "LIEU",
+        "extrait": "Nancy"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Cabinet Chabert"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "ORGANISATION",
+        "propose": "PERSONNE",
+        "extrait": "Atelier Le Goff"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Moulins Reynaud"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ADRESSE",
+        "propose": "LIEU",
+        "extrait": "rue Paradis, Marseille"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Domaine des Trois Chênes"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Clinique vétérinaire des Calanques"
+      }
+    ]
+  }
+}
