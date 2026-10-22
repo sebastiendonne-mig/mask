@@ -22,7 +22,7 @@ import path from 'node:path';
 import { DEPOT, REVISION, DOSSIER, verifierFichiers } from './modele-fichiers.mjs';
 
 export const nom = 'modele';
-export const version = `0.1.0+${DEPOT}@${REVISION}+q8`;
+export const version = `0.2.0+${DEPOT}@${REVISION}+q8`;
 
 export const TYPES = { PER: 'PERSONNE', ORG: 'ORGANISATION', LOC: 'LIEU', MISC: 'DIVERS' };
 
@@ -124,8 +124,20 @@ export function coeurDuMot(texte, start, end) {
   return { start: start + i, end: start + j };
 }
 
+// Liste usuelle des civilités françaises. Abréviations comparées en respectant la casse
+// (« me », « mes » ne sont pas des civilités), formes longues sans tenir compte de la casse.
+const CIVILITES_ABREGEES = new Set(['M', 'MM', 'Mme', 'Mmes', 'Mlle', 'Mlles', 'Me', 'Mes', 'Dr', 'Pr']);
+const CIVILITES = new Set(['monsieur', 'madame', 'mademoiselle', 'messieurs', 'mesdames', 'maître', 'docteur', 'professeur']);
+
+// Mot qui, ponctuation retirée, est une civilité (« Madame, » ; « M. »).
+export function estCivilite(mot) {
+  const nu = mot.replace(/\p{P}/gu, '');
+  return CIVILITES_ABREGEES.has(nu) || CIVILITES.has(nu.toLowerCase());
+}
+
 // etiquettes : type du modèle par mot ('PER', 'ORG', 'LOC', 'MISC' ou 'O'). Une entité est une
-// suite de mots consécutifs de même type ; un mot O sépare toujours.
+// suite de mots consécutifs de même type ; un mot O sépare toujours. Une entité PER dont tous
+// les mots sont des civilités (« Madame, Monsieur ») n'est pas masquée.
 export function regrouper(texte, mots, etiquettes, types = Object.keys(TYPES)) {
   const entites = [];
   let courante = null;
@@ -142,6 +154,7 @@ export function regrouper(texte, mots, etiquettes, types = Object.keys(TYPES)) {
   const masques = [];
   for (const e of entites) {
     if (!types.includes(e.type)) continue;
+    if (e.type === 'PER' && mots.slice(e.debut, e.fin + 1).every((m) => estCivilite(texte.slice(m.start, m.end)))) continue;
     const coeurs = [];
     for (let i = e.debut; i <= e.fin; i++) {
       const c = coeurDuMot(texte, mots[i].start, mots[i].end);

@@ -12,6 +12,7 @@ import {
   sousMotRepresentatif,
   coeurDuMot,
   regrouper,
+  estCivilite,
   creerDetecteur,
   MAX_SOUS_MOTS,
 } from '../src/modele.mjs';
@@ -136,6 +137,33 @@ test('regroupement : mots consécutifs de même type, un mot O sépare, types fi
     ['PERSONNE', 'Jean DUPONT et Marie Martin'],
     ['DIVERS', 'Acme'],
   ]);
+});
+
+test('civilités : entité PERSONNE faite seulement de civilités écartée, nom conservé', () => {
+  // Chaque texte est une seule entité PER, tous ses mots étiquetés PER.
+  const masque = (t) => {
+    const mots = decouperMots(t);
+    return regrouper(t, mots, mots.map(() => 'PER')).map((m) => t.slice(m.start, m.end));
+  };
+  assert.deepEqual(masque('Madame, Monsieur,'), []);
+  assert.deepEqual(masque('MONSIEUR'), []);
+  assert.deepEqual(masque('M. Mme Me Dr.'), []);
+  assert.deepEqual(masque('Mme L’Hermite'), ['Mme L’Hermite']);
+  assert.deepEqual(masque("Mme L'Hermite"), ["Mme L'Hermite"]);
+  assert.deepEqual(masque('Maître Le Goff'), ['Maître Le Goff']);
+  assert.deepEqual(masque('M. Dupont'), ['M. Dupont']);
+  // « me » et « mes » en minuscules ne sont jamais des civilités.
+  assert.deepEqual(masque('me'), ['me']);
+  assert.deepEqual(masque('mes'), ['mes']);
+  assert.deepEqual(masque('Madame mes'), ['Madame mes']);
+  // Seules les entités PERSONNE sont concernées.
+  const t = 'Madame';
+  assert.deepEqual(regrouper(t, decouperMots(t), ['ORG']).length, 1);
+});
+
+test('civilités : ponctuation retirée, casse respectée pour les abréviations', () => {
+  for (const mot of ['Monsieur', 'madame,', 'MAÎTRE', '«Docteur»', 'M.', 'MM.', 'Mlles', 'Pr', 'Mes']) assert.ok(estCivilite(mot), mot);
+  for (const mot of ['me', 'mes', 'm.', 'MME', 'Dupont', 'M1', '—', '']) assert.ok(!estCivilite(mot), mot);
 });
 
 test('types masqués : configurables, type inconnu refusé', () => {
