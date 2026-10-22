@@ -1,0 +1,781 @@
+{
+  "date": "2026-10-22T07:37:56.620Z",
+  "git": {
+    "hash": "a92c84ec077f0b57a5e66310df0da6e15690e956",
+    "propre": true
+  },
+  "detecteur": {
+    "nom": "regles",
+    "version": "0.4.0",
+    "module": "src/regles.mjs"
+  },
+  "split": "robustesse",
+  "mention": "jeu de robustesse : rédigé à la main, cas difficiles assumés, petit échantillon ; indicatif, ne modifie pas les seuils",
+  "documents": 15,
+  "protocole": "seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur",
+  "seuils": [
+    {
+      "id": "S2",
+      "critere": "Rappel des formats fixes",
+      "seuil": 1,
+      "bloquant": true,
+      "trouves": 40,
+      "total": 42,
+      "valeur": 0.9523809523809523,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S3",
+      "critere": "Rappel PERSONNE",
+      "seuil": 0.95,
+      "bloquant": true,
+      "trouves": 35,
+      "total": 90,
+      "valeur": 0.3888888888888889,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S4",
+      "critere": "Rappel ADRESSE",
+      "seuil": 0.9,
+      "bloquant": true,
+      "trouves": 11,
+      "total": 19,
+      "valeur": 0.5789473684210527,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S5",
+      "critere": "Rappel ORGANISATION",
+      "seuil": 0.85,
+      "bloquant": false,
+      "trouves": 1,
+      "total": 35,
+      "valeur": 0.02857142857142857,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S6",
+      "critere": "Précision globale",
+      "seuil": 0.8,
+      "bloquant": false,
+      "corrects": 97,
+      "erreurs": 0,
+      "valeur": 1,
+      "statut": "atteint"
+    }
+  ],
+  "rappelParType": {
+    "ADRESSE": {
+      "total": 19,
+      "trouves": 11,
+      "partiels": 0,
+      "rappel": 0.5789473684210527
+    },
+    "CARTE": {
+      "total": 1,
+      "trouves": 1,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "EMAIL": {
+      "total": 16,
+      "trouves": 16,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "IBAN": {
+      "total": 3,
+      "trouves": 2,
+      "partiels": 0,
+      "rappel": 0.6666666666666666
+    },
+    "NIR": {
+      "total": 2,
+      "trouves": 1,
+      "partiels": 0,
+      "rappel": 0.5
+    },
+    "NUMERO_DOSSIER": {
+      "total": 6,
+      "trouves": 4,
+      "partiels": 0,
+      "rappel": 0.6666666666666666
+    },
+    "ORGANISATION": {
+      "total": 35,
+      "trouves": 1,
+      "partiels": 1,
+      "rappel": 0.02857142857142857
+    },
+    "PERSONNE": {
+      "total": 90,
+      "trouves": 35,
+      "partiels": 2,
+      "rappel": 0.3888888888888889
+    },
+    "SIREN": {
+      "total": 4,
+      "trouves": 4,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIRET": {
+      "total": 5,
+      "trouves": 5,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TELEPHONE": {
+      "total": 11,
+      "trouves": 11,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TVA_INTRA": {
+      "total": 3,
+      "trouves": 3,
+      "partiels": 0,
+      "rappel": 1
+    }
+  },
+  "couverturePartielle": {
+    "partiels": 3,
+    "total": 195,
+    "taux": 0.015384615384615385
+  },
+  "precision": {
+    "corrects": 97,
+    "erreurs": 0,
+    "valeur": 1,
+    "erreursParCategorie": {},
+    "masques": 97,
+    "masquesNeutresSeuls": 0,
+    "masquesNeutreEtDateSansSpan": 0
+  },
+  "neutres": {
+    "masques": {},
+    "total": {
+      "INSTITUTION": 10,
+      "LIEU_ISOLE": 22
+    }
+  },
+  "debordement": {
+    "lettresChiffresHorsEtiquettes": 0,
+    "lettresChiffresMasques": 1596,
+    "part": 0
+  },
+  "typesDifferents": 0,
+  "listes": {
+    "oublis": [
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Nancy"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Transports Ferrand"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Damien"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Lucas"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "nancy fournier"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "nancy fournier"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Kervala"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "parc d'activités des Gabrielles, lot 14…"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Plomberie du Faron"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "lieu-dit Les Bastidons, chemin des Oliv…"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Kervala"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "BONNET"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Assur'Azur"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "26-0412-OB"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Olive Bonnet"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Ange"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Pharmacie Bonnet & Fils"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Assur'Azur"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Ange"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Assur'Azur"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "BP 207, 06002 Nice Cedex 1"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Thibault"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Expertis Sud"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Cabinet Chabert"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Constant"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Banque Méridienne"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Bertrand"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Agathe Constant"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Banque Méridienne"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Constant"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "H. de Villeneuve-Rocca"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "N’DIAYE"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Aminata Fatou"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "5 impasse des Glycines, appartement 3, …"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "aminata n’diaye"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "partiel",
+        "extrait": "yann le goff"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "Atelier Le Goff"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Marchal"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Yann"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "A. N’Diaye"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Atelier Lumière & Bois"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "FABRE Mathilde"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Haddad, Karim"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "2021-0457"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Boulangerie Au Bon Grain"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Mathieu"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Caisse Solidaire du Littoral"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Moulins Reynaud"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Célia"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "rue Paradis, Marseille"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Karine Orsatti"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Cabinet Orsatti"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Audit Provence Conseil"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Sylvie Marchetti"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Les Amis du Vieux Port"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Jean-Baptiste Roux"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Caisse Solidaire du Littoral"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR76 1660 7003 2108 7654⏎3210 957"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Lou Agostini"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Vienne Distribution"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Christophe Vienne"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Vienne Distribution"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "route de Lyon"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Agri Rhône Équipement"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Paul-Henri Dussart"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Banque Allobroge"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Christophe"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Lyna"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "PERSONNE",
+        "statut": "partiel",
+        "extrait": "J.-M. DUBREUIL"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "CABINET ALPES LEMAN EXPERTISE"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Domaine des Trois Chênes"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "Mas de la Cabrière, quartier Saint-Mart…"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Florian Martin"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "J. Orsini"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Salomé Rey"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Mohamed Benali"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Thi Lan"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Nguyen Thi Lan"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Thi Lan"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Frigo Express"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Mohamed"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Jo"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Salomé"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "LogiSud Transports"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Clinique vétérinaire des Calanques"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "BEN SALEM"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "CARDONA"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Yasmine"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "2 91 07 99 351 048 / 53"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Constance Morvan"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Grégoire Petit"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Constance"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Plastiques Durance"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Ophélie"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Qualiform"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Montagnier Packaging"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "C. Morvan"
+      },
+      {
+        "doc_id": "rob-rh-04",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "G. Petit"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "ADRESSE",
+        "statut": "oubli",
+        "extrait": "Les Hauts de Saint-Jean, bâtiment 4⏎831…"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "ORGANISATION",
+        "statut": "oubli",
+        "extrait": "Menuiseries de la Provence Verte"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "Sandrine Gautier"
+      }
+    ],
+    "erreurs": [],
+    "typesDifferents": []
+  }
+}
