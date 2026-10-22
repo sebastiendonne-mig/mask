@@ -1,0 +1,162 @@
+{
+  "doc_id": "rob-avocat-02",
+  "persona": "avocat",
+  "split": "robustesse",
+  "template_id": "rob-assignation-parties",
+  "spans": [
+    {
+      "start": 83,
+      "end": 90,
+      "type": "ORGANISATION",
+      "text": "Kervala"
+    },
+    {
+      "start": 229,
+      "end": 240,
+      "type": "SIREN",
+      "text": "812.345.676"
+    },
+    {
+      "start": 273,
+      "end": 336,
+      "type": "ADRESSE",
+      "text": "parc d'activités des Gabrielles, lot 14, 83500 La Seyne-sur-Mer"
+    },
+    {
+      "start": 398,
+      "end": 412,
+      "type": "PERSONNE",
+      "text": "Erwan Kerhervé"
+    },
+    {
+      "start": 480,
+      "end": 502,
+      "type": "PERSONNE",
+      "text": "Clémence Aubry-Sanchez"
+    },
+    {
+      "start": 544,
+      "end": 585,
+      "type": "ADRESSE",
+      "text": "27 boulevard de Strasbourg — 83000 Toulon"
+    },
+    {
+      "start": 607,
+      "end": 625,
+      "type": "PERSONNE",
+      "text": "Noël Garnier-Vidal"
+    },
+    {
+      "start": 731,
+      "end": 749,
+      "type": "ORGANISATION",
+      "text": "Plomberie du Faron"
+    },
+    {
+      "start": 763,
+      "end": 826,
+      "type": "ADRESSE",
+      "text": "lieu-dit Les Bastidons, chemin des Oliviers, 83330 Le Castellet"
+    },
+    {
+      "start": 843,
+      "end": 856,
+      "type": "PERSONNE",
+      "text": "Garnier-Vidal"
+    },
+    {
+      "start": 941,
+      "end": 948,
+      "type": "ORGANISATION",
+      "text": "Kervala"
+    },
+    {
+      "start": 965,
+      "end": 978,
+      "type": "PERSONNE",
+      "text": "Garnier-Vidal"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 137,
+      "end": 149,
+      "type": "MONTANT",
+      "text": "10 000 euros"
+    },
+    {
+      "start": 633,
+      "end": 649,
+      "type": "DATE",
+      "text": "25 décembre 1979"
+    },
+    {
+      "start": 914,
+      "end": 928,
+      "type": "DATE",
+      "text": "3 février 2025"
+    },
+    {
+      "start": 1049,
+      "end": 1057,
+      "type": "MONTANT",
+      "text": "18 400 €"
+    },
+    {
+      "start": 1158,
+      "end": 1174,
+      "type": "DATE",
+      "text": "19 décembre 2025"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 22,
+      "end": 41,
+      "type": "INSTITUTION",
+      "text": "TRIBUNAL JUDICIAIRE"
+    },
+    {
+      "start": 45,
+      "end": 51,
+      "type": "LIEU_ISOLE",
+      "text": "TOULON"
+    },
+    {
+      "start": 167,
+      "end": 203,
+      "type": "INSTITUTION",
+      "text": "registre du commerce et des sociétés"
+    },
+    {
+      "start": 207,
+      "end": 213,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 515,
+      "end": 522,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 526,
+      "end": 532,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    },
+    {
+      "start": 652,
+      "end": 659,
+      "type": "LIEU_ISOLE",
+      "text": "Valence"
+    },
+    {
+      "start": 891,
+      "end": 899,
+      "type": "INSTITUTION",
+      "text": "TRIBUNAL"
+    }
+  ]
+}

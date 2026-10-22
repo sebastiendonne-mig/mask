@@ -1,0 +1,126 @@
+{
+  "doc_id": "rob-rh-03",
+  "persona": "rh",
+  "split": "robustesse",
+  "template_id": "rob-attestation-employeur",
+  "spans": [
+    {
+      "start": 79,
+      "end": 113,
+      "type": "ORGANISATION",
+      "text": "Clinique vétérinaire des Calanques"
+    },
+    {
+      "start": 124,
+      "end": 171,
+      "type": "ADRESSE",
+      "text": "7 avenue de la Mer – CS 40021 – 13600 La Ciotat"
+    },
+    {
+      "start": 180,
+      "end": 197,
+      "type": "SIRET",
+      "text": "512 948 308 00022"
+    },
+    {
+      "start": 232,
+      "end": 241,
+      "type": "PERSONNE",
+      "text": "BEN SALEM"
+    },
+    {
+      "start": 256,
+      "end": 263,
+      "type": "PERSONNE",
+      "text": "CARDONA"
+    },
+    {
+      "start": 276,
+      "end": 283,
+      "type": "PERSONNE",
+      "text": "Yasmine"
+    },
+    {
+      "start": 309,
+      "end": 332,
+      "type": "NIR",
+      "text": "2 91 07 99 351 048 / 53"
+    },
+    {
+      "start": 389,
+      "end": 396,
+      "type": "PERSONNE",
+      "text": "Cardona"
+    },
+    {
+      "start": 398,
+      "end": 432,
+      "type": "ADRESSE",
+      "text": "3 montée des Pins, 13600 La Ciotat"
+    },
+    {
+      "start": 675,
+      "end": 695,
+      "type": "PERSONNE",
+      "text": "Arnaud Lefèvre-Blanc"
+    },
+    {
+      "start": 729,
+      "end": 743,
+      "type": "TELEPHONE",
+      "text": "04-65-71-30-30"
+    },
+    {
+      "start": 755,
+      "end": 787,
+      "type": "EMAIL",
+      "text": "direction@clinique-calanques.vet"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 353,
+      "end": 363,
+      "type": "DATE",
+      "text": "22/07/1991"
+    },
+    {
+      "start": 511,
+      "end": 521,
+      "type": "DATE",
+      "text": "01/09/2019"
+    },
+    {
+      "start": 549,
+      "end": 559,
+      "type": "DATE",
+      "text": "30/09/2026"
+    },
+    {
+      "start": 628,
+      "end": 639,
+      "type": "MONTANT",
+      "text": "26 412,00 €"
+    },
+    {
+      "start": 810,
+      "end": 824,
+      "type": "DATE",
+      "text": "2 octobre 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 33,
+      "end": 47,
+      "type": "INSTITUTION",
+      "text": "FRANCE TRAVAIL"
+    },
+    {
+      "start": 796,
+      "end": 805,
+      "type": "LIEU_ISOLE",
+      "text": "La Ciotat"
+    }
+  ]
+}

@@ -11,6 +11,9 @@
 |---|---|---|---|
 | Développement | `golden/dev/` | 17 : 5 par persona + 2 sans donnée personnelle | avocat : mise en demeure, convention d'honoraires · expert-comptable : attestation de chiffre d'affaires, relance de pièces · RH : promesse d'embauche, bulletin de paie · sans donnée personnelle : note sur les notes de frais, fiche congés payés |
 | Test | `golden/test/` | 35 : 10 par persona + 5 sans donnée personnelle | avocat : courrier au client, assignation · expert-comptable : lettre de mission, relevé de compte client · RH : contrat de travail, attestation d'emploi · sans donnée personnelle : 5 modèles distincts |
+| Robustesse | `golden/robustesse/` | 15 : 5 par persona, rédigés à la main hors du générateur | voir `golden/robustesse/README.md` |
+
+Le jeu de robustesse ne sert jamais à la mise au point (seuils.md, amendement (4)).
 
 Aucun modèle n'est partagé entre les deux jeux (le script le vérifie). Les modèles du jeu de test correspondent aux types de documents de `seuils.md` (§ 3).
 

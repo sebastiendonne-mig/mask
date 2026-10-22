@@ -1,0 +1,150 @@
+{
+  "doc_id": "rob-avocat-04",
+  "persona": "avocat",
+  "split": "robustesse",
+  "template_id": "rob-lettre-confrere",
+  "spans": [
+    {
+      "start": 7,
+      "end": 33,
+      "type": "PERSONNE",
+      "text": "Hélène de Villeneuve-Rocca"
+    },
+    {
+      "start": 52,
+      "end": 140,
+      "type": "ADRESSE",
+      "text": "Résidence Le Clos Fleuri — Bât. B, appt 14\n112, avenue du Docteur-Fontan\n06110 LE CANNET"
+    },
+    {
+      "start": 146,
+      "end": 164,
+      "type": "TELEPHONE",
+      "text": "0033 4 65 71 90 26"
+    },
+    {
+      "start": 167,
+      "end": 199,
+      "type": "EMAIL",
+      "text": "h.devilleneuve@avocats-cannet.eu"
+    },
+    {
+      "start": 208,
+      "end": 222,
+      "type": "PERSONNE",
+      "text": "Romain Chabert"
+    },
+    {
+      "start": 223,
+      "end": 238,
+      "type": "ORGANISATION",
+      "text": "Cabinet Chabert"
+    },
+    {
+      "start": 239,
+      "end": 272,
+      "type": "ADRESSE",
+      "text": "9, rue des Remparts\n84000 Avignon"
+    },
+    {
+      "start": 313,
+      "end": 321,
+      "type": "PERSONNE",
+      "text": "Constant"
+    },
+    {
+      "start": 325,
+      "end": 342,
+      "type": "ORGANISATION",
+      "text": "Banque Méridienne"
+    },
+    {
+      "start": 352,
+      "end": 363,
+      "type": "NUMERO_DOSSIER",
+      "text": "RC/2026/118"
+    },
+    {
+      "start": 375,
+      "end": 383,
+      "type": "NUMERO_DOSSIER",
+      "text": "HVR-0388"
+    },
+    {
+      "start": 464,
+      "end": 472,
+      "type": "PERSONNE",
+      "text": "Bertrand"
+    },
+    {
+      "start": 476,
+      "end": 491,
+      "type": "PERSONNE",
+      "text": "Agathe Constant"
+    },
+    {
+      "start": 525,
+      "end": 542,
+      "type": "ORGANISATION",
+      "text": "Banque Méridienne"
+    },
+    {
+      "start": 698,
+      "end": 706,
+      "type": "PERSONNE",
+      "text": "Constant"
+    },
+    {
+      "start": 802,
+      "end": 810,
+      "type": "PERSONNE",
+      "text": "Constant"
+    },
+    {
+      "start": 956,
+      "end": 966,
+      "type": "PERSONNE",
+      "text": "Inès Saïdi"
+    },
+    {
+      "start": 1045,
+      "end": 1067,
+      "type": "PERSONNE",
+      "text": "H. de Villeneuve-Rocca"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 288,
+      "end": 301,
+      "type": "DATE",
+      "text": "27 avril 2026"
+    },
+    {
+      "start": 844,
+      "end": 851,
+      "type": "DATE",
+      "text": "15 mars"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 274,
+      "end": 283,
+      "type": "LIEU_ISOLE",
+      "text": "Le Cannet"
+    },
+    {
+      "start": 759,
+      "end": 768,
+      "type": "LIEU_ISOLE",
+      "text": "Cavaillon"
+    },
+    {
+      "start": 923,
+      "end": 930,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    }
+  ]
+}

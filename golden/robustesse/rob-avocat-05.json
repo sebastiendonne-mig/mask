@@ -1,0 +1,108 @@
+{
+  "doc_id": "rob-avocat-05",
+  "persona": "avocat",
+  "split": "robustesse",
+  "template_id": "rob-attestation-temoin",
+  "spans": [
+    {
+      "start": 68,
+      "end": 75,
+      "type": "PERSONNE",
+      "text": "N’DIAYE"
+    },
+    {
+      "start": 86,
+      "end": 99,
+      "type": "PERSONNE",
+      "text": "Aminata Fatou"
+    },
+    {
+      "start": 167,
+      "end": 227,
+      "type": "ADRESSE",
+      "text": "5 impasse des Glycines, appartement 3, 13090 Aix-en-Provence"
+    },
+    {
+      "start": 294,
+      "end": 301,
+      "type": "PERSONNE",
+      "text": "Le Goff"
+    },
+    {
+      "start": 499,
+      "end": 514,
+      "type": "PERSONNE",
+      "text": "aminata n’diaye"
+    },
+    {
+      "start": 578,
+      "end": 590,
+      "type": "PERSONNE",
+      "text": "yann le goff"
+    },
+    {
+      "start": 636,
+      "end": 651,
+      "type": "ORGANISATION",
+      "text": "Atelier Le Goff"
+    },
+    {
+      "start": 729,
+      "end": 736,
+      "type": "PERSONNE",
+      "text": "Marchal"
+    },
+    {
+      "start": 749,
+      "end": 753,
+      "type": "PERSONNE",
+      "text": "Yann"
+    },
+    {
+      "start": 866,
+      "end": 876,
+      "type": "PERSONNE",
+      "text": "A. N’Diaye"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 128,
+      "end": 138,
+      "type": "DATE",
+      "text": "04/11/1990"
+    },
+    {
+      "start": 536,
+      "end": 557,
+      "type": "DATE",
+      "text": "samedi 7 février 2026"
+    },
+    {
+      "start": 805,
+      "end": 809,
+      "type": "DATE",
+      "text": "2019"
+    },
+    {
+      "start": 839,
+      "end": 851,
+      "type": "DATE",
+      "text": "12 mars 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 141,
+      "end": 146,
+      "type": "LIEU_ISOLE",
+      "text": "Dakar"
+    },
+    {
+      "start": 819,
+      "end": 834,
+      "type": "LIEU_ISOLE",
+      "text": "Aix-en-Provence"
+    }
+  ]
+}

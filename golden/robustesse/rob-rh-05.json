@@ -1,0 +1,96 @@
+{
+  "doc_id": "rob-rh-05",
+  "persona": "rh",
+  "split": "robustesse",
+  "template_id": "rob-convocation-entretien",
+  "spans": [
+    {
+      "start": 77,
+      "end": 93,
+      "type": "PERSONNE",
+      "text": "Valentin Lourdes"
+    },
+    {
+      "start": 103,
+      "end": 116,
+      "type": "PERSONNE",
+      "text": "Paule Lourdes"
+    },
+    {
+      "start": 117,
+      "end": 168,
+      "type": "ADRESSE",
+      "text": "Les Hauts de Saint-Jean, bâtiment 4\n83170 BRIGNOLES"
+    },
+    {
+      "start": 476,
+      "end": 514,
+      "type": "ADRESSE",
+      "text": "15 rue de l'Industrie, 83170 Brignoles"
+    },
+    {
+      "start": 537,
+      "end": 549,
+      "type": "PERSONNE",
+      "text": "Dorian Faure"
+    },
+    {
+      "start": 932,
+      "end": 949,
+      "type": "TELEPHONE",
+      "text": "+33 4.65.71.12.40"
+    },
+    {
+      "start": 968,
+      "end": 1000,
+      "type": "EMAIL",
+      "text": "rh@menuiseries-provence-verte.fr"
+    },
+    {
+      "start": 1081,
+      "end": 1113,
+      "type": "ORGANISATION",
+      "text": "Menuiseries de la Provence Verte"
+    },
+    {
+      "start": 1115,
+      "end": 1131,
+      "type": "PERSONNE",
+      "text": "Sandrine Gautier"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 418,
+      "end": 440,
+      "type": "DATE",
+      "text": "mardi 10 novembre 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 803,
+      "end": 809,
+      "type": "INSTITUTION",
+      "text": "mairie"
+    },
+    {
+      "start": 813,
+      "end": 822,
+      "type": "LIEU_ISOLE",
+      "text": "Brignoles"
+    },
+    {
+      "start": 830,
+      "end": 851,
+      "type": "INSTITUTION",
+      "text": "inspection du travail"
+    },
+    {
+      "start": 855,
+      "end": 861,
+      "type": "LIEU_ISOLE",
+      "text": "Toulon"
+    }
+  ]
+}

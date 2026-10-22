@@ -1,0 +1,156 @@
+{
+  "doc_id": "rob-avocat-03",
+  "persona": "avocat",
+  "split": "robustesse",
+  "template_id": "rob-notes-rendez-vous",
+  "spans": [
+    {
+      "start": 23,
+      "end": 29,
+      "type": "PERSONNE",
+      "text": "BONNET"
+    },
+    {
+      "start": 33,
+      "end": 43,
+      "type": "ORGANISATION",
+      "text": "Assur'Azur"
+    },
+    {
+      "start": 55,
+      "end": 65,
+      "type": "NUMERO_DOSSIER",
+      "text": "26-0412-OB"
+    },
+    {
+      "start": 79,
+      "end": 91,
+      "type": "PERSONNE",
+      "text": "Olive Bonnet"
+    },
+    {
+      "start": 112,
+      "end": 116,
+      "type": "PERSONNE",
+      "text": "Ange"
+    },
+    {
+      "start": 130,
+      "end": 136,
+      "type": "PERSONNE",
+      "text": "Bonnet"
+    },
+    {
+      "start": 189,
+      "end": 212,
+      "type": "ORGANISATION",
+      "text": "Pharmacie Bonnet & Fils"
+    },
+    {
+      "start": 265,
+      "end": 275,
+      "type": "ORGANISATION",
+      "text": "Assur'Azur"
+    },
+    {
+      "start": 402,
+      "end": 419,
+      "type": "CARTE",
+      "text": "3782 916305 74126"
+    },
+    {
+      "start": 494,
+      "end": 498,
+      "type": "PERSONNE",
+      "text": "Ange"
+    },
+    {
+      "start": 553,
+      "end": 584,
+      "type": "EMAIL",
+      "text": "ange.bonnet.pro@officinemail.fr"
+    },
+    {
+      "start": 624,
+      "end": 638,
+      "type": "TELEPHONE",
+      "text": "04 65 71 38 02"
+    },
+    {
+      "start": 679,
+      "end": 689,
+      "type": "ORGANISATION",
+      "text": "Assur'Azur"
+    },
+    {
+      "start": 710,
+      "end": 736,
+      "type": "ADRESSE",
+      "text": "BP 207, 06002 Nice Cedex 1"
+    },
+    {
+      "start": 782,
+      "end": 790,
+      "type": "PERSONNE",
+      "text": "Thibault"
+    },
+    {
+      "start": 800,
+      "end": 812,
+      "type": "ORGANISATION",
+      "text": "Expertis Sud"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 7,
+      "end": 12,
+      "type": "DATE",
+      "text": "14/04"
+    },
+    {
+      "start": 163,
+      "end": 167,
+      "type": "DATE",
+      "text": "2011"
+    },
+    {
+      "start": 242,
+      "end": 251,
+      "type": "DATE",
+      "text": "2 janvier"
+    },
+    {
+      "start": 424,
+      "end": 438,
+      "type": "DATE",
+      "text": "6 et 7 janvier"
+    },
+    {
+      "start": 440,
+      "end": 448,
+      "type": "MONTANT",
+      "text": "387,20 €"
+    },
+    {
+      "start": 452,
+      "end": 462,
+      "type": "MONTANT",
+      "text": "1 150,00 €"
+    },
+    {
+      "start": 930,
+      "end": 932,
+      "type": "DATE",
+      "text": "30"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 170,
+      "end": 176,
+      "type": "LIEU_ISOLE",
+      "text": "Sanary"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "doc_id": "rob-ec-04",
+  "persona": "expert-comptable",
+  "split": "robustesse",
+  "template_id": "rob-note-cession",
+  "spans": [
+    {
+      "start": 48,
+      "end": 67,
+      "type": "ORGANISATION",
+      "text": "Vienne Distribution"
+    },
+    {
+      "start": 80,
+      "end": 97,
+      "type": "PERSONNE",
+      "text": "Christophe Vienne"
+    },
+    {
+      "start": 127,
+      "end": 146,
+      "type": "ORGANISATION",
+      "text": "Vienne Distribution"
+    },
+    {
+      "start": 160,
+      "end": 174,
+      "type": "SIRET",
+      "text": "52309874700042"
+    },
+    {
+      "start": 180,
+      "end": 193,
+      "type": "TVA_INTRA",
+      "text": "FR86523098747"
+    },
+    {
+      "start": 297,
+      "end": 310,
+      "type": "ADRESSE",
+      "text": "route de Lyon"
+    },
+    {
+      "start": 354,
+      "end": 360,
+      "type": "PERSONNE",
+      "text": "Vienne"
+    },
+    {
+      "start": 419,
+      "end": 440,
+      "type": "ORGANISATION",
+      "text": "Agri Rhône Équipement"
+    },
+    {
+      "start": 471,
+      "end": 489,
+      "type": "PERSONNE",
+      "text": "Paul-Henri Dussart"
+    },
+    {
+      "start": 661,
+      "end": 676,
+      "type": "PERSONNE",
+      "text": "Ginette Valette"
+    },
+    {
+      "start": 775,
+      "end": 791,
+      "type": "ORGANISATION",
+      "text": "Banque Allobroge"
+    },
+    {
+      "start": 877,
+      "end": 887,
+      "type": "PERSONNE",
+      "text": "Christophe"
+    },
+    {
+      "start": 999,
+      "end": 1003,
+      "type": "PERSONNE",
+      "text": "Lyna"
+    },
+    {
+      "start": 1023,
+      "end": 1054,
+      "type": "EMAIL",
+      "text": "c.vienne@vienne-distribution.fr"
+    },
+    {
+      "start": 1057,
+      "end": 1071,
+      "type": "TELEPHONE",
+      "text": "04 65 71 08 83"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 232,
+      "end": 236,
+      "type": "DATE",
+      "text": "2009"
+    },
+    {
+      "start": 528,
+      "end": 537,
+      "type": "MONTANT",
+      "text": "620 000 €"
+    },
+    {
+      "start": 541,
+      "end": 550,
+      "type": "DATE",
+      "text": "6 octobre"
+    },
+    {
+      "start": 628,
+      "end": 638,
+      "type": "DATE",
+      "text": "31/03/2027"
+    },
+    {
+      "start": 814,
+      "end": 822,
+      "type": "MONTANT",
+      "text": "84 300 €"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 218,
+      "end": 224,
+      "type": "LIEU_ISOLE",
+      "text": "Vienne"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "doc_id": "rob-rh-01",
+  "persona": "rh",
+  "split": "robustesse",
+  "template_id": "rob-cdd-saisonnier",
+  "spans": [
+    {
+      "start": 61,
+      "end": 85,
+      "type": "ORGANISATION",
+      "text": "Domaine des Trois Chênes"
+    },
+    {
+      "start": 116,
+      "end": 133,
+      "type": "SIRET",
+      "text": "791 153 422 00013"
+    },
+    {
+      "start": 159,
+      "end": 207,
+      "type": "ADRESSE",
+      "text": "860 route des Vignes, 13310 Saint-Martin-de-Crau"
+    },
+    {
+      "start": 227,
+      "end": 240,
+      "type": "PERSONNE",
+      "text": "Lionel Abadie"
+    },
+    {
+      "start": 302,
+      "end": 315,
+      "type": "PERSONNE",
+      "text": "Julien Orsini"
+    },
+    {
+      "start": 376,
+      "end": 397,
+      "type": "NIR",
+      "text": "1 86 03 2A 004 118 77"
+    },
+    {
+      "start": 409,
+      "end": 478,
+      "type": "ADRESSE",
+      "text": "Mas de la Cabrière, quartier Saint-Martin, 13310 Saint-Martin-de-Crau"
+    },
+    {
+      "start": 527,
+      "end": 533,
+      "type": "PERSONNE",
+      "text": "Orsini"
+    },
+    {
+      "start": 692,
+      "end": 706,
+      "type": "PERSONNE",
+      "text": "Florian Martin"
+    },
+    {
+      "start": 961,
+      "end": 995,
+      "type": "EMAIL",
+      "text": "julien.orsini.2a@courriel-perso.fr"
+    },
+    {
+      "start": 1046,
+      "end": 1063,
+      "type": "TELEPHONE",
+      "text": "+33 6 39 98 66 03"
+    },
+    {
+      "start": 1148,
+      "end": 1161,
+      "type": "PERSONNE",
+      "text": "Lionel Abadie"
+    },
+    {
+      "start": 1184,
+      "end": 1193,
+      "type": "PERSONNE",
+      "text": "J. Orsini"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 323,
+      "end": 335,
+      "type": "DATE",
+      "text": "14 mars 1986"
+    },
+    {
+      "start": 573,
+      "end": 577,
+      "type": "DATE",
+      "text": "2026"
+    },
+    {
+      "start": 582,
+      "end": 589,
+      "type": "DATE",
+      "text": "24 août"
+    },
+    {
+      "start": 593,
+      "end": 608,
+      "type": "DATE",
+      "text": "10 octobre 2026"
+    },
+    {
+      "start": 781,
+      "end": 792,
+      "type": "MONTANT",
+      "text": "12,40 euros"
+    },
+    {
+      "start": 1119,
+      "end": 1131,
+      "type": "DATE",
+      "text": "18 août 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 338,
+      "end": 345,
+      "type": "LIEU_ISOLE",
+      "text": "Ajaccio"
+    },
+    {
+      "start": 1073,
+      "end": 1093,
+      "type": "LIEU_ISOLE",
+      "text": "Saint-Martin-de-Crau"
+    }
+  ]
+}

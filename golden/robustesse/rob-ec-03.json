@@ -1,0 +1,120 @@
+{
+  "doc_id": "rob-ec-03",
+  "persona": "expert-comptable",
+  "split": "robustesse",
+  "template_id": "rob-lettre-mission-association",
+  "spans": [
+    {
+      "start": 78,
+      "end": 100,
+      "type": "ORGANISATION",
+      "text": "Audit Provence Conseil"
+    },
+    {
+      "start": 193,
+      "end": 202,
+      "type": "SIREN",
+      "text": "883401291"
+    },
+    {
+      "start": 208,
+      "end": 221,
+      "type": "TVA_INTRA",
+      "text": "FR52883401291"
+    },
+    {
+      "start": 239,
+      "end": 255,
+      "type": "PERSONNE",
+      "text": "Sylvie Marchetti"
+    },
+    {
+      "start": 305,
+      "end": 327,
+      "type": "ORGANISATION",
+      "text": "Les Amis du Vieux Port"
+    },
+    {
+      "start": 357,
+      "end": 374,
+      "type": "SIRET",
+      "text": "842 770 166 00010"
+    },
+    {
+      "start": 399,
+      "end": 439,
+      "type": "ADRESSE",
+      "text": "2 traverse des Pêcheurs, 13002 Marseille"
+    },
+    {
+      "start": 472,
+      "end": 490,
+      "type": "PERSONNE",
+      "text": "Jean-Baptiste Roux"
+    },
+    {
+      "start": 724,
+      "end": 752,
+      "type": "ORGANISATION",
+      "text": "Caisse Solidaire du Littoral"
+    },
+    {
+      "start": 755,
+      "end": 788,
+      "type": "IBAN",
+      "text": "FR76 1660 7003 2108 7654\n3210 957"
+    },
+    {
+      "start": 885,
+      "end": 926,
+      "type": "EMAIL",
+      "text": "tresorerie.amisduvieuxport@assoc-mail.org"
+    },
+    {
+      "start": 971,
+      "end": 980,
+      "type": "PERSONNE",
+      "text": "Marchetti"
+    },
+    {
+      "start": 1019,
+      "end": 1031,
+      "type": "PERSONNE",
+      "text": "Lou Agostini"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 534,
+      "end": 549,
+      "type": "DATE",
+      "text": "14 janvier 2026"
+    },
+    {
+      "start": 619,
+      "end": 630,
+      "type": "MONTANT",
+      "text": "1 850 euros"
+    },
+    {
+      "start": 1076,
+      "end": 1091,
+      "type": "DATE",
+      "text": "20 janvier 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 157,
+      "end": 162,
+      "type": "INSTITUTION",
+      "text": "Ordre"
+    },
+    {
+      "start": 1062,
+      "end": 1071,
+      "type": "LIEU_ISOLE",
+      "text": "Marseille"
+    }
+  ]
+}

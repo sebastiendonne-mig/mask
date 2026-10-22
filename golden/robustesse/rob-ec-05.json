@@ -1,0 +1,119 @@
+{
+  "doc_id": "rob-ec-05",
+  "persona": "expert-comptable",
+  "split": "robustesse",
+  "template_id": "rob-relance-logiciel-majuscules",
+  "spans": [
+    {
+      "start": 73,
+      "end": 96,
+      "type": "ORGANISATION",
+      "text": "SCI LES TILLEULS DU LAC"
+    },
+    {
+      "start": 109,
+      "end": 127,
+      "type": "PERSONNE",
+      "text": "DUBREUIL JEAN-MARC"
+    },
+    {
+      "start": 138,
+      "end": 187,
+      "type": "ADRESSE",
+      "text": "18 CHEMIN DU LAC\n          74200 THONON LES BAINS"
+    },
+    {
+      "start": 196,
+      "end": 205,
+      "type": "SIREN",
+      "text": "438072159"
+    },
+    {
+      "start": 216,
+      "end": 222,
+      "type": "NUMERO_DOSSIER",
+      "text": "004512"
+    },
+    {
+      "start": 458,
+      "end": 491,
+      "type": "IBAN",
+      "text": "FR76 1254 8029 9804 5172 6309 829"
+    },
+    {
+      "start": 510,
+      "end": 524,
+      "type": "PERSONNE",
+      "text": "J.-M. DUBREUIL"
+    },
+    {
+      "start": 527,
+      "end": 541,
+      "type": "TELEPHONE",
+      "text": "06.39.98.71.20"
+    },
+    {
+      "start": 544,
+      "end": 572,
+      "type": "EMAIL",
+      "text": "JM.DUBREUIL@CHABLAIS-MAIL.FR"
+    },
+    {
+      "start": 649,
+      "end": 655,
+      "type": "PERSONNE",
+      "text": "PERRET"
+    },
+    {
+      "start": 686,
+      "end": 715,
+      "type": "ORGANISATION",
+      "text": "CABINET ALPES LEMAN EXPERTISE"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 54,
+      "end": 62,
+      "type": "DATE",
+      "text": "05/10/26"
+    },
+    {
+      "start": 309,
+      "end": 316,
+      "type": "DATE",
+      "text": "T3 2026"
+    },
+    {
+      "start": 356,
+      "end": 366,
+      "type": "DATE",
+      "text": "07-09/2026"
+    },
+    {
+      "start": 369,
+      "end": 381,
+      "type": "MONTANT",
+      "text": "2 340,00 EUR"
+    },
+    {
+      "start": 396,
+      "end": 400,
+      "type": "DATE",
+      "text": "2026"
+    },
+    {
+      "start": 427,
+      "end": 439,
+      "type": "MONTANT",
+      "text": "1 912,00 EUR"
+    },
+    {
+      "start": 609,
+      "end": 617,
+      "type": "DATE",
+      "text": "20/10/26"
+    }
+  ],
+  "neutres": []
+}

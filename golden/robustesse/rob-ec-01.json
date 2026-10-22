@@ -1,0 +1,125 @@
+{
+  "doc_id": "rob-ec-01",
+  "persona": "expert-comptable",
+  "split": "robustesse",
+  "template_id": "rob-fiche-client-tableau",
+  "spans": [
+    {
+      "start": 71,
+      "end": 93,
+      "type": "ORGANISATION",
+      "text": "Atelier Lumière & Bois"
+    },
+    {
+      "start": 111,
+      "end": 122,
+      "type": "SIREN",
+      "text": "904 182 532"
+    },
+    {
+      "start": 137,
+      "end": 154,
+      "type": "SIRET",
+      "text": "904 182 532 00021"
+    },
+    {
+      "start": 162,
+      "end": 177,
+      "type": "TVA_INTRA",
+      "text": "FR 32 904182532"
+    },
+    {
+      "start": 201,
+      "end": 215,
+      "type": "PERSONNE",
+      "text": "FABRE Mathilde"
+    },
+    {
+      "start": 226,
+      "end": 239,
+      "type": "PERSONNE",
+      "text": "Haddad, Karim"
+    },
+    {
+      "start": 246,
+      "end": 279,
+      "type": "ADRESSE",
+      "text": "41 rue de la Verrerie, 30700 Uzès"
+    },
+    {
+      "start": 298,
+      "end": 317,
+      "type": "IBAN",
+      "text": "BE12 7310 4126 5892"
+    },
+    {
+      "start": 350,
+      "end": 387,
+      "type": "EMAIL",
+      "text": "Compta.AtelierLumiere@lumiere-bois.fr"
+    },
+    {
+      "start": 393,
+      "end": 410,
+      "type": "TELEPHONE",
+      "text": "+33 4 65 71 55 60"
+    },
+    {
+      "start": 500,
+      "end": 505,
+      "type": "PERSONNE",
+      "text": "Fabre"
+    },
+    {
+      "start": 597,
+      "end": 603,
+      "type": "PERSONNE",
+      "text": "Haddad"
+    },
+    {
+      "start": 640,
+      "end": 649,
+      "type": "NUMERO_DOSSIER",
+      "text": "2021-0457"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 30,
+      "end": 40,
+      "type": "DATE",
+      "text": "02.03.2026"
+    },
+    {
+      "start": 419,
+      "end": 426,
+      "type": "MONTANT",
+      "text": "7 500 €"
+    },
+    {
+      "start": 444,
+      "end": 451,
+      "type": "DATE",
+      "text": "30 juin"
+    },
+    {
+      "start": 469,
+      "end": 479,
+      "type": "DATE",
+      "text": "15/09/2021"
+    },
+    {
+      "start": 539,
+      "end": 550,
+      "type": "DATE",
+      "text": "31 décembre"
+    },
+    {
+      "start": 575,
+      "end": 579,
+      "type": "DATE",
+      "text": "2027"
+    }
+  ],
+  "neutres": []
+}

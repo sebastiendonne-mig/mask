@@ -1,0 +1,126 @@
+{
+  "doc_id": "rob-rh-04",
+  "persona": "rh",
+  "split": "robustesse",
+  "template_id": "rob-entretien-annuel",
+  "spans": [
+    {
+      "start": 57,
+      "end": 73,
+      "type": "PERSONNE",
+      "text": "Constance Morvan"
+    },
+    {
+      "start": 105,
+      "end": 119,
+      "type": "PERSONNE",
+      "text": "Grégoire Petit"
+    },
+    {
+      "start": 219,
+      "end": 228,
+      "type": "PERSONNE",
+      "text": "Constance"
+    },
+    {
+      "start": 349,
+      "end": 367,
+      "type": "ORGANISATION",
+      "text": "Plastiques Durance"
+    },
+    {
+      "start": 445,
+      "end": 452,
+      "type": "PERSONNE",
+      "text": "Ophélie"
+    },
+    {
+      "start": 586,
+      "end": 595,
+      "type": "ORGANISATION",
+      "text": "Qualiform"
+    },
+    {
+      "start": 629,
+      "end": 649,
+      "type": "ORGANISATION",
+      "text": "Montagnier Packaging"
+    },
+    {
+      "start": 673,
+      "end": 678,
+      "type": "PERSONNE",
+      "text": "Petit"
+    },
+    {
+      "start": 718,
+      "end": 724,
+      "type": "PERSONNE",
+      "text": "Morvan"
+    },
+    {
+      "start": 789,
+      "end": 794,
+      "type": "PERSONNE",
+      "text": "Petit"
+    },
+    {
+      "start": 858,
+      "end": 871,
+      "type": "PERSONNE",
+      "text": "Aurore Delmas"
+    },
+    {
+      "start": 893,
+      "end": 902,
+      "type": "PERSONNE",
+      "text": "C. Morvan"
+    },
+    {
+      "start": 905,
+      "end": 913,
+      "type": "PERSONNE",
+      "text": "G. Petit"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 34,
+      "end": 38,
+      "type": "DATE",
+      "text": "2026"
+    },
+    {
+      "start": 180,
+      "end": 197,
+      "type": "DATE",
+      "text": "15 septembre 2026"
+    },
+    {
+      "start": 427,
+      "end": 431,
+      "type": "DATE",
+      "text": "juin"
+    },
+    {
+      "start": 495,
+      "end": 499,
+      "type": "DATE",
+      "text": "2027"
+    },
+    {
+      "start": 764,
+      "end": 771,
+      "type": "DATE",
+      "text": "janvier"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 567,
+      "end": 574,
+      "type": "LIEU_ISOLE",
+      "text": "Avignon"
+    }
+  ]
+}

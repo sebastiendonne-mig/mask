@@ -1,0 +1,101 @@
+{
+  "doc_id": "rob-ec-02",
+  "persona": "expert-comptable",
+  "split": "robustesse",
+  "template_id": "rob-courriel-pieces",
+  "spans": [
+    {
+      "start": 42,
+      "end": 66,
+      "type": "ORGANISATION",
+      "text": "Boulangerie Au Bon Grain"
+    },
+    {
+      "start": 76,
+      "end": 83,
+      "type": "PERSONNE",
+      "text": "Mathieu"
+    },
+    {
+      "start": 250,
+      "end": 278,
+      "type": "ORGANISATION",
+      "text": "Caisse Solidaire du Littoral"
+    },
+    {
+      "start": 310,
+      "end": 325,
+      "type": "ORGANISATION",
+      "text": "Moulins Reynaud"
+    },
+    {
+      "start": 389,
+      "end": 394,
+      "type": "PERSONNE",
+      "text": "Célia"
+    },
+    {
+      "start": 497,
+      "end": 531,
+      "type": "EMAIL",
+      "text": "pieces+bongrain@cabinet-orsatti.fr"
+    },
+    {
+      "start": 649,
+      "end": 656,
+      "type": "PERSONNE",
+      "text": "Aubanel"
+    },
+    {
+      "start": 668,
+      "end": 690,
+      "type": "ADRESSE",
+      "text": "rue Paradis, Marseille"
+    },
+    {
+      "start": 807,
+      "end": 821,
+      "type": "TELEPHONE",
+      "text": "04 65 71 23 45"
+    },
+    {
+      "start": 849,
+      "end": 863,
+      "type": "PERSONNE",
+      "text": "Karine Orsatti"
+    },
+    {
+      "start": 864,
+      "end": 879,
+      "type": "ORGANISATION",
+      "text": "Cabinet Orsatti"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 208,
+      "end": 216,
+      "type": "DATE",
+      "text": "décembre"
+    },
+    {
+      "start": 431,
+      "end": 438,
+      "type": "MONTANT",
+      "text": "4 000 €"
+    },
+    {
+      "start": 603,
+      "end": 610,
+      "type": "MONTANT",
+      "text": "1 280 €"
+    },
+    {
+      "start": 623,
+      "end": 628,
+      "type": "DATE",
+      "text": "18/12"
+    }
+  ],
+  "neutres": []
+}

@@ -1,0 +1,102 @@
+{
+  "doc_id": "rob-rh-02",
+  "persona": "rh",
+  "split": "robustesse",
+  "template_id": "rob-courriel-arrivee",
+  "spans": [
+    {
+      "start": 5,
+      "end": 15,
+      "type": "PERSONNE",
+      "text": "Salomé Rey"
+    },
+    {
+      "start": 48,
+      "end": 62,
+      "type": "PERSONNE",
+      "text": "Mohamed Benali"
+    },
+    {
+      "start": 65,
+      "end": 96,
+      "type": "EMAIL",
+      "text": "jo.perrin@logisud-transports.fr"
+    },
+    {
+      "start": 116,
+      "end": 123,
+      "type": "PERSONNE",
+      "text": "Thi Lan"
+    },
+    {
+      "start": 182,
+      "end": 196,
+      "type": "PERSONNE",
+      "text": "Nguyen Thi Lan"
+    },
+    {
+      "start": 265,
+      "end": 272,
+      "type": "PERSONNE",
+      "text": "Thi Lan"
+    },
+    {
+      "start": 288,
+      "end": 301,
+      "type": "ORGANISATION",
+      "text": "Frigo Express"
+    },
+    {
+      "start": 368,
+      "end": 375,
+      "type": "PERSONNE",
+      "text": "Mohamed"
+    },
+    {
+      "start": 410,
+      "end": 412,
+      "type": "PERSONNE",
+      "text": "Jo"
+    },
+    {
+      "start": 622,
+      "end": 636,
+      "type": "TELEPHONE",
+      "text": "03 53 01 47 19"
+    },
+    {
+      "start": 655,
+      "end": 686,
+      "type": "EMAIL",
+      "text": "tl.nguyen@logisud-transports.fr"
+    },
+    {
+      "start": 812,
+      "end": 818,
+      "type": "PERSONNE",
+      "text": "Salomé"
+    },
+    {
+      "start": 841,
+      "end": 859,
+      "type": "ORGANISATION",
+      "text": "LogiSud Transports"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 165,
+      "end": 181,
+      "type": "DATE",
+      "text": "lundi 2 novembre"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 342,
+      "end": 348,
+      "type": "LIEU_ISOLE",
+      "text": "Rungis"
+    }
+  ]
+}

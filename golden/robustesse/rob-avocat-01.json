@@ -1,0 +1,162 @@
+{
+  "doc_id": "rob-avocat-01",
+  "persona": "avocat",
+  "split": "robustesse",
+  "template_id": "rob-fil-de-courriels",
+  "spans": [
+    {
+      "start": 5,
+      "end": 16,
+      "type": "PERSONNE",
+      "text": "Lucas Laval"
+    },
+    {
+      "start": 18,
+      "end": 42,
+      "type": "EMAIL",
+      "text": "l.laval@laval-avocats.fr"
+    },
+    {
+      "start": 82,
+      "end": 111,
+      "type": "EMAIL",
+      "text": "nancy.fournier@mailo-perso.fr"
+    },
+    {
+      "start": 154,
+      "end": 162,
+      "type": "NUMERO_DOSSIER",
+      "text": "26/00418"
+    },
+    {
+      "start": 172,
+      "end": 177,
+      "type": "PERSONNE",
+      "text": "Nancy"
+    },
+    {
+      "start": 363,
+      "end": 381,
+      "type": "ORGANISATION",
+      "text": "Transports Ferrand"
+    },
+    {
+      "start": 427,
+      "end": 444,
+      "type": "PERSONNE",
+      "text": "Aurélien Teissier"
+    },
+    {
+      "start": 609,
+      "end": 615,
+      "type": "PERSONNE",
+      "text": "Damien"
+    },
+    {
+      "start": 677,
+      "end": 682,
+      "type": "PERSONNE",
+      "text": "Lucas"
+    },
+    {
+      "start": 684,
+      "end": 695,
+      "type": "PERSONNE",
+      "text": "Lucas Laval"
+    },
+    {
+      "start": 723,
+      "end": 761,
+      "type": "ADRESSE",
+      "text": "3 bis, cours des Tilleuls, 54000 Nancy"
+    },
+    {
+      "start": 762,
+      "end": 776,
+      "type": "TELEPHONE",
+      "text": "06 39 98 27 14"
+    },
+    {
+      "start": 811,
+      "end": 825,
+      "type": "PERSONNE",
+      "text": "nancy fournier"
+    },
+    {
+      "start": 827,
+      "end": 856,
+      "type": "EMAIL",
+      "text": "nancy.fournier@mailo-perso.fr"
+    },
+    {
+      "start": 899,
+      "end": 923,
+      "type": "EMAIL",
+      "text": "l.laval@laval-avocats.fr"
+    },
+    {
+      "start": 1117,
+      "end": 1131,
+      "type": "PERSONNE",
+      "text": "nancy fournier"
+    }
+  ],
+  "non_masques": [
+    {
+      "start": 53,
+      "end": 71,
+      "type": "DATE",
+      "text": "jeudi 9 avril 2026"
+    },
+    {
+      "start": 318,
+      "end": 324,
+      "type": "DATE",
+      "text": "12 mai"
+    },
+    {
+      "start": 564,
+      "end": 570,
+      "type": "DATE",
+      "text": "2 mars"
+    },
+    {
+      "start": 867,
+      "end": 888,
+      "type": "DATE",
+      "text": "mercredi 8 avril 2026"
+    }
+  ],
+  "neutres": [
+    {
+      "start": 273,
+      "end": 295,
+      "type": "INSTITUTION",
+      "text": "conseil de prud'hommes"
+    },
+    {
+      "start": 299,
+      "end": 304,
+      "type": "LIEU_ISOLE",
+      "text": "Nancy"
+    },
+    {
+      "start": 706,
+      "end": 713,
+      "type": "INSTITUTION",
+      "text": "barreau"
+    },
+    {
+      "start": 717,
+      "end": 722,
+      "type": "LIEU_ISOLE",
+      "text": "Nancy"
+    },
+    {
+      "start": 1093,
+      "end": 1102,
+      "type": "LIEU_ISOLE",
+      "text": "Lunéville"
+    }
+  ]
+}
