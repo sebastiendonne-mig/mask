@@ -11,3 +11,4 @@ models/
 *.bin
 .cache/
 __pycache__/
+modeles/camembert-ner/
