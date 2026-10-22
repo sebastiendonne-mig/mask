@@ -1,12 +1,12 @@
 {
-  "date": "2026-10-22T08:29:20.333Z",
+  "date": "2026-10-22T08:47:08.772Z",
   "git": {
-    "hash": "eeaddda0e5d8ca63c6ba3bf453b6fe04ffbfee4a",
+    "hash": "4e287e5c5de070995331672a7dc94244e2c1e956",
     "propre": true
   },
   "detecteur": {
     "nom": "modele",
-    "version": "0.1.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8",
+    "version": "0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8",
     "module": "src/modele.mjs"
   },
   "split": "dev",
@@ -60,8 +60,8 @@
       "seuil": 0.8,
       "bloquant": false,
       "corrects": 122,
-      "erreurs": 28,
-      "valeur": 0.8133333333333334,
+      "erreurs": 22,
+      "valeur": 0.8472222222222222,
       "statut": "atteint"
     }
   ],
@@ -146,12 +146,12 @@
   },
   "precision": {
     "corrects": 122,
-    "erreurs": 28,
-    "valeur": 0.8133333333333334,
+    "erreurs": 22,
+    "valeur": 0.8472222222222222,
     "erreursParCategorie": {
-      "NON_ETIQUETE": 28
+      "NON_ETIQUETE": 22
     },
-    "masques": 178,
+    "masques": 172,
     "masquesNeutresSeuls": 28,
     "masquesNeutreEtDateSansSpan": 0
   },
@@ -166,9 +166,9 @@
     }
   },
   "debordement": {
-    "lettresChiffresHorsEtiquettes": 308,
-    "lettresChiffresMasques": 2479,
-    "part": 0.12424364663170634
+    "lettresChiffresHorsEtiquettes": 262,
+    "lettresChiffresMasques": 2433,
+    "part": 0.10768598438142211
   },
   "typesDifferents": 3,
   "listes": {
@@ -878,26 +878,6 @@
     ],
     "erreurs": [
       {
-        "doc_id": "dev-avocat-01",
-        "categorie": "NON_ETIQUETE",
-        "extrait": "Monsieur"
-      },
-      {
-        "doc_id": "dev-avocat-01",
-        "categorie": "NON_ETIQUETE",
-        "extrait": "Monsieur"
-      },
-      {
-        "doc_id": "dev-avocat-02",
-        "categorie": "NON_ETIQUETE",
-        "extrait": "Monsieur"
-      },
-      {
-        "doc_id": "dev-avocat-02",
-        "categorie": "NON_ETIQUETE",
-        "extrait": "Monsieur"
-      },
-      {
         "doc_id": "dev-avocat-03",
         "categorie": "NON_ETIQUETE",
         "extrait": "CONVENTION"
@@ -1006,16 +986,6 @@
         "doc_id": "dev-neutre-02",
         "categorie": "NON_ETIQUETE",
         "extrait": "Rose des vents"
-      },
-      {
-        "doc_id": "dev-rh-01",
-        "categorie": "NON_ETIQUETE",
-        "extrait": "Madame"
-      },
-      {
-        "doc_id": "dev-rh-02",
-        "categorie": "NON_ETIQUETE",
-        "extrait": "Monsieur"
       }
     ],
     "typesDifferents": [

@@ -1,10 +1,10 @@
-# Évaluation — modele 0.1.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8 — jeu dev
+# Évaluation — modele 0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8 — jeu dev
 
 > **jeu de développement : indicatif, pas la mesure finale**
 
-- Date (UTC) : 2026-10-22T08:29:20.333Z
-- Commit : `eeaddda0e5d8ca63c6ba3bf453b6fe04ffbfee4a` (arbre propre : oui)
-- Détecteur : modele 0.1.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8 (`src/modele.mjs`)
+- Date (UTC) : 2026-10-22T08:47:08.772Z
+- Commit : `4e287e5c5de070995331672a7dc94244e2c1e956` (arbre propre : oui)
+- Détecteur : modele 0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8 (`src/modele.mjs`)
 - Documents : 17
 - Protocole : seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur
 
@@ -16,7 +16,7 @@
 | S3 | Rappel PERSONNE | 100,0 % (49/49) | 95,0 % | oui | atteint |
 | S4 | Rappel ADRESSE | 3,3 % (1/30) | 90,0 % | oui | non atteint |
 | S5 | Rappel ORGANISATION | 65,2 % (15/23) | 85,0 % | non | non atteint |
-| S6 | Précision globale | 81,3 % (122 corrects, 28 erreurs) | 80,0 % | non | atteint |
+| S6 | Précision globale | 84,7 % (122 corrects, 22 erreurs) | 80,0 % | non | atteint |
 
 ## Rappel par type
 
@@ -39,9 +39,9 @@ Couverture partielle (oubli dont au moins une lettre ou un chiffre est masqué) 
 
 ## Précision
 
-- Masques (après fusion des chevauchements) : 178
-- Corrects : 122 ; erreurs : 28 ; précision : 81,3 %
-- Erreurs par catégorie : NON_ETIQUETE 28
+- Masques (après fusion des chevauchements) : 172
+- Corrects : 122 ; erreurs : 22 ; précision : 84,7 %
+- Erreurs par catégorie : NON_ETIQUETE 22
 - Masques sur un neutre seul (ni réussite ni erreur) : 28
 - Masques sur un neutre et une date/un montant, sans span (dates/montants comptés en erreur) : 0
 
@@ -52,7 +52,7 @@ Couverture partielle (oubli dont au moins une lettre ou un chiffre est masqué) 
 
 ## Débordement (informatif, sans seuil)
 
-Lettres et chiffres masqués hors des spans et des neutres : 308 sur 2479 masqués (12,4 %).
+Lettres et chiffres masqués hors des spans et des neutres : 262 sur 2433 masqués (10,8 %).
 
 Spans retrouvés avec un type proposé différent : 3.
 
@@ -182,10 +182,6 @@ Spans retrouvés avec un type proposé différent : 3.
 
 | Document | Catégorie | Extrait |
 |---|---|---|
-| dev-avocat-01 | NON_ETIQUETE | Monsieur |
-| dev-avocat-01 | NON_ETIQUETE | Monsieur |
-| dev-avocat-02 | NON_ETIQUETE | Monsieur |
-| dev-avocat-02 | NON_ETIQUETE | Monsieur |
 | dev-avocat-03 | NON_ETIQUETE | CONVENTION |
 | dev-avocat-03 | NON_ETIQUETE | Avocat |
 | dev-avocat-03 | NON_ETIQUETE | Client |
@@ -208,8 +204,6 @@ Spans retrouvés avec un type proposé différent : 3.
 | dev-neutre-02 | NON_ETIQUETE | de Pentecôte |
 | dev-neutre-02 | NON_ETIQUETE | Ressources |
 | dev-neutre-02 | NON_ETIQUETE | Rose des vents |
-| dev-rh-01 | NON_ETIQUETE | Madame |
-| dev-rh-02 | NON_ETIQUETE | Monsieur |
 
 ## Types différents
 
