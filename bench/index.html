@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banc mask</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/bench/banc.css">
+<script type="module" src="/bench/page.mjs"></script>
+</head>
+<body>
+<main>
+  <h1>Banc de mesure — détecteur mask dans le navigateur</h1>
+  <p class="note">Détecteur gelé mask-1.5a-gel (règles + modèle 0.2.0), 17 documents du jeu de développement. Tout est servi par 127.0.0.1 ; rien ne sort de la machine.</p>
+
+  <form id="reglages">
+    <label>Variante WASM
+      <select name="variante">
+        <option value="auto">par défaut de la bibliothèque</option>
+        <option value="asyncify">asyncify</option>
+        <option value="simple">simple</option>
+      </select>
+    </label>
+    <label>Threads
+      <select name="threads">
+        <option value="defaut">défaut d'onnxruntime-web</option>
+        <option value="1">1 (forcé)</option>
+      </select>
+    </label>
+    <button type="submit">Lancer la mesure</button>
+  </form>
+
+  <p id="statut" class="statut">PRÊT — choisir les réglages puis « Lancer la mesure » (ou ouvrir l'URL avec ?auto=1).</p>
+  <p><button id="telecharger" type="button" disabled>Télécharger le JSON</button></p>
+
+  <section id="resultats"></section>
+</main>
+</body>
+</html>

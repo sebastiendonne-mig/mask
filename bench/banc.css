@@ -1,0 +1,40 @@
+:root {
+  --fond: #ffffff;
+  --texte: #1d1d1f;
+  --discret: #6e6e73;
+  --ligne: #d2d2d7;
+  --ok: #1a7f37;
+  --ko: #c62828;
+  --encours: #9a6700;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #161618;
+    --texte: #f2f2f4;
+    --discret: #a1a1a6;
+    --ligne: #3a3a3c;
+    --ok: #4ac26b;
+    --ko: #ff6b6b;
+    --encours: #e3b341;
+  }
+}
+body { margin: 0; background: var(--fond); color: var(--texte); font: 15px/1.45 -apple-system, system-ui, sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.35rem; }
+h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+.note { color: var(--discret); }
+form { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+select, button { font: inherit; padding: 4px 8px; }
+.statut { font-weight: 700; font-size: 1.2rem; padding: 8px 12px; border: 2px solid var(--ligne); border-radius: 6px; }
+.statut.encours { border-color: var(--encours); color: var(--encours); }
+.statut.termine { border-color: var(--ok); color: var(--ok); }
+.statut.erreur { border-color: var(--ko); color: var(--ko); }
+.defile { overflow-x: auto; }
+table { border-collapse: collapse; margin: 8px 0; font-variant-numeric: tabular-nums; }
+th, td { border-bottom: 1px solid var(--ligne); padding: 4px 10px; text-align: left; vertical-align: top; }
+td.n { text-align: right; }
+.ok { color: var(--ok); font-weight: 600; }
+.ko { color: var(--ko); font-weight: 600; }
+pre { white-space: pre-wrap; word-break: break-all; font-size: 0.85rem; }
