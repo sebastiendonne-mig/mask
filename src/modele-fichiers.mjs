@@ -10,11 +10,9 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
-export const DEPOT = 'Xenova/camembert-ner';
-export const REVISION = '8e1988247e872ba0137062653b1e5033a31e14fc';
-
-// Seuls fichiers nécessaires : configuration, tokenizer, modèle quantifié (dtype q8).
-export const FICHIERS = ['config.json', 'tokenizer.json', 'tokenizer_config.json', 'onnx/model_quantized.onnx'];
+// Dépôt, révision et liste des fichiers : src/modele-commun.mjs (partagés avec le navigateur).
+import { REVISION, FICHIERS } from './modele-commun.mjs';
+export { DEPOT, REVISION, FICHIERS } from './modele-commun.mjs';
 
 export const RACINE_MODELES = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'modeles');
 export const DOSSIER = path.join(RACINE_MODELES, 'camembert-ner', REVISION);

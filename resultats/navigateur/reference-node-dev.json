@@ -1,0 +1,3772 @@
+{
+ "split": "dev",
+ "detecteurs": {
+  "regles": "0.4.0",
+  "modele": "0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8",
+  "combine": "0.1.0+regles@0.4.0+modele@0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8"
+ },
+ "documents": [
+  {
+   "id": "dev-avocat-01",
+   "caracteres": 1870,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 64,
+      "end": 97,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 105,
+      "end": 119,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 122,
+      "end": 156,
+      "type": "EMAIL"
+     },
+     {
+      "start": 158,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 205,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 231,
+      "end": 274,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 358,
+      "end": 370,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 461,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 486,
+      "end": 518,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1254,
+      "end": 1287,
+      "type": "IBAN"
+     },
+     {
+      "start": 1699,
+      "end": 1713,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1729,
+      "end": 1766,
+      "type": "EMAIL"
+     },
+     {
+      "start": 1857,
+      "end": 1869,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 55,
+      "end": 63,
+      "type": "LIEU"
+     },
+     {
+      "start": 71,
+      "end": 97,
+      "type": "LIEU"
+     },
+     {
+      "start": 158,
+      "end": 172,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 173,
+      "end": 180,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 181,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 205,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 237,
+      "end": 284,
+      "type": "LIEU"
+     },
+     {
+      "start": 461,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 489,
+      "end": 518,
+      "type": "LIEU"
+     },
+     {
+      "start": 1372,
+      "end": 1380,
+      "type": "LIEU"
+     },
+     {
+      "start": 1857,
+      "end": 1869,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 64,
+      "end": 97,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 105,
+      "end": 119,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 122,
+      "end": 156,
+      "type": "EMAIL"
+     },
+     {
+      "start": 158,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 205,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 231,
+      "end": 274,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 358,
+      "end": 370,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 461,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 486,
+      "end": 518,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1254,
+      "end": 1287,
+      "type": "IBAN"
+     },
+     {
+      "start": 1699,
+      "end": 1713,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1729,
+      "end": 1766,
+      "type": "EMAIL"
+     },
+     {
+      "start": 1857,
+      "end": 1869,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 0,
+      "end": 32,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 55,
+      "end": 63,
+      "type": "LIEU"
+     },
+     {
+      "start": 71,
+      "end": 97,
+      "type": "LIEU"
+     },
+     {
+      "start": 158,
+      "end": 172,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 173,
+      "end": 180,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 181,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 205,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 237,
+      "end": 284,
+      "type": "LIEU"
+     },
+     {
+      "start": 461,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 489,
+      "end": 518,
+      "type": "LIEU"
+     },
+     {
+      "start": 1372,
+      "end": 1380,
+      "type": "LIEU"
+     },
+     {
+      "start": 1857,
+      "end": 1869,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-avocat-02",
+   "caracteres": 1870,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 29,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 60,
+      "end": 98,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 106,
+      "end": 123,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 126,
+      "end": 160,
+      "type": "EMAIL"
+     },
+     {
+      "start": 162,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 204,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 227,
+      "end": 255,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 342,
+      "end": 354,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 447,
+      "end": 460,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 472,
+      "end": 523,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1253,
+      "end": 1286,
+      "type": "IBAN"
+     },
+     {
+      "start": 1697,
+      "end": 1707,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1723,
+      "end": 1764,
+      "type": "EMAIL"
+     },
+     {
+      "start": 1855,
+      "end": 1869,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 0,
+      "end": 37,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 52,
+      "end": 59,
+      "type": "LIEU"
+     },
+     {
+      "start": 66,
+      "end": 98,
+      "type": "LIEU"
+     },
+     {
+      "start": 162,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 204,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 230,
+      "end": 264,
+      "type": "LIEU"
+     },
+     {
+      "start": 447,
+      "end": 460,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 472,
+      "end": 490,
+      "type": "LIEU"
+     },
+     {
+      "start": 495,
+      "end": 509,
+      "type": "LIEU"
+     },
+     {
+      "start": 517,
+      "end": 523,
+      "type": "LIEU"
+     },
+     {
+      "start": 1371,
+      "end": 1378,
+      "type": "LIEU"
+     },
+     {
+      "start": 1723,
+      "end": 1764,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1855,
+      "end": 1869,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 29,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 60,
+      "end": 98,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 106,
+      "end": 123,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 126,
+      "end": 160,
+      "type": "EMAIL"
+     },
+     {
+      "start": 162,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 204,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 227,
+      "end": 255,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 342,
+      "end": 354,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 447,
+      "end": 460,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 472,
+      "end": 523,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1253,
+      "end": 1286,
+      "type": "IBAN"
+     },
+     {
+      "start": 1697,
+      "end": 1707,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1723,
+      "end": 1764,
+      "type": "EMAIL"
+     },
+     {
+      "start": 1855,
+      "end": 1869,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 0,
+      "end": 37,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 52,
+      "end": 59,
+      "type": "LIEU"
+     },
+     {
+      "start": 66,
+      "end": 98,
+      "type": "LIEU"
+     },
+     {
+      "start": 162,
+      "end": 183,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 204,
+      "end": 218,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 230,
+      "end": 264,
+      "type": "LIEU"
+     },
+     {
+      "start": 447,
+      "end": 460,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 472,
+      "end": 490,
+      "type": "LIEU"
+     },
+     {
+      "start": 495,
+      "end": 509,
+      "type": "LIEU"
+     },
+     {
+      "start": 517,
+      "end": 523,
+      "type": "LIEU"
+     },
+     {
+      "start": 1371,
+      "end": 1378,
+      "type": "LIEU"
+     },
+     {
+      "start": 1723,
+      "end": 1764,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1855,
+      "end": 1869,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-avocat-03",
+   "caracteres": 1782,
+   "masques": {
+    "regles": [
+     {
+      "start": 56,
+      "end": 69,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 114,
+      "end": 152,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 167,
+      "end": 181,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 197,
+      "end": 229,
+      "type": "EMAIL"
+     },
+     {
+      "start": 269,
+      "end": 290,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 347,
+      "end": 361,
+      "type": "SIRET"
+     },
+     {
+      "start": 387,
+      "end": 418,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 443,
+      "end": 458,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 630,
+      "end": 643,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 735,
+      "end": 747,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 1259,
+      "end": 1286,
+      "type": "IBAN"
+     },
+     {
+      "start": 1725,
+      "end": 1738,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1771,
+      "end": 1781,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 0,
+      "end": 10,
+      "type": "DIVERS"
+     },
+     {
+      "start": 56,
+      "end": 69,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 91,
+      "end": 102,
+      "type": "LIEU"
+     },
+     {
+      "start": 125,
+      "end": 134,
+      "type": "LIEU"
+     },
+     {
+      "start": 142,
+      "end": 152,
+      "type": "LIEU"
+     },
+     {
+      "start": 269,
+      "end": 290,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 333,
+      "end": 339,
+      "type": "LIEU"
+     },
+     {
+      "start": 394,
+      "end": 418,
+      "type": "LIEU"
+     },
+     {
+      "start": 443,
+      "end": 458,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 482,
+      "end": 488,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 545,
+      "end": 551,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 563,
+      "end": 569,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 627,
+      "end": 643,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1321,
+      "end": 1327,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1359,
+      "end": 1365,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1595,
+      "end": 1601,
+      "type": "LIEU"
+     },
+     {
+      "start": 1611,
+      "end": 1617,
+      "type": "LIEU"
+     },
+     {
+      "start": 1675,
+      "end": 1781,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 56,
+      "end": 69,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 114,
+      "end": 152,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 167,
+      "end": 181,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 197,
+      "end": 229,
+      "type": "EMAIL"
+     },
+     {
+      "start": 269,
+      "end": 290,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 347,
+      "end": 361,
+      "type": "SIRET"
+     },
+     {
+      "start": 387,
+      "end": 418,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 443,
+      "end": 458,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 630,
+      "end": 643,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 735,
+      "end": 747,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 1259,
+      "end": 1286,
+      "type": "IBAN"
+     },
+     {
+      "start": 1725,
+      "end": 1738,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1771,
+      "end": 1781,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 0,
+      "end": 10,
+      "type": "DIVERS"
+     },
+     {
+      "start": 56,
+      "end": 69,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 91,
+      "end": 102,
+      "type": "LIEU"
+     },
+     {
+      "start": 125,
+      "end": 134,
+      "type": "LIEU"
+     },
+     {
+      "start": 142,
+      "end": 152,
+      "type": "LIEU"
+     },
+     {
+      "start": 269,
+      "end": 290,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 333,
+      "end": 339,
+      "type": "LIEU"
+     },
+     {
+      "start": 394,
+      "end": 418,
+      "type": "LIEU"
+     },
+     {
+      "start": 443,
+      "end": 458,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 482,
+      "end": 488,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 545,
+      "end": 551,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 563,
+      "end": 569,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 627,
+      "end": 643,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1321,
+      "end": 1327,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1359,
+      "end": 1365,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1595,
+      "end": 1601,
+      "type": "LIEU"
+     },
+     {
+      "start": 1611,
+      "end": 1617,
+      "type": "LIEU"
+     },
+     {
+      "start": 1675,
+      "end": 1781,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-avocat-04",
+   "caracteres": 1852,
+   "masques": {
+    "regles": [
+     {
+      "start": 58,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 109,
+      "end": 161,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 176,
+      "end": 190,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 206,
+      "end": 224,
+      "type": "EMAIL"
+     },
+     {
+      "start": 263,
+      "end": 298,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 355,
+      "end": 369,
+      "type": "SIRET"
+     },
+     {
+      "start": 395,
+      "end": 458,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 483,
+      "end": 497,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 669,
+      "end": 682,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 805,
+      "end": 817,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 1327,
+      "end": 1354,
+      "type": "IBAN"
+     },
+     {
+      "start": 1792,
+      "end": 1806,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1839,
+      "end": 1851,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 0,
+      "end": 10,
+      "type": "DIVERS"
+     },
+     {
+      "start": 58,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 93,
+      "end": 97,
+      "type": "LIEU"
+     },
+     {
+      "start": 109,
+      "end": 130,
+      "type": "LIEU"
+     },
+     {
+      "start": 136,
+      "end": 161,
+      "type": "LIEU"
+     },
+     {
+      "start": 263,
+      "end": 298,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 341,
+      "end": 347,
+      "type": "LIEU"
+     },
+     {
+      "start": 395,
+      "end": 425,
+      "type": "LIEU"
+     },
+     {
+      "start": 430,
+      "end": 458,
+      "type": "LIEU"
+     },
+     {
+      "start": 483,
+      "end": 497,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 521,
+      "end": 527,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 584,
+      "end": 590,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 602,
+      "end": 608,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 669,
+      "end": 682,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1389,
+      "end": 1395,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1427,
+      "end": 1433,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1663,
+      "end": 1669,
+      "type": "LIEU"
+     },
+     {
+      "start": 1679,
+      "end": 1685,
+      "type": "LIEU"
+     },
+     {
+      "start": 1742,
+      "end": 1851,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 58,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 109,
+      "end": 161,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 176,
+      "end": 190,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 206,
+      "end": 224,
+      "type": "EMAIL"
+     },
+     {
+      "start": 263,
+      "end": 298,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 355,
+      "end": 369,
+      "type": "SIRET"
+     },
+     {
+      "start": 395,
+      "end": 458,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 483,
+      "end": 497,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 669,
+      "end": 682,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 805,
+      "end": 817,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 1327,
+      "end": 1354,
+      "type": "IBAN"
+     },
+     {
+      "start": 1792,
+      "end": 1806,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1839,
+      "end": 1851,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 0,
+      "end": 10,
+      "type": "DIVERS"
+     },
+     {
+      "start": 58,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 93,
+      "end": 97,
+      "type": "LIEU"
+     },
+     {
+      "start": 109,
+      "end": 130,
+      "type": "LIEU"
+     },
+     {
+      "start": 136,
+      "end": 161,
+      "type": "LIEU"
+     },
+     {
+      "start": 263,
+      "end": 298,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 341,
+      "end": 347,
+      "type": "LIEU"
+     },
+     {
+      "start": 395,
+      "end": 425,
+      "type": "LIEU"
+     },
+     {
+      "start": 430,
+      "end": 458,
+      "type": "LIEU"
+     },
+     {
+      "start": 483,
+      "end": 497,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 521,
+      "end": 527,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 584,
+      "end": 590,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 602,
+      "end": 608,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 669,
+      "end": 682,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1389,
+      "end": 1395,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1427,
+      "end": 1433,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1663,
+      "end": 1669,
+      "type": "LIEU"
+     },
+     {
+      "start": 1679,
+      "end": 1685,
+      "type": "LIEU"
+     },
+     {
+      "start": 1742,
+      "end": 1851,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-avocat-05",
+   "caracteres": 1908,
+   "masques": {
+    "regles": [
+     {
+      "start": 56,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 111,
+      "end": 163,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 178,
+      "end": 192,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 208,
+      "end": 244,
+      "type": "EMAIL"
+     },
+     {
+      "start": 284,
+      "end": 314,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 376,
+      "end": 390,
+      "type": "SIRET"
+     },
+     {
+      "start": 416,
+      "end": 488,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 513,
+      "end": 527,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 707,
+      "end": 739,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 843,
+      "end": 855,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 1365,
+      "end": 1398,
+      "type": "IBAN"
+     },
+     {
+      "start": 1848,
+      "end": 1864,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1897,
+      "end": 1907,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 49,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 94,
+      "end": 99,
+      "type": "LIEU"
+     },
+     {
+      "start": 111,
+      "end": 129,
+      "type": "LIEU"
+     },
+     {
+      "start": 134,
+      "end": 163,
+      "type": "LIEU"
+     },
+     {
+      "start": 284,
+      "end": 314,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 357,
+      "end": 368,
+      "type": "LIEU"
+     },
+     {
+      "start": 416,
+      "end": 488,
+      "type": "LIEU"
+     },
+     {
+      "start": 513,
+      "end": 527,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 551,
+      "end": 557,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 614,
+      "end": 620,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 632,
+      "end": 638,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 707,
+      "end": 739,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1365,
+      "end": 1369,
+      "type": "LIEU"
+     },
+     {
+      "start": 1433,
+      "end": 1439,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1471,
+      "end": 1477,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1707,
+      "end": 1718,
+      "type": "LIEU"
+     },
+     {
+      "start": 1728,
+      "end": 1739,
+      "type": "LIEU"
+     },
+     {
+      "start": 1798,
+      "end": 1864,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1897,
+      "end": 1907,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 56,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 111,
+      "end": 163,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 178,
+      "end": 192,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 208,
+      "end": 244,
+      "type": "EMAIL"
+     },
+     {
+      "start": 284,
+      "end": 314,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 376,
+      "end": 390,
+      "type": "SIRET"
+     },
+     {
+      "start": 416,
+      "end": 488,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 513,
+      "end": 527,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 707,
+      "end": 739,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 843,
+      "end": 855,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 1365,
+      "end": 1398,
+      "type": "IBAN"
+     },
+     {
+      "start": 1848,
+      "end": 1864,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1897,
+      "end": 1907,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 49,
+      "end": 72,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 94,
+      "end": 99,
+      "type": "LIEU"
+     },
+     {
+      "start": 111,
+      "end": 129,
+      "type": "LIEU"
+     },
+     {
+      "start": 134,
+      "end": 163,
+      "type": "LIEU"
+     },
+     {
+      "start": 284,
+      "end": 314,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 357,
+      "end": 368,
+      "type": "LIEU"
+     },
+     {
+      "start": 416,
+      "end": 488,
+      "type": "LIEU"
+     },
+     {
+      "start": 513,
+      "end": 527,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 551,
+      "end": 557,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 614,
+      "end": 620,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 632,
+      "end": 638,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 707,
+      "end": 739,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1365,
+      "end": 1369,
+      "type": "LIEU"
+     },
+     {
+      "start": 1433,
+      "end": 1439,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1471,
+      "end": 1477,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1707,
+      "end": 1718,
+      "type": "LIEU"
+     },
+     {
+      "start": 1728,
+      "end": 1739,
+      "type": "LIEU"
+     },
+     {
+      "start": 1798,
+      "end": 1864,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1897,
+      "end": 1907,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-ec-01",
+   "caracteres": 1380,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 34,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 96,
+      "end": 128,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 135,
+      "end": 152,
+      "type": "SIRET"
+     },
+     {
+      "start": 159,
+      "end": 176,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 182,
+      "end": 199,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 344,
+      "end": 363,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 396,
+      "end": 449,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 485,
+      "end": 496,
+      "type": "SIREN"
+     },
+     {
+      "start": 521,
+      "end": 538,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 579,
+      "end": 592,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1303,
+      "end": 1313,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1340,
+      "end": 1379,
+      "type": "EMAIL"
+     }
+    ],
+    "modele": [
+     {
+      "start": 5,
+      "end": 34,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 90,
+      "end": 95,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 99,
+      "end": 128,
+      "type": "LIEU"
+     },
+     {
+      "start": 344,
+      "end": 363,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 396,
+      "end": 406,
+      "type": "LIEU"
+     },
+     {
+      "start": 421,
+      "end": 449,
+      "type": "LIEU"
+     },
+     {
+      "start": 579,
+      "end": 592,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1276,
+      "end": 1281,
+      "type": "LIEU"
+     },
+     {
+      "start": 1303,
+      "end": 1313,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1314,
+      "end": 1330,
+      "type": "ORGANISATION"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 34,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 96,
+      "end": 128,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 135,
+      "end": 152,
+      "type": "SIRET"
+     },
+     {
+      "start": 159,
+      "end": 176,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 182,
+      "end": 199,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 344,
+      "end": 363,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 396,
+      "end": 449,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 485,
+      "end": 496,
+      "type": "SIREN"
+     },
+     {
+      "start": 521,
+      "end": 538,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 579,
+      "end": 592,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1303,
+      "end": 1313,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1340,
+      "end": 1379,
+      "type": "EMAIL"
+     },
+     {
+      "start": 5,
+      "end": 34,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 90,
+      "end": 95,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 99,
+      "end": 128,
+      "type": "LIEU"
+     },
+     {
+      "start": 344,
+      "end": 363,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 396,
+      "end": 406,
+      "type": "LIEU"
+     },
+     {
+      "start": 421,
+      "end": 449,
+      "type": "LIEU"
+     },
+     {
+      "start": 579,
+      "end": 592,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1276,
+      "end": 1281,
+      "type": "LIEU"
+     },
+     {
+      "start": 1303,
+      "end": 1313,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1314,
+      "end": 1330,
+      "type": "ORGANISATION"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-ec-02",
+   "caracteres": 1398,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 93,
+      "end": 154,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 161,
+      "end": 178,
+      "type": "SIRET"
+     },
+     {
+      "start": 185,
+      "end": 198,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 204,
+      "end": 218,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 363,
+      "end": 389,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 422,
+      "end": 459,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 495,
+      "end": 506,
+      "type": "SIREN"
+     },
+     {
+      "start": 531,
+      "end": 544,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 584,
+      "end": 596,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1311,
+      "end": 1325,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1352,
+      "end": 1397,
+      "type": "EMAIL"
+     }
+    ],
+    "modele": [
+     {
+      "start": 0,
+      "end": 26,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 87,
+      "end": 92,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 93,
+      "end": 123,
+      "type": "LIEU"
+     },
+     {
+      "start": 127,
+      "end": 154,
+      "type": "LIEU"
+     },
+     {
+      "start": 363,
+      "end": 385,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 429,
+      "end": 459,
+      "type": "LIEU"
+     },
+     {
+      "start": 584,
+      "end": 596,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1282,
+      "end": 1288,
+      "type": "LIEU"
+     },
+     {
+      "start": 1311,
+      "end": 1325,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 93,
+      "end": 154,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 161,
+      "end": 178,
+      "type": "SIRET"
+     },
+     {
+      "start": 185,
+      "end": 198,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 204,
+      "end": 218,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 363,
+      "end": 389,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 422,
+      "end": 459,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 495,
+      "end": 506,
+      "type": "SIREN"
+     },
+     {
+      "start": 531,
+      "end": 544,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 584,
+      "end": 596,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1311,
+      "end": 1325,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1352,
+      "end": 1397,
+      "type": "EMAIL"
+     },
+     {
+      "start": 0,
+      "end": 26,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 87,
+      "end": 92,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 93,
+      "end": 123,
+      "type": "LIEU"
+     },
+     {
+      "start": 127,
+      "end": 154,
+      "type": "LIEU"
+     },
+     {
+      "start": 363,
+      "end": 385,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 429,
+      "end": 459,
+      "type": "LIEU"
+     },
+     {
+      "start": 584,
+      "end": 596,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1282,
+      "end": 1288,
+      "type": "LIEU"
+     },
+     {
+      "start": 1311,
+      "end": 1325,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-ec-03",
+   "caracteres": 1347,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 93,
+      "end": 127,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 134,
+      "end": 151,
+      "type": "SIRET"
+     },
+     {
+      "start": 158,
+      "end": 171,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 177,
+      "end": 191,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 336,
+      "end": 358,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 391,
+      "end": 419,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 455,
+      "end": 464,
+      "type": "SIREN"
+     },
+     {
+      "start": 489,
+      "end": 506,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 547,
+      "end": 562,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1269,
+      "end": 1282,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1309,
+      "end": 1346,
+      "type": "EMAIL"
+     }
+    ],
+    "modele": [
+     {
+      "start": 5,
+      "end": 31,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 74,
+      "end": 92,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 97,
+      "end": 127,
+      "type": "LIEU"
+     },
+     {
+      "start": 336,
+      "end": 358,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 394,
+      "end": 419,
+      "type": "LIEU"
+     },
+     {
+      "start": 547,
+      "end": 562,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1244,
+      "end": 1250,
+      "type": "LIEU"
+     },
+     {
+      "start": 1269,
+      "end": 1282,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1283,
+      "end": 1299,
+      "type": "ORGANISATION"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 31,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 93,
+      "end": 127,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 134,
+      "end": 151,
+      "type": "SIRET"
+     },
+     {
+      "start": 158,
+      "end": 171,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 177,
+      "end": 191,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 336,
+      "end": 358,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 391,
+      "end": 419,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 455,
+      "end": 464,
+      "type": "SIREN"
+     },
+     {
+      "start": 489,
+      "end": 506,
+      "type": "TVA_INTRA"
+     },
+     {
+      "start": 547,
+      "end": 562,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1269,
+      "end": 1282,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1309,
+      "end": 1346,
+      "type": "EMAIL"
+     },
+     {
+      "start": 5,
+      "end": 31,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 74,
+      "end": 92,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 97,
+      "end": 127,
+      "type": "LIEU"
+     },
+     {
+      "start": 336,
+      "end": 358,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 394,
+      "end": 419,
+      "type": "LIEU"
+     },
+     {
+      "start": 547,
+      "end": 562,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1244,
+      "end": 1250,
+      "type": "LIEU"
+     },
+     {
+      "start": 1269,
+      "end": 1282,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1283,
+      "end": 1299,
+      "type": "ORGANISATION"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-ec-04",
+   "caracteres": 1212,
+   "masques": {
+    "regles": [
+     {
+      "start": 5,
+      "end": 17,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 19,
+      "end": 61,
+      "type": "EMAIL"
+     },
+     {
+      "start": 67,
+      "end": 79,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 81,
+      "end": 112,
+      "type": "EMAIL"
+     },
+     {
+      "start": 119,
+      "end": 131,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 133,
+      "end": 173,
+      "type": "EMAIL"
+     },
+     {
+      "start": 243,
+      "end": 252,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 270,
+      "end": 277,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 318,
+      "end": 340,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 478,
+      "end": 511,
+      "type": "IBAN"
+     },
+     {
+      "start": 573,
+      "end": 589,
+      "type": "CARTE"
+     },
+     {
+      "start": 724,
+      "end": 737,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 952,
+      "end": 964,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1022,
+      "end": 1039,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1082,
+      "end": 1094,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1095,
+      "end": 1128,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1129,
+      "end": 1196,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1197,
+      "end": 1211,
+      "type": "TELEPHONE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 5,
+      "end": 17,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 67,
+      "end": 79,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 119,
+      "end": 131,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 263,
+      "end": 277,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 318,
+      "end": 340,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 724,
+      "end": 737,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 769,
+      "end": 777,
+      "type": "LIEU"
+     },
+     {
+      "start": 952,
+      "end": 964,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1082,
+      "end": 1094,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1095,
+      "end": 1128,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1129,
+      "end": 1147,
+      "type": "LIEU"
+     },
+     {
+      "start": 1158,
+      "end": 1159,
+      "type": "LIEU"
+     },
+     {
+      "start": 1169,
+      "end": 1196,
+      "type": "LIEU"
+     }
+    ],
+    "combine": [
+     {
+      "start": 5,
+      "end": 17,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 19,
+      "end": 61,
+      "type": "EMAIL"
+     },
+     {
+      "start": 67,
+      "end": 79,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 81,
+      "end": 112,
+      "type": "EMAIL"
+     },
+     {
+      "start": 119,
+      "end": 131,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 133,
+      "end": 173,
+      "type": "EMAIL"
+     },
+     {
+      "start": 243,
+      "end": 252,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 270,
+      "end": 277,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 318,
+      "end": 340,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 478,
+      "end": 511,
+      "type": "IBAN"
+     },
+     {
+      "start": 573,
+      "end": 589,
+      "type": "CARTE"
+     },
+     {
+      "start": 724,
+      "end": 737,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 952,
+      "end": 964,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1022,
+      "end": 1039,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1082,
+      "end": 1094,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1095,
+      "end": 1128,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1129,
+      "end": 1196,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1197,
+      "end": 1211,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 5,
+      "end": 17,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 67,
+      "end": 79,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 119,
+      "end": 131,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 263,
+      "end": 277,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 318,
+      "end": 340,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 724,
+      "end": 737,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 769,
+      "end": 777,
+      "type": "LIEU"
+     },
+     {
+      "start": 952,
+      "end": 964,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1082,
+      "end": 1094,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1095,
+      "end": 1128,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1129,
+      "end": 1147,
+      "type": "LIEU"
+     },
+     {
+      "start": 1158,
+      "end": 1159,
+      "type": "LIEU"
+     },
+     {
+      "start": 1169,
+      "end": 1196,
+      "type": "LIEU"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-ec-05",
+   "caracteres": 1211,
+   "masques": {
+    "regles": [
+     {
+      "start": 5,
+      "end": 18,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 20,
+      "end": 62,
+      "type": "EMAIL"
+     },
+     {
+      "start": 68,
+      "end": 83,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 85,
+      "end": 129,
+      "type": "EMAIL"
+     },
+     {
+      "start": 136,
+      "end": 151,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 153,
+      "end": 194,
+      "type": "EMAIL"
+     },
+     {
+      "start": 264,
+      "end": 276,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 296,
+      "end": 304,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 345,
+      "end": 372,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 510,
+      "end": 537,
+      "type": "IBAN"
+     },
+     {
+      "start": 599,
+      "end": 618,
+      "type": "CARTE"
+     },
+     {
+      "start": 756,
+      "end": 770,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 985,
+      "end": 1000,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1058,
+      "end": 1072,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1115,
+      "end": 1128,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1129,
+      "end": 1164,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1165,
+      "end": 1199,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1200,
+      "end": 1210,
+      "type": "TELEPHONE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 5,
+      "end": 18,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 68,
+      "end": 83,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 136,
+      "end": 151,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 287,
+      "end": 304,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 345,
+      "end": 372,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 756,
+      "end": 770,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 802,
+      "end": 806,
+      "type": "LIEU"
+     },
+     {
+      "start": 985,
+      "end": 1000,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1115,
+      "end": 1128,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1129,
+      "end": 1157,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1175,
+      "end": 1185,
+      "type": "LIEU"
+     },
+     {
+      "start": 1193,
+      "end": 1199,
+      "type": "LIEU"
+     }
+    ],
+    "combine": [
+     {
+      "start": 5,
+      "end": 18,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 20,
+      "end": 62,
+      "type": "EMAIL"
+     },
+     {
+      "start": 68,
+      "end": 83,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 85,
+      "end": 129,
+      "type": "EMAIL"
+     },
+     {
+      "start": 136,
+      "end": 151,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 153,
+      "end": 194,
+      "type": "EMAIL"
+     },
+     {
+      "start": 264,
+      "end": 276,
+      "type": "NUMERO_DOSSIER"
+     },
+     {
+      "start": 296,
+      "end": 304,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 345,
+      "end": 372,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 510,
+      "end": 537,
+      "type": "IBAN"
+     },
+     {
+      "start": 599,
+      "end": 618,
+      "type": "CARTE"
+     },
+     {
+      "start": 756,
+      "end": 770,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 985,
+      "end": 1000,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1058,
+      "end": 1072,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1115,
+      "end": 1128,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1129,
+      "end": 1164,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1165,
+      "end": 1199,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 1200,
+      "end": 1210,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 5,
+      "end": 18,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 68,
+      "end": 83,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 136,
+      "end": 151,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 287,
+      "end": 304,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 345,
+      "end": 372,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 756,
+      "end": 770,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 802,
+      "end": 806,
+      "type": "LIEU"
+     },
+     {
+      "start": 985,
+      "end": 1000,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1115,
+      "end": 1128,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1129,
+      "end": 1157,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 1175,
+      "end": 1185,
+      "type": "LIEU"
+     },
+     {
+      "start": 1193,
+      "end": 1199,
+      "type": "LIEU"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-neutre-01",
+   "caracteres": 1090,
+   "masques": {
+    "regles": [],
+    "modele": [
+     {
+      "start": 446,
+      "end": 451,
+      "type": "LIEU"
+     },
+     {
+      "start": 785,
+      "end": 790,
+      "type": "LIEU"
+     }
+    ],
+    "combine": [
+     {
+      "start": 446,
+      "end": 451,
+      "type": "LIEU"
+     },
+     {
+      "start": 785,
+      "end": 790,
+      "type": "LIEU"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-neutre-02",
+   "caracteres": 1103,
+   "masques": {
+    "regles": [],
+    "modele": [
+     {
+      "start": 810,
+      "end": 822,
+      "type": "DIVERS"
+     },
+     {
+      "start": 1030,
+      "end": 1040,
+      "type": "DIVERS"
+     },
+     {
+      "start": 1062,
+      "end": 1076,
+      "type": "DIVERS"
+     }
+    ],
+    "combine": [
+     {
+      "start": 810,
+      "end": 822,
+      "type": "DIVERS"
+     },
+     {
+      "start": 1030,
+      "end": 1040,
+      "type": "DIVERS"
+     },
+     {
+      "start": 1062,
+      "end": 1076,
+      "type": "DIVERS"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-rh-01",
+   "caracteres": 1050,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 17,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 18,
+      "end": 48,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 57,
+      "end": 71,
+      "type": "SIRET"
+     },
+     {
+      "start": 80,
+      "end": 93,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 94,
+      "end": 126,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 460,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 754,
+      "end": 787,
+      "type": "EMAIL"
+     },
+     {
+      "start": 869,
+      "end": 879,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1000,
+      "end": 1014,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 3,
+      "end": 17,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 21,
+      "end": 48,
+      "type": "LIEU"
+     },
+     {
+      "start": 80,
+      "end": 93,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 98,
+      "end": 114,
+      "type": "LIEU"
+     },
+     {
+      "start": 121,
+      "end": 134,
+      "type": "LIEU"
+     },
+     {
+      "start": 425,
+      "end": 428,
+      "type": "LIEU"
+     },
+     {
+      "start": 460,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 754,
+      "end": 787,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1000,
+      "end": 1014,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 17,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 18,
+      "end": 48,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 57,
+      "end": 71,
+      "type": "SIRET"
+     },
+     {
+      "start": 80,
+      "end": 93,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 94,
+      "end": 126,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 460,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 754,
+      "end": 787,
+      "type": "EMAIL"
+     },
+     {
+      "start": 869,
+      "end": 879,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1000,
+      "end": 1014,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 3,
+      "end": 17,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 21,
+      "end": 48,
+      "type": "LIEU"
+     },
+     {
+      "start": 80,
+      "end": 93,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 98,
+      "end": 114,
+      "type": "LIEU"
+     },
+     {
+      "start": 121,
+      "end": 134,
+      "type": "LIEU"
+     },
+     {
+      "start": 425,
+      "end": 428,
+      "type": "LIEU"
+     },
+     {
+      "start": 460,
+      "end": 474,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 754,
+      "end": 787,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1000,
+      "end": 1014,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-rh-02",
+   "caracteres": 1068,
+   "masques": {
+    "regles": [
+     {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 24,
+      "end": 53,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 62,
+      "end": 79,
+      "type": "SIRET"
+     },
+     {
+      "start": 90,
+      "end": 107,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 108,
+      "end": 132,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 474,
+      "end": 487,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 767,
+      "end": 801,
+      "type": "EMAIL"
+     },
+     {
+      "start": 883,
+      "end": 897,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1020,
+      "end": 1033,
+      "type": "PERSONNE"
+     }
+    ],
+    "modele": [
+     {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 27,
+      "end": 53,
+      "type": "LIEU"
+     },
+     {
+      "start": 90,
+      "end": 107,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 111,
+      "end": 142,
+      "type": "LIEU"
+     },
+     {
+      "start": 435,
+      "end": 443,
+      "type": "LIEU"
+     },
+     {
+      "start": 474,
+      "end": 487,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1020,
+      "end": 1033,
+      "type": "PERSONNE"
+     }
+    ],
+    "combine": [
+     {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 24,
+      "end": 53,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 62,
+      "end": 79,
+      "type": "SIRET"
+     },
+     {
+      "start": 90,
+      "end": 107,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 108,
+      "end": 132,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 474,
+      "end": 487,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 767,
+      "end": 801,
+      "type": "EMAIL"
+     },
+     {
+      "start": 883,
+      "end": 897,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1020,
+      "end": 1033,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 0,
+      "end": 23,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 27,
+      "end": 53,
+      "type": "LIEU"
+     },
+     {
+      "start": 90,
+      "end": 107,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 111,
+      "end": 142,
+      "type": "LIEU"
+     },
+     {
+      "start": 435,
+      "end": 443,
+      "type": "LIEU"
+     },
+     {
+      "start": 474,
+      "end": 487,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 1020,
+      "end": 1033,
+      "type": "PERSONNE"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-rh-03",
+   "caracteres": 1047,
+   "masques": {
+    "regles": [
+     {
+      "start": 64,
+      "end": 84,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 85,
+      "end": 116,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 125,
+      "end": 142,
+      "type": "SIRET"
+     },
+     {
+      "start": 200,
+      "end": 212,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 213,
+      "end": 256,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 282,
+      "end": 303,
+      "type": "NIR"
+     },
+     {
+      "start": 854,
+      "end": 881,
+      "type": "IBAN"
+     },
+     {
+      "start": 1004,
+      "end": 1014,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1017,
+      "end": 1046,
+      "type": "EMAIL"
+     }
+    ],
+    "modele": [
+     {
+      "start": 64,
+      "end": 80,
+      "type": "LIEU"
+     },
+     {
+      "start": 92,
+      "end": 104,
+      "type": "LIEU"
+     },
+     {
+      "start": 111,
+      "end": 116,
+      "type": "LIEU"
+     },
+     {
+      "start": 200,
+      "end": 212,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 220,
+      "end": 234,
+      "type": "LIEU"
+     },
+     {
+      "start": 241,
+      "end": 256,
+      "type": "LIEU"
+     }
+    ],
+    "combine": [
+     {
+      "start": 64,
+      "end": 84,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 85,
+      "end": 116,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 125,
+      "end": 142,
+      "type": "SIRET"
+     },
+     {
+      "start": 200,
+      "end": 212,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 213,
+      "end": 256,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 282,
+      "end": 303,
+      "type": "NIR"
+     },
+     {
+      "start": 854,
+      "end": 881,
+      "type": "IBAN"
+     },
+     {
+      "start": 1004,
+      "end": 1014,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1017,
+      "end": 1046,
+      "type": "EMAIL"
+     },
+     {
+      "start": 64,
+      "end": 80,
+      "type": "LIEU"
+     },
+     {
+      "start": 92,
+      "end": 104,
+      "type": "LIEU"
+     },
+     {
+      "start": 111,
+      "end": 116,
+      "type": "LIEU"
+     },
+     {
+      "start": 200,
+      "end": 212,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 220,
+      "end": 234,
+      "type": "LIEU"
+     },
+     {
+      "start": 241,
+      "end": 256,
+      "type": "LIEU"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-rh-04",
+   "caracteres": 1037,
+   "masques": {
+    "regles": [
+     {
+      "start": 64,
+      "end": 81,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 82,
+      "end": 112,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 121,
+      "end": 135,
+      "type": "SIRET"
+     },
+     {
+      "start": 195,
+      "end": 208,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 209,
+      "end": 246,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 272,
+      "end": 287,
+      "type": "NIR"
+     },
+     {
+      "start": 838,
+      "end": 865,
+      "type": "IBAN"
+     },
+     {
+      "start": 988,
+      "end": 1005,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1008,
+      "end": 1036,
+      "type": "EMAIL"
+     }
+    ],
+    "modele": [
+     {
+      "start": 69,
+      "end": 81,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 86,
+      "end": 100,
+      "type": "LIEU"
+     },
+     {
+      "start": 107,
+      "end": 112,
+      "type": "LIEU"
+     },
+     {
+      "start": 195,
+      "end": 208,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 220,
+      "end": 233,
+      "type": "LIEU"
+     },
+     {
+      "start": 240,
+      "end": 246,
+      "type": "LIEU"
+     }
+    ],
+    "combine": [
+     {
+      "start": 64,
+      "end": 81,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 82,
+      "end": 112,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 121,
+      "end": 135,
+      "type": "SIRET"
+     },
+     {
+      "start": 195,
+      "end": 208,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 209,
+      "end": 246,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 272,
+      "end": 287,
+      "type": "NIR"
+     },
+     {
+      "start": 838,
+      "end": 865,
+      "type": "IBAN"
+     },
+     {
+      "start": 988,
+      "end": 1005,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1008,
+      "end": 1036,
+      "type": "EMAIL"
+     },
+     {
+      "start": 69,
+      "end": 81,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 86,
+      "end": 100,
+      "type": "LIEU"
+     },
+     {
+      "start": 107,
+      "end": 112,
+      "type": "LIEU"
+     },
+     {
+      "start": 195,
+      "end": 208,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 220,
+      "end": 233,
+      "type": "LIEU"
+     },
+     {
+      "start": 240,
+      "end": 246,
+      "type": "LIEU"
+     }
+    ]
+   }
+  },
+  {
+   "id": "dev-rh-05",
+   "caracteres": 1055,
+   "masques": {
+    "regles": [
+     {
+      "start": 64,
+      "end": 91,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 92,
+      "end": 121,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 130,
+      "end": 144,
+      "type": "SIRET"
+     },
+     {
+      "start": 204,
+      "end": 219,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 220,
+      "end": 260,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 286,
+      "end": 301,
+      "type": "NIR"
+     },
+     {
+      "start": 851,
+      "end": 878,
+      "type": "IBAN"
+     },
+     {
+      "start": 1001,
+      "end": 1015,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1018,
+      "end": 1054,
+      "type": "EMAIL"
+     }
+    ],
+    "modele": [
+     {
+      "start": 64,
+      "end": 91,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 101,
+      "end": 110,
+      "type": "LIEU"
+     },
+     {
+      "start": 117,
+      "end": 121,
+      "type": "LIEU"
+     },
+     {
+      "start": 204,
+      "end": 219,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 227,
+      "end": 260,
+      "type": "LIEU"
+     }
+    ],
+    "combine": [
+     {
+      "start": 64,
+      "end": 91,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 92,
+      "end": 121,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 130,
+      "end": 144,
+      "type": "SIRET"
+     },
+     {
+      "start": 204,
+      "end": 219,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 220,
+      "end": 260,
+      "type": "ADRESSE"
+     },
+     {
+      "start": 286,
+      "end": 301,
+      "type": "NIR"
+     },
+     {
+      "start": 851,
+      "end": 878,
+      "type": "IBAN"
+     },
+     {
+      "start": 1001,
+      "end": 1015,
+      "type": "TELEPHONE"
+     },
+     {
+      "start": 1018,
+      "end": 1054,
+      "type": "EMAIL"
+     },
+     {
+      "start": 64,
+      "end": 91,
+      "type": "ORGANISATION"
+     },
+     {
+      "start": 101,
+      "end": 110,
+      "type": "LIEU"
+     },
+     {
+      "start": 117,
+      "end": 121,
+      "type": "LIEU"
+     },
+     {
+      "start": 204,
+      "end": 219,
+      "type": "PERSONNE"
+     },
+     {
+      "start": 227,
+      "end": 260,
+      "type": "LIEU"
+     }
+    ]
+   }
+  }
+ ]
+}
