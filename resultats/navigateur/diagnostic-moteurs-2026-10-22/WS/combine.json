@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-22T10:51:40.351Z",
+  "git": {
+    "hash": "6172cfa857178693956e3f17f00cacbf7e83dad1",
+    "propre": true
+  },
+  "detecteur": {
+    "nom": "combine",
+    "version": "0.1.0+regles@0.4.0+modele@0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8+onnxruntime-web@1.30.0-wasm-node",
+    "module": "../../../../../private/tmp/claude-501/-Users-migranche-Dev-tkoidra-mask/6b56ad32-ffe0-4496-8519-06b9b2e1d8e8/scratchpad/variantes/WS/combine.mjs"
+  },
+  "split": "dev",
+  "mention": "jeu de développement : indicatif, pas la mesure finale",
+  "documents": 17,
+  "protocole": "seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur",
+  "seuils": [
+    {
+      "id": "S2",
+      "critere": "Rappel des formats fixes",
+      "seuil": 1,
+      "bloquant": true,
+      "trouves": 69,
+      "total": 69,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S3",
+      "critere": "Rappel PERSONNE",
+      "seuil": 0.95,
+      "bloquant": true,
+      "trouves": 49,
+      "total": 49,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S4",
+      "critere": "Rappel ADRESSE",
+      "seuil": 0.9,
+      "bloquant": true,
+      "trouves": 30,
+      "total": 30,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S5",
+      "critere": "Rappel ORGANISATION",
+      "seuil": 0.85,
+      "bloquant": false,
+      "trouves": 23,
+      "total": 23,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S6",
+      "critere": "Précision globale",
+      "seuil": 0.8,
+      "bloquant": false,
+      "corrects": 183,
+      "erreurs": 9,
+      "valeur": 0.953125,
+      "statut": "atteint"
+    }
+  ],
+  "rappelParType": {
+    "ADRESSE": {
+      "total": 30,
+      "trouves": 30,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "CARTE": {
+      "total": 2,
+      "trouves": 2,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "EMAIL": {
+      "total": 21,
+      "trouves": 21,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "IBAN": {
+      "total": 10,
+      "trouves": 10,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "NIR": {
+      "total": 3,
+      "trouves": 3,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "NUMERO_DOSSIER": {
+      "total": 7,
+      "trouves": 7,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "ORGANISATION": {
+      "total": 23,
+      "trouves": 23,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "PERSONNE": {
+      "total": 49,
+      "trouves": 49,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIREN": {
+      "total": 3,
+      "trouves": 3,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIRET": {
+      "total": 11,
+      "trouves": 11,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TELEPHONE": {
+      "total": 19,
+      "trouves": 19,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "TVA_INTRA": {
+      "total": 6,
+      "trouves": 6,
+      "partiels": 0,
+      "rappel": 1
+    }
+  },
+  "couverturePartielle": {
+    "partiels": 0,
+    "total": 184,
+    "taux": 0
+  },
+  "precision": {
+    "corrects": 183,
+    "erreurs": 9,
+    "valeur": 0.953125,
+    "erreursParCategorie": {
+      "NON_ETIQUETE": 9
+    },
+    "masques": 217,
+    "masquesNeutresSeuls": 25,
+    "masquesNeutreEtDateSansSpan": 0
+  },
+  "neutres": {
+    "masques": {
+      "LIEU_ISOLE": 28,
+      "INSTITUTION": 1
+    },
+    "total": {
+      "INSTITUTION": 16,
+      "LIEU_ISOLE": 29
+    }
+  },
+  "debordement": {
+    "lettresChiffresHorsEtiquettes": 83,
+    "lettresChiffresMasques": 3903,
+    "part": 0.02126569305662311
+  },
+  "typesDifferents": 0,
+  "listes": {
+    "oublis": [],
+    "erreurs": [
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      }
+    ],
+    "typesDifferents": []
+  }
+}
