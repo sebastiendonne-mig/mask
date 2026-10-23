@@ -1,5 +1,7 @@
 # Évaluation — combine 0.1.0+regles@0.4.0+modele@0.2.0+Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc+q8 — jeu dev
 
+> Moteur onnxruntime-node natif, non représentatif de l'app (amendement (5), seuils.md).
+
 > **jeu de développement : indicatif, pas la mesure finale**
 
 - Date (UTC) : 2026-10-22T08:47:15.286Z
