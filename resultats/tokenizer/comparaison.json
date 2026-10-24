@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-24T13:39:01.500Z",
+  "bibliotheque": "@huggingface/transformers 4.3.1",
+  "node": "v24.15.0",
+  "jeu": {
+    "dossier": "golden/dev",
+    "documents": 17,
+    "caracteres": 23280
+  },
+  "tokenizers": {
+    "actuel": {
+      "nom": "actuel (Xenova/camembert-ner@8e19882)",
+      "tokenizer": {
+        "cle": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/tokenizer.json",
+        "sha256": "2fe563b59de779621fa6ef3756e7ae565a87d78ac249afb728daf743ba3821ed",
+        "octets": 2421091
+      },
+      "tokenizerConfig": {
+        "cle": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/tokenizer_config.json",
+        "sha256": "ec016bffadf7b3ffc0ca3b9318d166b520a364c8ea3e40b0e26245738b1c08b5",
+        "octets": 516
+      },
+      "config": {
+        "cle": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/config.json",
+        "sha256": "3f928a29f1ee4578745e0a989f2d35666df49c7b431c8a3e01f52be661279699",
+        "octets": 941
+      },
+      "bos": 5,
+      "eos": 6
+    },
+    "nouveau": {
+      "nom": "nouveau (Jean-Baptiste/camembert-ner@ef35fe7, scripts/tokenizer/generer.py)",
+      "tokenizer": {
+        "cle": "tokenizer/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/tokenizer.json",
+        "sha256": "6898886e61473eeb34a66adb7f5e102ec4a8da3217701369320eb784f7415bfd",
+        "octets": 1393411
+      },
+      "tokenizerConfig": {
+        "cle": "camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/tokenizer_config.json",
+        "sha256": "a47e711439fb76c78b60929e8baa3a487a36b476c01886934d5dd2ec5d0c8f8f",
+        "octets": 269
+      },
+      "config": {
+        "cle": "camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/config.json",
+        "sha256": "17ec2dd3a642bfc839f3f94bd5ba2e996700aa69b06b3937b0e80b458b962207",
+        "octets": 892
+      },
+      "bos": 5,
+      "eos": 6
+    }
+  },
+  "identifiants": {
+    "parMode": {
+      "brut": {
+        "documents": 17,
+        "identiques": 17,
+        "tokens": 5704,
+        "ecarts": 0
+      },
+      "copie": {
+        "documents": 17,
+        "identiques": 17,
+        "tokens": 5704,
+        "ecarts": 0
+      },
+      "mot par mot": {
+        "documents": 17,
+        "identiques": 17,
+        "tokens": 5704,
+        "ecarts": 0
+      }
+    },
+    "ecarts": 0,
+    "premiers": []
+  },
+  "structure": {
+    "tokenizer": {
+      "vocabulaire": {
+        "taille": {
+          "actuel": 32005,
+          "nouveau": 32005
+        },
+        "piecesDifferentes": 0,
+        "scoresDifferents": 8465,
+        "scoresDifferentsFloat32": 0
+      },
+      "model": [],
+      "version": [],
+      "truncation": [],
+      "padding": [],
+      "added_tokens": [],
+      "normalizer": [],
+      "pre_tokenizer": [
+        {
+          "chemin": "pre_tokenizer.add_prefix_space",
+          "actuel": true,
+          "nouveau": "(absent)"
+        },
+        {
+          "chemin": "pre_tokenizer.split",
+          "actuel": "(absent)",
+          "nouveau": true
+        }
+      ],
+      "post_processor": [],
+      "decoder": [
+        {
+          "chemin": "decoder.add_prefix_space",
+          "actuel": true,
+          "nouveau": "(absent)"
+        },
+        {
+          "chemin": "decoder.split",
+          "actuel": "(absent)",
+          "nouveau": true
+        }
+      ],
+      "autresCles": []
+    },
+    "tokenizerConfig": [
+      {
+        "chemin": "clean_up_tokenization_spaces",
+        "actuel": true,
+        "nouveau": "(absent)"
+      },
+      {
+        "chemin": "mask_token",
+        "actuel": {
+          "__type": "AddedToken",
+          "content": "<mask>",
+          "lstrip": true,
+          "normalized": true,
+          "rstrip": false,
+          "single_word": false
+        },
+        "nouveau": "<mask>"
+      },
+      {
+        "chemin": "sp_model_kwargs",
+        "actuel": {},
+        "nouveau": "(absent)"
+      },
+      {
+        "chemin": "tokenizer_class",
+        "actuel": "CamembertTokenizer",
+        "nouveau": "(absent)"
+      },
+      {
+        "chemin": "name_or_path",
+        "actuel": "(absent)",
+        "nouveau": "camembert-base"
+      }
+    ]
+  }
+}
