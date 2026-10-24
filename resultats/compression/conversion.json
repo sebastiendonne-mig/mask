@@ -6,7 +6,7 @@
   },
   "script": {
     "chemin": "scripts/compression/convertir.py",
-    "sha256": "f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7"
+    "sha256": "d15bf2feece20b3b6f2e888bb9a0c4f6233112d61ba65042fbf5bb08f35e37d2"
   },
   "outils": {
     "python": "3.14.6",
@@ -209,10 +209,10 @@
     },
     "fp16-mixte": {
       "git": {
-        "hash": "d89f47e064be4aa6ba4541d893fe223d20f9aeb9",
-        "propre": true
+        "hash": "faf8efefad0bd463328a30e5624aaec6f2dc8c61",
+        "propre": false
       },
-      "script_sha256": "f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7",
+      "script_sha256": "d15bf2feece20b3b6f2e888bb9a0c4f6233112d61ba65042fbf5bb08f35e37d2",
       "outils": {
         "python": "3.14.6",
         "onnx": "1.23.2",
@@ -222,7 +222,8 @@
         "protobuf": "7.36.2",
         "plateforme": "Darwin 24.1.0 arm64"
       },
-      "date": "2026-10-24T09:30:49+00:00",
+      "option_sortie": null,
+      "date": "2026-10-24T10:05:40+00:00",
       "outil": "onnxconverter_common.float16.convert_float_to_float16",
       "parametres_recette": {
         "keep_io_types": true,
@@ -306,8 +307,30 @@
       "fichier": {
         "chemin": "modeles/compression/fp16-mixte/model.onnx",
         "octets": 220500160,
-        "sha256": "565281181a64bde0aa77a00173b937eb8f8967285e67de3d6f1f10a4c3f8cb94"
+        "sha256": "860504f2bf110f34ef7e28b78dbc7b6c2ed2af64a401e5c07b54415ce31958eb"
       },
+      "correctif_technique": {
+        "noeuds": [
+          {
+            "noeud": "/roberta/Cast",
+            "entree": "/roberta/Unsqueeze_4_output_0",
+            "sortie": "/roberta/Cast_output_0",
+            "to_avant": "FLOAT",
+            "to_apres": "FLOAT16"
+          }
+        ],
+        "motif": "convert_float_to_float16 déclare la sortie du Cast en FLOAT16 sans changer son attribut `to` (FLOAT) ; onnxruntime-web refuse alors le graphe à la création de la session (resultats/compression/fidelite-fp16-mixte-erreur.txt)",
+        "decision": "Sébastien, 24/10/2026 : correctif sans effet numérique (amendement (6))"
+      },
+      "versions_precedentes": [
+        {
+          "version": "v1",
+          "octets": 220500160,
+          "sha256": "565281181a64bde0aa77a00173b937eb8f8967285e67de3d6f1f10a4c3f8cb94",
+          "mention": "v1, non chargeable (trace fidelite-fp16-mixte-erreur.txt)",
+          "production": "script f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7 (commit d89f47e), sans correctif"
+        }
+      ],
       "fichiers_annexes_temporaires": [],
       "messages_des_outils": {
         "UserWarning the float32 number -3.4028234663852886e+38 will be truncated to -10000.0": 1,
@@ -410,8 +433,8 @@
       },
       "noeuds_de_type_de_sortie_inconnu": {},
       "cast_par_type_cible": {
-        "FLOAT": 102,
-        "FLOAT16": 75,
+        "FLOAT": 101,
+        "FLOAT16": 76,
         "INT32": 1,
         "INT64": 1
       },

@@ -15,6 +15,12 @@
 # Recettes écrites en dur, exactement comme dans l'amendement (6) : sans pré-traitement, sans
 # changement d'opset. Outils aux versions de resultats/compression/environnement.md, sinon refus.
 #
+# Correctif technique de fp16-mixte (amendement (6), décision de Sébastien du 24/10/2026, « sans
+# effet numérique ») : après la conversion, l'attribut `to` de tout Cast qui ne correspond pas
+# au type déclaré de sa sortie est aligné sur ce type. Garde-fou : seul /roberta/Cast est
+# attendu ; toute autre liste (vide, autre nœud, plusieurs nœuds) arrête le script avant toute
+# écriture. Le correctif et l'empreinte de la version précédente sont consignés dans le rapport.
+#
 # Rapport : resultats/compression/conversion.{json,md}. Une exécution limitée à une recette met à
 # jour son entrée et conserve les autres.
 #
@@ -74,6 +80,55 @@ RECETTES = {
         "parametres": {"keep_io_types": True, "op_block_list": list(DEFAULT_OP_BLOCK_LIST) + ["Pow", "ReduceMean", "Sqrt"]},
     },
 }
+
+# --- Correctif technique (amendement (6)) -------------------------------------------------------
+
+CORRECTIF_CAST = {
+    "recette": "fp16-mixte",
+    "noeuds_attendus": ["/roberta/Cast"],
+    "motif": (
+        "convert_float_to_float16 déclare la sortie du Cast en FLOAT16 sans changer son attribut `to` (FLOAT) ; "
+        "onnxruntime-web refuse alors le graphe à la création de la session (resultats/compression/fidelite-fp16-mixte-erreur.txt)"
+    ),
+    "decision": "Sébastien, 24/10/2026 : correctif sans effet numérique (amendement (6))",
+}
+
+# Versions précédentes d'un candidat, gardées dans le rapport.
+VERSIONS_PRECEDENTES = {
+    "fp16-mixte": [
+        {
+            "version": "v1",
+            "octets": 220500160,
+            "sha256": "565281181a64bde0aa77a00173b937eb8f8967285e67de3d6f1f10a4c3f8cb94",
+            "mention": "v1, non chargeable (trace fidelite-fp16-mixte-erreur.txt)",
+            "production": "script f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7 (commit d89f47e), sans correctif",
+        }
+    ],
+}
+
+
+def aligner_casts(modele):
+    # Cast dont l'attribut `to` diffère du type déclaré de sa sortie (value_info ou sortie du graphe).
+    g = modele.graph
+    declares = {vi.name: vi.type.tensor_type.elem_type for vi in [*g.value_info, *g.output]}
+    ecarts = []
+    for n in g.node:
+        if n.op_type != "Cast":
+            continue
+        to = next(a for a in n.attribute if a.name == "to")
+        declare = declares.get(n.output[0], TensorProto.UNDEFINED)
+        if declare != TensorProto.UNDEFINED and declare != to.i:
+            ecarts.append((n, to, declare))
+    nom_type = TensorProto.DataType.Name
+    if [n.name for n, _, _ in ecarts] != CORRECTIF_CAST["noeuds_attendus"]:
+        liste = "; ".join(f"{n.name} : to={nom_type(to.i)}, sortie {n.output[0]} déclarée {nom_type(d)}" for n, to, d in ecarts) or "aucun"
+        sys.exit(f"arrêt (garde-fou du correctif) : Cast incohérents trouvés : {liste} ; attendu : {CORRECTIF_CAST['noeuds_attendus']} seul. Rien n'est écrit.")
+    corrections = []
+    for n, to, declare in ecarts:
+        corrections.append({"noeud": n.name, "entree": n.input[0], "sortie": n.output[0], "to_avant": nom_type(to.i), "to_apres": nom_type(declare)})
+        to.i = declare
+    return corrections
+
 
 # --- Utilitaires ---------------------------------------------------------------------------
 
@@ -251,12 +306,15 @@ def produire(nom, copie, sortie_temp):
             "op_types_to_quantize": p.get("op_types_to_quantize") or list(IntegerOpsRegistry.keys()),
             "extra_options.MatMulConstBOnly": True,
         }
-        return effectifs, resolus, compter_quantification(onnx.load(str(sortie_temp)))
+        return effectifs, resolus, compter_quantification(onnx.load(str(sortie_temp))), None
     modele = onnx.load(str(copie))
     effectifs = parametres_effectifs(convert_float_to_float16, model="<ModelProto chargé depuis la copie>", **p)
     converti = convert_float_to_float16(modele, **p)
+    correctif = None
+    if nom == CORRECTIF_CAST["recette"]:
+        correctif = {"noeuds": aligner_casts(converti), "motif": CORRECTIF_CAST["motif"], "decision": CORRECTIF_CAST["decision"]}
     onnx.save_model(converti, str(sortie_temp))
-    return effectifs, {}, compter_float16(converti)
+    return effectifs, {}, compter_float16(converti), correctif
 
 
 def convertir(nom, etalon, dossier):
@@ -274,7 +332,7 @@ def convertir(nom, etalon, dossier):
                 sys.exit("refus : la copie de l'étalon n'a pas la bonne empreinte")
             sortie_temp = Path(tmp) / "sortie" / "model.onnx"
             sortie_temp.parent.mkdir()
-            effectifs, resolus, comptages = produire(nom, copie, sortie_temp)
+            effectifs, resolus, comptages, correctif = produire(nom, copie, sortie_temp)
             empreinte = sha256(sortie_temp)
             annexes = sorted(str(f.relative_to(tmp)) for f in Path(tmp).rglob("*") if f.is_file() and f not in (copie, sortie_temp))
             sortie.parent.mkdir(parents=True, exist_ok=True)
@@ -295,6 +353,8 @@ def convertir(nom, etalon, dossier):
         "parametres_effectifs": effectifs,
         "valeurs_resolues_par_l_outil": resolus,
         "fichier": {"chemin": affiche(sortie), "octets": sortie.stat().st_size, "sha256": empreinte},
+        "correctif_technique": correctif,
+        "versions_precedentes": VERSIONS_PRECEDENTES.get(nom, []),
         "fichiers_annexes_temporaires": annexes,
         "messages_des_outils": dict(journal.messages),
         **comptages,
@@ -327,6 +387,14 @@ def rapport_markdown(r):
         if "noeuds_restes_en_fp32_par_type" in e:
             l.append(f"- Nœuds restés en fp32 par type : `{json.dumps(e['noeuds_restes_en_fp32_par_type'])}`")
             l.append(f"- Nœuds de type de sortie inconnu : `{json.dumps(e['noeuds_de_type_de_sortie_inconnu'])}` ; Cast par type cible : `{json.dumps(e['cast_par_type_cible'])}`")
+        if e.get("correctif_technique"):
+            c = e["correctif_technique"]
+            for n in c["noeuds"]:
+                l.append(f"- **Correctif technique** : `{n['noeud']}` (entrée `{n['entree']}`), `to` {n['to_avant']} → {n['to_apres']}")
+            l.append(f"  - Motif : {c['motif']}")
+            l.append(f"  - Décision : {c['decision']}")
+        for v in e.get("versions_precedentes", []):
+            l.append(f"- Version précédente {v['version']} : {v['octets']} octets, SHA-256 `{v['sha256']}` — {v['mention']} ; {v['production']}")
         l.append(f"- Initialiseurs par type : `{json.dumps(e['initialiseurs_par_type'])}`")
         l.append(f"- Fichiers annexes des outils (dossier temporaire, supprimés) : {', '.join(f'`{a}`' for a in e['fichiers_annexes_temporaires']) or 'aucun'}")
         if e["messages_des_outils"]:

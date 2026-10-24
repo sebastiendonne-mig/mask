@@ -1,14 +1,14 @@
 # Conversion des candidats de l'option 3 (amendement (6))
 
 - Étalon : `modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx`, 440422178 octets, SHA-256 `c9dfa2ec9e0bfad82d606782ba3e0ab94c001c46481514e0658fc20a624845c5`
-- Script : `scripts/compression/convertir.py`, SHA-256 `f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7`
+- Script : `scripts/compression/convertir.py`, SHA-256 `d15bf2feece20b3b6f2e888bb9a0c4f6233112d61ba65042fbf5bb08f35e37d2`
 - Outils : python 3.14.6, onnx 1.23.2, onnxruntime 1.31.0, onnxconverter-common 1.16.0, numpy 2.5.4, protobuf 7.36.2, plateforme Darwin 24.1.0 arm64
 
 | Recette | Fichier | Octets | SHA-256 |
 |---|---|---|---|
 | int8-matmul | `modeles/compression/int8-matmul/model.onnx` | 186209503 | `71306e6a6cf16c0cf2ba90152664f0701d2feb3a56fe345f0274fb50f2c79b09` |
 | int8-defaut | `modeles/compression/int8-defaut/model.onnx` | 111284869 | `c5729c73f93be250779d22ab36ce91eb12a3f844c10c084e2e84eea2cd1847ba` |
-| fp16-mixte | `modeles/compression/fp16-mixte/model.onnx` | 220500160 | `565281181a64bde0aa77a00173b937eb8f8967285e67de3d6f1f10a4c3f8cb94` |
+| fp16-mixte | `modeles/compression/fp16-mixte/model.onnx` | 220500160 | `860504f2bf110f34ef7e28b78dbc7b6c2ed2af64a401e5c07b54415ce31958eb` |
 
 ## int8-matmul
 
@@ -38,12 +38,16 @@
 
 ## fp16-mixte
 
-- Date : 2026-10-24T09:30:49+00:00 ; commit `d89f47e064be4aa6ba4541d893fe223d20f9aeb9` ; script SHA-256 `f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7`
+- Date : 2026-10-24T10:05:40+00:00 ; commit `faf8efefad0bd463328a30e5624aaec6f2dc8c61` + modifications non commitées ; script SHA-256 `d15bf2feece20b3b6f2e888bb9a0c4f6233112d61ba65042fbf5bb08f35e37d2`
 - Outil : `onnxconverter_common.float16.convert_float_to_float16`
 - Paramètres de la recette : `{"keep_io_types": true, "op_block_list": ["ArrayFeatureExtractor", "Binarizer", "CastMap", "CategoryMapper", "DictVectorizer", "FeatureVectorizer", "Imputer", "LabelEncoder", "LinearClassifier", "LinearRegressor", "Normalizer", "OneHotEncoder", "RandomUniformLike", "SVMClassifier", "SVMRegressor", "Scaler", "TreeEnsembleClassifier", "TreeEnsembleRegressor", "ZipMap", "NonMaxSuppression", "TopK", "RoiAlign", "Resize", "Range", "CumSum", "Min", "Max", "Upsample", "Pow", "ReduceMean", "Sqrt"]}`
 - Paramètres effectifs : `{"model": "<ModelProto chargé depuis la copie>", "min_positive_val": 1e-07, "max_finite_val": 10000.0, "keep_io_types": true, "disable_shape_infer": false, "op_block_list": ["ArrayFeatureExtractor", "Binarizer", "CastMap", "CategoryMapper", "DictVectorizer", "FeatureVectorizer", "Imputer", "LabelEncoder", "LinearClassifier", "LinearRegressor", "Normalizer", "OneHotEncoder", "RandomUniformLike", "SVMClassifier", "SVMRegressor", "Scaler", "TreeEnsembleClassifier", "TreeEnsembleRegressor", "ZipMap", "NonMaxSuppression", "TopK", "RoiAlign", "Resize", "Range", "CumSum", "Min", "Max", "Upsample", "Pow", "ReduceMean", "Sqrt"], "node_block_list": null, "check_fp16_ready": true}`
 - Nœuds restés en fp32 par type : `{"Pow": 25, "ReduceMean": 50, "Sqrt": 25}`
-- Nœuds de type de sortie inconnu : `{}` ; Cast par type cible : `{"FLOAT": 102, "FLOAT16": 75, "INT32": 1, "INT64": 1}`
+- Nœuds de type de sortie inconnu : `{}` ; Cast par type cible : `{"FLOAT": 101, "FLOAT16": 76, "INT32": 1, "INT64": 1}`
+- **Correctif technique** : `/roberta/Cast` (entrée `/roberta/Unsqueeze_4_output_0`), `to` FLOAT → FLOAT16
+  - Motif : convert_float_to_float16 déclare la sortie du Cast en FLOAT16 sans changer son attribut `to` (FLOAT) ; onnxruntime-web refuse alors le graphe à la création de la session (resultats/compression/fidelite-fp16-mixte-erreur.txt)
+  - Décision : Sébastien, 24/10/2026 : correctif sans effet numérique (amendement (6))
+- Version précédente v1 : 220500160 octets, SHA-256 `565281181a64bde0aa77a00173b937eb8f8967285e67de3d6f1f10a4c3f8cb94` — v1, non chargeable (trace fidelite-fp16-mixte-erreur.txt) ; script f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7 (commit d89f47e), sans correctif
 - Initialiseurs par type : `{"FLOAT16": 199}`
 - Fichiers annexes des outils (dossier temporaire, supprimés) : aucun
 - Messages des outils :
