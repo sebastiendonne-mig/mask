@@ -1,0 +1,673 @@
+{
+  "date": "2026-10-24T10:40:45.700Z",
+  "git": {
+    "hash": "cb2290e32db72d4edc5ddce2b060783a88cccb84",
+    "propre": true
+  },
+  "detecteur": {
+    "nom": "modele",
+    "version": "0.2.0+compression/fp16-mixte/model.onnx@860504f2bf11+onnxruntime-web@1.31.0-dev.20260914-8d85527a0-wasm-node",
+    "module": "src/modele.mjs",
+    "moteur": {
+      "paquet": "onnxruntime-web",
+      "version": "1.31.0-dev.20260914-8d85527a0",
+      "build": "WASM, ort.node.min.mjs dans Node",
+      "threads": 1,
+      "modele": {
+        "cle": "compression/fp16-mixte/model.onnx",
+        "chemin": "modeles/compression/fp16-mixte/model.onnx",
+        "octets": 220500160,
+        "sha256": "860504f2bf110f34ef7e28b78dbc7b6c2ed2af64a401e5c07b54415ce31958eb"
+      },
+      "tokenizer": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc"
+    }
+  },
+  "split": "robustesse",
+  "mention": "jeu de robustesse : rédigé à la main, cas difficiles assumés, petit échantillon ; indicatif, ne modifie pas les seuils",
+  "documents": 15,
+  "protocole": "seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur",
+  "seuils": [
+    {
+      "id": "S2",
+      "critere": "Rappel des formats fixes",
+      "seuil": 1,
+      "bloquant": true,
+      "trouves": 2,
+      "total": 42,
+      "valeur": 0.047619047619047616,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S3",
+      "critere": "Rappel PERSONNE",
+      "seuil": 0.95,
+      "bloquant": true,
+      "trouves": 87,
+      "total": 90,
+      "valeur": 0.9666666666666667,
+      "statut": "atteint"
+    },
+    {
+      "id": "S4",
+      "critere": "Rappel ADRESSE",
+      "seuil": 0.9,
+      "bloquant": true,
+      "trouves": 1,
+      "total": 19,
+      "valeur": 0.05263157894736842,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S5",
+      "critere": "Rappel ORGANISATION",
+      "seuil": 0.85,
+      "bloquant": false,
+      "trouves": 35,
+      "total": 35,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S6",
+      "critere": "Précision globale",
+      "seuil": 0.8,
+      "bloquant": false,
+      "corrects": 159,
+      "erreurs": 2,
+      "valeur": 0.9875776397515528,
+      "statut": "atteint"
+    }
+  ],
+  "rappelParType": {
+    "ADRESSE": {
+      "total": 19,
+      "trouves": 1,
+      "partiels": 18,
+      "rappel": 0.05263157894736842
+    },
+    "CARTE": {
+      "total": 1,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "EMAIL": {
+      "total": 16,
+      "trouves": 2,
+      "partiels": 0,
+      "rappel": 0.125
+    },
+    "IBAN": {
+      "total": 3,
+      "trouves": 0,
+      "partiels": 1,
+      "rappel": 0
+    },
+    "NIR": {
+      "total": 2,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "NUMERO_DOSSIER": {
+      "total": 6,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "ORGANISATION": {
+      "total": 35,
+      "trouves": 35,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "PERSONNE": {
+      "total": 90,
+      "trouves": 87,
+      "partiels": 1,
+      "rappel": 0.9666666666666667
+    },
+    "SIREN": {
+      "total": 4,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "SIRET": {
+      "total": 5,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "TELEPHONE": {
+      "total": 11,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "TVA_INTRA": {
+      "total": 3,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    }
+  },
+  "couverturePartielle": {
+    "partiels": 20,
+    "total": 195,
+    "taux": 0.10256410256410256
+  },
+  "precision": {
+    "corrects": 159,
+    "erreurs": 2,
+    "valeur": 0.9875776397515528,
+    "erreursParCategorie": {
+      "NON_ETIQUETE": 2
+    },
+    "masques": 184,
+    "masquesNeutresSeuls": 23,
+    "masquesNeutreEtDateSansSpan": 0
+  },
+  "neutres": {
+    "masques": {
+      "LIEU_ISOLE": 22,
+      "INSTITUTION": 2
+    },
+    "total": {
+      "INSTITUTION": 10,
+      "LIEU_ISOLE": 22
+    }
+  },
+  "debordement": {
+    "lettresChiffresHorsEtiquettes": 37,
+    "lettresChiffresMasques": 2249,
+    "part": 0.0164517563361494
+  },
+  "typesDifferents": 8,
+  "listes": {
+    "oublis": [
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "l.laval@laval-avocats.fr"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "nancy.fournier@mailo-perso.fr"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "26/00418"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "3 bis, cours des Tilleuls, 54000 Nancy"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06 39 98 27 14"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "nancy fournier"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "nancy.fournier@mailo-perso.fr"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "l.laval@laval-avocats.fr"
+      },
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "statut": "oubli",
+        "extrait": "nancy fournier"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "812.345.676"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "parc d'activités des Gabrielles, lot 14…"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "27 boulevard de Strasbourg — 83000 Toul…"
+      },
+      {
+        "doc_id": "rob-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "lieu-dit Les Bastidons, chemin des Oliv…"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "26-0412-OB"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "CARTE",
+        "statut": "oubli",
+        "extrait": "3782 916305 74126"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "ange.bonnet.pro@officinemail.fr"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "04 65 71 38 02"
+      },
+      {
+        "doc_id": "rob-avocat-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "BP 207, 06002 Nice Cedex 1"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Résidence Le Clos Fleuri — Bât. B, appt…"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "0033 4 65 71 90 26"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "h.devilleneuve@avocats-cannet.eu"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "9, rue des Remparts⏎84000 Avignon"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "RC/2026/118"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "HVR-0388"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "PERSONNE",
+        "statut": "partiel",
+        "extrait": "N’DIAYE"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "5 impasse des Glycines, appartement 3, …"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "904 182 532"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "904 182 532 00021"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR 32 904182532"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "41 rue de la Verrerie, 30700 Uzès"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "BE12 7310 4126 5892"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 4 65 71 55 60"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "2021-0457"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "pieces+bongrain@cabinet-orsatti.fr"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "04 65 71 23 45"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "883401291"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR52883401291"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "842 770 166 00010"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "2 traverse des Pêcheurs, 13002 Marseille"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "IBAN",
+        "statut": "partiel",
+        "extrait": "FR76 1660 7003 2108 7654⏎3210 957"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "tresorerie.amisduvieuxport@assoc-mail.o…"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "52309874700042"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR86523098747"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "route de Lyon"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "c.vienne@vienne-distribution.fr"
+      },
+      {
+        "doc_id": "rob-ec-04",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "04 65 71 08 83"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "18 CHEMIN DU LAC⏎          74200 THONON…"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "438072159"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "004512"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR76 1254 8029 9804 5172 6309 829"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06.39.98.71.20"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "791 153 422 00013"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "860 route des Vignes, 13310 Saint-Marti…"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "1 86 03 2A 004 118 77"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Mas de la Cabrière, quartier Saint-Mart…"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "julien.orsini.2a@courriel-perso.fr"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 6 39 98 66 03"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "jo.perrin@logisud-transports.fr"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "03 53 01 47 19"
+      },
+      {
+        "doc_id": "rob-rh-02",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "tl.nguyen@logisud-transports.fr"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "7 avenue de la Mer – CS 40021 – 13600 L…"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "512 948 308 00022"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "2 91 07 99 351 048 / 53"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "3 montée des Pins, 13600 La Ciotat"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "04-65-71-30-30"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "direction@clinique-calanques.vet"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Les Hauts de Saint-Jean, bâtiment 4⏎831…"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "15 rue de l'Industrie, 83170 Brignoles"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 4.65.71.12.40"
+      },
+      {
+        "doc_id": "rob-rh-05",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "rh@menuiseries-provence-verte.fr"
+      }
+    ],
+    "erreurs": [
+      {
+        "doc_id": "rob-avocat-02",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Noël"
+      },
+      {
+        "doc_id": "rob-ec-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "experts-comptables"
+      }
+    ],
+    "typesDifferents": [
+      {
+        "doc_id": "rob-avocat-01",
+        "type": "PERSONNE",
+        "propose": "LIEU",
+        "extrait": "Nancy"
+      },
+      {
+        "doc_id": "rob-avocat-04",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Cabinet Chabert"
+      },
+      {
+        "doc_id": "rob-avocat-05",
+        "type": "ORGANISATION",
+        "propose": "PERSONNE",
+        "extrait": "Atelier Le Goff"
+      },
+      {
+        "doc_id": "rob-ec-01",
+        "type": "EMAIL",
+        "propose": "ORGANISATION",
+        "extrait": "Compta.AtelierLumiere@lumiere-bois.fr"
+      },
+      {
+        "doc_id": "rob-ec-02",
+        "type": "ADRESSE",
+        "propose": "LIEU",
+        "extrait": "rue Paradis, Marseille"
+      },
+      {
+        "doc_id": "rob-ec-05",
+        "type": "EMAIL",
+        "propose": "PERSONNE",
+        "extrait": "JM.DUBREUIL@CHABLAIS-MAIL.FR"
+      },
+      {
+        "doc_id": "rob-rh-01",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Domaine des Trois Chênes"
+      },
+      {
+        "doc_id": "rob-rh-03",
+        "type": "ORGANISATION",
+        "propose": "LIEU",
+        "extrait": "Clinique vétérinaire des Calanques"
+      }
+    ]
+  }
+}
