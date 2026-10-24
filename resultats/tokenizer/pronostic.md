@@ -1,0 +1,1 @@
+Pronostic de Claude (24/10/2026), écrit avant la génération : identifiants de tokens identiques sur tout le jeu de développement ; si un écart apparaît, plutôt sur les tokens spéciaux ou la normalisation (espaces, caractères rares) que sur le vocabulaire.
