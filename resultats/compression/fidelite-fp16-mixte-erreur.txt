@@ -1,0 +1,42 @@
+# Fidélité fp16-mixte : échec au chargement (option 3, étape 2f, 24/10/2026)
+#
+# Commande : /usr/bin/time -l node scripts/navigateur/fidelite.mjs modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx modeles/compression/fp16-mixte/model.onnx --sortie resultats/compression/fidelite-fp16-mixte
+# Commit 9590b0e. Aucun rapport écrit (échec avant l'écriture). Code de sortie 1.
+# Sortie complète ci-dessous ; les deux lignes de source minifiée d'ort.node.min.mjs (ligne 7, 26 829 et 1 020 caractères) que Node affiche avant l'erreur sont remplacées par une mention.
+# Session de l'étalon créée et 17 documents traités ; l'échec survient à la création de la session du candidat.
+
+=== fp16-mixte début 11:43:18
+file:///Users/migranche/Dev/tkoidra/mask/node_modules/onnxruntime-web/dist/ort.node.min.mjs:7
+[ligne de 26829 caractères : source minifiée de ort.node.min.mjs, ligne 7]
+[ligne de 1020 caractères : source minifiée de ort.node.min.mjs, ligne 7]
+
+Error: Can't create a session. ERROR_CODE: 1, ERROR_MESSAGE: Type Error: Type (tensor(float16)) of output arg (/roberta/Cast_output_0) of node (/roberta/Cast) does not match expected type (tensor(float)).
+    at g (file:///Users/migranche/Dev/tkoidra/mask/node_modules/onnxruntime-web/dist/ort.node.min.mjs:7:5005)
+    at Ze (file:///Users/migranche/Dev/tkoidra/mask/node_modules/onnxruntime-web/dist/ort.node.min.mjs:7:15775)
+    at async ce.loadModel (file:///Users/migranche/Dev/tkoidra/mask/node_modules/onnxruntime-web/dist/ort.node.min.mjs:7:24710)
+    at async fe.createInferenceSessionHandler (file:///Users/migranche/Dev/tkoidra/mask/node_modules/onnxruntime-web/dist/ort.node.min.mjs:7:26456)
+    at async InferenceSession.create (file:///Users/migranche/Dev/tkoidra/mask/node_modules/onnxruntime-web/node_modules/onnxruntime-common/dist/esm/inference-session-impl.js:184:25)
+    at async masquesModele (file:///Users/migranche/Dev/tkoidra/mask/scripts/navigateur/fidelite.mjs:124:19)
+    at async principal (file:///Users/migranche/Dev/tkoidra/mask/scripts/navigateur/fidelite.mjs:194:26)
+    at async file:///Users/migranche/Dev/tkoidra/mask/scripts/navigateur/fidelite.mjs:217:23
+
+Node.js v24.15.0
+       20.80 real        21.11 user         0.55 sys
+          2307244032  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              149147  page reclaims
+                 178  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   2  messages sent
+                   2  messages received
+                   0  signals received
+                 224  voluntary context switches
+               17742  involuntary context switches
+        602847022812  instructions retired
+         87822399041  cycles elapsed
+          1858801584  peak memory footprint
+exit fp16-mixte 1

@@ -1,0 +1,906 @@
+{
+  "date": "2026-10-24T09:41:58.932Z",
+  "git": {
+    "hash": "9590b0e45d35b2fe5765bfa9ef0adbbbbc4e7dfd",
+    "propre": true
+  },
+  "script": {
+    "chemin": "scripts/navigateur/fidelite.mjs",
+    "sha256": "70b7bb0648f2291be8100fae0086466a823c0e94e3478560da0415d047e5a263"
+  },
+  "moteur": {
+    "paquet": "onnxruntime-web",
+    "version": "1.31.0-dev.20260914-8d85527a0",
+    "build": "WASM, ort.node.min.mjs dans Node",
+    "threads": 1,
+    "node": "24.15.0"
+  },
+  "detecteur": {
+    "logique": "0.2.0",
+    "module": "src/modele-commun.mjs",
+    "tokenizer": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc"
+  },
+  "split": "dev",
+  "definition": "seuils.md, amendement (5), point Fidélité : masque = (début, fin, catégorie) de detecter(), avant fusion ; par document, répétitions comptées ; masque différent = présent d’un seul côté ; somme sur les 17 documents",
+  "etalon": {
+    "chemin": "modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx",
+    "octets": 440422178,
+    "sha256": "c9dfa2ec9e0bfad82d606782ba3e0ab94c001c46481514e0658fc20a624845c5",
+    "manifeste": "camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx"
+  },
+  "compare": {
+    "chemin": "modeles/compression/int8-matmul/model.onnx",
+    "octets": 186209503,
+    "sha256": "71306e6a6cf16c0cf2ba90152664f0701d2feb3a56fe345f0274fb50f2c79b09",
+    "manifeste": "compression/int8-matmul/model.onnx"
+  },
+  "total": 139,
+  "seulEtalon": 69,
+  "seulCompare": 70,
+  "documentsTouches": 16,
+  "documents": [
+    {
+      "id": "dev-avocat-01",
+      "nbEtalon": 12,
+      "nbCompare": 14,
+      "seulEtalon": [
+        {
+          "start": 0,
+          "end": 32,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 71,
+          "end": 97,
+          "type": "LIEU"
+        },
+        {
+          "start": 158,
+          "end": 172,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 181,
+          "end": 183,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 237,
+          "end": 284,
+          "type": "LIEU"
+        },
+        {
+          "start": 489,
+          "end": 518,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 8,
+          "end": 15,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 18,
+          "end": 32,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 75,
+          "end": 82,
+          "type": "LIEU"
+        },
+        {
+          "start": 89,
+          "end": 97,
+          "type": "LIEU"
+        },
+        {
+          "start": 237,
+          "end": 252,
+          "type": "LIEU"
+        },
+        {
+          "start": 259,
+          "end": 284,
+          "type": "LIEU"
+        },
+        {
+          "start": 496,
+          "end": 507,
+          "type": "LIEU"
+        },
+        {
+          "start": 515,
+          "end": 518,
+          "type": "LIEU"
+        }
+      ],
+      "total": 14
+    },
+    {
+      "id": "dev-avocat-02",
+      "nbEtalon": 14,
+      "nbCompare": 14,
+      "seulEtalon": [
+        {
+          "start": 66,
+          "end": 98,
+          "type": "LIEU"
+        },
+        {
+          "start": 162,
+          "end": 183,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 230,
+          "end": 241,
+          "type": "LIEU"
+        },
+        {
+          "start": 495,
+          "end": 509,
+          "type": "LIEU"
+        },
+        {
+          "start": 1723,
+          "end": 1764,
+          "type": "PERSONNE"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 73,
+          "end": 84,
+          "type": "LIEU"
+        },
+        {
+          "start": 91,
+          "end": 98,
+          "type": "LIEU"
+        },
+        {
+          "start": 162,
+          "end": 178,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 234,
+          "end": 241,
+          "type": "LIEU"
+        },
+        {
+          "start": 502,
+          "end": 509,
+          "type": "LIEU"
+        }
+      ],
+      "total": 10
+    },
+    {
+      "id": "dev-avocat-03",
+      "nbEtalon": 19,
+      "nbCompare": 17,
+      "seulEtalon": [
+        {
+          "start": 0,
+          "end": 10,
+          "type": "DIVERS"
+        },
+        {
+          "start": 125,
+          "end": 134,
+          "type": "LIEU"
+        },
+        {
+          "start": 254,
+          "end": 260,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 394,
+          "end": 418,
+          "type": "LIEU"
+        },
+        {
+          "start": 545,
+          "end": 551,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 627,
+          "end": 643,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1321,
+          "end": 1327,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1675,
+          "end": 1781,
+          "type": "PERSONNE"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 129,
+          "end": 134,
+          "type": "LIEU"
+        },
+        {
+          "start": 400,
+          "end": 404,
+          "type": "LIEU"
+        },
+        {
+          "start": 412,
+          "end": 418,
+          "type": "LIEU"
+        },
+        {
+          "start": 630,
+          "end": 643,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1718,
+          "end": 1738,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1771,
+          "end": 1781,
+          "type": "PERSONNE"
+        }
+      ],
+      "total": 14
+    },
+    {
+      "id": "dev-avocat-04",
+      "nbEtalon": 20,
+      "nbCompare": 19,
+      "seulEtalon": [
+        {
+          "start": 0,
+          "end": 10,
+          "type": "DIVERS"
+        },
+        {
+          "start": 109,
+          "end": 130,
+          "type": "LIEU"
+        },
+        {
+          "start": 136,
+          "end": 150,
+          "type": "LIEU"
+        },
+        {
+          "start": 263,
+          "end": 298,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 395,
+          "end": 425,
+          "type": "LIEU"
+        },
+        {
+          "start": 437,
+          "end": 458,
+          "type": "LIEU"
+        },
+        {
+          "start": 584,
+          "end": 590,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1389,
+          "end": 1395,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1742,
+          "end": 1851,
+          "type": "PERSONNE"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 118,
+          "end": 130,
+          "type": "LIEU"
+        },
+        {
+          "start": 146,
+          "end": 150,
+          "type": "LIEU"
+        },
+        {
+          "start": 270,
+          "end": 298,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 395,
+          "end": 413,
+          "type": "LIEU"
+        },
+        {
+          "start": 440,
+          "end": 444,
+          "type": "LIEU"
+        },
+        {
+          "start": 452,
+          "end": 458,
+          "type": "LIEU"
+        },
+        {
+          "start": 1785,
+          "end": 1806,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1839,
+          "end": 1851,
+          "type": "PERSONNE"
+        }
+      ],
+      "total": 17
+    },
+    {
+      "id": "dev-avocat-05",
+      "nbEtalon": 22,
+      "nbCompare": 19,
+      "seulEtalon": [
+        {
+          "start": 49,
+          "end": 72,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 134,
+          "end": 149,
+          "type": "LIEU"
+        },
+        {
+          "start": 284,
+          "end": 314,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 416,
+          "end": 446,
+          "type": "LIEU"
+        },
+        {
+          "start": 451,
+          "end": 469,
+          "type": "LIEU"
+        },
+        {
+          "start": 614,
+          "end": 620,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1365,
+          "end": 1369,
+          "type": "LIEU"
+        },
+        {
+          "start": 1433,
+          "end": 1439,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1798,
+          "end": 1864,
+          "type": "PERSONNE"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 56,
+          "end": 72,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 144,
+          "end": 149,
+          "type": "LIEU"
+        },
+        {
+          "start": 288,
+          "end": 314,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 426,
+          "end": 434,
+          "type": "LIEU"
+        },
+        {
+          "start": 461,
+          "end": 469,
+          "type": "LIEU"
+        },
+        {
+          "start": 1841,
+          "end": 1864,
+          "type": "PERSONNE"
+        }
+      ],
+      "total": 15
+    },
+    {
+      "id": "dev-ec-01",
+      "nbEtalon": 10,
+      "nbCompare": 12,
+      "seulEtalon": [
+        {
+          "start": 99,
+          "end": 116,
+          "type": "LIEU"
+        },
+        {
+          "start": 344,
+          "end": 363,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 421,
+          "end": 449,
+          "type": "LIEU"
+        },
+        {
+          "start": 1314,
+          "end": 1330,
+          "type": "ORGANISATION"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 110,
+          "end": 116,
+          "type": "LIEU"
+        },
+        {
+          "start": 344,
+          "end": 346,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 347,
+          "end": 360,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 421,
+          "end": 426,
+          "type": "LIEU"
+        },
+        {
+          "start": 430,
+          "end": 436,
+          "type": "LIEU"
+        },
+        {
+          "start": 444,
+          "end": 449,
+          "type": "LIEU"
+        }
+      ],
+      "total": 10
+    },
+    {
+      "id": "dev-ec-02",
+      "nbEtalon": 9,
+      "nbCompare": 11,
+      "seulEtalon": [
+        {
+          "start": 93,
+          "end": 123,
+          "type": "LIEU"
+        },
+        {
+          "start": 127,
+          "end": 154,
+          "type": "LIEU"
+        },
+        {
+          "start": 363,
+          "end": 385,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 429,
+          "end": 446,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 103,
+          "end": 111,
+          "type": "LIEU"
+        },
+        {
+          "start": 135,
+          "end": 141,
+          "type": "LIEU"
+        },
+        {
+          "start": 148,
+          "end": 154,
+          "type": "LIEU"
+        },
+        {
+          "start": 363,
+          "end": 374,
+          "type": "LIEU"
+        },
+        {
+          "start": 375,
+          "end": 385,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 440,
+          "end": 446,
+          "type": "LIEU"
+        }
+      ],
+      "total": 10
+    },
+    {
+      "id": "dev-ec-03",
+      "nbEtalon": 8,
+      "nbCompare": 9,
+      "seulEtalon": [
+        {
+          "start": 97,
+          "end": 127,
+          "type": "LIEU"
+        },
+        {
+          "start": 336,
+          "end": 358,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 394,
+          "end": 419,
+          "type": "LIEU"
+        },
+        {
+          "start": 1283,
+          "end": 1299,
+          "type": "ORGANISATION"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 106,
+          "end": 114,
+          "type": "LIEU"
+        },
+        {
+          "start": 121,
+          "end": 127,
+          "type": "LIEU"
+        },
+        {
+          "start": 336,
+          "end": 353,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 401,
+          "end": 405,
+          "type": "LIEU"
+        },
+        {
+          "start": 413,
+          "end": 419,
+          "type": "LIEU"
+        }
+      ],
+      "total": 9
+    },
+    {
+      "id": "dev-ec-04",
+      "nbEtalon": 14,
+      "nbCompare": 14,
+      "seulEtalon": [
+        {
+          "start": 318,
+          "end": 340,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 1095,
+          "end": 1128,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 1158,
+          "end": 1159,
+          "type": "LIEU"
+        },
+        {
+          "start": 1169,
+          "end": 1183,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 323,
+          "end": 340,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 1095,
+          "end": 1099,
+          "type": "LIEU"
+        },
+        {
+          "start": 1100,
+          "end": 1128,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 1172,
+          "end": 1183,
+          "type": "LIEU"
+        }
+      ],
+      "total": 8
+    },
+    {
+      "id": "dev-ec-05",
+      "nbEtalon": 12,
+      "nbCompare": 12,
+      "seulEtalon": [
+        {
+          "start": 287,
+          "end": 304,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1175,
+          "end": 1185,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 296,
+          "end": 304,
+          "type": "PERSONNE"
+        },
+        {
+          "start": 1179,
+          "end": 1185,
+          "type": "LIEU"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "id": "dev-neutre-01",
+      "nbEtalon": 2,
+      "nbCompare": 2,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-neutre-02",
+      "nbEtalon": 3,
+      "nbCompare": 2,
+      "seulEtalon": [
+        {
+          "start": 804,
+          "end": 822,
+          "type": "DIVERS"
+        },
+        {
+          "start": 1030,
+          "end": 1040,
+          "type": "DIVERS"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 813,
+          "end": 822,
+          "type": "DIVERS"
+        }
+      ],
+      "total": 3
+    },
+    {
+      "id": "dev-rh-01",
+      "nbEtalon": 9,
+      "nbCompare": 9,
+      "seulEtalon": [
+        {
+          "start": 21,
+          "end": 48,
+          "type": "LIEU"
+        },
+        {
+          "start": 98,
+          "end": 114,
+          "type": "LIEU"
+        },
+        {
+          "start": 754,
+          "end": 787,
+          "type": "PERSONNE"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 28,
+          "end": 35,
+          "type": "LIEU"
+        },
+        {
+          "start": 42,
+          "end": 48,
+          "type": "LIEU"
+        },
+        {
+          "start": 102,
+          "end": 114,
+          "type": "LIEU"
+        }
+      ],
+      "total": 6
+    },
+    {
+      "id": "dev-rh-02",
+      "nbEtalon": 8,
+      "nbCompare": 9,
+      "seulEtalon": [
+        {
+          "start": 0,
+          "end": 23,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 111,
+          "end": 142,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 15,
+          "end": 20,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 115,
+          "end": 122,
+          "type": "LIEU"
+        },
+        {
+          "start": 129,
+          "end": 142,
+          "type": "LIEU"
+        }
+      ],
+      "total": 5
+    },
+    {
+      "id": "dev-rh-03",
+      "nbEtalon": 6,
+      "nbCompare": 6,
+      "seulEtalon": [
+        {
+          "start": 64,
+          "end": 80,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 220,
+          "end": 234,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 64,
+          "end": 80,
+          "type": "LIEU"
+        },
+        {
+          "start": 226,
+          "end": 234,
+          "type": "LIEU"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "id": "dev-rh-04",
+      "nbEtalon": 6,
+      "nbCompare": 6,
+      "seulEtalon": [
+        {
+          "start": 86,
+          "end": 100,
+          "type": "LIEU"
+        },
+        {
+          "start": 220,
+          "end": 233,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 92,
+          "end": 100,
+          "type": "LIEU"
+        },
+        {
+          "start": 224,
+          "end": 233,
+          "type": "LIEU"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "id": "dev-rh-05",
+      "nbEtalon": 6,
+      "nbCompare": 6,
+      "seulEtalon": [
+        {
+          "start": 64,
+          "end": 88,
+          "type": "ORGANISATION"
+        },
+        {
+          "start": 95,
+          "end": 110,
+          "type": "LIEU"
+        },
+        {
+          "start": 227,
+          "end": 245,
+          "type": "LIEU"
+        }
+      ],
+      "seulCompare": [
+        {
+          "start": 64,
+          "end": 88,
+          "type": "LIEU"
+        },
+        {
+          "start": 104,
+          "end": 110,
+          "type": "LIEU"
+        },
+        {
+          "start": 233,
+          "end": 245,
+          "type": "LIEU"
+        }
+      ],
+      "total": 6
+    }
+  ]
+}
