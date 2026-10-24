@@ -1,8 +1,9 @@
 // Worker du banc de mesure (lot 1.5b) : charge le modèle, fait l'inférence de chauffe, traite
 // les documents (règles puis modèle) et renvoie temps, masques et état du chargeur.
 //
-// Messages reçus : { type: 'config', config: { variante, numThreads, modele, diagnostic } } (lance le
-// chargement) puis { type: 'documents', documents: [{ id, texte }] }.
+// Messages reçus : { type: 'config', config: { variante, numThreads, source, modele, diagnostic } } (lance
+// le chargement) puis { type: 'documents', documents: [{ id, texte }] }.
+// Progression du téléchargement : un jalon par dixième des octets reçus (instant, recus, total).
 
 import * as modele from '/src/modele-navigateur.mjs';
 import * as regles from '/src/regles.mjs';
@@ -16,9 +17,16 @@ self.addEventListener('securitypolicyviolation', (e) => violations.push({ source
 
 let config = null;
 let pret = null;
+const progression = [];
+
+function surProgression({ recus, total }) {
+  const dixieme = total ? Math.floor((recus / total) * 10) : null;
+  if (dixieme !== null && progression.at(-1)?.dixieme === dixieme) return;
+  progression.push({ t: performance.now(), recus, total, dixieme });
+}
 
 async function preparer() {
-  modele.configurer({ variante: config.variante, numThreads: config.numThreads, modele: config.modele ?? null });
+  modele.configurer({ variante: config.variante, numThreads: config.numThreads, source: config.source, modele: config.modele ?? null, surProgression });
   const c = await modele.charger();
   const t0 = performance.now();
   await modele.detecter(PHRASE_CHAUFFE);
@@ -70,6 +78,7 @@ function instantane() {
     crossOriginIsolated: self.crossOriginIsolated,
     hardwareConcurrency: navigator.hardwareConcurrency,
     etat: structuredClone(modele.etat),
+    progression,
     ressources: performance.getEntriesByType('resource').map((r) => ({ url: r.name, octets: r.transferSize, decode: r.decodedBodySize, debut: r.startTime, duree: r.duration })),
     violations,
   };

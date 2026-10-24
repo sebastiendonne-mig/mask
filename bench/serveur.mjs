@@ -6,8 +6,11 @@
 // - Liste blanche : seuls les fichiers nommés ci-dessous sont servis ; tout autre chemin
 //   répond 404 (golden/test et ses modèles sont inatteignables par construction).
 // - --isolation on : en-têtes COOP/COEP, la page devient crossOriginIsolated (threads WASM).
-// - --debit N : débit global simulé de N Mb/s, partagé par toutes les réponses en cours.
-// - CSP sur toutes les réponses : aucune connexion hors de l'origine, aucun script tiers.
+// - --debit N : débit global simulé de N Mb/s, partagé par toutes les réponses en cours (et,
+//   au banc, par le proxy de bench/proxy.mjs : même limiteur, option limiteur de creerServeur).
+// - CSP sur toutes les réponses : aucun script tiers ; connexions limitées à l'origine et aux
+//   origines du dépôt Hugging Face du modèle (huggingface.co, *.hf.co ; même règle que
+//   hoteAutorise de bench/proxy.mjs).
 // - transformers.web.min.js est servi avec ses deux spécificateurs nus réécrits en chemins
 //   locaux (ce que ferait un bundler) : un Worker n'hérite pas de l'import map de la page.
 // - Candidats de l'option 3 : les fichiers modeles/compression/<recette>/model.onnx inscrits
@@ -47,7 +50,7 @@ export const CSP = [
   "default-src 'none'",
   "script-src 'self' 'wasm-unsafe-eval' blob:",
   "worker-src 'self' blob:",
-  "connect-src 'self'",
+  "connect-src 'self' https://huggingface.co https://*.hf.co",
   "style-src 'self'",
   "img-src 'self' data:",
   "base-uri 'none'",
@@ -122,7 +125,7 @@ function indexDev() {
 // --- Débit simulé ----------------------------------------------------------------
 
 // Seau partagé : chaque morceau réserve sa durée d'émission à la suite des précédents.
-function creerLimiteur(mbps) {
+export function creerLimiteur(mbps) {
   if (!mbps) return null;
   const octetsParMs = (mbps * 1e6) / 8 / 1000;
   let libre = 0;
@@ -154,9 +157,9 @@ async function ecrireFichier(res, fichier, limiteur) {
 
 // --- Serveur ---------------------------------------------------------------------
 
-export function creerServeur({ isolation = false, debit = 0 } = {}) {
+// limiteur : seau partagé (creerLimiteur) ; à défaut, un seau propre de debit Mb/s.
+export function creerServeur({ isolation = false, debit = 0, limiteur = creerLimiteur(debit) } = {}) {
   const journal = [];
-  const limiteur = creerLimiteur(debit);
   const transformers = transformersReecrit();
   const debut = performance.now();
 

@@ -15,10 +15,21 @@
 //
 // Sans --essai : refuse de mesurer si l'arbre git n'est pas propre ; écrit chrome.json et chrome.md.
 //
-// --modele : fichier ONNX chargé par la page à la place du q8 épinglé (clé de
-// modeles/MANIFEST.sha256, par exemple compression/int8-matmul/model.onnx), option 3, étape 2f.
-// Consigné dans le rapport ; chaque visite réussie doit avoir chargé ce fichier avec son
+// --source hf|local (hf par défaut) : source du modèle de la page (src/modele-navigateur.mjs).
+//   hf : C et son tokenizer depuis le dépôt Hugging Face épinglé (HF). Chrome passe par le proxy
+//   local bench/proxy.mjs pour tout hôte autre que 127.0.0.1 ; le proxy n'accepte que
+//   huggingface.co et *.hf.co et partage le seau de 100 Mb/s du serveur local. Si une requête de
+//   la page ou du Worker vise un hôte hors de cette liste, le pilote consigne les visites dans
+//   chrome-arret.json et s'arrête.
+//   local : fichiers servis par le serveur local, comme au lot 1.5b et à l'option 3.
+// --modele (source locale seulement) : fichier ONNX chargé par la page à la place du q8 épinglé
+// (clé de modeles/MANIFEST.sha256, par exemple compression/int8-matmul/model.onnx), option 3,
+// étape 2f. Consigné dans le rapport ; chaque visite réussie doit avoir chargé ce fichier avec son
 // empreinte du manifeste, sinon le pilote s'arrête. Sans --modele : q8 épinglé, comme au lot 1.5b.
+// Source hf : même contrôle, pour onnx/model_fp16.onnx du commit épinglé.
+//
+// Source hf : masques comparés à ceux de la série locale de C (option 3, étape 2h,
+// resultats/compression/banc/fp16-mixte/chrome.json), même fichier ONNX.
 
 import fs from 'node:fs';
 import os from 'node:os';
@@ -27,9 +38,10 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { chromium } from 'playwright';
-import { creerServeur } from './serveur.mjs';
+import { creerLimiteur, creerServeur } from './serveur.mjs';
+import { creerProxy, horsListe } from './proxy.mjs';
 import { REVISION } from '../src/modele-commun.mjs';
-import { cleModeleValide } from '../src/modele-navigateur.mjs';
+import { HF, cleModeleValide, urlHF } from '../src/modele-navigateur.mjs';
 import { parMoteur, documentsDev } from '../scripts/navigateur/moteurs-node.mjs';
 
 const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -45,6 +57,13 @@ export const CONFIGS = [
 ];
 
 const SEUILS_S7 = { reglesPretes: 1000, premiereVisite: 30000, visiteSuivante: 5000 };
+
+// Série locale de C (option 3, étape 2h) : référence des masques pour la source hf.
+const SERIE_C_LOCALE = path.join(RACINE, 'resultats', 'compression', 'banc', 'fp16-mixte', 'chrome.json');
+// Chemins attendus sur huggingface.co (source hf) : resolve/<commit>/<chemin> de chaque fichier, et
+// la redirection 307 de Hugging Face, sur le même hôte, des fichiers hors stockage de gros fichiers
+// (/api/resolve-cache/models/<dépôt>/<commit>/<chemin>, constatée le 24/10/2026).
+const CHEMINS_HF = new Set(HF.fichiers.flatMap((f) => [new URL(urlHF(f.chemin)).pathname, `/api/resolve-cache/models/${HF.depot}/${HF.commit}/${f.chemin}`]));
 
 // --- Outils ----------------------------------------------------------------------
 
@@ -75,9 +94,13 @@ function lireEnvironnement() {
 
 // --- Une visite ------------------------------------------------------------------
 
-async function visite(profil, url, serveur) {
+// proxy : null, ou { p: creerProxy(), port } ; Chrome y passe pour tout hôte autre que 127.0.0.1.
+async function visite(profil, url, serveur, proxy = null) {
   serveur.journal.length = 0;
-  const contexte = await chromium.launchPersistentContext(profil, { channel: 'chrome', headless: false, viewport: { width: 1200, height: 900 } });
+  proxy?.p.vider();
+  const options = { channel: 'chrome', headless: false, viewport: { width: 1200, height: 900 } };
+  if (proxy) options.proxy = { server: `http://127.0.0.1:${proxy.port}`, bypass: '127.0.0.1' };
+  const contexte = await chromium.launchPersistentContext(profil, options);
   const requetes = [];
   const parRequete = new Map();
   const enCours = [];
@@ -110,10 +133,25 @@ async function visite(profil, url, serveur) {
     await page.waitForFunction(() => window.__resultat, null, { timeout: 600_000, polling: 250 });
     const resultat = await page.evaluate(() => window.__resultat);
     await Promise.all(enCours);
-    return { resultat, requetes, consoles, journalServeur: serveur.journal.map((x) => ({ ...x })) };
+    return { resultat, requetes, consoles, ...journaux(serveur, proxy) };
   } finally {
     await contexte.close();
   }
+}
+
+const journaux = (serveur, proxy) => ({
+  journalServeur: serveur.journal.map((x) => ({ ...x })),
+  journalProxy: proxy ? { tunnels: proxy.p.tunnels.map((x) => ({ ...x })), refus: proxy.p.refus.map((x) => ({ ...x })) } : null,
+});
+
+// Masques des documents d'un résultat comparés à une référence { id: { regles, modele, combine } }.
+export function comparerMasques(documents, reference) {
+  const parDetecteur = {};
+  for (const det of ['regles', 'modele', 'combine']) {
+    const differents = documents.filter((d) => JSON.stringify(d.masques[det]) !== JSON.stringify(reference[d.id]?.[det])).map((d) => d.id);
+    parDetecteur[det] = { identiques: documents.length - differents.length, total: documents.length, differents };
+  }
+  return parDetecteur;
 }
 
 // --- Analyse ---------------------------------------------------------------------
@@ -140,7 +178,26 @@ export function ecarts(texte, a, b, scoresA, scoresB) {
   return sortie.sort((x, y) => x.start - y.start || x.end - y.end);
 }
 
-function analyser({ visites, diagnostics, moteurs, documents, configs }) {
+const octetsProxy = (v) => (v.journalProxy?.tunnels ?? []).reduce((s, t) => s + t.recus, 0);
+
+// Débit apparent d'une visite pendant la phase de téléchargement (fichiers du modèle et
+// WebAssembly, en parallèle) : octets reçus par le proxy + octets WebAssembly servis, sur la durée
+// de la phase ; et débit du plus gros tunnel (octets reçus / temps du premier au dernier octet reçu). Mb/s.
+function debitVisite(v) {
+  const d = v.resultat?.temps?.durees?.telechargement;
+  const wasm = (v.journalServeur ?? []).filter((e) => e.chemin.startsWith('/vendor/ort/ort-wasm')).reduce((s, e) => s + e.octets, 0);
+  const proxy = octetsProxy(v);
+  const gros = [...(v.journalProxy?.tunnels ?? [])].sort((a, b) => b.recus - a.recus)[0];
+  const dureeGros = gros?.premierOctet != null ? gros.dernierOctet - gros.premierOctet : null;
+  return {
+    octetsProxy: proxy,
+    octetsWasm: wasm,
+    phaseMbps: d ? arrondi(((proxy + wasm) * 8) / 1e6 / (d / 1000)) : null,
+    plusGrosTunnel: gros ? { hote: gros.hote, recus: gros.recus, dureeMs: dureeGros, mbps: dureeGros ? arrondi((gros.recus * 8) / 1e6 / (dureeGros / 1000)) : null } : null,
+  };
+}
+
+function analyser({ visites, diagnostics, moteurs, documents, configs, referenceC = null }) {
   const textes = new Map(documents.map((d) => [d.id, d.texte]));
   const ids = documents.map((d) => d.id);
   const analyse = { configurations: {}, equivalence: {}, s1: {} };
@@ -157,7 +214,9 @@ function analyser({ visites, diagnostics, moteurs, documents, configs }) {
         reglesPretes: stats(rs.map((r) => r.temps.reglesPretes)),
         modelePret: stats(rs.map((r) => r.temps.modelePret)),
         durees: Object.fromEntries(['avantChargement', 'bibliotheque', 'telechargement', 'empreintes', 'miseEnCache', 'session', 'chauffe'].map((k) => [k, stats(rs.map((r) => r.temps.durees[k]))])),
-        octetsServis: stats(par(n).map((v) => v.journalServeur.reduce((s, e) => s + e.octets, 0))),
+        octetsServis: stats(par(n).map((v) => v.journalServeur.reduce((s, e) => s + e.octets, 0) + octetsProxy(v))),
+        octetsProxy: stats(par(n).map(octetsProxy)),
+        debit: par(n).map((v) => ({ repetition: v.repetition, ...debitVisite(v) })),
       };
     }
     const rs = okRuns.map((v) => v.resultat);
@@ -197,6 +256,17 @@ function analyser({ visites, diagnostics, moteurs, documents, configs }) {
       vsNodeNatifSansOptimisation: { modele: compte('modele', (id) => moteurs['natif-sans-optimisation'].documents[id].masques) },
       documents: ids.length,
     };
+  }
+  // Source hf : masques identiques à ceux de la série locale de C (même fichier ONNX).
+  if (referenceC) {
+    analyse.equivalence.serieCLocale = Object.fromEntries(
+      configs.map((cfg) => {
+        const rs = visites.filter((v) => v.config === cfg.id && v.resultat?.ok);
+        const comparaisons = rs.map((v) => ({ repetition: v.repetition, visite: v.visite, parDetecteur: comparerMasques(v.resultat.documents, referenceC.masques) }));
+        const differents = comparaisons.filter((c) => Object.values(c.parDetecteur).some((x) => x.differents.length));
+        return [cfg.id, { source: referenceC.source, executions: comparaisons.length, executionsAvecEcart: differents.length, comparaisons }];
+      }),
+    );
   }
   analyse.equivalence.moteursNode = Object.fromEntries(
     [['natif', 'natif-sans-optimisation'], ['natif', 'wasm'], ['natif-sans-optimisation', 'wasm']].map(([a, b]) => [`${a} = ${b}`, ids.filter((id) => chaine(moteurs[a].documents[id].masques) === chaine(moteurs[b].documents[id].masques)).length]),
@@ -242,7 +312,7 @@ function analyser({ visites, diagnostics, moteurs, documents, configs }) {
   // S1 : toutes les visites (mesure et diagnostic).
   const toutes = [...visites, ...Object.values(diagnostics.__visites ?? {})];
   const hotes = {};
-  const horsListe = [];
+  const refusServeur = [];
   const nonGet = [];
   const avecCorps = [];
   for (const v of toutes) {
@@ -255,15 +325,35 @@ function analyser({ visites, diagnostics, moteurs, documents, configs }) {
       if (r.methode !== 'GET') nonGet.push(r);
       if (r.corps > 0) avecCorps.push(r);
     }
-    for (const e of v.journalServeur ?? []) if (e.statut !== 200 && e.statut !== 302) horsListe.push(e);
+    for (const e of v.journalServeur ?? []) if (e.statut !== 200 && e.statut !== 302) refusServeur.push(e);
   }
   const resultats = toutes.map((v) => v.resultat).filter(Boolean);
+  const cheminsTiers = {};
+  for (const v of toutes) {
+    for (const r of v.requetes ?? []) {
+      const u = new URL(r.url);
+      if (u.protocol !== 'https:') continue;
+      cheminsTiers[u.hostname] ??= {};
+      cheminsTiers[u.hostname][u.pathname] = (cheminsTiers[u.hostname][u.pathname] ?? 0) + 1;
+    }
+  }
+  const tunnels = {};
+  for (const v of toutes) for (const t of v.journalProxy?.tunnels ?? []) {
+    tunnels[t.hote] ??= { tunnels: 0, recus: 0, envoyes: 0, erreurs: [] };
+    tunnels[t.hote].tunnels++;
+    tunnels[t.hote].recus += t.recus;
+    tunnels[t.hote].envoyes += t.envoyes;
+    if (t.erreur) tunnels[t.hote].erreurs.push(t.erreur);
+  }
   analyse.s1 = {
     visites: toutes.length,
     hotes,
+    horsListe: toutes.flatMap((v) => horsListe(v.requetes, CHEMINS_HF)),
+    cheminsTiers,
+    proxy: { tunnels, refus: toutes.flatMap((v) => v.journalProxy?.refus ?? []) },
     nonGet,
     avecCorps,
-    refuseesParLeServeur: horsListe,
+    refuseesParLeServeur: refusServeur,
     tentativesBloquees: resultats.flatMap((r) => r.tentativesBloquees),
     violationsCsp: resultats.flatMap((r) => r.s1.violations),
     consoleCsp: toutes.flatMap((v) => (v.consoles ?? []).filter((c) => /Content Security Policy|Refused to/i.test(c.texte))),
@@ -278,17 +368,26 @@ const fmt = (s) => (s?.n ? `${s.mediane} [${s.min}–${s.max}]` : '—');
 const ms = (x) => (x == null ? '—' : `${Math.round(x)}`);
 const top = (t) => (t ? t.map(([l, s]) => `${l} ${s.toFixed(2)}`).join(' / ') : '—');
 
-function rapport(r) {
+export function rapport(r) {
   const L = [];
   const p = (...x) => L.push(...x);
   const e = r.environnement;
-  p(`# Banc navigateur — Chrome (lot 1.5b)`, '');
+  const hf = r.source === 'hf';
+  p(`# Banc navigateur — Chrome (${hf ? 'modèle depuis Hugging Face' : 'lot 1.5b'})`, '');
   p(`> Jeu de développement (17 documents, 23 280 caractères) : indicatif, pas la mesure finale.${r.essai ? ' **ESSAI — pas une mesure de référence.**' : ''}`, '');
+  const serieC = r.analyse.equivalence.serieCLocale;
+  if (serieC) {
+    const ecart = Object.values(serieC).some((c) => c.executionsAvecEcart);
+    p(ecart ? `> **ATTENTION : au moins un masque diffère de la série locale de C** (section « Comparaison avec la série locale de C »).` : `> Masques identiques à ceux de la série locale de C, pour chaque visite réussie et chaque détecteur (section « Comparaison avec la série locale de C »).`, '');
+  }
   p(`- Date : ${r.date}`, `- Commit : \`${r.git.hash}\` ; arbre propre : ${r.git.propre ? 'oui' : 'non'}`, `- Détecteur : ${r.detecteur}`);
-  if (r.modele) p(`- Fichier modèle chargé par la page : \`${r.modele.cle}\` (SHA-256 \`${r.modele.sha256}\`)${r.modele.option ? ` — option --modele` : ' — q8 épinglé, sans --modele'} ; contrôlé à chaque visite réussie`);
+  if (r.modele) p(`- Fichier modèle chargé par la page : \`${r.modele.cle}\` (SHA-256 \`${r.modele.sha256}\`)${hf ? ` — source hf, \`${urlHF(r.hf.fichiers.find((f) => f.chemin.endsWith('.onnx')).chemin)}\`` : r.modele.option ? ` — option --modele` : ' — q8 épinglé, sans --modele'} ; contrôlé à chaque visite réussie`);
   p(`- Machine : ${e.machine} ; ${e.systeme}`, `- ${e.chrome} (Playwright ${e.playwright}, canal chrome, fenêtre visible) ; Node ${e.node}`);
   p(`- Transformers.js ${e.transformers} ; onnxruntime-web ${e.onnxruntimeWeb} ; backend WASM (WebGPU hors périmètre)`);
-  p(`- Débit simulé : ${DEBIT} Mb/s, côté serveur (seau partagé par toutes les réponses, boucle locale : ni latence ni perte, donc optimiste par rapport à un vrai réseau)`);
+  if (hf) p(`- Source du modèle : dépôt Hugging Face \`${r.hf.depot}\`, commit \`${r.hf.commit}\` (https://huggingface.co/${r.hf.depot}/resolve/${r.hf.commit}/…), dtype ${r.hf.dtype}`);
+  p(hf
+    ? `- Débit simulé : ${DEBIT} Mb/s, un seul seau partagé par le serveur local (page, bibliothèques, WebAssembly, documents) et le proxy local bench/proxy.mjs (tunnels HTTPS vers Hugging Face, octets reçus) ; le trafic Hugging Face traverse le réseau réel (latence réelle), plafonné par ce seau et par la ligne`
+    : `- Débit simulé : ${DEBIT} Mb/s, côté serveur (seau partagé par toutes les réponses, boucle locale : ni latence ni perte, donc optimiste par rapport à un vrai réseau)`);
   p(`- ${r.repetitions} répétitions par configuration ; 1re visite = profil Chrome neuf ; visite suivante = Chrome fermé puis relancé sur le même profil`);
   p(`- transformers.web.min.js servi avec 2 spécificateurs réécrits en chemins locaux (sha256 d'origine ${r.transformers.shaOriginal.slice(0, 16)}…, servi ${r.transformers.shaServi.slice(0, 16)}…)`, '');
   p(`Valeurs : médiane [min–max] en ms, sur les répétitions réussies.`, '');
@@ -299,7 +398,7 @@ function rapport(r) {
 
   p(`## S7 — chargement`, '');
   p(`Seuils : règles < ${SEUILS_S7.reglesPretes} ms ; modèle prêt ≤ ${SEUILS_S7.premiereVisite} ms (1re visite, 100 Mb/s) ; ≤ ${SEUILS_S7.visiteSuivante} ms (visites suivantes). « Modèle prêt » = session créée + inférence de chauffe, depuis le début de la navigation.`, '');
-  p(`| Config | Visite | n | Règles prêtes | **Modèle prêt** | Bibliothèques JS | Téléchargement | Empreintes | Mise en cache | Session | Chauffe | Avant chargement | Octets servis | S7 (max ≤ seuil) |`, `|---|---|---|---|---|---|---|---|---|---|---|---|---|---|`);
+  p(`| Config | Visite | n | Règles prêtes | **Modèle prêt** | Bibliothèques JS | Téléchargement | Empreintes | Mise en cache | Session | Chauffe | Avant chargement | Octets reçus (serveur local + proxy) | S7 (max ≤ seuil) |`, `|---|---|---|---|---|---|---|---|---|---|---|---|---|---|`);
   for (const [id, c] of Object.entries(r.analyse.configurations)) {
     for (const [cle, nomV, seuil] of [['premiereVisite', '1re', SEUILS_S7.premiereVisite], ['visiteSuivante', 'suivante', SEUILS_S7.visiteSuivante]]) {
       const v = c.chargement[cle];
@@ -311,6 +410,18 @@ function rapport(r) {
     }
   }
   p('');
+
+  if (hf) {
+    p(`## Débit effectif`, '');
+    p(`Phase « téléchargement » (fichiers du modèle depuis Hugging Face et fichiers WebAssembly locaux, en parallèle) : (octets reçus par le proxy + octets WebAssembly servis) / durée de la phase. Plus gros tunnel : octets reçus / temps du premier au dernier octet reçu. Seau : ${DEBIT} Mb/s.`, '');
+    p(`| Config | Visite | Rép. | Octets proxy | Octets WebAssembly | Phase (Mb/s) | Plus gros tunnel : hôte | octets | durée (ms) | Mb/s |`, `|---|---|---|---|---|---|---|---|---|---|`);
+    for (const [id, c] of Object.entries(r.analyse.configurations)) {
+      for (const [cle, nomV] of [['premiereVisite', '1re'], ['visiteSuivante', 'suivante']]) {
+        for (const d of c.chargement[cle].debit) p(`| ${id} | ${nomV} | ${d.repetition} | ${d.octetsProxy.toLocaleString('fr-FR')} | ${d.octetsWasm.toLocaleString('fr-FR')} | ${d.phaseMbps ?? '—'} | ${d.plusGrosTunnel?.hote ?? '—'} | ${d.plusGrosTunnel ? d.plusGrosTunnel.recus.toLocaleString('fr-FR') : '—'} | ${d.plusGrosTunnel?.dureeMs ?? '—'} | ${d.plusGrosTunnel?.mbps ?? '—'} |`);
+      }
+    }
+    p('');
+  }
 
   p(`## Un cœur ou plusieurs`, '');
   p(`| Config | Threads | Session (1re visite) | ms pour 1 000 caractères | Modèle prêt (visite suivante) |`, `|---|---|---|---|---|`);
@@ -336,6 +447,18 @@ function rapport(r) {
     if (!q) continue;
     p(`| ${id} | ${q.executions} | ${q.stableEntreExecutions ? 'oui' : '**non**'} | ${q.vsNodeNatif.regles}/17 | ${q.vsNodeNatif.modele}/17 | ${q.vsNodeNatif.combine}/17 | ${q.vsNodeWasm.modele}/17 | ${q.vsNodeNatifSansOptimisation.modele}/17 |`);
   }
+  if (eq.serieCLocale) {
+    p('', `### Comparaison avec la série locale de C`, '');
+    p(`Référence : ${Object.values(eq.serieCLocale)[0]?.source ?? '—'}. Documents identiques sur 17, par visite réussie et par détecteur.`, '');
+    p(`| Config | Rép. | Visite | Règles | Modèle | Combiné | Documents différents |`, `|---|---|---|---|---|---|---|`);
+    for (const [id, c] of Object.entries(eq.serieCLocale)) {
+      for (const x of c.comparaisons) {
+        const d = x.parDetecteur;
+        const diff = [...new Set(Object.values(d).flatMap((y) => y.differents))];
+        p(`| ${id} | ${x.repetition} | ${x.visite} | ${d.regles.identiques}/${d.regles.total} | ${d.modele.identiques}/${d.modele.total} | ${d.combine.identiques}/${d.combine.total} | ${diff.join(', ') || 'aucun'} |`);
+      }
+    }
+  }
   p('', `Moteurs côté Node entre eux (scripts/navigateur/moteurs-node.mjs) :`, '');
   for (const [k, v] of Object.entries(eq.moteursNode)) p(`- ${k} : ${v}/17`);
   p('', `Entre configurations du navigateur (masques du modèle) :`, '');
@@ -358,12 +481,27 @@ function rapport(r) {
   for (const [h, v] of Object.entries(s.hotes)) p(`| ${h} | ${v.requetes} | ${v.octets.toLocaleString('fr-FR')} |`);
   p('');
   p(`- Requêtes autres que GET : ${s.nonGet.length}`, `- Requêtes avec un corps : ${s.avecCorps.length}`);
+  p(`- Requêtes de la page ou du Worker hors liste (origine, huggingface.co, *.hf.co ; chemins huggingface.co attendus) : ${s.horsListe.length ? [...new Set(s.horsListe.map((x) => `${x.url} (${x.motif})`))].join(' ; ') : 'aucune'}`);
+  if (Object.keys(s.cheminsTiers).length) {
+    p('', `Chemins HTTPS demandés par la page et le Worker (sans la requête, signée pour les hôtes de téléchargement) :`, '', `| Hôte | Chemin | Requêtes |`, `|---|---|---|`);
+    for (const [h, chemins] of Object.entries(s.cheminsTiers)) for (const [c, n] of Object.entries(chemins)) p(`| ${h} | \`${c.length > 90 ? `${c.slice(0, 90)}…` : c}\` | ${n} |`);
+    p('');
+  }
+  if (r.source === 'hf') {
+    p(`Proxy (bench/proxy.mjs) : tunnels acceptés par hôte, et connexions refusées (hors liste).`, '', `| Hôte | Tunnels | Octets reçus | Octets envoyés | Erreurs |`, `|---|---|---|---|---|`);
+    for (const [h, t] of Object.entries(s.proxy.tunnels)) p(`| ${h} | ${t.tunnels} | ${t.recus.toLocaleString('fr-FR')} | ${t.envoyes.toLocaleString('fr-FR')} | ${t.erreurs.length ? [...new Set(t.erreurs)].join(' ; ') : 'aucune'} |`);
+    const refus = {};
+    for (const x of s.proxy.refus) refus[`${x.methode} ${x.cible}`] = (refus[`${x.methode} ${x.cible}`] ?? 0) + 1;
+    p('', `- Connexions refusées par le proxy : ${Object.keys(refus).length ? Object.entries(refus).map(([k, n]) => `${k} (${n})`).join(' ; ') : 'aucune'}`);
+  }
   p(`- Chemins refusés par la liste blanche du serveur : ${s.refuseesParLeServeur.length ? [...new Set(s.refuseesParLeServeur.map((x) => `${x.methode} ${x.chemin} → ${x.statut}`))].join(' ; ') : 'aucun'}`);
   p(`- Tentatives bloquées (env.fetch de la bibliothèque) : ${s.tentativesBloquees.length ? [...new Set(s.tentativesBloquees)].join(' ; ') : 'aucune'}`);
   p(`- Violations CSP (événements page et Worker) : ${s.violationsCsp.length ? JSON.stringify(s.violationsCsp) : 'aucune'}`);
   p(`- Messages CSP dans la console : ${s.consoleCsp.length ? [...new Set(s.consoleCsp.map((c) => c.texte))].join(' ; ') : 'aucun'}`);
   p(`- Autres erreurs ou avertissements de console : ${s.consoleErreurs.length ? [...new Set(s.consoleErreurs.map((c) => `${c.type} : ${c.texte}`))].join(' ; ') : 'aucun'}`);
-  p('', `Non couvert : requêtes propres au navigateur hors page (mises à jour, services Google de Chrome), invisibles pour Playwright ; elles ne portent pas le texte du document.`, '');
+  p('', r.source === 'hf'
+    ? `Requêtes propres au navigateur hors page (mises à jour, services Google de Chrome) : invisibles pour Playwright ; leurs connexions HTTPS passent par le proxy, qui les refuse hors liste (ci-dessus) ; elles ne portent pas le texte du document.`
+    : `Non couvert : requêtes propres au navigateur hors page (mises à jour, services Google de Chrome), invisibles pour Playwright ; elles ne portent pas le texte du document.`, '');
   return L.join('\n') + '\n';
 }
 
@@ -381,6 +519,17 @@ function tableEcarts(p, documents) {
 
 // --- Programme ---------------------------------------------------------------------
 
+// Masques de la série locale de C : ceux de la première visite réussie, après contrôle qu'ils
+// sont les mêmes à toutes les visites réussies de la série.
+function lireSerieCLocale() {
+  const serie = JSON.parse(fs.readFileSync(SERIE_C_LOCALE, 'utf8'));
+  const ok = serie.visites.filter((v) => v.resultat?.ok);
+  const masques = (v) => Object.fromEntries(v.resultat.documents.map((d) => [d.id, d.masques]));
+  const signatures = new Set(ok.map((v) => JSON.stringify(masques(v))));
+  if (!ok.length || signatures.size !== 1) throw new Error(`${path.relative(RACINE, SERIE_C_LOCALE)} : ${ok.length} visites réussies, ${signatures.size} jeux de masques distincts (1 attendu)`);
+  return { source: `${path.relative(RACINE, SERIE_C_LOCALE)} (commit ${serie.git.hash.slice(0, 7)}, ${ok.length} visites réussies, masques identiques entre elles)`, masques: masques(ok[0]) };
+}
+
 async function main() {
   const { values } = parseArgs({
     options: {
@@ -389,10 +538,16 @@ async function main() {
       sortie: { type: 'string', default: path.join(RACINE, 'resultats', 'navigateur') },
       essai: { type: 'boolean', default: false },
       modele: { type: 'string' },
+      source: { type: 'string' },
     },
   });
   if (values.modele !== undefined && !cleModeleValide(values.modele)) throw new Error(`--modele : clé invalide « ${values.modele} »`);
-  const cleModele = values.modele ?? `camembert-ner/${REVISION}/onnx/model_quantized.onnx`;
+  if (values.source !== undefined && !['hf', 'local'].includes(values.source)) throw new Error(`--source : hf ou local, pas « ${values.source} »`);
+  if (values.source === 'hf' && values.modele !== undefined) throw new Error('--modele est réservé à --source local');
+  const source = values.source ?? (values.modele !== undefined ? 'local' : 'hf');
+  const hf = source === 'hf';
+  const onnxHF = HF.fichiers.find((f) => f.chemin.endsWith('.onnx'));
+  const cleModele = hf ? onnxHF.cle : values.modele ?? `camembert-ner/${REVISION}/onnx/model_quantized.onnx`;
   const shaModele = new Map(fs.readFileSync(path.join(RACINE, 'modeles', 'MANIFEST.sha256'), 'utf8').split('\n').filter(Boolean).map((l) => l.split(/ [ *]/).reverse())).get(cleModele);
   if (!shaModele) throw new Error(`--modele : ${cleModele} absent de modeles/MANIFEST.sha256`);
   const repetitions = Number(values.repetitions);
@@ -401,19 +556,37 @@ async function main() {
   if (!propre && !values.essai) throw new Error('arbre git non propre : mesure refusée (commiter d\'abord, ou --essai)');
   const git = { hash: executer('git', ['rev-parse', 'HEAD']), propre };
   const environnement = lireEnvironnement();
-  console.log(`commit ${git.hash.slice(0, 7)} (propre : ${propre}) ; ${environnement.chrome} ; ${repetitions} répétitions ; configurations ${configs.map((c) => c.id).join(', ')} ; modèle ${cleModele}`);
+  console.log(`commit ${git.hash.slice(0, 7)} (propre : ${propre}) ; ${environnement.chrome} ; ${repetitions} répétitions ; configurations ${configs.map((c) => c.id).join(', ')} ; source ${source}${hf ? ` (${HF.depot}@${HF.commit.slice(0, 8)})` : ''} ; modèle ${cleModele}`);
 
+  // Un seul seau de DEBIT Mb/s pour le serveur local et le proxy (visites successives).
+  const limiteur = creerLimiteur(DEBIT);
   const serveurs = {};
   for (const isolation of [false, true]) {
-    const s = creerServeur({ isolation, debit: DEBIT });
+    const s = creerServeur({ isolation, limiteur });
     serveurs[isolation] = { s, port: await s.ecouter(0) };
   }
-  const parametreModele = values.modele ? `&modele=${encodeURIComponent(values.modele)}` : '';
+  let proxy = null;
+  if (hf) {
+    const p = creerProxy({ limiteur });
+    proxy = { p, port: await p.ecouter(0) };
+  }
+  const parametreModele = `&source=${source}${values.modele ? `&modele=${encodeURIComponent(values.modele)}` : ''}`;
   const url = (cfg, extra = '') => `http://127.0.0.1:${serveurs[cfg.isolation].port}/bench/index.html?auto=1&variante=${cfg.variante}&threads=${cfg.threads}${parametreModele}${extra}`;
-  // Une visite réussie doit avoir chargé le fichier demandé, avec l'empreinte du manifeste.
+  // Une visite réussie doit avoir chargé le fichier demandé (source hf : URL du commit épinglé),
+  // avec l'empreinte du manifeste.
   const controlerModele = (r) => {
-    const onnx = r.fichiers.find((f) => f.chemin === `/modeles/${cleModele}`);
-    if (r.config.modeleCharge !== cleModele || onnx?.sha256 !== shaModele) throw new Error(`modèle chargé ${r.config.modeleCharge} (${onnx?.sha256 ?? 'empreinte absente'}), attendu ${cleModele} (${shaModele})`);
+    const onnx = r.fichiers.find((f) => f.cle === cleModele && (!hf || f.url === urlHF(onnxHF.chemin)));
+    if (r.config.source !== source || r.config.modeleCharge !== cleModele || onnx?.sha256 !== shaModele) throw new Error(`modèle chargé ${r.config.source} ${r.config.modeleCharge} (${onnx?.sha256 ?? 'empreinte absente'}), attendu ${source} ${cleModele} (${shaModele})`);
+  };
+  // Source hf : arrêt si la page ou le Worker a visé un hôte hors liste, ou si la CSP a bloqué une requête.
+  const controlerHotes = (v) => {
+    const hors = horsListe(v.requetes, CHEMINS_HF);
+    const csp = v.resultat?.s1?.violations ?? [];
+    if (!hors.length && !csp.length) return;
+    const arret = path.join(values.sortie, 'chrome-arret.json');
+    fs.mkdirSync(values.sortie, { recursive: true });
+    fs.writeFileSync(arret, JSON.stringify({ date: new Date().toISOString(), git, horsListe: hors, violationsCsp: csp, visites }, null, 1) + '\n');
+    throw new Error(`arrêt : requête hors liste ou bloquée par la CSP (${JSON.stringify([...hors, ...csp])}) ; visites consignées dans ${arret}`);
   };
   const nouveauProfil = () => fs.mkdtempSync(path.join(os.tmpdir(), 'mask-banc-'));
 
@@ -428,11 +601,12 @@ async function main() {
         for (const n of [1, 2]) {
           let v;
           try {
-            v = await visite(profil, url(cfg), serveurs[cfg.isolation].s);
+            v = await visite(profil, url(cfg), serveurs[cfg.isolation].s, proxy);
           } catch (err) {
             v = { resultat: null, erreur: String(err?.message ?? err), requetes: [], consoles: [], journalServeur: [] };
           }
           visites.push({ config: cfg.id, repetition: rep, visite: n, ...v });
+          if (hf) controlerHotes(v);
           const r = v.resultat;
           if (r?.ok) controlerModele(r);
           console.log(`rép. ${rep} config ${cfg.id} visite ${n} : ${r?.ok ? `règles ${r.temps.reglesPretes} ms, modèle prêt ${r.temps.modelePret} ms, ${r.numThreads} thread(s), ${r.s8.msPour1000Caracteres} ms/1000 car.` : `ÉCHEC ${r?.erreur ?? v.erreur}`}`);
@@ -453,7 +627,8 @@ async function main() {
     if (abandon.has(cfg.id)) continue;
     const profil = nouveauProfil();
     try {
-      const v = await visite(profil, url(cfg, '&diagnostic=1'), serveurs[cfg.isolation].s);
+      const v = await visite(profil, url(cfg, '&diagnostic=1'), serveurs[cfg.isolation].s, proxy);
+      if (hf) controlerHotes(v);
       diagnostics.__visites[cfg.id] = { ...v, resultat: { ...v.resultat, diagnostic: null } };
       diagnostics[cfg.id] = v.resultat?.diagnostic ?? null;
       console.log(`diagnostic config ${cfg.id} : ${v.resultat?.ok ? 'ok' : `ÉCHEC ${v.resultat?.erreur}`}`);
@@ -462,12 +637,13 @@ async function main() {
     }
   }
   for (const { s } of Object.values(serveurs)) await s.fermer();
+  await proxy?.p.fermer();
 
   console.log('moteurs Node (natif, natif sans optimisation, WASM)…');
   const documents = documentsDev();
   const moteurs = await parMoteur(documents);
 
-  const analyse = analyser({ visites, diagnostics, moteurs, documents, configs });
+  const analyse = analyser({ visites, diagnostics, moteurs, documents, configs, referenceC: hf ? lireSerieCLocale() : null });
   const sortie = {
     format: 'banc-chrome-1',
     date: new Date().toISOString(),
@@ -475,6 +651,8 @@ async function main() {
     git,
     environnement,
     detecteur: 'combiné = règles 0.4.0 + modèle 0.2.0 (gel mask-1.5a-gel)',
+    source,
+    hf: hf ? { depot: HF.depot, commit: HF.commit, dtype: HF.dtype, fichiers: HF.fichiers } : null,
     modele: { cle: cleModele, sha256: shaModele, option: values.modele ?? null },
     debitMbps: DEBIT,
     repetitions,

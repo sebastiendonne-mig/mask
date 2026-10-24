@@ -30,9 +30,9 @@ test('banc : fichiers attendus servis', () => {
   assert.deepEqual(resoudre('/vendor/transformers.web.min.js'), { genere: 'transformers' });
 });
 
-test('banc : CSP sans origine tierce', () => {
-  assert.match(CSP, /connect-src 'self'(;|$)/);
-  assert.doesNotMatch(CSP, /https?:/);
+test('banc : CSP limitée à l\'origine et au dépôt Hugging Face du modèle', () => {
+  assert.match(CSP, /connect-src 'self' https:\/\/huggingface\.co https:\/\/\*\.hf\.co(;|$)/);
+  assert.deepEqual(CSP.match(/https?:\/\/[^\s;]+/g), ['https://huggingface.co', 'https://*.hf.co']);
 });
 
 test('banc : candidats de compression inscrits au manifeste servis, voisins non inscrits refusés', () => {

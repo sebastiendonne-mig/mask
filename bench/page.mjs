@@ -2,9 +2,11 @@
 // (performance.timeOrigin de la page) ; ceux du Worker y sont ramenés par son timeOrigin.
 //
 // Paramètres d'URL : variante=auto|asyncify|simple, threads=defaut|1, auto=1 (lance la mesure
-// au chargement), diagnostic=1 (scores par mot, après la mesure), modele=<clé du manifeste>
-// (fichier ONNX chargé à la place du q8 épinglé, src/modele-navigateur.mjs). Résultat : window.__resultat
-// et bouton de téléchargement JSON. Aucune requête sortante autre que GET vers l'origine.
+// au chargement), diagnostic=1 (scores par mot, après la mesure), source=hf|local (source du modèle,
+// src/modele-navigateur.mjs ; hf par défaut), modele=<clé du manifeste> (source locale seulement :
+// fichier ONNX chargé à la place du q8 épinglé). Résultat : window.__resultat et bouton de
+// téléchargement JSON. Aucune requête sortante autre que GET, vers l'origine et, pour la source hf,
+// vers Hugging Face.
 
 import { varianteParDefaut, cleModeleValide } from '/src/modele-navigateur.mjs';
 
@@ -18,6 +20,7 @@ const params = new URLSearchParams(location.search);
 const choixVariante = ['asyncify', 'simple'].includes(params.get('variante')) ? params.get('variante') : 'auto';
 const choixThreads = params.get('threads') === '1' ? '1' : 'defaut';
 const diagnostic = params.get('diagnostic') === '1';
+const choixSource = params.get('source') === 'local' ? 'local' : 'hf';
 const choixModele = cleModeleValide(params.get('modele')) ? params.get('modele') : null;
 
 const $ = (s) => document.querySelector(s);
@@ -26,7 +29,7 @@ formulaire.variante.value = choixVariante;
 formulaire.threads.value = choixThreads;
 formulaire.addEventListener('submit', (e) => {
   e.preventDefault();
-  const p = new URLSearchParams({ variante: formulaire.variante.value, threads: formulaire.threads.value, auto: '1', ...(choixModele ? { modele: choixModele } : {}) });
+  const p = new URLSearchParams({ variante: formulaire.variante.value, threads: formulaire.threads.value, auto: '1', source: choixSource, ...(choixModele ? { modele: choixModele } : {}) });
   location.search = p.toString();
 });
 
@@ -53,7 +56,7 @@ async function lancer() {
     w.onmessage = (e) => ok(e.data);
     w.onerror = (e) => ok({ ok: false, erreur: `Worker : ${e.message ?? 'erreur de chargement'}` });
   });
-  w.postMessage({ type: 'config', config: { variante, numThreads, modele: choixModele, diagnostic } });
+  w.postMessage({ type: 'config', config: { variante, numThreads, source: choixSource, modele: choixModele, diagnostic } });
 
   // Règles prêtes : module importé et premier appel terminé (thread principal).
   const regles = await import('/src/regles.mjs');
@@ -98,6 +101,8 @@ function assembler(r, { variante, numThreads, reglesPretes, reference }) {
       isolation: self.crossOriginIsolated,
       isolationWorker: r.crossOriginIsolated ?? null,
       diagnostic,
+      sourceDemandee: choixSource,
+      source: r.etat?.source ?? null,
       modeleDemande: choixModele,
       modeleCharge: r.etat?.modele ?? null,
     },
@@ -123,6 +128,7 @@ function assembler(r, { variante, numThreads, reglesPretes, reference }) {
       },
     },
     fichiers: r.etat?.fichiers ?? [],
+    progression: r.progression ?? [],
     clesDemandees: r.etat?.clesDemandees ?? [],
     tentativesBloquees: r.etat?.tentativesBloquees ?? [],
     documents: (r.documents ?? []).map((d) => ({ ...d, ms: { regles: arrondi(d.ms.regles), modele: arrondi(d.ms.modele), total: arrondi(d.ms.total) } })),
@@ -209,7 +215,7 @@ function afficher(r) {
       ['  dont chauffe', r.temps.durees.chauffe],
     ]),
     titre('Fichiers'),
-    tableau(['Chemin', 'Octets', 'Depuis le cache', 'SHA-256 vérifié'], r.fichiers.map((f) => [f.chemin, f.octets, f.depuisCache ? 'oui' : 'non', f.sha256 ?? '— (non vérifié)'])),
+    tableau(['URL', 'Octets', 'Depuis le cache', 'SHA-256 vérifié'], r.fichiers.map((f) => [f.url ?? f.chemin, f.octets, f.depuisCache ? 'oui' : 'non', f.sha256 ?? '— (non vérifié)'])),
   );
   if (r.s8) {
     s.append(
