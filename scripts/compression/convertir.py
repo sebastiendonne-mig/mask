@@ -17,6 +17,11 @@
 #
 # Rapport : resultats/compression/conversion.{json,md}. Une exécution limitée à une recette met à
 # jour son entrée et conserve les autres.
+#
+# --sortie <dossier> : modèles dans <dossier>/<recette>/model.onnx et rapport dans
+# <dossier>/conversion.{json,md}, au lieu de modeles/compression/ et resultats/compression/
+# (contrôle de reproductibilité). Sans effet sur les calculs ; l'option est consignée dans le
+# rapport. Le contrôle « ignoré par git » ne s'applique qu'à une sortie située dans le dépôt.
 
 import argparse
 import collections
@@ -90,6 +95,14 @@ def lire_manifeste():
     return entrees
 
 
+def affiche(chemin):
+    # Chemin relatif à la racine du dépôt, absolu hors du dépôt.
+    try:
+        return str(Path(chemin).resolve().relative_to(RACINE))
+    except ValueError:
+        return str(Path(chemin).resolve())
+
+
 def git(*args):
     return subprocess.run(["git", *args], cwd=RACINE, capture_output=True, text=True)
 
@@ -159,12 +172,12 @@ def verifier_etalon():
     return {"chemin": str(chemin.relative_to(RACINE)), "octets": chemin.stat().st_size, "sha256": obtenu}
 
 
-def verifier_sortie(nom):
-    sortie = SORTIES / nom / "model.onnx"
+def verifier_sortie(nom, dossier):
+    sortie = dossier / nom / "model.onnx"
     if sortie.exists():
-        sys.exit(f"refus : {sortie.relative_to(RACINE)} existe déjà (le supprimer à la main pour le reproduire)")
-    if git("check-ignore", "-q", str(sortie.relative_to(RACINE))).returncode != 0:
-        sys.exit(f"refus : {sortie.relative_to(RACINE)} n'est pas ignoré par git")
+        sys.exit(f"refus : {affiche(sortie)} existe déjà (le supprimer à la main pour le reproduire)")
+    if sortie.resolve().is_relative_to(RACINE) and git("check-ignore", "-q", affiche(sortie)).returncode != 0:
+        sys.exit(f"refus : {affiche(sortie)} n'est pas ignoré par git")
     return sortie
 
 
@@ -246,8 +259,8 @@ def produire(nom, copie, sortie_temp):
     return effectifs, {}, compter_float16(converti)
 
 
-def convertir(nom, etalon):
-    sortie = verifier_sortie(nom)
+def convertir(nom, etalon, dossier):
+    sortie = verifier_sortie(nom, dossier)
     journal = Journal()
     racine_log = logging.getLogger()
     racine_log.addHandler(journal)
@@ -271,17 +284,17 @@ def convertir(nom, etalon):
     finally:
         racine_log.removeHandler(journal)
     if sha256(sortie) != empreinte:
-        sys.exit(f"erreur : {sortie.relative_to(RACINE)} différent du fichier produit")
+        sys.exit(f"erreur : {affiche(sortie)} différent du fichier produit")
     autres = sorted(f.name for f in sortie.parent.iterdir() if f.name != "model.onnx")
     if autres:
-        sys.exit(f"erreur : fichiers inattendus dans {sortie.parent.relative_to(RACINE)} : {autres}")
+        sys.exit(f"erreur : fichiers inattendus dans {affiche(sortie.parent)} : {autres}")
     return {
         "date": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
         "outil": RECETTES[nom]["outil"],
         "parametres_recette": RECETTES[nom]["parametres"],
         "parametres_effectifs": effectifs,
         "valeurs_resolues_par_l_outil": resolus,
-        "fichier": {"chemin": str(sortie.relative_to(RACINE)), "octets": sortie.stat().st_size, "sha256": empreinte},
+        "fichier": {"chemin": affiche(sortie), "octets": sortie.stat().st_size, "sha256": empreinte},
         "fichiers_annexes_temporaires": annexes,
         "messages_des_outils": dict(journal.messages),
         **comptages,
@@ -302,6 +315,8 @@ def rapport_markdown(r):
     for nom, e in r["recettes"].items():
         l += ["", f"## {nom}", ""]
         l.append(f"- Date : {e['date']} ; commit `{e['git']['hash']}`{'' if e['git']['propre'] else ' + modifications non commitées'} ; script SHA-256 `{e['script_sha256']}`")
+        if e.get("option_sortie"):
+            l.append(f"- Option --sortie : `{e['option_sortie']}`")
         l.append(f"- Outil : `{e['outil']}`")
         l.append(f"- Paramètres de la recette : `{json.dumps(e['parametres_recette'], ensure_ascii=False)}`")
         l.append(f"- Paramètres effectifs : `{json.dumps(e['parametres_effectifs'], ensure_ascii=False)}`")
@@ -323,23 +338,26 @@ def rapport_markdown(r):
 def principal():
     parser = argparse.ArgumentParser(description="Candidats de l'option 3 (seuils.md, amendement (6)).")
     parser.add_argument("--recette", choices=list(RECETTES), help="ne produire que cette recette")
+    parser.add_argument("--sortie", help="dossier des modèles et du rapport (reproductibilité), au lieu des emplacements du dépôt")
     args = parser.parse_args()
+    dossier = Path(args.sortie).resolve() if args.sortie else SORTIES
+    base_rapport = dossier / "conversion" if args.sortie else RAPPORT
 
     verifier_versions()
     git_etat = etat_git()  # relevé avant toute écriture
     etalon = verifier_etalon()
     noms = [args.recette] if args.recette else list(RECETTES)
     for nom in noms:
-        verifier_sortie(nom)  # tous les refus avant la première conversion
+        verifier_sortie(nom, dossier)  # tous les refus avant la première conversion
 
     script = Path(__file__).resolve()
-    precedent = json.loads(RAPPORT.with_suffix(".json").read_text(encoding="utf-8")) if RAPPORT.with_suffix(".json").exists() else {}
+    precedent = json.loads(base_rapport.with_suffix(".json").read_text(encoding="utf-8")) if base_rapport.with_suffix(".json").exists() else {}
     recettes = precedent.get("recettes", {})
     for nom in noms:
         print(f"{nom} : conversion…", flush=True)
         # Commit, script et outils propres à chaque entrée : une entrée conservée d'une exécution
         # précédente garde les siens.
-        recettes[nom] = {"git": git_etat, "script_sha256": sha256(script), "outils": versions_outils(), **convertir(nom, etalon)}
+        recettes[nom] = {"git": git_etat, "script_sha256": sha256(script), "outils": versions_outils(), "option_sortie": args.sortie, **convertir(nom, etalon, dossier)}
         print(f"{nom} : {recettes[nom]['fichier']['chemin']} {recettes[nom]['fichier']['octets']} octets {recettes[nom]['fichier']['sha256']}", flush=True)
 
     rapport = {
@@ -348,10 +366,10 @@ def principal():
         "outils": versions_outils(),
         "recettes": {nom: recettes[nom] for nom in RECETTES if nom in recettes},
     }
-    RAPPORT.parent.mkdir(parents=True, exist_ok=True)
-    RAPPORT.with_suffix(".json").write_text(json.dumps(rapport, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    RAPPORT.with_suffix(".md").write_text(rapport_markdown(rapport), encoding="utf-8")
-    print(f"rapport : {RAPPORT.relative_to(RACINE)}.{{json,md}}")
+    base_rapport.parent.mkdir(parents=True, exist_ok=True)
+    base_rapport.with_suffix(".json").write_text(json.dumps(rapport, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    base_rapport.with_suffix(".md").write_text(rapport_markdown(rapport), encoding="utf-8")
+    print(f"rapport : {affiche(base_rapport)}.{{json,md}}")
 
 
 if __name__ == "__main__":

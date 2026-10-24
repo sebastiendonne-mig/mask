@@ -1,0 +1,450 @@
+{
+  "etalon": {
+    "chemin": "modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx",
+    "octets": 440422178,
+    "sha256": "c9dfa2ec9e0bfad82d606782ba3e0ab94c001c46481514e0658fc20a624845c5"
+  },
+  "script": {
+    "chemin": "scripts/compression/convertir.py",
+    "sha256": "f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7"
+  },
+  "outils": {
+    "python": "3.14.6",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.0",
+    "onnxconverter-common": "1.16.0",
+    "numpy": "2.5.4",
+    "protobuf": "7.36.2",
+    "plateforme": "Darwin 24.1.0 arm64"
+  },
+  "recettes": {
+    "int8-matmul": {
+      "git": {
+        "hash": "d89f47e064be4aa6ba4541d893fe223d20f9aeb9",
+        "propre": true
+      },
+      "script_sha256": "f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7",
+      "outils": {
+        "python": "3.14.6",
+        "onnx": "1.23.2",
+        "onnxruntime": "1.31.0",
+        "onnxconverter-common": "1.16.0",
+        "numpy": "2.5.4",
+        "protobuf": "7.36.2",
+        "plateforme": "Darwin 24.1.0 arm64"
+      },
+      "date": "2026-10-24T09:30:43+00:00",
+      "outil": "onnxruntime.quantization.quantize_dynamic",
+      "parametres_recette": {
+        "op_types_to_quantize": [
+          "MatMul"
+        ],
+        "per_channel": true,
+        "reduce_range": false
+      },
+      "parametres_effectifs": {
+        "model_input": "/var/folders/b_/mj1c1stx6lx4jzrwcg63vvwr0000gn/T/mask-conversion-yv9wy11h/etalon/model.onnx",
+        "model_output": "/var/folders/b_/mj1c1stx6lx4jzrwcg63vvwr0000gn/T/mask-conversion-yv9wy11h/sortie/model.onnx",
+        "op_types_to_quantize": [
+          "MatMul"
+        ],
+        "per_channel": true,
+        "reduce_range": false,
+        "weight_type": "<QuantType.QInt8: 0>",
+        "nodes_to_quantize": null,
+        "nodes_to_exclude": null,
+        "use_external_data_format": false,
+        "extra_options": null
+      },
+      "valeurs_resolues_par_l_outil": {
+        "op_types_to_quantize": [
+          "MatMul"
+        ],
+        "extra_options.MatMulConstBOnly": true
+      },
+      "fichier": {
+        "chemin": "modeles/compression/int8-matmul/model.onnx",
+        "octets": 186209503,
+        "sha256": "71306e6a6cf16c0cf2ba90152664f0701d2feb3a56fe345f0274fb50f2c79b09"
+      },
+      "fichiers_annexes_temporaires": [],
+      "messages_des_outils": {
+        "WARNING Please consider to run pre-processing before quantization. Refer to example: https://github.com/microsoft/onnxruntime-inference-examples/blob/main/quantization/image_classification/cpu/ReadMe.md ": 1
+      },
+      "noeuds_quantifies_par_type": {
+        "MatMul": 73,
+        "Gather": 0,
+        "Transpose": 0
+      },
+      "matmul_restes_en_float": 24,
+      "operateurs_du_graphe": {
+        "Add": 174,
+        "Cast": 76,
+        "Concat": 49,
+        "Constant": 291,
+        "ConstantOfShape": 1,
+        "CumSum": 1,
+        "Div": 49,
+        "DynamicQuantizeLinear": 49,
+        "Equal": 2,
+        "Erf": 12,
+        "Expand": 1,
+        "Gather": 101,
+        "MatMul": 24,
+        "MatMulInteger": 73,
+        "Mul": 198,
+        "Not": 1,
+        "Pow": 25,
+        "ReduceMean": 50,
+        "Reshape": 49,
+        "Shape": 99,
+        "Slice": 1,
+        "Softmax": 12,
+        "Sqrt": 25,
+        "Sub": 26,
+        "Transpose": 48,
+        "Unsqueeze": 101,
+        "Where": 1
+      },
+      "initialiseurs_par_type": {
+        "FLOAT": 199,
+        "INT8": 146
+      }
+    },
+    "int8-defaut": {
+      "git": {
+        "hash": "d89f47e064be4aa6ba4541d893fe223d20f9aeb9",
+        "propre": true
+      },
+      "script_sha256": "f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7",
+      "outils": {
+        "python": "3.14.6",
+        "onnx": "1.23.2",
+        "onnxruntime": "1.31.0",
+        "onnxconverter-common": "1.16.0",
+        "numpy": "2.5.4",
+        "protobuf": "7.36.2",
+        "plateforme": "Darwin 24.1.0 arm64"
+      },
+      "date": "2026-10-24T09:30:47+00:00",
+      "outil": "onnxruntime.quantization.quantize_dynamic",
+      "parametres_recette": {
+        "per_channel": true,
+        "reduce_range": false
+      },
+      "parametres_effectifs": {
+        "model_input": "/var/folders/b_/mj1c1stx6lx4jzrwcg63vvwr0000gn/T/mask-conversion-5zo3yxsg/etalon/model.onnx",
+        "model_output": "/var/folders/b_/mj1c1stx6lx4jzrwcg63vvwr0000gn/T/mask-conversion-5zo3yxsg/sortie/model.onnx",
+        "op_types_to_quantize": null,
+        "per_channel": true,
+        "reduce_range": false,
+        "weight_type": "<QuantType.QInt8: 0>",
+        "nodes_to_quantize": null,
+        "nodes_to_exclude": null,
+        "use_external_data_format": false,
+        "extra_options": null
+      },
+      "valeurs_resolues_par_l_outil": {
+        "op_types_to_quantize": [
+          "Conv",
+          "MatMul",
+          "Attention",
+          "LSTM",
+          "Gather",
+          "Transpose",
+          "EmbedLayerNormalization"
+        ],
+        "extra_options.MatMulConstBOnly": true
+      },
+      "fichier": {
+        "chemin": "modeles/compression/int8-defaut/model.onnx",
+        "octets": 111284869,
+        "sha256": "c5729c73f93be250779d22ab36ce91eb12a3f844c10c084e2e84eea2cd1847ba"
+      },
+      "fichiers_annexes_temporaires": [],
+      "messages_des_outils": {
+        "WARNING Please consider to run pre-processing before quantization. Refer to example: https://github.com/microsoft/onnxruntime-inference-examples/blob/main/quantization/image_classification/cpu/ReadMe.md ": 1
+      },
+      "noeuds_quantifies_par_type": {
+        "MatMul": 73,
+        "Gather": 3,
+        "Transpose": 0
+      },
+      "matmul_restes_en_float": 24,
+      "operateurs_du_graphe": {
+        "Add": 174,
+        "Cast": 76,
+        "Concat": 49,
+        "Constant": 291,
+        "ConstantOfShape": 1,
+        "CumSum": 1,
+        "DequantizeLinear": 3,
+        "Div": 49,
+        "DynamicQuantizeLinear": 49,
+        "Equal": 2,
+        "Erf": 12,
+        "Expand": 1,
+        "Gather": 101,
+        "MatMul": 24,
+        "MatMulInteger": 73,
+        "Mul": 198,
+        "Not": 1,
+        "Pow": 25,
+        "ReduceMean": 50,
+        "Reshape": 49,
+        "Shape": 99,
+        "Slice": 1,
+        "Softmax": 12,
+        "Sqrt": 25,
+        "Sub": 26,
+        "Transpose": 48,
+        "Unsqueeze": 101,
+        "Where": 1
+      },
+      "initialiseurs_par_type": {
+        "FLOAT": 199,
+        "INT8": 146,
+        "UINT8": 6
+      }
+    },
+    "fp16-mixte": {
+      "git": {
+        "hash": "d89f47e064be4aa6ba4541d893fe223d20f9aeb9",
+        "propre": true
+      },
+      "script_sha256": "f24694d9d99d596c554adb9d0779db9544a07451bd5d2ee1add3e995cbb6ece7",
+      "outils": {
+        "python": "3.14.6",
+        "onnx": "1.23.2",
+        "onnxruntime": "1.31.0",
+        "onnxconverter-common": "1.16.0",
+        "numpy": "2.5.4",
+        "protobuf": "7.36.2",
+        "plateforme": "Darwin 24.1.0 arm64"
+      },
+      "date": "2026-10-24T09:30:49+00:00",
+      "outil": "onnxconverter_common.float16.convert_float_to_float16",
+      "parametres_recette": {
+        "keep_io_types": true,
+        "op_block_list": [
+          "ArrayFeatureExtractor",
+          "Binarizer",
+          "CastMap",
+          "CategoryMapper",
+          "DictVectorizer",
+          "FeatureVectorizer",
+          "Imputer",
+          "LabelEncoder",
+          "LinearClassifier",
+          "LinearRegressor",
+          "Normalizer",
+          "OneHotEncoder",
+          "RandomUniformLike",
+          "SVMClassifier",
+          "SVMRegressor",
+          "Scaler",
+          "TreeEnsembleClassifier",
+          "TreeEnsembleRegressor",
+          "ZipMap",
+          "NonMaxSuppression",
+          "TopK",
+          "RoiAlign",
+          "Resize",
+          "Range",
+          "CumSum",
+          "Min",
+          "Max",
+          "Upsample",
+          "Pow",
+          "ReduceMean",
+          "Sqrt"
+        ]
+      },
+      "parametres_effectifs": {
+        "model": "<ModelProto chargé depuis la copie>",
+        "min_positive_val": 1e-07,
+        "max_finite_val": 10000.0,
+        "keep_io_types": true,
+        "disable_shape_infer": false,
+        "op_block_list": [
+          "ArrayFeatureExtractor",
+          "Binarizer",
+          "CastMap",
+          "CategoryMapper",
+          "DictVectorizer",
+          "FeatureVectorizer",
+          "Imputer",
+          "LabelEncoder",
+          "LinearClassifier",
+          "LinearRegressor",
+          "Normalizer",
+          "OneHotEncoder",
+          "RandomUniformLike",
+          "SVMClassifier",
+          "SVMRegressor",
+          "Scaler",
+          "TreeEnsembleClassifier",
+          "TreeEnsembleRegressor",
+          "ZipMap",
+          "NonMaxSuppression",
+          "TopK",
+          "RoiAlign",
+          "Resize",
+          "Range",
+          "CumSum",
+          "Min",
+          "Max",
+          "Upsample",
+          "Pow",
+          "ReduceMean",
+          "Sqrt"
+        ],
+        "node_block_list": null,
+        "check_fp16_ready": true
+      },
+      "valeurs_resolues_par_l_outil": {},
+      "fichier": {
+        "chemin": "modeles/compression/fp16-mixte/model.onnx",
+        "octets": 220500160,
+        "sha256": "565281181a64bde0aa77a00173b937eb8f8967285e67de3d6f1f10a4c3f8cb94"
+      },
+      "fichiers_annexes_temporaires": [],
+      "messages_des_outils": {
+        "UserWarning the float32 number -3.4028234663852886e+38 will be truncated to -10000.0": 1,
+        "UserWarning the float32 number 2.6232989114305383e-09 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -1.2525416259734357e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -5.985899065308331e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 9.334687689488419e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 7.973491022994494e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -4.172754941578205e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 6.0599667506267e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -3.344718635389654e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 7.711374649943536e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -8.153194386295581e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 7.483157560272957e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -5.2621945911823786e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 3.2885520084846576e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -9.568308367846612e-10 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 3.972479944991392e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 8.728230227461609e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -2.6097190186646912e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 4.563910138699612e-09 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -5.548232806518172e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 1.1496312346537252e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -9.65501243399558e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -5.049934159728764e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 1.3798064024683754e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -2.606879823119357e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -7.418755387789133e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 5.012461556930248e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -9.145331603122031e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 8.996391898108413e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -7.320767281271401e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 9.520229937720615e-09 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -1.1603265015480702e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 2.913576935270612e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -5.1698716418968615e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 7.954037983814999e-10 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -8.380356852910609e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -6.52631158004624e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 5.0131880868775625e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -1.0692200014261743e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 9.366355691042827e-09 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -2.3001355486940156e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 7.047218275602063e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -3.0339201373408287e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 1.0951053397434407e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -1.913022984467716e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 5.879957853949236e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 9.805481226976553e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 9.687481394848874e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -1.8807757129479796e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -3.0791706961963428e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 2.3242510138743455e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -1.6865595586779136e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 6.865800372679587e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 6.14296311596263e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -2.832064716074001e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 3.706000839542867e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 1.3991072300711949e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 6.027055832191763e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -7.208226548982566e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 3.257571989934149e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -9.11411746074009e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 2.424450862292815e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -4.7212789233697094e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 4.706109990593177e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 1.7069636371047636e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -3.2191124432756624e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 2.248533448323542e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -4.0162003500654464e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 3.98063662032655e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -3.162728745564891e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -4.127251784780128e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -1.4913760892909522e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -1.1232884844503133e-08 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number -1.0617434709203621e-09 will be truncated to -1e-07": 1,
+        "UserWarning the float32 number 3.024455708100504e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 9.994362670795454e-09 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 6.806428842764944e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number 4.1783927429150935e-08 will be truncated to 1e-07": 1,
+        "UserWarning the float32 number -4.4506794694143537e-08 will be truncated to -1e-07": 1
+      },
+      "noeuds_restes_en_fp32_par_type": {
+        "Pow": 25,
+        "ReduceMean": 50,
+        "Sqrt": 25
+      },
+      "noeuds_en_fp16_par_type": {
+        "Add": 173,
+        "Constant": 100,
+        "Div": 49,
+        "Erf": 12,
+        "Gather": 3,
+        "MatMul": 97,
+        "Mul": 50,
+        "Reshape": 48,
+        "Softmax": 12,
+        "Sub": 26,
+        "Transpose": 48
+      },
+      "noeuds_de_type_de_sortie_inconnu": {},
+      "cast_par_type_cible": {
+        "FLOAT": 102,
+        "FLOAT16": 75,
+        "INT32": 1,
+        "INT64": 1
+      },
+      "operateurs_du_graphe": {
+        "Add": 174,
+        "Cast": 179,
+        "Concat": 49,
+        "Constant": 291,
+        "ConstantOfShape": 1,
+        "CumSum": 1,
+        "Div": 49,
+        "Equal": 2,
+        "Erf": 12,
+        "Expand": 1,
+        "Gather": 101,
+        "MatMul": 97,
+        "Mul": 52,
+        "Not": 1,
+        "Pow": 25,
+        "ReduceMean": 50,
+        "Reshape": 49,
+        "Shape": 99,
+        "Slice": 1,
+        "Softmax": 12,
+        "Sqrt": 25,
+        "Sub": 26,
+        "Transpose": 48,
+        "Unsqueeze": 101,
+        "Where": 1
+      },
+      "initialiseurs_par_type": {
+        "FLOAT16": 199
+      }
+    }
+  }
+}
