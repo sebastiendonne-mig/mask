@@ -11,6 +11,11 @@
 // indicatif, jamais pour la mise au point : seuils.md, amendement (4)).
 // Le jeu de test ne s'évalue qu'avec --split test --mesure-finale (mesure finale,
 // une seule fois, sur demande explicite de Sébastien).
+//
+// Moteur de référence (seuils.md, amendement (5)) : --moteur wasm --modele <clé du manifeste>
+// évalue le détecteur src/modele.mjs ou src/combine.mjs sous onnxruntime-web WASM avec ce
+// fichier modèle (scripts/navigateur/detecteur-wasm.mjs : clé du manifeste et empreinte
+// vérifiées). Sans --moteur : détecteur importé tel quel, comme au lot 1.5a.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,6 +50,10 @@ const AVEC_LISTES = ['dev', 'robustesse'];
 const SIGNIFIANT = /[\p{L}\p{N}]/u;
 
 const chevauche = (a, b) => a.start < b.end && b.start < a.end;
+
+// Détecteurs évaluables sous le moteur WASM (--moteur wasm), même liste que
+// scripts/navigateur/detecteur-wasm.mjs.
+const DETECTEURS_WASM = { 'src/modele.mjs': 'modele', 'src/combine.mjs': 'combine' };
 
 // --- Masques ---------------------------------------------------------------------
 
@@ -268,6 +277,10 @@ export function rapportMarkdown(r) {
   l.push(`- Date (UTC) : ${r.date}`);
   l.push(`- Commit : \`${r.git.hash}\`${r.git.propre ? '' : ' + modifications non commitées'} (arbre propre : ${r.git.propre ? 'oui' : 'non'})`);
   l.push(`- Détecteur : ${r.detecteur.nom} ${r.detecteur.version} (\`${r.detecteur.module}\`)`);
+  if (r.detecteur.moteur) {
+    const m = r.detecteur.moteur;
+    l.push(`- Moteur : ${m.paquet} ${m.version} (${m.build}), ${m.threads} thread ; modèle \`${m.modele.cle}\` (${m.modele.octets} octets, SHA-256 \`${m.modele.sha256}\`) ; tokenizer et configuration ${m.tokenizer}`);
+  }
   l.push(`- Documents : ${r.documents}`);
   l.push(`- Protocole : ${r.protocole}`, '');
 
@@ -340,13 +353,20 @@ export function verifierArguments(args) {
       'mesure-finale': { type: 'boolean', default: false },
       detecteur: { type: 'string', default: 'src/regles.mjs' },
       sortie: { type: 'string' },
+      moteur: { type: 'string' },
+      modele: { type: 'string' },
     },
   });
+  if (values.moteur !== undefined) {
+    if (values.moteur !== 'wasm') throw new Error(`--moteur : « wasm » seulement, pas « ${values.moteur} »`);
+    if (!values.modele) throw new Error('--moteur wasm : --modele <clé du manifeste> requis');
+    if (!Object.hasOwn(DETECTEURS_WASM, path.relative(RACINE, path.resolve(values.detecteur)))) throw new Error(`--moteur wasm : --detecteur ${Object.keys(DETECTEURS_WASM).join(' ou ')} seulement`);
+  } else if (values.modele !== undefined) throw new Error('--modele : seulement avec --moteur wasm');
   if (!Object.hasOwn(MENTIONS, values.split)) throw new Error(`--split : « dev », « test » ou « robustesse », pas « ${values.split} »`);
   if (values.split === 'test' && !values['mesure-finale']) {
     throw new Error('refus : le jeu de test est scellé. Il ne sert qu’une fois, pour la mesure finale, sur demande explicite : --split test --mesure-finale.');
   }
-  return { split: values.split, mesureFinale: values['mesure-finale'], detecteur: values.detecteur, sortie: values.sortie ?? null };
+  return { split: values.split, mesureFinale: values['mesure-finale'], detecteur: values.detecteur, sortie: values.sortie ?? null, moteur: values.moteur ?? null, modele: values.modele ?? null };
 }
 
 function etatGit() {
@@ -368,7 +388,9 @@ async function principal() {
   const date = new Date().toISOString();
 
   const cheminDetecteur = path.resolve(process.cwd(), options.detecteur);
-  const detecteur = await import(pathToFileURL(cheminDetecteur).href);
+  const detecteur = options.moteur
+    ? await (await import('./navigateur/detecteur-wasm.mjs')).creerDetecteur(DETECTEURS_WASM[path.relative(RACINE, cheminDetecteur)], options.modele)
+    : await import(pathToFileURL(cheminDetecteur).href);
   if (typeof detecteur.detecter !== 'function' || !detecteur.nom || !detecteur.version) {
     throw new Error(`${options.detecteur} doit exporter nom, version et detecter(texte)`);
   }
@@ -386,7 +408,7 @@ async function principal() {
   const rapport = {
     date,
     git,
-    detecteur: { nom: detecteur.nom, version: detecteur.version, module: path.relative(RACINE, cheminDetecteur) },
+    detecteur: { nom: detecteur.nom, version: detecteur.version, module: path.relative(RACINE, cheminDetecteur), ...(detecteur.moteur ? { moteur: detecteur.moteur } : {}) },
     split: options.split,
     mention: MENTIONS[options.split],
     documents: docs.length,

@@ -218,3 +218,19 @@ test('le jeu de robustesse s’évalue sans --mesure-finale', () => {
   assert.equal(o.split, 'robustesse');
   assert.equal(o.mesureFinale, false);
 });
+
+test('moteur wasm : options vérifiées, comportement par défaut inchangé', () => {
+  const defaut = verifierArguments([]);
+  assert.equal(defaut.moteur, null);
+  assert.equal(defaut.modele, null);
+  assert.equal(defaut.detecteur, 'src/regles.mjs');
+  const o = verifierArguments(['--detecteur', 'src/combine.mjs', '--moteur', 'wasm', '--modele', 'compression/fp16-mixte/model.onnx']);
+  assert.equal(o.moteur, 'wasm');
+  assert.equal(o.modele, 'compression/fp16-mixte/model.onnx');
+  assert.equal(verifierArguments(['--detecteur', 'src/modele.mjs', '--moteur', 'wasm', '--modele', 'x.onnx']).detecteur, 'src/modele.mjs');
+  assert.throws(() => verifierArguments(['--detecteur', 'src/modele.mjs', '--moteur', 'natif', '--modele', 'x.onnx']), /wasm/);
+  assert.throws(() => verifierArguments(['--detecteur', 'src/modele.mjs', '--moteur', 'wasm']), /--modele/);
+  assert.throws(() => verifierArguments(['--moteur', 'wasm', '--modele', 'x.onnx']), /--detecteur/);
+  assert.throws(() => verifierArguments(['--detecteur', 'src/modele.mjs', '--modele', 'x.onnx']), /--moteur wasm/);
+  assert.throws(() => verifierArguments(['--split', 'test', '--detecteur', 'src/modele.mjs', '--moteur', 'wasm', '--modele', 'x.onnx']), /scellé/);
+});
