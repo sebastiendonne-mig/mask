@@ -10,6 +10,9 @@
 //   à chaque chargement.
 // - La bibliothèque reçoit les octets par env.customCache ; env.fetch est remplacé par une
 //   fonction qui refuse et note toute tentative.
+// - Banc de mesure : configurer({ modele }) charge un autre fichier ONNX inscrit au manifeste
+//   (candidats de l'option 3) à la place du q8, sous la même clé pour la bibliothèque ; sans
+//   cette option, fichiers, URL, clés et cache sont ceux du q8 épinglé.
 
 import { DEPOT, REVISION, FICHIERS, fabriqueDetecteur, preparer } from './modele-commun.mjs';
 
@@ -43,6 +46,7 @@ export const etat = {
   variante: null,
   numThreadsDemande: null,
   numThreads: null,
+  modele: null, // clé du manifeste du fichier ONNX chargé
   versions: null,
   mesures: {}, // instants performance.now() des étapes
   fichiers: [], // { chemin, octets, depuisCache, sha256 }
@@ -52,12 +56,22 @@ export const etat = {
 
 const marquer = (nom) => (etat.mesures[nom] = performance.now());
 
-let configuration = { variante: 'asyncify', numThreads: undefined };
+let configuration = { variante: 'asyncify', numThreads: undefined, modele: null };
+
+// Fichier ONNX que la bibliothèque charge (dtype q8).
+const FICHIER_ONNX = 'onnx/model_quantized.onnx';
+
+// Clé du manifeste d'un fichier ONNX à charger à la place du q8 épinglé (banc de mesure) :
+// chemin relatif à modeles/, sans « .. », terminé par .onnx.
+export const cleModeleValide = (cle) => typeof cle === 'string' && /^[a-z0-9][a-z0-9._-]*(\/[a-z0-9][a-z0-9._-]*)*\.onnx$/.test(cle) && !cle.split('/').includes('..');
 
 // À appeler avant charger(). numThreads : undefined → défaut d'onnxruntime-web.
-export function configurer({ variante = 'asyncify', numThreads } = {}) {
+// modele : null → q8 épinglé (FICHIERS) ; sinon clé du manifeste du fichier ONNX à charger,
+// vérifié contre son empreinte et remis à la bibliothèque à la place du q8.
+export function configurer({ variante = 'asyncify', numThreads, modele = null } = {}) {
   if (!Object.hasOwn(VARIANTES, variante)) throw new Error(`modèle : variante WASM inconnue « ${variante} »`);
-  configuration = { variante, numThreads };
+  if (modele !== null && !cleModeleValide(modele)) throw new Error(`modèle : clé de fichier ONNX invalide « ${modele} »`);
+  configuration = { variante, numThreads, modele };
 }
 
 const hex = (tampon) => [...new Uint8Array(tampon)].map((o) => o.toString(16).padStart(2, '0')).join('');
@@ -109,20 +123,27 @@ export function charger() {
     const cacheModele = await caches.open(`mask-modele-${REVISION}`);
     const cacheOrt = await caches.open(`mask-ort-${ort.env.versions.web}`);
     const manifeste = lireManifeste(await (await fetch(CHEMINS.manifeste, { cache: 'no-cache' })).text());
+    // URL et clé du manifeste de chaque fichier ; seul le fichier ONNX change si un modèle est configuré.
+    const sources = FICHIERS.map((f) =>
+      configuration.modele && f === FICHIER_ONNX
+        ? { url: absolue(`/modeles/${configuration.modele}`), cle: configuration.modele }
+        : { url: absolue(CHEMINS.modele + f), cle: `camembert-ner/${REVISION}/${f}` },
+    );
+    etat.modele = sources[FICHIERS.indexOf(FICHIER_ONNX)].cle;
     const [modele, wasm] = await Promise.all([
-      Promise.all(FICHIERS.map((f) => obtenir(cacheModele, absolue(CHEMINS.modele + f)))),
+      Promise.all(sources.map((s) => obtenir(cacheModele, s.url))),
       Promise.all([wasmPaths.wasm, wasmPaths.mjs].map((u) => obtenir(cacheOrt, u))),
     ]);
     marquer('telechargement');
 
     // Empreintes du modèle, à chaque chargement (aussi depuis le cache).
-    for (const [i, f] of FICHIERS.entries()) {
-      const attendu = manifeste.get(`camembert-ner/${REVISION}/${f}`);
-      if (!attendu) throw new Error(`modèle : ${f} absent du manifeste`);
+    for (const i of FICHIERS.keys()) {
+      const attendu = manifeste.get(sources[i].cle);
+      if (!attendu) throw new Error(`modèle : ${sources[i].cle} absent du manifeste`);
       const obtenu = hex(await crypto.subtle.digest('SHA-256', modele[i].octets));
       if (obtenu !== attendu) {
         await cacheModele.delete(modele[i].url);
-        throw new Error(`modèle : empreinte différente pour ${f} (attendu ${attendu}, obtenu ${obtenu})`);
+        throw new Error(`modèle : empreinte différente pour ${sources[i].cle} (attendu ${attendu}, obtenu ${obtenu})`);
       }
       modele[i].sha256 = obtenu;
     }

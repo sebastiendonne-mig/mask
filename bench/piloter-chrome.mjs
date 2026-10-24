@@ -1,6 +1,7 @@
 // Pilotage automatique du banc dans le Chrome installé (Playwright, canal « chrome »), lot 1.5b.
 //
 //   node bench/piloter-chrome.mjs [--repetitions 5] [--configs a,b,c,d] [--sortie resultats/navigateur] [--essai]
+//                                 [--modele <clé du manifeste>]
 //
 // Configurations (serveur bench/serveur.mjs, débit simulé 100 Mb/s côté serveur) :
 //   a  non isolée (pas de COOP/COEP) : 1 thread par défaut, variante WASM par défaut (asyncify)
@@ -13,6 +14,11 @@
 // masques des moteurs Node (scripts/navigateur/moteurs-node.mjs) pour expliquer les écarts.
 //
 // Sans --essai : refuse de mesurer si l'arbre git n'est pas propre ; écrit chrome.json et chrome.md.
+//
+// --modele : fichier ONNX chargé par la page à la place du q8 épinglé (clé de
+// modeles/MANIFEST.sha256, par exemple compression/int8-matmul/model.onnx), option 3, étape 2f.
+// Consigné dans le rapport ; chaque visite réussie doit avoir chargé ce fichier avec son
+// empreinte du manifeste, sinon le pilote s'arrête. Sans --modele : q8 épinglé, comme au lot 1.5b.
 
 import fs from 'node:fs';
 import os from 'node:os';
@@ -22,6 +28,8 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { chromium } from 'playwright';
 import { creerServeur } from './serveur.mjs';
+import { REVISION } from '../src/modele-commun.mjs';
+import { cleModeleValide } from '../src/modele-navigateur.mjs';
 import { parMoteur, documentsDev } from '../scripts/navigateur/moteurs-node.mjs';
 
 const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -277,6 +285,7 @@ function rapport(r) {
   p(`# Banc navigateur — Chrome (lot 1.5b)`, '');
   p(`> Jeu de développement (17 documents, 23 280 caractères) : indicatif, pas la mesure finale.${r.essai ? ' **ESSAI — pas une mesure de référence.**' : ''}`, '');
   p(`- Date : ${r.date}`, `- Commit : \`${r.git.hash}\` ; arbre propre : ${r.git.propre ? 'oui' : 'non'}`, `- Détecteur : ${r.detecteur}`);
+  if (r.modele) p(`- Fichier modèle chargé par la page : \`${r.modele.cle}\` (SHA-256 \`${r.modele.sha256}\`)${r.modele.option ? ` — option --modele` : ' — q8 épinglé, sans --modele'} ; contrôlé à chaque visite réussie`);
   p(`- Machine : ${e.machine} ; ${e.systeme}`, `- ${e.chrome} (Playwright ${e.playwright}, canal chrome, fenêtre visible) ; Node ${e.node}`);
   p(`- Transformers.js ${e.transformers} ; onnxruntime-web ${e.onnxruntimeWeb} ; backend WASM (WebGPU hors périmètre)`);
   p(`- Débit simulé : ${DEBIT} Mb/s, côté serveur (seau partagé par toutes les réponses, boucle locale : ni latence ni perte, donc optimiste par rapport à un vrai réseau)`);
@@ -379,22 +388,33 @@ async function main() {
       configs: { type: 'string', default: CONFIGS.map((c) => c.id).join(',') },
       sortie: { type: 'string', default: path.join(RACINE, 'resultats', 'navigateur') },
       essai: { type: 'boolean', default: false },
+      modele: { type: 'string' },
     },
   });
+  if (values.modele !== undefined && !cleModeleValide(values.modele)) throw new Error(`--modele : clé invalide « ${values.modele} »`);
+  const cleModele = values.modele ?? `camembert-ner/${REVISION}/onnx/model_quantized.onnx`;
+  const shaModele = new Map(fs.readFileSync(path.join(RACINE, 'modeles', 'MANIFEST.sha256'), 'utf8').split('\n').filter(Boolean).map((l) => l.split(/ [ *]/).reverse())).get(cleModele);
+  if (!shaModele) throw new Error(`--modele : ${cleModele} absent de modeles/MANIFEST.sha256`);
   const repetitions = Number(values.repetitions);
   const configs = values.configs.split(',').map((id) => CONFIGS.find((c) => c.id === id) ?? (() => { throw new Error(`configuration inconnue : ${id}`); })());
   const propre = executer('git', ['status', '--porcelain']) === '';
   if (!propre && !values.essai) throw new Error('arbre git non propre : mesure refusée (commiter d\'abord, ou --essai)');
   const git = { hash: executer('git', ['rev-parse', 'HEAD']), propre };
   const environnement = lireEnvironnement();
-  console.log(`commit ${git.hash.slice(0, 7)} (propre : ${propre}) ; ${environnement.chrome} ; ${repetitions} répétitions ; configurations ${configs.map((c) => c.id).join(', ')}`);
+  console.log(`commit ${git.hash.slice(0, 7)} (propre : ${propre}) ; ${environnement.chrome} ; ${repetitions} répétitions ; configurations ${configs.map((c) => c.id).join(', ')} ; modèle ${cleModele}`);
 
   const serveurs = {};
   for (const isolation of [false, true]) {
     const s = creerServeur({ isolation, debit: DEBIT });
     serveurs[isolation] = { s, port: await s.ecouter(0) };
   }
-  const url = (cfg, extra = '') => `http://127.0.0.1:${serveurs[cfg.isolation].port}/bench/index.html?auto=1&variante=${cfg.variante}&threads=${cfg.threads}${extra}`;
+  const parametreModele = values.modele ? `&modele=${encodeURIComponent(values.modele)}` : '';
+  const url = (cfg, extra = '') => `http://127.0.0.1:${serveurs[cfg.isolation].port}/bench/index.html?auto=1&variante=${cfg.variante}&threads=${cfg.threads}${parametreModele}${extra}`;
+  // Une visite réussie doit avoir chargé le fichier demandé, avec l'empreinte du manifeste.
+  const controlerModele = (r) => {
+    const onnx = r.fichiers.find((f) => f.chemin === `/modeles/${cleModele}`);
+    if (r.config.modeleCharge !== cleModele || onnx?.sha256 !== shaModele) throw new Error(`modèle chargé ${r.config.modeleCharge} (${onnx?.sha256 ?? 'empreinte absente'}), attendu ${cleModele} (${shaModele})`);
+  };
   const nouveauProfil = () => fs.mkdtempSync(path.join(os.tmpdir(), 'mask-banc-'));
 
   const visites = [];
@@ -414,6 +434,7 @@ async function main() {
           }
           visites.push({ config: cfg.id, repetition: rep, visite: n, ...v });
           const r = v.resultat;
+          if (r?.ok) controlerModele(r);
           console.log(`rép. ${rep} config ${cfg.id} visite ${n} : ${r?.ok ? `règles ${r.temps.reglesPretes} ms, modèle prêt ${r.temps.modelePret} ms, ${r.numThreads} thread(s), ${r.s8.msPour1000Caracteres} ms/1000 car.` : `ÉCHEC ${r?.erreur ?? v.erreur}`}`);
           if (!r?.ok) {
             if (rep === 1 && n === 1) abandon.add(cfg.id);
@@ -454,6 +475,7 @@ async function main() {
     git,
     environnement,
     detecteur: 'combiné = règles 0.4.0 + modèle 0.2.0 (gel mask-1.5a-gel)',
+    modele: { cle: cleModele, sha256: shaModele, option: values.modele ?? null },
     debitMbps: DEBIT,
     repetitions,
     configurations: configs,

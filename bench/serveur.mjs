@@ -10,6 +10,8 @@
 // - CSP sur toutes les réponses : aucune connexion hors de l'origine, aucun script tiers.
 // - transformers.web.min.js est servi avec ses deux spécificateurs nus réécrits en chemins
 //   locaux (ce que ferait un bundler) : un Worker n'hérite pas de l'import map de la page.
+// - Candidats de l'option 3 : les fichiers modeles/compression/<recette>/model.onnx inscrits
+//   dans modeles/MANIFEST.sha256 sont servis aussi (option 3, étape 2f).
 
 import http from 'node:http';
 import fs from 'node:fs';
@@ -71,9 +73,14 @@ const fixes = new Map([
 for (const v of VARIANTES_WASM) for (const ext of ['.mjs', '.wasm']) fixes.set(`/vendor/ort/${v}${ext}`, path.join(ORT_DIST, v + ext));
 for (const f of FICHIERS) fixes.set(`/modeles/camembert-ner/${REVISION}/${f}`, path.join(RACINE, 'modeles', 'camembert-ner', REVISION, ...f.split('/')));
 for (const f of fs.readdirSync(ORT_COMMON).filter((x) => /^[a-z-]+\.js$/.test(x))) fixes.set(`/vendor/onnxruntime-common/${f}`, path.join(ORT_COMMON, f));
+export const CANDIDAT = /^[0-9a-f]{64} [ *](compression\/[a-z0-9-]+\/model\.onnx)$/;
+for (const ligne of fs.readFileSync(path.join(RACINE, 'modeles', 'MANIFEST.sha256'), 'utf8').split('\n')) {
+  const m = CANDIDAT.exec(ligne);
+  if (m) fixes.set(`/modeles/${m[1]}`, path.join(RACINE, 'modeles', ...m[1].split('/')));
+}
 
 // Fichiers versionnés (chemin qui change avec la version) : mis en cache sans revalidation.
-const immuable = (chemin) => chemin.startsWith('/vendor/') || chemin.startsWith('/modeles/camembert-ner/');
+const immuable = (chemin) => chemin.startsWith('/vendor/') || chemin.startsWith('/modeles/camembert-ner/') || chemin.startsWith('/modeles/compression/');
 
 const DOC_DEV = /^\/golden\/dev\/(dev-[a-z]+-\d{2})\.txt$/;
 

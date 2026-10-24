@@ -1,7 +1,7 @@
 // Worker du banc de mesure (lot 1.5b) : charge le modèle, fait l'inférence de chauffe, traite
 // les documents (règles puis modèle) et renvoie temps, masques et état du chargeur.
 //
-// Messages reçus : { type: 'config', config: { variante, numThreads, diagnostic } } (lance le
+// Messages reçus : { type: 'config', config: { variante, numThreads, modele, diagnostic } } (lance le
 // chargement) puis { type: 'documents', documents: [{ id, texte }] }.
 
 import * as modele from '/src/modele-navigateur.mjs';
@@ -18,7 +18,7 @@ let config = null;
 let pret = null;
 
 async function preparer() {
-  modele.configurer({ variante: config.variante, numThreads: config.numThreads });
+  modele.configurer({ variante: config.variante, numThreads: config.numThreads, modele: config.modele ?? null });
   const c = await modele.charger();
   const t0 = performance.now();
   await modele.detecter(PHRASE_CHAUFFE);

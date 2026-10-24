@@ -2,10 +2,11 @@
 // (performance.timeOrigin de la page) ; ceux du Worker y sont ramenés par son timeOrigin.
 //
 // Paramètres d'URL : variante=auto|asyncify|simple, threads=defaut|1, auto=1 (lance la mesure
-// au chargement), diagnostic=1 (scores par mot, après la mesure). Résultat : window.__resultat
+// au chargement), diagnostic=1 (scores par mot, après la mesure), modele=<clé du manifeste>
+// (fichier ONNX chargé à la place du q8 épinglé, src/modele-navigateur.mjs). Résultat : window.__resultat
 // et bouton de téléchargement JSON. Aucune requête sortante autre que GET vers l'origine.
 
-import { varianteParDefaut } from '/src/modele-navigateur.mjs';
+import { varianteParDefaut, cleModeleValide } from '/src/modele-navigateur.mjs';
 
 const PAGE = 3000; // caractères par « page » : convention déclarée (S8), pas une norme
 const PHRASE_REGLES = 'Madame Lucie Fabre, 12 rue des Ormeaux, 25000 Besançon, lucie.fabre@exemple.fr.';
@@ -17,6 +18,7 @@ const params = new URLSearchParams(location.search);
 const choixVariante = ['asyncify', 'simple'].includes(params.get('variante')) ? params.get('variante') : 'auto';
 const choixThreads = params.get('threads') === '1' ? '1' : 'defaut';
 const diagnostic = params.get('diagnostic') === '1';
+const choixModele = cleModeleValide(params.get('modele')) ? params.get('modele') : null;
 
 const $ = (s) => document.querySelector(s);
 const formulaire = $('#reglages');
@@ -24,7 +26,7 @@ formulaire.variante.value = choixVariante;
 formulaire.threads.value = choixThreads;
 formulaire.addEventListener('submit', (e) => {
   e.preventDefault();
-  const p = new URLSearchParams({ variante: formulaire.variante.value, threads: formulaire.threads.value, auto: '1' });
+  const p = new URLSearchParams({ variante: formulaire.variante.value, threads: formulaire.threads.value, auto: '1', ...(choixModele ? { modele: choixModele } : {}) });
   location.search = p.toString();
 });
 
@@ -51,7 +53,7 @@ async function lancer() {
     w.onmessage = (e) => ok(e.data);
     w.onerror = (e) => ok({ ok: false, erreur: `Worker : ${e.message ?? 'erreur de chargement'}` });
   });
-  w.postMessage({ type: 'config', config: { variante, numThreads, diagnostic } });
+  w.postMessage({ type: 'config', config: { variante, numThreads, modele: choixModele, diagnostic } });
 
   // Règles prêtes : module importé et premier appel terminé (thread principal).
   const regles = await import('/src/regles.mjs');
@@ -96,6 +98,8 @@ function assembler(r, { variante, numThreads, reglesPretes, reference }) {
       isolation: self.crossOriginIsolated,
       isolationWorker: r.crossOriginIsolated ?? null,
       diagnostic,
+      modeleDemande: choixModele,
+      modeleCharge: r.etat?.modele ?? null,
     },
     ok: Boolean(r.ok),
     erreur: r.erreur ?? null,
