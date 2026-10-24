@@ -132,7 +132,7 @@ Règle de mesure : même bibliothèque que l'app (Transformers.js), pour que les
 - Correctif technique : autorisé seulement s'il ne change ni les poids ni les calculs (par exemple le type ou le nom d'une sortie). Il est consigné et commité avant toute remesure. Sinon, le candidat est éliminé.
 - Règle de choix, étalon, définition de la fidélité, marge S7 : inchangés.
 
-### Amendement (7) — 24/10/2026 — préversion publique et report des améliorations, avant tout développement de l'application
+### 24/10/2026 (7) — préversion publique et report des améliorations, avant tout développement de l'application
 
 - Préversion : une préversion de l'application peut être mise en ligne avant la décision go/no-go sur le jeu de test. Elle utilise les règles gelées (0.4.0, commit 6956895) et le modèle C (étiquette mask-option3-gel). La préversion n'est pas un go ; les seuils ne changent pas.
 - Conditions non négociables : S1 vérifié sur la version en ligne avant ouverture ; relecture humaine de chaque remplacement ; bandeau « préversion » ; limites affichées avec les résultats mesurés, échecs compris (jeu de robustesse : S2 95,2 %, S4 63,2 %) ; jamais « anonymisé » ni « conforme RGPD ».
@@ -140,5 +140,6 @@ Règle de mesure : même bibliothèque que l'app (Transformers.js), pour que les
 - Tokenizer : tokenizer.json régénéré depuis le sentencepiece.bpe.model de Jean-Baptiste/camembert-ner (révision ef35fe7), retenu seulement s'il produit des identifiants de tokens identiques à ceux du tokenizer actuel (Xenova) sur tout le jeu de développement. À défaut, la préversion garde le tokenizer Xenova et sa licence non déclarée est documentée.
 - Hébergement : fichiers du modèle publiés sur un dépôt Hugging Face au nom de Sébastien, avec la notice de licence MIT de Jean-Baptiste et des empreintes identiques au manifeste ; page de l'application sur Vercel.
 - Lot 1.6 (petit LLM challenger) : abandonné.
-- ossredact-pii-base : inaccessible publiquement au 24/10/2026 (API Hugging Face : HTTP 401, aucun modèle public de l'auteur). La règle du 21/10/2026 « si S3 ou S4 échoue, la liste des candidats est réexaminée (ossredact est prêt sans conversion) » n'a plus de candidat prêt ; la liste sera réexaminée si besoin.
+- ossredact-pii-base : déjà retiré des candidats le 21/10/2026 (amendement du 21/10/2026, ligne 80), et en outre inaccessible publiquement au 24/10/2026 (API Hugging Face : HTTP 401, aucun modèle public de l'auteur). Si la règle du 21/10/2026 s'applique (« En cas d'échec de S3 ou S4, la liste des candidats est réexaminée ; les seuils ne sont pas modifiés. »), il ne pourra pas servir de candidat.
 - Reporté après la préversion (v1) : règles v2 mises au point sur un nouveau jeu écrit par Claude, et validées sur un jeu indépendant écrit par Mistral (figé par empreintes avant mesure, mesuré une seule fois ; critère : S2 = 100 %, S3 ≥ 95 %, S4 ≥ 90 %) ; remesure unique du jeu de robustesse, présentée comme non indépendante ; mesure finale sur le jeu de test (lot 1.7) après les règles v2 ; Safari, Firefox et mobile ; formats .docx et PDF. La marge de 24 s de l'amendement (5) s'applique à tout modèle qui remplacerait C.
+- Correction du 24/10/2026, après publication : citation de la règle du 21/10/2026 rétablie mot pour mot, statut d'ossredact précisé, format du titre aligné. Version d'origine : commit e94399b.
