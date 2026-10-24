@@ -1,0 +1,1 @@
+Pronostic de Claude (24/10/2026), écrit avant la mesure : 1re visite max entre 22 et 26 s (C en local : 23,3 s, plus la latence et la redirection de Hugging Face) ; visite suivante ≤ 5 s ; S1 : 0 POST, uniquement les hôtes autorisés.
