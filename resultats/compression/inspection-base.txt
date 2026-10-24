@@ -1,0 +1,134 @@
+# Inspection de la base — 2026-10-24T08:35:27Z — commit 1215951
+# A = modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx (Jean-Baptiste/camembert-ner@ef35fe7767c1dad71f5c853838cdd80d0b3441ed)
+# B = modeles/camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model.onnx (Xenova/camembert-ner@8e1988247e872ba0137062653b1e5033a31e14fc)
+
+## Empreintes (modeles/MANIFEST.sha256)
+camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/config.json: OK
+camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/tokenizer.json: OK
+camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/tokenizer_config.json: OK
+camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model_quantized.onnx: OK
+camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model.onnx: OK
+camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx: OK
+
+## Fichiers des deux dépôts aux révisions épinglées (API Hugging Face)
+### Jean-Baptiste/camembert-ner
+sha: ef35fe7767c1dad71f5c853838cdd80d0b3441ed
+.gitattributes               size=798         blob=8d8412d0a27fd31d761a31591301a6a470f3e86b lfs_sha256=-
+README.md                    size=3128        blob=4d03b63675081ab4af1a07c2a0f49ed897e44a97 lfs_sha256=-
+config.json                  size=892         blob=1830e8fcc7d7b3c91a9fe97256ab15a712e844fc lfs_sha256=-
+model.onnx                   size=440422178   blob=6698fe95ce1d155f2524f0b65ed10c2548e20227 lfs_sha256=c9dfa2ec9e0bfad82d606782ba3e0ab94c001c46481514e0658fc20a624845c5
+model.safetensors            size=440168896   blob=cf43d59185c1dcae1ca9b11444a2a06ea2945348 lfs_sha256=decc811bc764b0e94f1adc16b37a127300201eb8b5e4b733a89185d68b9d81c9
+pytorch_model.bin            size=440227047   blob=ab8b1aef710bb3e46fabb9e7945acc5f5cea417d lfs_sha256=c9f586c5bc5943992fa49fe0c0c390dace2a48288d1cec0680cd96fcd17ed037
+sentencepiece.bpe.model      size=810912      blob=489f0a584f6d2d94aa9c868e321394d656d62822 lfs_sha256=988bc5a00281c6d210a5d34bd143d0363741a432fefe741bf71e61b1869d4314
+special_tokens_map.json      size=210         blob=b74bdc940b6d15249405ac96b17f27e8c17be35e lfs_sha256=-
+tokenizer_config.json        size=269         blob=092c1a2335fa7715b2ac7571079cef8dcc444f13 lfs_sha256=-
+vocab.txt                    size=317130      blob=9d00608953e1f8b90042380b3d87cad4130c4b98 lfs_sha256=-
+### Xenova/camembert-ner
+sha: 8e1988247e872ba0137062653b1e5033a31e14fc
+.gitattributes               size=1519        blob=a6344aac8c09253b3b630fb776ae94478aa0275b lfs_sha256=-
+README.md                    size=547         blob=64aae9139034a68e389886249105dfb219114b49 lfs_sha256=-
+config.json                  size=941         blob=13dd34b6d8ad5559f6e315c3c313d5a03760c79e lfs_sha256=-
+onnx/model.onnx              size=440422177   blob=31dbb1c216422352ce8b41342d4b827fc05035a7 lfs_sha256=0a2c64c0f051642a3002e5cef91861a26eaa44cceedceac4ce8eabee3fac4f75
+onnx/model_quantized.onnx    size=111284131   blob=e80a6d6cace770a37784826f7476e50f55116b0c lfs_sha256=43507a27e7e5500b5e197c8c7de803bc94bcc29ce156fcbb19bda18ed322960d
+quantize_config.json         size=834         blob=9e09a1b758e6c998f1f16f4f29daad5ca344d5fe lfs_sha256=-
+sentencepiece.bpe.model      size=810912      blob=489f0a584f6d2d94aa9c868e321394d656d62822 lfs_sha256=988bc5a00281c6d210a5d34bd143d0363741a432fefe741bf71e61b1869d4314
+special_tokens_map.json      size=241         blob=ee99658bfc3a8ae8296264ccfb8fd482ef7394d9 lfs_sha256=-
+tokenizer.json               size=2421091     blob=08441c67492a51f6fea26376c6754f1dadd802ff lfs_sha256=-
+tokenizer_config.json        size=516         blob=398811a15dea0441f44c64ad89e1a1cd04e84b84 lfs_sha256=-
+
+## config.json Jean-Baptiste (API) contre config.json Xenova épinglé
+id2label JB    : {'0': 'O', '1': 'I-LOC', '2': 'I-PER', '3': 'I-MISC', '4': 'I-ORG'}
+id2label Xenova: {'0': 'O', '1': 'I-LOC', '2': 'I-PER', '3': 'I-MISC', '4': 'I-ORG'}
+id2label identique : True
+label2id identique : True
+  diffère _name_or_path: JB='camembert-base'  Xenova='Jean-Baptiste/camembert-ner'
+  diffère transformers_version: JB='4.3.2'  Xenova='4.34.0.dev0'
+
+## Inspection et comparaison (inspecter.py)
+===== A modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx
+ir_version: 6
+opset_import: [('ai.onnx', 11)]
+producer_name: 'pytorch'  producer_version: '1.13.1'
+domain: ''  model_version: 0  doc_string: ''
+metadata_props: []
+graph.name: 'torch_jit'  graph.doc_string: ''
+entrées:
+   input_ids  INT64  ['batch_size', 'sequence_length']
+   attention_mask  INT64  ['batch_size', 'sequence_length']
+sorties:
+   logits  FLOAT  ['batch_size', 'sequence_length', 5]
+nœuds: 1271  initialiseurs: 199  value_info: 0  sparse_init: 0  functions: 0
+types d'opérateurs: {('ai.onnx', 'Constant'): 291, ('ai.onnx', 'Add'): 174, ('ai.onnx', 'Gather'): 101, ('ai.onnx', 'Unsqueeze'): 101, ('ai.onnx', 'Shape'): 99, ('ai.onnx', 'MatMul'): 97, ('ai.onnx', 'Mul'): 52, ('ai.onnx', 'ReduceMean'): 50, ('ai.onnx', 'Concat'): 49, ('ai.onnx', 'Reshape'): 49, ('ai.onnx', 'Div'): 49, ('ai.onnx', 'Transpose'): 48, ('ai.onnx', 'Sub'): 26, ('ai.onnx', 'Pow'): 25, ('ai.onnx', 'Sqrt'): 25, ('ai.onnx', 'Softmax'): 12, ('ai.onnx', 'Erf'): 12, ('ai.onnx', 'Cast'): 3, ('ai.onnx', 'Equal'): 2, ('ai.onnx', 'Slice'): 1, ('ai.onnx', 'ConstantOfShape'): 1, ('ai.onnx', 'Where'): 1, ('ai.onnx', 'Expand'): 1, ('ai.onnx', 'Not'): 1, ('ai.onnx', 'CumSum'): 1}
+opérateurs fusionnés / hors domaine standard: aucun
+initialiseurs à données externes: 0
+===== B modeles/camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model.onnx
+ir_version: 6
+opset_import: [('ai.onnx', 11)]
+producer_name: 'pytorch'  producer_version: '2.0.1'
+domain: ''  model_version: 0  doc_string: ''
+metadata_props: []
+graph.name: 'torch_jit'  graph.doc_string: ''
+entrées:
+   input_ids  INT64  ['batch_size', 'sequence_length']
+   attention_mask  INT64  ['batch_size', 'sequence_length']
+sorties:
+   logits  FLOAT  ['batch_size', 'sequence_length', 5]
+nœuds: 1271  initialiseurs: 199  value_info: 0  sparse_init: 0  functions: 0
+types d'opérateurs: {('ai.onnx', 'Constant'): 291, ('ai.onnx', 'Add'): 174, ('ai.onnx', 'Gather'): 101, ('ai.onnx', 'Unsqueeze'): 101, ('ai.onnx', 'Shape'): 99, ('ai.onnx', 'MatMul'): 97, ('ai.onnx', 'Mul'): 52, ('ai.onnx', 'ReduceMean'): 50, ('ai.onnx', 'Concat'): 49, ('ai.onnx', 'Reshape'): 49, ('ai.onnx', 'Div'): 49, ('ai.onnx', 'Transpose'): 48, ('ai.onnx', 'Sub'): 26, ('ai.onnx', 'Pow'): 25, ('ai.onnx', 'Sqrt'): 25, ('ai.onnx', 'Softmax'): 12, ('ai.onnx', 'Erf'): 12, ('ai.onnx', 'Cast'): 3, ('ai.onnx', 'Equal'): 2, ('ai.onnx', 'Slice'): 1, ('ai.onnx', 'ConstantOfShape'): 1, ('ai.onnx', 'Where'): 1, ('ai.onnx', 'Expand'): 1, ('ai.onnx', 'Not'): 1, ('ai.onnx', 'CumSum'): 1}
+opérateurs fusionnés / hors domaine standard: aucun
+initialiseurs à données externes: 0
+===== Comparaison A (Jean-Baptiste) / B (Xenova fp32)
+  ir_version: identique
+  producer_name: identique
+  producer_version: DIFFÈRE '1.13.1' / '2.0.1'
+  domain: identique
+  model_version: identique
+  doc_string: identique
+  opset_import: identique
+  metadata_props: identique
+  graph.name: identique
+  entrées: identiques
+  sorties: identiques
+  value_info: identiques
+  nœuds: 1271 / 1271 ; liste sérialisée identique (ordre compris) : False
+    positions de nœuds différentes : 75 ; premières : [6, 11, 57, 59, 73, 120, 134, 144, 158, 160]
+    #6 Constant 'Constant_6'/'Constant_6' out=['onnx::Slice_210']/['onnx::Slice_209'] : ['output']
+    #11 Slice '/roberta/Slice'/'/roberta/Slice' out=['/roberta/Slice_output_0']/['/roberta/Slice_output_0'] : ['input']
+    #57 MatMul '/roberta/encoder/layer.0/attention/self/query/MatMul'/'/roberta/encoder/layer.0/attention/self/query/MatMul' out=['/roberta/encoder/layer.0/attention/self/query/MatMul_output_0']/['/roberta/encoder/layer.0/attention/self/query/MatMul_output_0'] : ['input']
+    #59 MatMul '/roberta/encoder/layer.0/attention/self/key/MatMul'/'/roberta/encoder/layer.0/attention/self/key/MatMul' out=['/roberta/encoder/layer.0/attention/self/key/MatMul_output_0']/['/roberta/encoder/layer.0/attention/self/key/MatMul_output_0'] : ['input']
+    #73 MatMul '/roberta/encoder/layer.0/attention/self/value/MatMul'/'/roberta/encoder/layer.0/attention/self/value/MatMul' out=['/roberta/encoder/layer.0/attention/self/value/MatMul_output_0']/['/roberta/encoder/layer.0/attention/self/value/MatMul_output_0'] : ['input']
+    nature des écarts (type, écarts) → nombre :
+        73 × ('MatMul', ('input',))
+         1 × ('Constant', ('output',))
+         1 × ('Slice', ('input',))
+  initialiseurs: 199 / 199 ; noms communs 174 ; seulement A 25 ; seulement B 25
+    seulement A (10 premiers): ['onnx::MatMul_1554', 'onnx::MatMul_1557', 'onnx::MatMul_1567', 'onnx::MatMul_1570', 'onnx::MatMul_1580', 'onnx::MatMul_1583', 'onnx::MatMul_1593', 'onnx::MatMul_1596', 'onnx::MatMul_1606', 'onnx::MatMul_1609']
+    seulement B (10 premiers): ['onnx::MatMul_1552', 'onnx::MatMul_1556', 'onnx::MatMul_1562', 'onnx::MatMul_1569', 'onnx::MatMul_1575', 'onnx::MatMul_1582', 'onnx::MatMul_1588', 'onnx::MatMul_1595', 'onnx::MatMul_1601', 'onnx::MatMul_1608']
+    noms communs à contenu identique (valeurs) : 126 ; à sérialisation identique (octet pour octet) : 126
+    noms communs à contenu différent (10 premiers): ['onnx::MatMul_1553', 'onnx::MatMul_1563', 'onnx::MatMul_1564', 'onnx::MatMul_1565', 'onnx::MatMul_1566', 'onnx::MatMul_1576', 'onnx::MatMul_1577', 'onnx::MatMul_1578', 'onnx::MatMul_1579', 'onnx::MatMul_1589']
+    multiensemble des contenus identique (sans les noms) : True
+  tailles sérialisées (A / B / écart) :
+    ModelProto entier               440422178    440422177     +1
+    graph                           440422149    440422149     +0
+    graph.node (somme)                 266936       266936     +0
+    graph.initializer (somme)       440150515    440150515     +0
+    graph.input+output                    162          162     +0
+    graph.value_info                        0            0     +0
+    len(producer_version)                   6            5     +1
+    len(graph.name)                         9            9     +0
+
+## Équivalence des graphes à renommage près (equivalence.py)
+nœuds canonisés différents : 0 sur 1271 ; sorties équivalentes : True
+initialiseurs : 199/199 ; utilisés par un nœud : 199/199
+graphes équivalents à renommage près : True
+
+## Octets bruts
+modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx modeles/camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model.onnx differ: char 13, line 1
+### 48 premiers octets de A
+00000000: 0806 1207 7079 746f 7263 681a 0631 2e31  ....pytorch..1.1
+00000010: 332e 313a 859e 81d2 010a 3b0a 0969 6e70  3.1:......;..inp
+00000020: 7574 5f69 6473 1217 2f72 6f62 6572 7461  ut_ids../roberta
+### 48 premiers octets de B
+00000000: 0806 1207 7079 746f 7263 681a 0532 2e30  ....pytorch..2.0
+00000010: 2e31 3a85 9e81 d201 0a3b 0a09 696e 7075  .1:......;..inpu
+00000020: 745f 6964 7312 172f 726f 6265 7274 612f  t_ids../roberta/
