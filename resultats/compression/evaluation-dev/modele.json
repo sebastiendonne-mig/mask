@@ -1,0 +1,1035 @@
+{
+  "date": "2026-10-24T10:35:12.267Z",
+  "git": {
+    "hash": "ce149153b41d8c461be49309be402fdce9ed69d9",
+    "propre": true
+  },
+  "detecteur": {
+    "nom": "modele",
+    "version": "0.2.0+compression/fp16-mixte/model.onnx@860504f2bf11+onnxruntime-web@1.31.0-dev.20260914-8d85527a0-wasm-node",
+    "module": "src/modele.mjs",
+    "moteur": {
+      "paquet": "onnxruntime-web",
+      "version": "1.31.0-dev.20260914-8d85527a0",
+      "build": "WASM, ort.node.min.mjs dans Node",
+      "threads": 1,
+      "modele": {
+        "cle": "compression/fp16-mixte/model.onnx",
+        "chemin": "modeles/compression/fp16-mixte/model.onnx",
+        "octets": 220500160,
+        "sha256": "860504f2bf110f34ef7e28b78dbc7b6c2ed2af64a401e5c07b54415ce31958eb"
+      },
+      "tokenizer": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc"
+    }
+  },
+  "split": "dev",
+  "mention": "jeu de développement : indicatif, pas la mesure finale",
+  "documents": 17,
+  "protocole": "seuils.md § 8, amendements du 21/10/2026 (2) et (3) ; masque sur un neutre et une date sans span : dates comptées en erreur",
+  "seuils": [
+    {
+      "id": "S2",
+      "critere": "Rappel des formats fixes",
+      "seuil": 1,
+      "bloquant": true,
+      "trouves": 2,
+      "total": 69,
+      "valeur": 0.028985507246376812,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S3",
+      "critere": "Rappel PERSONNE",
+      "seuil": 0.95,
+      "bloquant": true,
+      "trouves": 49,
+      "total": 49,
+      "valeur": 1,
+      "statut": "atteint"
+    },
+    {
+      "id": "S4",
+      "critere": "Rappel ADRESSE",
+      "seuil": 0.9,
+      "bloquant": true,
+      "trouves": 0,
+      "total": 30,
+      "valeur": 0,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S5",
+      "critere": "Rappel ORGANISATION",
+      "seuil": 0.85,
+      "bloquant": false,
+      "trouves": 14,
+      "total": 23,
+      "valeur": 0.6086956521739131,
+      "statut": "non atteint"
+    },
+    {
+      "id": "S6",
+      "critere": "Précision globale",
+      "seuil": 0.8,
+      "bloquant": false,
+      "corrects": 132,
+      "erreurs": 23,
+      "valeur": 0.8516129032258064,
+      "statut": "atteint"
+    }
+  ],
+  "rappelParType": {
+    "ADRESSE": {
+      "total": 30,
+      "trouves": 0,
+      "partiels": 30,
+      "rappel": 0
+    },
+    "CARTE": {
+      "total": 2,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "EMAIL": {
+      "total": 21,
+      "trouves": 2,
+      "partiels": 0,
+      "rappel": 0.09523809523809523
+    },
+    "IBAN": {
+      "total": 10,
+      "trouves": 0,
+      "partiels": 1,
+      "rappel": 0
+    },
+    "NIR": {
+      "total": 3,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "NUMERO_DOSSIER": {
+      "total": 7,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "ORGANISATION": {
+      "total": 23,
+      "trouves": 14,
+      "partiels": 9,
+      "rappel": 0.6086956521739131
+    },
+    "PERSONNE": {
+      "total": 49,
+      "trouves": 49,
+      "partiels": 0,
+      "rappel": 1
+    },
+    "SIREN": {
+      "total": 3,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "SIRET": {
+      "total": 11,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "TELEPHONE": {
+      "total": 19,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    },
+    "TVA_INTRA": {
+      "total": 6,
+      "trouves": 0,
+      "partiels": 0,
+      "rappel": 0
+    }
+  },
+  "couverturePartielle": {
+    "partiels": 40,
+    "total": 184,
+    "taux": 0.21739130434782608
+  },
+  "precision": {
+    "corrects": 132,
+    "erreurs": 23,
+    "valeur": 0.8516129032258064,
+    "erreursParCategorie": {
+      "NON_ETIQUETE": 23
+    },
+    "masques": 180,
+    "masquesNeutresSeuls": 25,
+    "masquesNeutreEtDateSansSpan": 0
+  },
+  "neutres": {
+    "masques": {
+      "LIEU_ISOLE": 29
+    },
+    "total": {
+      "INSTITUTION": 16,
+      "LIEU_ISOLE": 29
+    }
+  },
+  "debordement": {
+    "lettresChiffresHorsEtiquettes": 256,
+    "lettresChiffresMasques": 2363,
+    "part": 0.10833685992382565
+  },
+  "typesDifferents": 2,
+  "listes": {
+    "oublis": [
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "88 ter rue du Four⏎31000 Toulouse"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "05 36 49 64 91"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "compta@cabinet-meunier-associes.fr"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "1 bis allée des Roses⏎13100 AIX-EN-PROV…"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "2025-6921-IM"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "39 rue de la Fontaine, 64000 Pau"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR76 8728 8099 7968 7257 0848 504"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06 39 98 01 05"
+      },
+      {
+        "doc_id": "dev-avocat-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "i.meunier@cabinet-meunier-associes.fr"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "8 bis rue de la Fontaine⏎84000 Avignon"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 4 65 71 05 08"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "accueil@delmas-avocats-associes.io"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "43 rue du Four⏎29000 QUIMPER"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "YD/2026/4644"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Le Clos des Cèdres, 74 rue du Château, …"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR76 4419 7553 4338 8948 9701 664"
+      },
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "0639986458"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "60 impasse des Lilas, 67000 Strasbourg"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06.39.98.70.04"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "rose.dasilva@messagerie-libre.fr"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "44256350800096"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "61 rue de la Gare, 56000 Vannes"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "2025-8252-CM"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR7617432022672268093394816"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Immeuble Le Belvédère, 137 cours des Ar…"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06 39 98 12 83"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "pbarbier@monmel.fr"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "79253179000022"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Résidence Les Iris, bâtiment B, 97 rue …"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "2026-3047-IC"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR7669052002172910895870510"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Le Clos des Cèdres, 74 allée des Roses,…"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06.39.98.95.46"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "florence.margaux@messagerie-libre.fr"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "89411187100089"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Résidence Les Iris, bâtiment B, 68 allé…"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "SF/2026/3047"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "type": "IBAN",
+        "statut": "partiel",
+        "extrait": "FR76 2423 8298 3883 1450 6172 840"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "SARL Cabinet Paris Audit & Conseil"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "12 chemin des Vignes⏎51100 Reims"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "224 853 333 00090"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR 89 224 853 333"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 3 53 01 73 30"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Bâtiment C, 2e étage, 74 place du March…"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "616 457 263"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR 65 616 457 263"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "rparis@cabinet-paris-audit-conseil.immo"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "Benali Expertise Comptable SARL"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Résidence Les Iris, bâtiment B⏎48 rue d…"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "815 697 636 00018"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR06815697636"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "02 61 91 03 51"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "BISCUITERIE DE L'ÉTANG SAS"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "31 bis chemin des Vignes, 79000 Niort"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "612 659 664"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR15612659664"
+      },
+      {
+        "doc_id": "dev-ec-02",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "aurelie.benali@benali-expertise-comptab…"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "SARL Perrot Expertise Comptable"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "105 route de la Forêt⏎35000 Rennes"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "113 490 056 00042"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR83113490056"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "02-61-91-82-65"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "83 rue du Four, 44000 Nantes"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "SIREN",
+        "statut": "oubli",
+        "extrait": "996238838"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "TVA_INTRA",
+        "statut": "oubli",
+        "extrait": "FR 56 996 238 838"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "hperrot@perrot-expertise-comptable.fr"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "i.lacroix@gauthier-expertise-comptable.…"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "r.ferrand@chevalier-conseil.bzh"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "s.royer@gauthier-expertise-comptable.com"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "DOS-90413"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR76 5551 7108 4741 9050 8289 476"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "CARTE",
+        "statut": "oubli",
+        "extrait": "4191342619444687"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 6 39 98 43 01"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "Résidence Les Iris, bâtiment B, 126 rue…"
+      },
+      {
+        "doc_id": "dev-ec-04",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "03 53 01 85 71"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "yflorence@florence-expertise-comptable.…"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "pierre.marchand@atelier-des-trois-chene…"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "n.guerin@florence-expertise-comptable.p…"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "NUMERO_DOSSIER",
+        "statut": "oubli",
+        "extrait": "EC-2025-8138"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR7672726750097830455455270"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "CARTE",
+        "statut": "oubli",
+        "extrait": "5340-9048-6622-7722"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "06.39.98.28.37"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "Florence Expertise Comptable SELARL"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "82 chemin des Vignes, 49000 Angers"
+      },
+      {
+        "doc_id": "dev-ec-05",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "0261917488"
+      },
+      {
+        "doc_id": "dev-rh-01",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "SA STUDIO ARDOISE"
+      },
+      {
+        "doc_id": "dev-rh-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "94 rue de la Gare⏎56000 Vannes"
+      },
+      {
+        "doc_id": "dev-rh-01",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "13120136000073"
+      },
+      {
+        "doc_id": "dev-rh-01",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "128 rue des Tilleuls⏎30000 NÎMES"
+      },
+      {
+        "doc_id": "dev-rh-01",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "0261910908"
+      },
+      {
+        "doc_id": "dev-rh-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "69 rue du Four⏎86000 Poitiers"
+      },
+      {
+        "doc_id": "dev-rh-02",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "261 250 393 00079"
+      },
+      {
+        "doc_id": "dev-rh-02",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "20 rue du Four⏎64000 PAU"
+      },
+      {
+        "doc_id": "dev-rh-02",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "m.meunier@etablissements-paris.org"
+      },
+      {
+        "doc_id": "dev-rh-02",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "05.36.49.48.89"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "LA ROSE DES PRÉS SAS"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "36 rue des Tilleuls⏎29200 Brest"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "140 262 577 00012"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "12 rue de la Fontaine⏎13100 AIX-EN-PROV…"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "2 93 02 64 025 432 31"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR7688832123262417995569886"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "0261916601"
+      },
+      {
+        "doc_id": "dev-rh-03",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "contact@la-rose-des-pres.immo"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "SARL GARAGE ROCHE"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "122 cours des Arts⏎54000 Nancy"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "29971552400037"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "146 avenue des Peupliers⏎49000 ANGERS"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "188079935054376"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR7673396977515090405161242"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "+33 3 53 01 71 60"
+      },
+      {
+        "doc_id": "dev-rh-04",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "secretariat@garage-roche.org"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "ORGANISATION",
+        "statut": "partiel",
+        "extrait": "ATELIER DES TROIS CHÊNES SA"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "54 place du Marché⏎69003 Lyon"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "SIRET",
+        "statut": "oubli",
+        "extrait": "46341025800099"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "ADRESSE",
+        "statut": "partiel",
+        "extrait": "82 rue de la Pierre Levée⏎33000 BORDEAUX"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "NIR",
+        "statut": "oubli",
+        "extrait": "185088607952508"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "IBAN",
+        "statut": "oubli",
+        "extrait": "FR7646791994535255922315262"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "TELEPHONE",
+        "statut": "oubli",
+        "extrait": "04 65 71 75 51"
+      },
+      {
+        "doc_id": "dev-rh-05",
+        "type": "EMAIL",
+        "statut": "oubli",
+        "extrait": "compta@atelier-des-trois-chenes.immo"
+      }
+    ],
+    "erreurs": [
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "CONVENTION"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "CONVENTION"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-04",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Client"
+      },
+      {
+        "doc_id": "dev-avocat-05",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Avocat"
+      },
+      {
+        "doc_id": "dev-ec-01",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Expert-comptable"
+      },
+      {
+        "doc_id": "dev-ec-03",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Expert-comptable"
+      },
+      {
+        "doc_id": "dev-neutre-02",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "lundi de Pentecôte"
+      },
+      {
+        "doc_id": "dev-neutre-02",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Ressources"
+      },
+      {
+        "doc_id": "dev-neutre-02",
+        "categorie": "NON_ETIQUETE",
+        "extrait": "Rose des vents"
+      }
+    ],
+    "typesDifferents": [
+      {
+        "doc_id": "dev-avocat-02",
+        "type": "EMAIL",
+        "propose": "PERSONNE",
+        "extrait": "yasmine.delmas@delmas-avocats-associes.…"
+      },
+      {
+        "doc_id": "dev-rh-01",
+        "type": "EMAIL",
+        "propose": "PERSONNE",
+        "extrait": "nathalie.vidal@studio-ardoise.org"
+      }
+    ]
+  }
+}
