@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-24T08:51:02.236Z",
+  "git": {
+    "hash": "8fe956b960a38d589cd7629c3d5ceabef0560113",
+    "propre": true
+  },
+  "script": {
+    "chemin": "scripts/navigateur/fidelite.mjs",
+    "sha256": "70b7bb0648f2291be8100fae0086466a823c0e94e3478560da0415d047e5a263"
+  },
+  "moteur": {
+    "paquet": "onnxruntime-web",
+    "version": "1.31.0-dev.20260914-8d85527a0",
+    "build": "WASM, ort.node.min.mjs dans Node",
+    "threads": 1,
+    "node": "24.15.0"
+  },
+  "detecteur": {
+    "logique": "0.2.0",
+    "module": "src/modele-commun.mjs",
+    "tokenizer": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc"
+  },
+  "split": "dev",
+  "definition": "seuils.md, amendement (5), point Fidélité : masque = (début, fin, catégorie) de detecter(), avant fusion ; par document, répétitions comptées ; masque différent = présent d’un seul côté ; somme sur les 17 documents",
+  "etalon": {
+    "chemin": "modeles/camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx",
+    "octets": 440422178,
+    "sha256": "c9dfa2ec9e0bfad82d606782ba3e0ab94c001c46481514e0658fc20a624845c5",
+    "manifeste": "camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/model.onnx"
+  },
+  "compare": {
+    "chemin": "modeles/camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model.onnx",
+    "octets": 440422177,
+    "sha256": "0a2c64c0f051642a3002e5cef91861a26eaa44cceedceac4ce8eabee3fac4f75",
+    "manifeste": "camembert-ner/8e1988247e872ba0137062653b1e5033a31e14fc/onnx/model.onnx"
+  },
+  "total": 0,
+  "seulEtalon": 0,
+  "seulCompare": 0,
+  "documentsTouches": 0,
+  "documents": [
+    {
+      "id": "dev-avocat-01",
+      "nbEtalon": 12,
+      "nbCompare": 12,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-avocat-02",
+      "nbEtalon": 14,
+      "nbCompare": 14,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-avocat-03",
+      "nbEtalon": 19,
+      "nbCompare": 19,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-avocat-04",
+      "nbEtalon": 20,
+      "nbCompare": 20,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-avocat-05",
+      "nbEtalon": 22,
+      "nbCompare": 22,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-ec-01",
+      "nbEtalon": 10,
+      "nbCompare": 10,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-ec-02",
+      "nbEtalon": 9,
+      "nbCompare": 9,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-ec-03",
+      "nbEtalon": 8,
+      "nbCompare": 8,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-ec-04",
+      "nbEtalon": 14,
+      "nbCompare": 14,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-ec-05",
+      "nbEtalon": 12,
+      "nbCompare": 12,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-neutre-01",
+      "nbEtalon": 2,
+      "nbCompare": 2,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-neutre-02",
+      "nbEtalon": 3,
+      "nbCompare": 3,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-rh-01",
+      "nbEtalon": 9,
+      "nbCompare": 9,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-rh-02",
+      "nbEtalon": 8,
+      "nbCompare": 8,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-rh-03",
+      "nbEtalon": 6,
+      "nbCompare": 6,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-rh-04",
+      "nbEtalon": 6,
+      "nbCompare": 6,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    },
+    {
+      "id": "dev-rh-05",
+      "nbEtalon": 6,
+      "nbCompare": 6,
+      "seulEtalon": [],
+      "seulCompare": [],
+      "total": 0
+    }
+  ]
+}
