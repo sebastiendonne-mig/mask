@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mask — préversion</title>
+<meta name="description" content="Pseudonymiser un texte dans votre navigateur.">
+<link rel="icon" href="/icone.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/app.css">
+<script type="module" src="/app.mjs"></script>
+</head>
+<body>
+<header class="entete">
+  <div class="largeur">
+    <h1>mask — préversion</h1>
+    <p class="sous-titre">Pseudonymiser un texte dans votre navigateur.</p>
+  </div>
+</header>
+
+<div class="bandeau" role="note">
+  <p class="largeur">Préversion — mask est en cours d'évaluation. Il peut laisser passer des données personnelles : relisez chaque remplacement avant d'utiliser le texte. Le texte que vous collez reste dans votre navigateur ; seul le modèle est téléchargé, depuis Hugging Face.</p>
+</div>
+
+<main class="largeur">
+  <noscript><p class="alerte">mask a besoin de JavaScript pour fonctionner. Rien n'est envoyé.</p></noscript>
+  <div id="avertissements" class="alerte" role="status" hidden></div>
+
+  <section>
+    <h2><label for="texte">Collez votre texte</label></h2>
+    <textarea id="texte" rows="12" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" data-gramm="false" placeholder="Collez ici un courrier, un contrat, un bulletin…"></textarea>
+    <div class="boutons">
+      <button type="button" class="secondaire" data-exemple="dev-avocat-01">Exemple avocat</button>
+      <button type="button" class="secondaire" data-exemple="dev-ec-04">Exemple expert-comptable</button>
+      <button type="button" class="secondaire" data-exemple="dev-rh-03">Exemple RH</button>
+      <button type="button" class="secondaire" id="effacer">Effacer</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Éléments repérés</h2>
+    <p id="etat-detection" class="etat">Aucun texte pour l'instant.</p>
+    <div id="legende" class="legende"></div>
+    <div id="apercu" class="apercu" hidden></div>
+    <div class="modele">
+      <button type="button" id="bouton-modele" hidden>Compléter avec le modèle (220 Mo, téléchargés une seule fois)</button>
+      <div id="chargement" class="chargement" hidden>
+        <p class="annonce">Téléchargement du modèle open weight : 220 Mo, une seule fois. Aucun texte n'est envoyé.</p>
+        <progress id="progression" max="1" value="0"></progress>
+      </div>
+      <p id="etat-modele" class="etat" role="status"></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Remplacements</h2>
+    <p class="explication">Les règles repèrent tout de suite les formats fixes (IBAN, e-mail, téléphone…), les adresses et une partie des noms et des sociétés. Le modèle open weight, téléchargé une seule fois, en repère d'autres, notamment des noms de personnes, d'organisations et de lieux.</p>
+    <p class="etat" id="etat-remplacements">Aucun remplacement pour l'instant.</p>
+    <div class="defile">
+      <table id="remplacements" hidden>
+        <thead><tr><th scope="col">Texte d'origine</th><th scope="col">Catégorie</th><th scope="col">Pseudonyme proposé</th><th scope="col">Trouvé par</th><th scope="col">Garder</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Texte pseudonymisé</h2>
+    <div class="resultat">
+      <div>
+        <pre id="sortie" class="sortie"></pre>
+        <p class="confirmation"><label><input type="checkbox" id="relu"> J'ai relu chaque remplacement</label></p>
+        <p class="boutons"><button type="button" id="copier" disabled>Copier</button> <span id="etat-copie" class="etat" role="status"></span></p>
+      </div>
+      <aside class="correspondance">
+        <h3>Table de correspondance</h3>
+        <p class="note">Cette table reste dans votre navigateur et disparaît quand vous fermez la page.</p>
+        <div class="defile">
+          <table id="correspondance">
+            <thead><tr><th scope="col">Pseudonyme</th><th scope="col">Texte d'origine</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="limites">
+    <h2>Ce que mask rate encore</h2>
+    <ul>
+      <li>Sur 15 documents fictifs écrits pour être difficiles, mask (règles et modèle) a repéré 92,8 % des éléments à pseudonymiser (181 sur 195).</li>
+      <li>Pseudonymiser n'est pas anonymiser : une personne peut parfois être reconnue par le contexte.</li>
+      <li>Dans le détail : 96,7 % des noms, 95,2 % des numéros à format fixe (IBAN, numéro de sécurité sociale…) et 63,2 % des adresses.</li>
+      <li>Ratés connus : un IBAN coupé en fin de ligne, un numéro de sécurité sociale dont la clé est séparée, des adresses incomplètes ou atypiques.</li>
+      <li>Un nom repéré à un endroit n'est pas forcément remplacé partout : vérifiez chaque occurrence.</li>
+      <li>mask n'a été évalué que sur des documents fictifs d'avocat, d'expert-comptable et de RH ; sur d'autres types de documents, ses résultats ne sont pas évalués.</li>
+      <li>Volontairement non masqués : les montants et les dates.</li>
+      <li>Testé sur Chrome, sur ordinateur. Les autres navigateurs ne sont pas encore vérifiés.</li>
+      <li>Méthode, seuils et résultats détaillés : <a href="https://github.com/sebastiendonne-mig/mask" target="_blank" rel="noopener noreferrer">github.com/sebastiendonne-mig/mask</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="pied">
+  <p class="largeur">
+    <a href="https://tkoidra.com" target="_blank" rel="noopener noreferrer">tkoidra.com</a> ·
+    <a href="https://github.com/sebastiendonne-mig/mask" target="_blank" rel="noopener noreferrer">Dépôt GitHub</a> ·
+    <a href="https://huggingface.co/migranche/mask-camembert-ner" target="_blank" rel="noopener noreferrer">Modèle sur Hugging Face</a> ·
+    Licence MIT
+  </p>
+</footer>
+</body>
+</html>
