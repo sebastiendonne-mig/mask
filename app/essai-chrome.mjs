@@ -1,9 +1,10 @@
 // Essai automatisé de la page de la préversion (Chrome, Playwright) :
 //
-//   node app/essai-chrome.mjs [--sortie fichier.json] [--dist <dossier>]
+//   node app/essai-chrome.mjs [--sortie fichier.json] [--dist <dossier> | --url <adresse>]
 //
 // Construit app/dist/ (ou sert tel quel le dossier --dist, par exemple la construction d'un clone
-// neuf), le sert en local avec les en-têtes de vercel.json, ouvre un profil
+// neuf), le sert en local avec les en-têtes de vercel.json ; avec --url, aucun serveur local : la
+// page en ligne est ouverte directement (son hôte ne passe pas par le proxy). Ouvre un profil
 // Chrome neuf (ordinateur : le modèle se charge seul à l'ouverture, téléchargé une fois depuis
 // Hugging Face). Vérifie que les règles répondent avant le modèle, que la case « J'ai relu chaque
 // remplacement » se décoche quand le modèle complète la liste, puis charge les trois exemples
@@ -15,7 +16,10 @@
 //   huggingface.co (chemins du commit épinglé) et *.hf.co, en GET sans corps ; Chrome passe par le
 //   proxy du banc (bench/proxy.mjs, sans limite de débit), qui consigne les hôtes des tunnels ;
 // - qu'aucune violation CSP n'est signalée, que rien n'est stocké hors du cache du modèle, et
-//   qu'aucun texte des exemples n'apparaît dans une URL demandée.
+//   qu'aucun texte des exemples n'apparaît dans une URL demandée ;
+// - que le chargeur a vérifié par SHA-256 les 4 fichiers du modèle pendant la visite (état du
+//   chargeur lu dans le Worker, empreintes comparées à modeles/MANIFEST.sha256), et que les copies
+//   gardées dans CacheStorage ont ces mêmes empreintes.
 // Code de sortie : 0 si tout est conforme, 1 sinon.
 
 import fs from 'node:fs';
@@ -26,21 +30,25 @@ import { chromium } from 'playwright';
 import { construire, EXEMPLES } from './construire.mjs';
 import { creerServeur } from './servir.mjs';
 import { creerProxy, horsListe } from '../bench/proxy.mjs';
-import { HF, urlHF } from '../src/modele-navigateur.mjs';
+import { HF, urlHF, lireManifeste } from '../src/modele-navigateur.mjs';
 
-const { values } = parseArgs({ options: { sortie: { type: 'string' }, dist: { type: 'string' } } });
+const { values } = parseArgs({ options: { sortie: { type: 'string' }, dist: { type: 'string' }, url: { type: 'string' } } });
+if (values.url && values.dist) throw new Error('essai : --url et --dist sont exclusifs');
+const enLigne = values.url ? new URL(values.url) : null;
+if (enLigne && enLigne.protocol !== 'https:') throw new Error('essai : --url doit être en https');
+const MANIFESTE = lireManifeste(fs.readFileSync(path.join(import.meta.dirname, '..', 'modeles', 'MANIFEST.sha256'), 'utf8'));
 
 // Chemins attendus sur huggingface.co : resolve/<commit>/<fichier> et sa redirection sur le même
 // hôte (constatée à l'étape 4a, resultats/navigateur/hf/synthese.md).
 const CHEMINS_HF = new Set(HF.fichiers.flatMap((f) => [new URL(urlHF(f.chemin)).pathname, `/api/resolve-cache/models/${HF.depot}/${HF.commit}/${f.chemin}`]));
 const BOUTONS = { 'dev-avocat-01': 'Exemple avocat', 'dev-ec-04': 'Exemple expert-comptable', 'dev-rh-03': 'Exemple RH' };
 
-const fichiers = values.dist ? null : construire();
-const serveur = creerServeur(values.dist ? { racine: path.resolve(values.dist) } : {});
-const port = await serveur.ecouter();
+const fichiers = values.dist || enLigne ? null : construire();
+const serveur = enLigne ? null : creerServeur(values.dist ? { racine: path.resolve(values.dist) } : {});
+const port = serveur ? await serveur.ecouter() : null;
 const proxy = creerProxy();
 const portProxy = await proxy.ecouter();
-const origine = `http://127.0.0.1:${port}`;
+const origine = enLigne ? enLigne.origin : `http://127.0.0.1:${port}`;
 const profil = fs.mkdtempSync(path.join(os.tmpdir(), 'mask-app-essai-'));
 const textes = Object.fromEntries(EXEMPLES.map((id) => [id, fs.readFileSync(path.join(import.meta.dirname, '..', 'golden', 'dev', `${id}.txt`), 'utf8')]));
 
@@ -90,7 +98,7 @@ const contexte = await chromium.launchPersistentContext(profil, {
   channel: 'chrome',
   headless: false,
   viewport: { width: 1200, height: 900 },
-  proxy: { server: `http://127.0.0.1:${portProxy}`, bypass: '127.0.0.1' },
+  proxy: { server: `http://127.0.0.1:${portProxy}`, bypass: enLigne ? enLigne.hostname : '127.0.0.1' },
 });
 try {
   await contexte.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: origine });
@@ -144,11 +152,41 @@ try {
   const urlsCache = Object.values(r.stockage.caches).flat();
   r.controles.aucunStockageDuTexte =
     r.stockage.localStorage === 0 && r.stockage.sessionStorage === 0 && r.stockage.indexedDB.length === 0 && urlsCache.every((u) => u.startsWith(`https://huggingface.co/${HF.depot}/resolve/${HF.commit}/`) || u.startsWith(`${origine}/vendor/ort/`));
+  // Empreintes : état du chargeur dans le Worker de la page (même instance du module), puis
+  // empreintes des copies gardées dans CacheStorage, calculées dans la page.
+  const travailleur = page.workers().find((w) => new URL(w.url()).pathname === '/travailleur.mjs');
+  r.empreintes = { chargeur: null, cache: null };
+  if (travailleur) {
+    r.empreintes.chargeur = await travailleur.evaluate(async () => {
+      const m = await import('/src/modele-navigateur.mjs');
+      return { source: m.etat.source, mesures: Object.keys(m.etat.mesures), fichiers: m.etat.fichiers.map(({ url, cle, octets, depuisCache, sha256 }) => ({ url, cle, octets, depuisCache, sha256 })) };
+    });
+  }
+  r.empreintes.cache = await page.evaluate(async (prefixe) => {
+    const sortie = {};
+    for (const nom of await caches.keys()) {
+      const c = await caches.open(nom);
+      for (const q of await c.keys()) {
+        if (!q.url.startsWith(prefixe)) continue;
+        const o = await (await c.match(q)).arrayBuffer();
+        sortie[q.url] = [...new Uint8Array(await crypto.subtle.digest('SHA-256', o))].map((x) => x.toString(16).padStart(2, '0')).join('');
+      }
+    }
+    return sortie;
+  }, `https://huggingface.co/${HF.depot}/resolve/${HF.commit}/`);
+  const attendus = HF.fichiers.map((f) => ({ url: urlHF(f.chemin), cle: f.cle, octets: f.octets, sha256: MANIFESTE.get(f.cle) }));
+  const verifies = r.empreintes.chargeur?.fichiers.filter((f) => f.cle) ?? [];
+  r.controles.empreintesVerifieesParLeChargeur =
+    r.empreintes.chargeur?.source === 'hf' &&
+    r.empreintes.chargeur.mesures.includes('empreintes') &&
+    verifies.length === 4 &&
+    attendus.every((a) => verifies.some((f) => f.url === a.url && f.cle === a.cle && f.octets === a.octets && f.sha256 === a.sha256 && f.depuisCache === false));
+  r.controles.copiesEnCacheConformes = Object.keys(r.empreintes.cache).length === 4 && attendus.every((a) => r.empreintes.cache[a.url] === a.sha256);
   r.violations = await page.evaluate(() => window.__violations);
   await page.waitForTimeout(1000);
 } finally {
   await contexte.close();
-  await serveur.fermer();
+  await serveur?.fermer();
   await proxy.fermer();
   fs.rmSync(profil, { recursive: true, force: true });
 }
@@ -166,17 +204,18 @@ r.reseau = {
   hotes,
   nonGet: requetes.filter((q) => q.methode !== 'GET'),
   avecCorps: requetes.filter((q) => q.corps > 0),
-  horsListe: horsListe(requetes, CHEMINS_HF),
+  // L'origine de la page (en ligne) est traitée comme l'origine locale : seule origine admise hors Hugging Face.
+  horsListe: horsListe(enLigne ? requetes.filter((q) => !q.url.startsWith(`${origine}/`)) : requetes, CHEMINS_HF),
   urlsAvecTexte: requetes.filter((q) => fragments.some((f) => decodeURIComponent(q.url).includes(f))).map((q) => q.url),
   tunnels: [...new Set(proxy.tunnels.map((t) => t.hote))],
   refusProxy: [...new Set(proxy.refus.map((x) => x.cible))],
-  serveurLocal: { requetes: serveur.journal.length, nonGet: serveur.journal.filter((x) => x.methode !== 'GET').length, statuts: [...new Set(serveur.journal.map((x) => x.statut))] },
+  serveurLocal: serveur && { requetes: serveur.journal.length, nonGet: serveur.journal.filter((x) => x.methode !== 'GET').length, statuts: [...new Set(serveur.journal.map((x) => x.statut))] },
 };
 r.controles.reseauConforme = r.reseau.nonGet.length === 0 && r.reseau.avecCorps.length === 0 && r.reseau.horsListe.length === 0 && r.reseau.tunnels.every((h) => h === 'huggingface.co' || h.endsWith('.hf.co'));
 r.controles.texteAbsentDesUrl = r.reseau.urlsAvecTexte.length === 0;
 r.controles.aucuneViolationCsp = (r.violations ?? []).length === 0 && !consoles.some((c) => /Content Security Policy/i.test(c.texte));
 r.consoles = consoles;
-r.construction = fichiers ? { fichiers: fichiers.length, octets: fichiers.reduce((n, f) => n + f.octets, 0) } : { dist: path.resolve(values.dist) };
+r.construction = fichiers ? { fichiers: fichiers.length, octets: fichiers.reduce((n, f) => n + f.octets, 0) } : enLigne ? { url: enLigne.href } : { dist: path.resolve(values.dist) };
 
 const ok = Object.values(r.controles).every(Boolean);
 r.ok = ok;
