@@ -1,7 +1,8 @@
-// Serveur local de la page de la préversion : sert app/dist/ avec les en-têtes de app/vercel.json
-// (mêmes valeurs que sur Vercel). Aucune dépendance. Écoute sur 127.0.0.1 seulement ; GET et HEAD.
+// Serveur local de la page de la préversion : sert app/dist/ (ou --dist <dossier>) avec les en-têtes
+// du vercel.json de la racine du dépôt (mêmes valeurs que sur Vercel). Aucune dépendance. Écoute sur
+// 127.0.0.1 seulement ; GET et HEAD.
 //
-//   node app/construire.mjs && node app/servir.mjs [--port 8124]
+//   node app/construire.mjs && node app/servir.mjs [--port 8124] [--dist <dossier>]
 
 import http from 'node:http';
 import fs from 'node:fs';
@@ -10,11 +11,11 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { DIST } from './construire.mjs';
 
-const APP = path.dirname(fileURLToPath(import.meta.url));
+const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-// En-têtes de la seule règle de app/vercel.json (source « /(.*) »).
+// En-têtes de la seule règle de vercel.json (source « /(.*) »).
 export function entetesVercel() {
-  const config = JSON.parse(fs.readFileSync(path.join(APP, 'vercel.json'), 'utf8'));
+  const config = JSON.parse(fs.readFileSync(path.join(RACINE, 'vercel.json'), 'utf8'));
   if (config.headers.length !== 1 || config.headers[0].source !== '/(.*)') throw new Error('servir : une seule règle d\'en-têtes attendue, source « /(.*) »');
   return Object.fromEntries(config.headers[0].headers.map((h) => [h.key, h.value]));
 }
@@ -77,8 +78,9 @@ export function creerServeur({ racine = DIST } = {}) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const { values } = parseArgs({ options: { port: { type: 'string', default: '8124' } } });
-  if (!fs.existsSync(path.join(DIST, 'index.html'))) throw new Error('servir : app/dist/ absent, lancer d\'abord node app/construire.mjs');
-  const port = await creerServeur().ecouter(Number(values.port));
-  console.log(`mask (préversion) : http://127.0.0.1:${port}/ — en-têtes de app/vercel.json. Ctrl+C pour arrêter.`);
+  const { values } = parseArgs({ options: { port: { type: 'string', default: '8124' }, dist: { type: 'string', default: DIST } } });
+  const racine = path.resolve(values.dist);
+  if (!fs.existsSync(path.join(racine, 'index.html'))) throw new Error(`servir : ${racine}/index.html absent, lancer d'abord node app/construire.mjs`);
+  const port = await creerServeur({ racine }).ecouter(Number(values.port));
+  console.log(`mask (préversion) : http://127.0.0.1:${port}/ — dossier ${racine}, en-têtes de vercel.json. Ctrl+C pour arrêter.`);
 }

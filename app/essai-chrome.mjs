@@ -1,8 +1,9 @@
 // Essai automatisé de la page de la préversion (Chrome, Playwright) :
 //
-//   node app/essai-chrome.mjs [--sortie fichier.json]
+//   node app/essai-chrome.mjs [--sortie fichier.json] [--dist <dossier>]
 //
-// Construit app/dist/, la sert en local avec les en-têtes de app/vercel.json, ouvre un profil
+// Construit app/dist/ (ou sert tel quel le dossier --dist, par exemple la construction d'un clone
+// neuf), le sert en local avec les en-têtes de vercel.json, ouvre un profil
 // Chrome neuf (ordinateur : le modèle se charge seul à l'ouverture, téléchargé une fois depuis
 // Hugging Face). Vérifie que les règles répondent avant le modèle, que la case « J'ai relu chaque
 // remplacement » se décoche quand le modèle complète la liste, puis charge les trois exemples
@@ -27,15 +28,15 @@ import { creerServeur } from './servir.mjs';
 import { creerProxy, horsListe } from '../bench/proxy.mjs';
 import { HF, urlHF } from '../src/modele-navigateur.mjs';
 
-const { values } = parseArgs({ options: { sortie: { type: 'string' } } });
+const { values } = parseArgs({ options: { sortie: { type: 'string' }, dist: { type: 'string' } } });
 
 // Chemins attendus sur huggingface.co : resolve/<commit>/<fichier> et sa redirection sur le même
 // hôte (constatée à l'étape 4a, resultats/navigateur/hf/synthese.md).
 const CHEMINS_HF = new Set(HF.fichiers.flatMap((f) => [new URL(urlHF(f.chemin)).pathname, `/api/resolve-cache/models/${HF.depot}/${HF.commit}/${f.chemin}`]));
 const BOUTONS = { 'dev-avocat-01': 'Exemple avocat', 'dev-ec-04': 'Exemple expert-comptable', 'dev-rh-03': 'Exemple RH' };
 
-const fichiers = construire();
-const serveur = creerServeur();
+const fichiers = values.dist ? null : construire();
+const serveur = creerServeur(values.dist ? { racine: path.resolve(values.dist) } : {});
 const port = await serveur.ecouter();
 const proxy = creerProxy();
 const portProxy = await proxy.ecouter();
@@ -175,7 +176,7 @@ r.controles.reseauConforme = r.reseau.nonGet.length === 0 && r.reseau.avecCorps.
 r.controles.texteAbsentDesUrl = r.reseau.urlsAvecTexte.length === 0;
 r.controles.aucuneViolationCsp = (r.violations ?? []).length === 0 && !consoles.some((c) => /Content Security Policy/i.test(c.texte));
 r.consoles = consoles;
-r.construction = { fichiers: fichiers.length, octets: fichiers.reduce((n, f) => n + f.octets, 0) };
+r.construction = fichiers ? { fichiers: fichiers.length, octets: fichiers.reduce((n, f) => n + f.octets, 0) } : { dist: path.resolve(values.dist) };
 
 const ok = Object.values(r.controles).every(Boolean);
 r.ok = ok;

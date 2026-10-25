@@ -1,5 +1,5 @@
 // Page de la préversion (app/) : logique de pseudonymisation, avertissements, textes imposés,
-// en-têtes de app/vercel.json, serveur local et liste des fichiers publiés. Aucun navigateur ici :
+// en-têtes et construction de vercel.json (racine du dépôt), serveur local et liste des fichiers publiés. Aucun navigateur ici :
 // l'essai dans Chrome est app/essai-chrome.mjs.
 
 import { test } from 'node:test';
@@ -145,7 +145,7 @@ test('app : aucun stockage, aucune ressource tierce, aucun script ni style en li
   assert.match(html, /<textarea id="texte"[^>]*spellcheck="false"[^>]*autocomplete="off"/);
 });
 
-test('app : en-têtes de app/vercel.json', () => {
+test('app : vercel.json (racine) : en-têtes et construction', () => {
   const e = entetesVercel();
   assert.equal(e['Cross-Origin-Opener-Policy'], 'same-origin');
   assert.equal(e['Cross-Origin-Embedder-Policy'], 'require-corp');
@@ -156,9 +156,13 @@ test('app : en-têtes de app/vercel.json', () => {
   // blob: : fabrique WebAssembly d'onnxruntime-web chargée par Transformers.js depuis un blob (essai du 25/10/2026).
   assert.deepEqual(csp['script-src'], ["'self'", "'wasm-unsafe-eval'", 'blob:']);
   for (const k of ['style-src', 'font-src', 'img-src', 'worker-src']) assert.equal(csp[k], undefined, `${k} : hérite de default-src ou script-src`);
-  const config = JSON.parse(lire('vercel.json'));
-  assert.equal(config.outputDirectory, 'dist');
-  assert.equal(config.buildCommand, 'node construire.mjs');
+  const config = JSON.parse(fs.readFileSync(path.join(RACINE, 'vercel.json'), 'utf8'));
+  assert.equal(config.framework, null);
+  assert.equal(config.installCommand, 'npm ci --omit=dev --ignore-scripts');
+  assert.equal(config.buildCommand, 'node app/construire.mjs');
+  assert.equal(config.outputDirectory, 'app/dist');
+  assert.deepEqual(config.headers.map((h) => h.source), ['/(.*)'], 'en-têtes sur toutes les routes');
+  assert.ok(!fs.existsSync(path.join(APP, 'vercel.json')), 'un seul vercel.json, à la racine');
 });
 
 test('app : serveur local, chemins hors de dist/ refusés', () => {

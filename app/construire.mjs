@@ -3,7 +3,7 @@
 // changement de contenu est celui du banc (bench/serveur.mjs, transformersReecrit) : les deux
 // spécificateurs nus de transformers.web.min.js réécrits en chemins locaux.
 //
-//   node app/construire.mjs          (Vercel : buildCommand de app/vercel.json)
+//   node app/construire.mjs          (Vercel : buildCommand de vercel.json, à la racine)
 //
 // Liste fermée : rien d'autre n'est copié (ni golden/test, ni modèles, ni données). Les trois
 // exemples viennent du jeu de développement (fictif).
