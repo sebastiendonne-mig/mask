@@ -71,3 +71,29 @@ Aucun écart sur les 6 en-têtes de `vercel.json`. En-têtes ajoutés par Vercel
 - Les 2 fichiers WebAssembly d'onnxruntime ne sont pas vérifiés par empreinte par le chargeur (comme depuis le lot 1.5b) ; ils sont servis par l'origine et font partie des 38 fichiers identiques à la construction locale.
 - Visite suivante (modèle lu depuis le cache) sur la version en ligne ; Safari, Firefox, Edge, téléphone et tablette réels ; autres réseaux et régions du CDN.
 - Avant cette exécution en ligne, une exécution locale de l'essai (même code) a servi à valider les deux nouveaux contrôles d'empreintes ; elle n'est pas une mesure de la version en ligne.
+
+## Domaine définitif (25/10/2026)
+
+- Adresse : <https://mask.tkoidra.com> ; en-têtes relevés à 11:44:31 GMT, essai Chrome lancé à 11:44:56 UTC.
+- Code vérifié : commit `12288aa` ; contenu servi identique à celui de `d35141a` (les fichiers de la page n'ont pas changé depuis) : les 38 fichiers servis ont les mêmes empreintes SHA-256 que la construction locale (`node app/construire.mjs`), 38 / 38, aucun écart.
+
+### En-têtes et redirection
+
+- `curl -sI https://mask.tkoidra.com` : les 6 en-têtes de `vercel.json` (COOP `same-origin`, COEP `require-corp`, CORP `same-origin`, Referrer-Policy `no-referrer`, X-Content-Type-Options `nosniff`, Content-Security-Policy) sont identiques mot pour mot ; aucun écart.
+- En-têtes ajoutés par Vercel, absents de `vercel.json` : les mêmes que sur `mask-seven.vercel.app` (dont `access-control-allow-origin: *`), sauf `strict-transport-security`, qui vaut ici `max-age=63072000`, sans `includeSubDomains` ni `preload`.
+- `http://mask.tkoidra.com` → `308 Permanent Redirect`, `Location: https://mask.tkoidra.com/` ; un chemin (`/app.css`) est redirigé vers la même adresse en https.
+
+### Fichiers qui ne doivent pas être servis
+
+Tous en 404 : `/golden/`, `/golden/dev/dev-avocat-01.txt`, `/resultats/`, `/bench/`, `/scripts/`, `/seuils.md`, `/package.json`, `/CLAUDE.md`, `/vercel.json`, `/app/`, `/src/modele.mjs`, `/node_modules/`.
+
+### Essai Chrome
+
+`node app/essai-chrome.mjs --url https://mask.tkoidra.com` : une exécution, code de sortie 0, tous les contrôles conformes. Détail : `verification-domaine.json`.
+
+- `crossOriginIsolated` vrai ; aucun avertissement de navigateur affiché ; chargement automatique du modèle ; règles avant le modèle (14 éléments) ; modèle prêt 5 317 ms après l'ouverture ; détection combinée relancée seule (16 éléments), case de relecture décochée.
+- Exemples avec le modèle : avocat 15 entités, expert-comptable 17, RH 9 ; aucun élément gardé restant dans le texte pseudonymisé ; copie conforme après la case de relecture.
+- Réseau (S1) : 48 requêtes ; hôtes `mask.tkoidra.com`, `huggingface.co`, `us.aws.cdn.hf.co` (et `blob:`, local) ; 0 requête autre que GET, 0 avec un corps, 0 hors liste ; aucun texte des exemples dans une URL ; aucune violation CSP, aucun message d'erreur en console. Connexions refusées par le proxy : services de Chrome seulement (`www.gstatic.com`, `www.google.com`, `accounts.google.com`, `update.googleapis.com`, `content-autofill.googleapis.com`, `android.clients.google.com`).
+- Stockage : localStorage 0, sessionStorage 0, IndexedDB aucune base ; CacheStorage : les 4 fichiers du modèle et les 2 fichiers WebAssembly d'onnxruntime.
+- Empreintes : état du chargeur lu dans le Worker : source `hf`, phase « empreintes » passée, les 4 fichiers du modèle téléchargés pendant la visite et vérifiés par SHA-256, égaux au manifeste (`config.json` `17ec2dd3…`, `tokenizer.json` `6898886e…`, `tokenizer_config.json` `a47e7114…`, `onnx/model_fp16.onnx` `860504f2…`) ; copies en cache rehachées : mêmes empreintes.
+- Non vérifié : comme pour l'adresse Vercel (visite suivante, autres navigateurs, appareils mobiles réels, fichiers WebAssembly non vérifiés par empreinte par le chargeur).

@@ -1,0 +1,584 @@
+{
+ "date": "2026-10-25T11:44:56.729Z",
+ "origine": "https://mask.tkoidra.com",
+ "controles": {
+  "chargementAutomatique": true,
+  "reglesAvantModele": true,
+  "modelePret": true,
+  "combineRelanceSeul": true,
+  "reluDecocheQuandModelePret": true,
+  "troisExemplesConformes": true,
+  "aucunStockageDuTexte": true,
+  "empreintesVerifieesParLeChargeur": true,
+  "copiesEnCacheConformes": true,
+  "reseauConforme": true,
+  "texteAbsentDesUrl": true,
+  "aucuneViolationCsp": true
+ },
+ "exemples": {
+  "dev-avocat-01": {
+   "etat": "16 éléments repérés (règles et modèle).",
+   "controles": {
+    "texteCharge": true,
+    "aucunElementGardeRestant": true,
+    "pseudonymesPresents": true,
+    "trouveParRenseigne": true,
+    "toutesLignesGardeesParDefaut": true,
+    "correspondanceComplete": true,
+    "sautsDeLigneConserves": true,
+    "copieInactiveAvantRelecture": true,
+    "copieActiveApresRelecture": true,
+    "copieConforme": true
+   },
+   "remplacements": [
+    {
+     "formes": [
+      "CABINET MEUNIER & ASSOCIÉS SELAS"
+     ],
+     "categorie": "Organisation",
+     "pseudonyme": "[ORGANISATION_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Toulouse"
+     ],
+     "categorie": "Lieu",
+     "pseudonyme": "[LIEU_1]",
+     "trouvePar": "modèle",
+     "garder": true
+    },
+    {
+     "formes": [
+      "88 ter rue du Four\n31000 Toulouse"
+     ],
+     "categorie": "Adresse",
+     "pseudonyme": "[ADRESSE_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "05 36 49 64 91"
+     ],
+     "categorie": "Téléphone",
+     "pseudonyme": "[TELEPHONE_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "compta@cabinet-meunier-associes.fr"
+     ],
+     "categorie": "Adresse e-mail",
+     "pseudonyme": "[EMAIL_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Établissements Lemaire SA"
+     ],
+     "categorie": "Organisation",
+     "pseudonyme": "[ORGANISATION_2]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Camille ROYER"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "1 bis allée des Roses\n13100 AIX-EN-PROVENCE\n\nToulouse"
+     ],
+     "categorie": "Adresse",
+     "pseudonyme": "[ADRESSE_2]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "2025-6921-IM"
+     ],
+     "categorie": "N° de dossier",
+     "pseudonyme": "[NUMERO_DOSSIER_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Rose MARCHAND"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_2]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "39 rue de la Fontaine, 64000 Pau"
+     ],
+     "categorie": "Adresse",
+     "pseudonyme": "[ADRESSE_3]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "FR76 8728 8099 7968 7257 0848 504"
+     ],
+     "categorie": "IBAN",
+     "pseudonyme": "[IBAN_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "06 39 98 01 05"
+     ],
+     "categorie": "Téléphone",
+     "pseudonyme": "[TELEPHONE_2]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "i.meunier@cabinet-meunier-associes.fr"
+     ],
+     "categorie": "Adresse e-mail",
+     "pseudonyme": "[EMAIL_2]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Inès MEUNIER"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_3]",
+     "trouvePar": "les deux",
+     "garder": true
+    }
+   ],
+   "restes": [],
+   "correspondance": 15
+  },
+  "dev-ec-04": {
+   "etat": "19 éléments repérés (règles et modèle).",
+   "controles": {
+    "texteCharge": true,
+    "aucunElementGardeRestant": true,
+    "pseudonymesPresents": true,
+    "trouveParRenseigne": true,
+    "toutesLignesGardeesParDefaut": true,
+    "correspondanceComplete": true,
+    "sautsDeLigneConserves": true,
+    "copieInactiveAvantRelecture": true,
+    "copieActiveApresRelecture": true,
+    "copieConforme": true
+   },
+   "remplacements": [
+    {
+     "formes": [
+      "Inès Lacroix",
+      "Inès LACROIX"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "i.lacroix@gauthier-expertise-comptable.com"
+     ],
+     "categorie": "Adresse e-mail",
+     "pseudonyme": "[EMAIL_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Rose Ferrand"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_2]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "r.ferrand@chevalier-conseil.bzh"
+     ],
+     "categorie": "Adresse e-mail",
+     "pseudonyme": "[EMAIL_2]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Sophie Royer"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_3]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "s.royer@gauthier-expertise-comptable.com"
+     ],
+     "categorie": "Adresse e-mail",
+     "pseudonyme": "[EMAIL_3]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "DOS-90413"
+     ],
+     "categorie": "N° de dossier",
+     "pseudonyme": "[NUMERO_DOSSIER_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Madame Ferrand"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_4]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "SARL Chevalier Conseil"
+     ],
+     "categorie": "Organisation",
+     "pseudonyme": "[ORGANISATION_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "FR76 5551 7108 4741 9050 8289 476"
+     ],
+     "categorie": "IBAN",
+     "pseudonyme": "[IBAN_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "4191342619444687"
+     ],
+     "categorie": "Carte bancaire",
+     "pseudonyme": "[CARTE_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Sophie HADDAD"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_5]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Florence"
+     ],
+     "categorie": "Lieu",
+     "pseudonyme": "[LIEU_1]",
+     "trouvePar": "modèle",
+     "garder": true
+    },
+    {
+     "formes": [
+      "+33 6 39 98 43 01"
+     ],
+     "categorie": "Téléphone",
+     "pseudonyme": "[TELEPHONE_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "SARL Gauthier Expertise Comptable"
+     ],
+     "categorie": "Organisation",
+     "pseudonyme": "[ORGANISATION_2]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "Résidence Les Iris, bâtiment B, 126 rue de la Fontaine, 59000 Lille"
+     ],
+     "categorie": "Adresse",
+     "pseudonyme": "[ADRESSE_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "03 53 01 85 71"
+     ],
+     "categorie": "Téléphone",
+     "pseudonyme": "[TELEPHONE_2]",
+     "trouvePar": "règles",
+     "garder": true
+    }
+   ],
+   "restes": [],
+   "correspondance": 17
+  },
+  "dev-rh-03": {
+   "etat": "9 éléments repérés (règles et modèle).",
+   "controles": {
+    "texteCharge": true,
+    "aucunElementGardeRestant": true,
+    "pseudonymesPresents": true,
+    "trouveParRenseigne": true,
+    "toutesLignesGardeesParDefaut": true,
+    "correspondanceComplete": true,
+    "sautsDeLigneConserves": true,
+    "copieInactiveAvantRelecture": true,
+    "copieActiveApresRelecture": true,
+    "copieConforme": true
+   },
+   "remplacements": [
+    {
+     "formes": [
+      "LA ROSE DES PRÉS SAS"
+     ],
+     "categorie": "Organisation",
+     "pseudonyme": "[ORGANISATION_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "36 rue des Tilleuls\n29200 Brest"
+     ],
+     "categorie": "Adresse",
+     "pseudonyme": "[ADRESSE_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "140 262 577 00012"
+     ],
+     "categorie": "SIRET",
+     "pseudonyme": "[SIRET_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "TESSIER Rose"
+     ],
+     "categorie": "Personne",
+     "pseudonyme": "[PERSONNE_1]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "12 rue de la Fontaine\n13100 AIX-EN-PROVENCE"
+     ],
+     "categorie": "Adresse",
+     "pseudonyme": "[ADRESSE_2]",
+     "trouvePar": "les deux",
+     "garder": true
+    },
+    {
+     "formes": [
+      "2 93 02 64 025 432 31"
+     ],
+     "categorie": "N° de sécurité sociale",
+     "pseudonyme": "[NIR_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "FR7688832123262417995569886"
+     ],
+     "categorie": "IBAN",
+     "pseudonyme": "[IBAN_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "0261916601"
+     ],
+     "categorie": "Téléphone",
+     "pseudonyme": "[TELEPHONE_1]",
+     "trouvePar": "règles",
+     "garder": true
+    },
+    {
+     "formes": [
+      "contact@la-rose-des-pres.immo"
+     ],
+     "categorie": "Adresse e-mail",
+     "pseudonyme": "[EMAIL_1]",
+     "trouvePar": "règles",
+     "garder": true
+    }
+   ],
+   "restes": [],
+   "correspondance": 9
+  }
+ },
+ "navigateur": {
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "isole": true
+ },
+ "avertissements": [],
+ "chargementAuto": {
+  "modele": "chargement",
+  "boutonCache": true,
+  "progressionVisible": true,
+  "annonce": "Téléchargement du modèle open weight : 220 Mo, une seule fois. Aucun texte n'est envoyé."
+ },
+ "reglesSeules": {
+  "exemple": "dev-avocat-01",
+  "etat": "14 éléments repérés (règles).",
+  "modeleEncoreEnChargement": true
+ },
+ "modele": {
+  "etat": "Modèle prêt : fichiers vérifiés par leur empreinte SHA-256.",
+  "statut": "pret",
+  "msDepuisOuverture": 5317
+ },
+ "combineAuto": {
+  "etat": "16 éléments repérés (règles et modèle).",
+  "relu": false
+ },
+ "stockage": {
+  "localStorage": 0,
+  "sessionStorage": 0,
+  "indexedDB": [],
+  "caches": {
+   "mask-modele-hf-018797af8727a7eed18c29a0e033b51005e43430": [
+    "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/config.json",
+    "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/tokenizer.json",
+    "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/tokenizer_config.json",
+    "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/onnx/model_fp16.onnx"
+   ],
+   "mask-ort-1.31.0-dev.20260914-8d85527a0": [
+    "https://mask.tkoidra.com/vendor/ort/ort-wasm-simd-threaded.wasm",
+    "https://mask.tkoidra.com/vendor/ort/ort-wasm-simd-threaded.mjs"
+   ]
+  }
+ },
+ "empreintes": {
+  "chargeur": {
+   "source": "hf",
+   "mesures": [
+    "debut",
+    "bibliotheque",
+    "telechargement",
+    "empreintes",
+    "miseEnCache",
+    "session"
+   ],
+   "fichiers": [
+    {
+     "url": "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/config.json",
+     "cle": "camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/config.json",
+     "octets": 892,
+     "depuisCache": false,
+     "sha256": "17ec2dd3a642bfc839f3f94bd5ba2e996700aa69b06b3937b0e80b458b962207"
+    },
+    {
+     "url": "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/tokenizer.json",
+     "cle": "tokenizer/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/tokenizer.json",
+     "octets": 1393411,
+     "depuisCache": false,
+     "sha256": "6898886e61473eeb34a66adb7f5e102ec4a8da3217701369320eb784f7415bfd"
+    },
+    {
+     "url": "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/tokenizer_config.json",
+     "cle": "camembert-ner/ef35fe7767c1dad71f5c853838cdd80d0b3441ed/tokenizer_config.json",
+     "octets": 269,
+     "depuisCache": false,
+     "sha256": "a47e711439fb76c78b60929e8baa3a487a36b476c01886934d5dd2ec5d0c8f8f"
+    },
+    {
+     "url": "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/onnx/model_fp16.onnx",
+     "cle": "compression/fp16-mixte/model.onnx",
+     "octets": 220500160,
+     "depuisCache": false,
+     "sha256": "860504f2bf110f34ef7e28b78dbc7b6c2ed2af64a401e5c07b54415ce31958eb"
+    },
+    {
+     "url": "https://mask.tkoidra.com/vendor/ort/ort-wasm-simd-threaded.wasm",
+     "cle": null,
+     "octets": 14264838,
+     "depuisCache": false,
+     "sha256": null
+    },
+    {
+     "url": "https://mask.tkoidra.com/vendor/ort/ort-wasm-simd-threaded.mjs",
+     "cle": null,
+     "octets": 24381,
+     "depuisCache": false,
+     "sha256": null
+    }
+   ]
+  },
+  "cache": {
+   "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/config.json": "17ec2dd3a642bfc839f3f94bd5ba2e996700aa69b06b3937b0e80b458b962207",
+   "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/tokenizer.json": "6898886e61473eeb34a66adb7f5e102ec4a8da3217701369320eb784f7415bfd",
+   "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/tokenizer_config.json": "a47e711439fb76c78b60929e8baa3a487a36b476c01886934d5dd2ec5d0c8f8f",
+   "https://huggingface.co/migranche/mask-camembert-ner/resolve/018797af8727a7eed18c29a0e033b51005e43430/onnx/model_fp16.onnx": "860504f2bf110f34ef7e28b78dbc7b6c2ed2af64a401e5c07b54415ce31958eb"
+  }
+ },
+ "violations": [],
+ "reseau": {
+  "requetes": 48,
+  "hotes": [
+   "mask.tkoidra.com",
+   "huggingface.co",
+   "us.aws.cdn.hf.co",
+   "blob: (local)"
+  ],
+  "nonGet": [],
+  "avecCorps": [],
+  "horsListe": [],
+  "urlsAvecTexte": [],
+  "tunnels": [
+   "huggingface.co",
+   "us.aws.cdn.hf.co"
+  ],
+  "refusProxy": [
+   "www.gstatic.com:443",
+   "www.google.com:443",
+   "accounts.google.com:443",
+   "update.googleapis.com:443",
+   "content-autofill.googleapis.com:443",
+   "android.clients.google.com:443"
+  ],
+  "serveurLocal": null
+ },
+ "consoles": [],
+ "construction": {
+  "url": "https://mask.tkoidra.com/"
+ },
+ "ok": true
+}
