@@ -17,7 +17,8 @@
     "banc:chrome": "node bench/piloter-chrome.mjs"
   },
   "dependencies": {
-    "@huggingface/transformers": "4.3.1"
+    "@huggingface/transformers": "4.3.1",
+    "@vercel/analytics": "^2.0.1"
   },
   "devDependencies": {
     "playwright": "1.64.0"
