@@ -1,3 +1,5 @@
+[![CI](https://github.com/sebastiendonne-mig/mask/actions/workflows/ci.yml/badge.svg)](https://github.com/sebastiendonne-mig/mask/actions/workflows/ci.yml)
+
 # mask
 
 Pseudonymiseur de documents qui tourne entièrement dans le navigateur, avec des modèles à poids ouverts. Projet de démonstration TKoidra (tkoidra.com). Le texte reste dans le navigateur ; seuls sortent le modèle, téléchargé depuis Hugging Face, et une mesure de fréquentation (Vercel Web Analytics : page visitée, pays, navigateur, type d'appareil — jamais le texte).
