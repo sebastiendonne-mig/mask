@@ -5,7 +5,7 @@
 //   modèle » ; détection combinée = union règles + modèle, comme au banc, fusionnée en un seul
 //   remplacement par zone (app/logique.mjs).
 // - Le texte reste en mémoire dans la page et le Worker : aucun envoi réseau, aucun stockage
-//   (ni localStorage, ni sessionStorage, ni IndexedDB, ni CacheStorage), aucune mesure d'audience.
+//   (ni localStorage, ni sessionStorage, ni IndexedDB, ni CacheStorage), mesure de fréquentation Vercel, sans le texte.
 //   Le DOM est construit par textContent : le texte collé n'est jamais interprété comme du HTML.
 
 import { detecter as detecterRegles } from '/src/regles.mjs';
