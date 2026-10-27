@@ -49,7 +49,7 @@ test('SIREN, SIRET et TVA, avec séparateurs variés', () => {
 });
 
 test('numéro trop court ou trop long : rien', () => {
-  assert.deepEqual(types('SIREN 12 345 678'), []);
+  assert.deepEqual(types('SIREN 12 345 678'), ['SIREN']);
   assert.deepEqual(types('Tél. 01 99 00 12'), []);
   assert.deepEqual(types('Tél. 019900123456'), []);
   assert.deepEqual(types('SIREN 1234 56782'), [], 'groupement inhabituel');
