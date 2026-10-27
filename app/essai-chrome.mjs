@@ -15,6 +15,8 @@
 // - que les seules requêtes (page et Worker, vues par Playwright) vont vers l'origine locale,
 //   huggingface.co (chemins du commit épinglé) et *.hf.co, en GET sans corps ; Chrome passe par le
 //   proxy du banc (bench/proxy.mjs, sans limite de débit), qui consigne les hôtes des tunnels ;
+//   seule exception : la mesure de fréquentation (Vercel Web Analytics), requêtes de l'origine vers
+//   /_vercel/insights/*, POST avec corps admis, dont le corps ne doit contenir aucun fragment du texte ;
 // - qu'aucune violation CSP n'est signalée, que rien n'est stocké hors du cache du modèle, et
 //   qu'aucun texte des exemples n'apparaît dans une URL demandée ;
 // - que le chargeur a vérifié par SHA-256 les 4 fichiers du modèle pendant la visite (état du
@@ -54,6 +56,13 @@ const textes = Object.fromEntries(EXEMPLES.map((id) => [id, fs.readFileSync(path
 
 const requetes = [];
 const consoles = [];
+// Mesure de fréquentation : requêtes de l'origine de la page vers /_vercel/insights/*. Leur corps est
+// gardé ici (hors du rapport) pour y chercher du texte des exemples.
+const estMesure = (url) => {
+  const u = new URL(url);
+  return u.origin === origine && u.pathname.startsWith('/_vercel/insights/');
+};
+const corpsMesures = [];
 const r = { date: new Date().toISOString(), origine, controles: {}, exemples: {} };
 const t0 = performance.now();
 const ms = () => Math.round(performance.now() - t0);
@@ -102,7 +111,10 @@ const contexte = await chromium.launchPersistentContext(profil, {
 });
 try {
   await contexte.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: origine });
-  contexte.on('request', (q) => requetes.push({ url: q.url(), methode: q.method(), type: q.resourceType(), corps: q.postDataBuffer()?.length ?? 0 }));
+  contexte.on('request', (q) => {
+    requetes.push({ url: q.url(), methode: q.method(), type: q.resourceType(), corps: q.postDataBuffer()?.length ?? 0 });
+    if (estMesure(q.url())) corpsMesures.push(q.postDataBuffer()?.toString('utf8') ?? '');
+  });
   contexte.on('console', (m) => {
     if (['error', 'warning'].includes(m.type())) consoles.push({ type: m.type(), texte: m.text().slice(0, 500) });
   });
@@ -199,11 +211,27 @@ const hotes = [...new Set(requetes.map((q) => (q.url.startsWith('blob:') ? 'blob
 const formes = Object.values(r.exemples).flatMap((e) => e.remplacements.flatMap((l) => l.formes));
 const lignesLongues = Object.values(textes).flatMap((t) => t.split('\n').map((l) => l.trim()));
 const fragments = [...new Set([...formes.filter((f) => f.length >= 4), ...lignesLongues.filter((l) => l.length >= 20)])];
+const mesures = requetes.filter((q) => estMesure(q.url));
+const autres = requetes.filter((q) => !estMesure(q.url));
+const decode = (s) => {
+  try {
+    return decodeURIComponent(s);
+  } catch {
+    return s;
+  }
+};
 r.reseau = {
   requetes: requetes.length,
   hotes,
-  nonGet: requetes.filter((q) => q.methode !== 'GET'),
-  avecCorps: requetes.filter((q) => q.corps > 0),
+  nonGet: autres.filter((q) => q.methode !== 'GET'),
+  avecCorps: autres.filter((q) => q.corps > 0),
+  mesures: {
+    requetes: mesures.length,
+    methodes: [...new Set(mesures.map((q) => q.methode))],
+    chemins: [...new Set(mesures.map((q) => new URL(q.url).pathname))],
+    avecCorps: mesures.filter((q) => q.corps > 0).length,
+    corpsAvecTexte: corpsMesures.filter((c) => fragments.some((f) => c.includes(f) || decode(c).includes(f))).length,
+  },
   // L'origine de la page (en ligne) est traitée comme l'origine locale : seule origine admise hors Hugging Face.
   horsListe: horsListe(enLigne ? requetes.filter((q) => !q.url.startsWith(`${origine}/`)) : requetes, CHEMINS_HF),
   urlsAvecTexte: requetes.filter((q) => fragments.some((f) => decodeURIComponent(q.url).includes(f))).map((q) => q.url),
@@ -213,6 +241,7 @@ r.reseau = {
 };
 r.controles.reseauConforme = r.reseau.nonGet.length === 0 && r.reseau.avecCorps.length === 0 && r.reseau.horsListe.length === 0 && r.reseau.tunnels.every((h) => h === 'huggingface.co' || h.endsWith('.hf.co'));
 r.controles.texteAbsentDesUrl = r.reseau.urlsAvecTexte.length === 0;
+r.controles.mesuresSansTexte = r.reseau.mesures.corpsAvecTexte === 0;
 r.controles.aucuneViolationCsp = (r.violations ?? []).length === 0 && !consoles.some((c) => /Content Security Policy/i.test(c.texte));
 r.consoles = consoles;
 r.construction = fichiers ? { fichiers: fichiers.length, octets: fichiers.reduce((n, f) => n + f.octets, 0) } : enLigne ? { url: enLigne.href } : { dist: path.resolve(values.dist) };
