@@ -88,7 +88,7 @@ test('app : textes imposés présents mot pour mot', () => {
   for (const t of [
     'mask — préversion',
     'Pseudonymiser un texte dans votre navigateur.',
-    "Préversion — mask est en cours d'évaluation. Il peut laisser passer des données personnelles : relisez chaque remplacement avant d'utiliser le texte. Le texte que vous collez reste dans votre navigateur ; seul le modèle est téléchargé, depuis Hugging Face.",
+    "Préversion — mask est en cours d'évaluation. Il peut laisser passer des données personnelles : relisez chaque remplacement avant d'utiliser le texte. Le texte que vous collez reste dans votre navigateur. Seuls sortent le modèle, téléchargé depuis Hugging Face, et une mesure de fréquentation (Vercel Web Analytics : page visitée, pays, navigateur, type d'appareil — jamais votre texte).",
     'Collez votre texte',
     'Exemple avocat',
     'Exemple expert-comptable',

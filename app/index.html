@@ -8,9 +8,7 @@
 <link rel="icon" href="/icone.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/app.css">
 <script type="module" src="/app.mjs"></script>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
+<script defer src="/va-init.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
@@ -22,7 +20,7 @@
 </header>
 
 <div class="bandeau" role="note">
-  <p class="largeur">Préversion — mask est en cours d'évaluation. Il peut laisser passer des données personnelles : relisez chaque remplacement avant d'utiliser le texte. Le texte que vous collez reste dans votre navigateur ; seul le modèle est téléchargé, depuis Hugging Face.</p>
+  <p class="largeur">Préversion — mask est en cours d'évaluation. Il peut laisser passer des données personnelles : relisez chaque remplacement avant d'utiliser le texte. Le texte que vous collez reste dans votre navigateur. Seuls sortent le modèle, téléchargé depuis Hugging Face, et une mesure de fréquentation (Vercel Web Analytics : page visitée, pays, navigateur, type d'appareil — jamais votre texte).</p>
 </div>
 
 <main class="largeur">

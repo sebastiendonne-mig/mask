@@ -28,7 +28,7 @@ const VARIANTE = 'ort-wasm-simd-threaded';
 // Chemin publié → fichier source (relatif à la racine du dépôt).
 export function sources() {
   const s = new Map();
-  for (const f of ['index.html', 'app.css', 'app.mjs', 'logique.mjs', 'travailleur.mjs', 'icone.svg']) s.set(`/${f}`, `app/${f}`);
+  for (const f of ['index.html', 'app.css', 'app.mjs', 'logique.mjs', 'travailleur.mjs', 'va-init.js', 'icone.svg']) s.set(`/${f}`, `app/${f}`);
   for (const f of ['regles.mjs', 'modele-commun.mjs', 'modele-navigateur.mjs']) s.set(`/src/${f}`, `src/${f}`);
   s.set('/modeles/MANIFEST.sha256', 'modeles/MANIFEST.sha256');
   for (const id of EXEMPLES) s.set(`/exemples/${id}.txt`, `golden/dev/${id}.txt`);
