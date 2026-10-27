@@ -166,6 +166,7 @@ test('app : vercel.json (racine) : en-têtes et construction', () => {
 });
 
 test('app : serveur local, chemins hors de dist/ refusés', () => {
+  fs.mkdirSync(path.join(RACINE, '.cache'), { recursive: true }); // .cache/ est ignoré par git : absent d'un clone neuf
   const racine = fs.mkdtempSync(path.join(RACINE, '.cache', 'essai-servir-'));
   try {
     fs.writeFileSync(path.join(racine, 'index.html'), 'ok');
